@@ -1,0 +1,530 @@
+{
+  "Files": [
+    {
+      "File": ".github/workflows/audit.yml",
+      "Bytes": 310,
+      "SHA256": "571698dbb1f444fc6fd188ff4661bbeb08d5375dcf01c0ef3187b90d1c84366c"
+    },
+    {
+      "File": ".gitignore",
+      "Bytes": 117,
+      "SHA256": "230e049ccb96abfb22c219b4ac2beeb188c33407b689e2ef91d027cddfc7c79b"
+    },
+    {
+      "File": "CITATION.cff",
+      "Bytes": 360,
+      "SHA256": "6df1cded5c1dba0edad05a6a5b254a391f340e04b65881e0d953a821f3fdefb1"
+    },
+    {
+      "File": "data/field_20261026/asociaciones_provisionales_intersecciones.csv",
+      "Bytes": 81891,
+      "SHA256": "808860e1891b30b2e90e5cf1b67632354d2e402388afcb9d49290282aa91e2ca"
+    },
+    {
+      "File": "data/field_20261026/ensayos_ventanas_declaradas.csv",
+      "Bytes": 153680,
+      "SHA256": "cd363abf1fb88361c22b0e441651fa5f39c24b18d703a029a7e1900d7e602a1c"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octRura4(amla).csv",
+      "Bytes": 4576,
+      "SHA256": "6f0faa02fda5030aafb278ed2dc43bc2fead2c0d00bcfcfe70f434aa432bb29c"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octRuta1.csv",
+      "Bytes": 26352,
+      "SHA256": "27d262fc285a23e202418d4aac3134bd1196e68a73d850bf13ebd9d447f97890"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octRuta2Test (1).csv",
+      "Bytes": 69403,
+      "SHA256": "0af5c08b28660cac8211bb75e6b8063238f2128358ef99080d8a833abc39ff1d"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octTuta3.csv",
+      "Bytes": 18287,
+      "SHA256": "11730fee2b94fbc227bc04d669248d937f62e1ff8d3a80fcb67865288a07c000"
+    },
+    {
+      "File": "data/field_20261026/posibles_excursiones_GNSS.csv",
+      "Bytes": 359,
+      "SHA256": "cfd017c21c143833877535e872126856ec7cd0f201157ce6676781037fdec766"
+    },
+    {
+      "File": "data/field_20261026/reclasificacion_horarios.json",
+      "Bytes": 4966,
+      "SHA256": "dd4839337e26f4c5a30930d48d13f4970a5fc3f65f4d7660b5e3a4c3d26999bc"
+    },
+    {
+      "File": "data/field_20261026/resumen_rutas_por_horario.csv",
+      "Bytes": 1302,
+      "SHA256": "2c49385505fb215d6208facb5e6603a9361fd0cc10d48625e745c252cc6e15a1"
+    },
+    {
+      "File": "data/field_20261026/server_snapshot_sin_tokens.jsonl",
+      "Bytes": 585065,
+      "SHA256": "7df6864919451f873bd60f537e913cb6a00cb7d11a292117ea184295238e6e1c"
+    },
+    {
+      "File": "data/field_20261027/campaign_metadata.json",
+      "Bytes": 2157,
+      "SHA256": "1f79f8fd6aca6e153e6d743c4643c8b4a0a5f92c982b5428281e520d6a8bd455"
+    },
+    {
+      "File": "data/field_20261027/extraccion_tts/20261027T144018Z/extractor_snapshot.py",
+      "Bytes": 8509,
+      "SHA256": "9d8e72e6f3e394f6c57a96806870746a7bcf02c7369c182533955ec0d4595a63"
+    },
+    {
+      "File": "data/field_20261027/extraccion_tts/20261027T144018Z/manifest.json",
+      "Bytes": 1045,
+      "SHA256": "a7ded49726acfe5aef86b5dd40a4af4d34587adedb57f8edb1ac1640369bc673"
+    },
+    {
+      "File": "data/field_20261027/extraccion_tts/20261027T144018Z/mensajes_tts.csv",
+      "Bytes": 70694,
+      "SHA256": "bbe490c9873292d286f3cc6fec764311bf49ab2d7533e08f973e7e795a671a51"
+    },
+    {
+      "File": "data/field_20261027/extraccion_tts/20261027T144018Z/recepciones_gateway_tts.csv",
+      "Bytes": 142021,
+      "SHA256": "33954c851175ad340e005587ea54c86a42b6b2113e4535220049a94e3153b04a"
+    },
+    {
+      "File": "data/field_20261027/extraccion_tts/20261027T144018Z/respuesta_original.jsonl",
+      "Bytes": 552196,
+      "SHA256": "ab0a25aae3277842d74b030f46dddadc609967ce0209efbece9eab4ac25b4d9a"
+    },
+    {
+      "File": "data/field_20261027/fuentes/27octubreRuta4.1.csv",
+      "Bytes": 32112,
+      "SHA256": "99ab14a4f8c328df5ebd327cc5c430f5dffe5ca4e48d8bc9b30ec0c61465bfc3"
+    },
+    {
+      "File": "data/field_20261027/fuentes/27octubreRuta4.2.csv",
+      "Bytes": 6076,
+      "SHA256": "1f1dd9e9168b2b3930aacc8df7e9d21e5c012e36a2e4a385526987b23c68f4c1"
+    },
+    {
+      "File": "data/field_20261027/resultados/asociaciones_GPS.csv",
+      "Bytes": 58724,
+      "SHA256": "0cc41fc9eadedd8a22d664efa38f7f6b342a763119910e3e45dc6035c11aa213"
+    },
+    {
+      "File": "data/field_20261027/resultados/comparacion_senal.csv",
+      "Bytes": 2121,
+      "SHA256": "9c0025bed89b7485de3f752e28691bf1f7b150af58eea0c1d82bffe7436cb045"
+    },
+    {
+      "File": "data/field_20261027/resultados/ensayos_todos.csv",
+      "Bytes": 126874,
+      "SHA256": "cdd8280b2a65c4ebacb5008bf83181bb09b88c7298d459f7ecd50080172eb758"
+    },
+    {
+      "File": "data/field_20261027/resultados/ensayos_ventana_declarada.csv",
+      "Bytes": 113415,
+      "SHA256": "e51aa06b14490246ee5e8803d9ba60c71536ad3cc8414e72650e709a601913f5"
+    },
+    {
+      "File": "data/field_20261027/resultados/medianas_candidatos_45m.csv",
+      "Bytes": 9229,
+      "SHA256": "275f808944f5f2967d877b8d49b20d2bc60ffbea0ade11c479533acc7799947d"
+    },
+    {
+      "File": "data/field_20261027/resultados/mensajes_fuera_patron.csv",
+      "Bytes": 179,
+      "SHA256": "88ea68dd9b94a346100107e798bfd7e6ca020883e796310a808346c92e0185ed"
+    },
+    {
+      "File": "data/field_20261027/resultados/network_cal_candidatos_45m.csv",
+      "Bytes": 2785,
+      "SHA256": "4b359e7ae2e11184163c321041f348f5d0951dd3d5f4c8d631a5e1db640347b9"
+    },
+    {
+      "File": "data/field_20261027/resultados/posibles_excursiones_GPS.csv",
+      "Bytes": 253,
+      "SHA256": "88c438068d358a9ea3abf5fde8798017ad24dd540722a5adfb3c4c8048259619"
+    },
+    {
+      "File": "data/field_20261027/resultados/resumen.json",
+      "Bytes": 10112,
+      "SHA256": "d6de9e4bda7519376877dfb0069ec21c433097835a37fb9a89dc4f2ddf9e7358"
+    },
+    {
+      "File": "data/field_20261027/resultados/Ruta4_27oct_verificacion.pdf",
+      "Bytes": 73317,
+      "SHA256": "9ae574ca03f1656c10ceb55d23261cd2a8eea2d3d77e55cebcca59a251734533"
+    },
+    {
+      "File": "data/field_model_comparison/exactitud_interna_182.csv",
+      "Bytes": 709,
+      "SHA256": "20365531d662b980510d48328aaebf2c1d028e7bca283621e50333307ae7cff6"
+    },
+    {
+      "File": "data/field_model_comparison/exactitud_sin_anclas.csv",
+      "Bytes": 4700,
+      "SHA256": "00f7bbdd40ccab0b3c4cbdb354179b5f7ffc190aeaaee67b817cd592c5f764d8"
+    },
+    {
+      "File": "data/field_model_comparison/red_mejor_enlace_intersecciones_sin_anclas.csv",
+      "Bytes": 3116,
+      "SHA256": "1b82974de10596f8609652c23eb355a669a43811f359c5a17dbb96bf872f8b7e"
+    },
+    {
+      "File": "data/field_model_comparison/resumen_exactitud.json",
+      "Bytes": 29562,
+      "SHA256": "c88c584ca3c34f17b0a15dfdcefcb58d7d35c6b22aa878eb0750aa1bf1eeec7a"
+    },
+    {
+      "File": "data/geospatial/ambato_pucesa_osm.json",
+      "Bytes": 2572210,
+      "SHA256": "bb9e4f6790b1c15d94d00fd1788775100ed9d9d73afe1295b62ab4b9d177e62a"
+    },
+    {
+      "File": "data/single_gateway_legacy/auditar_campo.py",
+      "Bytes": 8515,
+      "SHA256": "e366d16e22c8f3565c3813b989e5f43bd30ffe6bbd029b522dd7cd06a7c4c308"
+    },
+    {
+      "File": "data/single_gateway_legacy/Auditoria_campo_recalculada.json",
+      "Bytes": 7994,
+      "SHA256": "15b21e5fe4455c34cec117cb80ed87a76485beea6fbf11a7e0f6d78d7a416af8"
+    },
+    {
+      "File": "data/single_gateway_legacy/Desglose_4rutas_recalculado.csv",
+      "Bytes": 1174,
+      "SHA256": "e66ad92e90890969941977ff959b42f877d87e47cebae071a13843d20ece592b"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/CoincidenciasAnalisis_US915_SF7_20dBm.csv",
+      "Bytes": 4080,
+      "SHA256": "a3be21b12971c83c7110a419d8be11e5b63a8f7fae0f95f5218cbdb557f8de82"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/CoincidenciasAnalisis_US915_SF9_20dBm.csv",
+      "Bytes": 2549,
+      "SHA256": "c9a0135323fa7d7d6451c2ead8bf7ee877950bc0bbf7647b6b61147a1f4a4ebd"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv",
+      "Bytes": 357896,
+      "SHA256": "b38ddd7885359fb137084d66ae077ce3f7b4fe288f45f2094d4be3946d2421d2"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/DigitalTwin_Base_Model_campo_2154.csv",
+      "Bytes": 226040,
+      "SHA256": "d8ae819d92bfbd2fc91cd6448eb404a708499be845267e25d5fc5fb6a5c81b6c"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/MDPI_FieldTester_Master_Suite.m",
+      "Bytes": 26091,
+      "SHA256": "7cd93043deccf1d23a6491991dca7d78da8256b0493387005e1e598dc6c69fc9"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/Puntos_Ciegos_Identificados_SF9.csv",
+      "Bytes": 31279,
+      "SHA256": "5bb7e58cb277ee4599040ab6469bae379c8f630ca6d89bfd4eb403da88e1c069"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv",
+      "Bytes": 54659,
+      "SHA256": "40c524577b78368ac62fc44d67852a22b50d5d8e87876025d218b6addf7a3004"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/Resumen_Comparativo_Escenarios_archivado.csv",
+      "Bytes": 391,
+      "SHA256": "366385d30d291078da797e2a95a40ecfb76f17c16971ee822fe465f8ebf90bdc"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/resumen_comparativo_sf9_archivado.json",
+      "Bytes": 1789,
+      "SHA256": "f3ad9419bd4e04876aaff042072832093f4c0071d95155594f73e94793cb9d4b"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/scratch_process_sf9.py",
+      "Bytes": 18902,
+      "SHA256": "b4b4f8f3f796971e16b61f9395b89fe8754398f9a4de1b91bdec05a074fd7ab8"
+    },
+    {
+      "File": "data/single_gateway_legacy/fuentes/Seccion_campo_tesis_original_archivada.tex.txt",
+      "Bytes": 12197,
+      "SHA256": "5782d81bcc743b2fbe0519feff843c1860b14cc7d6a648a0d55eb7c4efe4ec73"
+    },
+    {
+      "File": "data/single_gateway_legacy/LEEME_DATOS_CAMPO.md",
+      "Bytes": 2838,
+      "SHA256": "d018e02d9c75a932d4d9b2b239159b9614ffa51999f7a262f417c61e2007a702"
+    },
+    {
+      "File": "data/single_gateway_legacy/manifest_figuras_sf7_49.json",
+      "Bytes": 2902,
+      "SHA256": "e0dd3322e1e35c6c20ad542c77e4429f6af70bb5036771a07f139c951bae6dc2"
+    },
+    {
+      "File": "data/single_gateway_legacy/Procedencia_copias_campo.json",
+      "Bytes": 3568,
+      "SHA256": "40e0c928b68a7433059295440a4d962116fcaf09fe180639ea384674f623b579"
+    },
+    {
+      "File": "data/single_gateway_legacy/redaccion_credencial.json",
+      "Bytes": 1040,
+      "SHA256": "cae571da7f2025a6c5c0a9fa94fa37e60b41cf35e78bbcd86e37d279557c1325"
+    },
+    {
+      "File": "data/single_gateway_legacy/Resumen_metricas_campo_recalculadas.csv",
+      "Bytes": 678,
+      "SHA256": "8d8468480a5891b7557683a9a46c5c25037011bf8fdebceff0e4de696496a845"
+    },
+    {
+      "File": "docs/DICCIONARIO_ARCHIVOS.md",
+      "Bytes": 2458,
+      "SHA256": "010d1ae02f6626b621abcd75f636f6b1f0d4ba847da97b88b2d747023ae6e80a"
+    },
+    {
+      "File": "docs/PROTOCOLO_Y_LIMITES.md",
+      "Bytes": 3388,
+      "SHA256": "1956e06b55885643ea7cb6e390a5f7a4c577c4f3fa83cdbfc65209197b20d17b"
+    },
+    {
+      "File": "docs/PUBLICATION_STATUS.md",
+      "Bytes": 425,
+      "SHA256": "e7c9ce76daccd121675b4579aa2a08f66bfaad672239f7e9ea2a389eafd048cb"
+    },
+    {
+      "File": "docs/RUTA4_27OCT.md",
+      "Bytes": 3952,
+      "SHA256": "7651ebe2008de81f8168315669f7a276e1aefd3953e9a26186b9c61331b998d4"
+    },
+    {
+      "File": "docs/THIRD_PARTY.md",
+      "Bytes": 559,
+      "SHA256": "5f281332575aa35c7de625e16f11e24541f608253167399bfcd997ccd3e00e29"
+    },
+    {
+      "File": "LICENSE_PENDING.md",
+      "Bytes": 356,
+      "SHA256": "c286716aa6dfcfdcd852134b8bd0dd9d5a3fe3b991d02259f73452319c0719b6"
+    },
+    {
+      "File": "provenance/claims.csv",
+      "Bytes": 1599,
+      "SHA256": "4e11341c7fc97f4e9bfe661d848fd574261bb3921be9c7b8bd108c89befba34d"
+    },
+    {
+      "File": "provenance/field_originals.json",
+      "Bytes": 1226,
+      "SHA256": "1e203d2f0fef032de0a61cf27fbb51e427cd017311e8b02c33abe72b1c8152af"
+    },
+    {
+      "File": "provenance/integrated_original_reference.json",
+      "Bytes": 542,
+      "SHA256": "b2cc46292662c86bb67cc210e3a31a5d9319cd68411c8eae379baa6bc6d22479"
+    },
+    {
+      "File": "provenance/publication_status.json",
+      "Bytes": 388,
+      "SHA256": "fa6e1d2253fb723202f33ec23a857b7d72f0f77783f7d9af97bd2e9cb963c9f8"
+    },
+    {
+      "File": "provenance/redactions.json",
+      "Bytes": 25311,
+      "SHA256": "e59460441c9a15e1c1ce1be3a67a79a1af9abffb022e2b8a31a3ad5a7a932e69"
+    },
+    {
+      "File": "README.md",
+      "Bytes": 4961,
+      "SHA256": "cc3f2e2d06ec738958f44bc578cc6a2b47ede7eb75f6108418a046e2ad0853bf"
+    },
+    {
+      "File": "requirements-analysis.txt",
+      "Bytes": 32,
+      "SHA256": "12a6df7d65cd3e7ae02a5a3198fde47e038f19a46144d2bef54a3b64cb475c3e"
+    },
+    {
+      "File": "scripts/auditar_ruta4_27oct.py",
+      "Bytes": 13933,
+      "SHA256": "4886303e034bf58a43b2d8dd0b6d3f345a1be9402e0bd33233fb387831645366"
+    },
+    {
+      "File": "scripts/extraer_tts_verificable.py",
+      "Bytes": 8509,
+      "SHA256": "9d8e72e6f3e394f6c57a96806870746a7bcf02c7369c182533955ec0d4595a63"
+    },
+    {
+      "File": "scripts/generar_figura_ruta4.py",
+      "Bytes": 4195,
+      "SHA256": "c88881765e63b38f30056415369e3eee4db175936a3ad761c5d3f264da86b719"
+    },
+    {
+      "File": "scripts/verify_release.py",
+      "Bytes": 4496,
+      "SHA256": "980835ce0bc84716d5fae5e95c481806c95b9007e21ed0015fbe07550d33558b"
+    },
+    {
+      "File": "scripts/verify_route4.py",
+      "Bytes": 5886,
+      "SHA256": "a2edcf297b3c3559ef90952d1f9220e722a2aee0a45b9b6037b12c67a60cda34"
+    },
+    {
+      "File": "src/matlab/ajustar_offset_independiente.m",
+      "Bytes": 2340,
+      "SHA256": "4df1e4c5f9a4ff6eaa37513238fa45476337da82779140e84a9ebbf4850db92a"
+    },
+    {
+      "File": "src/matlab/auditar_cache_elevaciones.m",
+      "Bytes": 1888,
+      "SHA256": "8887c93b05574190b228699b3a8a51916bac54be86ac8267d93d1d996a60ff08"
+    },
+    {
+      "File": "src/matlab/config_campana_ambato.m",
+      "Bytes": 4067,
+      "SHA256": "14b7889166c7172d50f542d394a2e0d594a03cd0f17b860e765ab2f600f1ac4c"
+    },
+    {
+      "File": "src/matlab/datos/ensayos.csv",
+      "Bytes": 76891,
+      "SHA256": "e116c105094056cf244606fcb939ba039384a03210c549c1668978170c8e7523"
+    },
+    {
+      "File": "src/matlab/datos/manifest_entradas.json",
+      "Bytes": 567,
+      "SHA256": "f0e070ae133f0977b6e342a7b6d7e609a48969c64dc238a41016e566d15dbaf6"
+    },
+    {
+      "File": "src/matlab/datos/nodos_referencia.csv",
+      "Bytes": 258215,
+      "SHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91"
+    },
+    {
+      "File": "src/matlab/datos/recepciones.csv",
+      "Bytes": 116937,
+      "SHA256": "81024131cff5e41b26b25c82344f211c770886ef8aade2f3d06dc539cc80b5f3"
+    },
+    {
+      "File": "src/matlab/datos/trazabilidad_fuentes.json",
+      "Bytes": 62185,
+      "SHA256": "436f6b734481abef96c527cc12b1ca7d326969c6baf72549e348cf76d5bac6cb"
+    },
+    {
+      "File": "src/matlab/fuentes/26octRuta2Test.csv",
+      "Bytes": 69403,
+      "SHA256": "0af5c08b28660cac8211bb75e6b8063238f2128358ef99080d8a833abc39ff1d"
+    },
+    {
+      "File": "src/matlab/fuentes/cruce_recorrido_desde14.csv",
+      "Bytes": 78041,
+      "SHA256": "0832faedef6dcca7ecd2a695e3192be71aa0ef70b6c9d0529ec179197500979b"
+    },
+    {
+      "File": "src/matlab/fuentes/Dataset_TTS_API_Validation_original.csv",
+      "Bytes": 258215,
+      "SHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91"
+    },
+    {
+      "File": "src/matlab/fuentes/respuesta_TTS_sin_tokens.jsonl",
+      "Bytes": 1085513,
+      "SHA256": "8bf8d17c80cd93bc539f39271447cabae89f00ad1c3738891474ba40072c07d4"
+    },
+    {
+      "File": "src/matlab/fuentes/SRTM_Elevation_Cache_recibida.mat",
+      "Bytes": 38154,
+      "SHA256": "ef7a13b55b090f5b2cb54fb8a31c38a2e3587989a68990fb79ca747756a0bb0d"
+    },
+    {
+      "File": "src/matlab/MDPI_3DMSAGA_Trazable.m",
+      "Bytes": 15276,
+      "SHA256": "0e20f88aa801decbd3a72eb6cf702852308f5cc12841809d3998fd5ab22b5845"
+    },
+    {
+      "File": "src/matlab/RF_uplink_trazable.m",
+      "Bytes": 5530,
+      "SHA256": "6c24d13328f9bf4d418cc4f2db107eead1a807d4b7f1cd9776267cde0edf1faf"
+    },
+    {
+      "File": "src/matlab/run_benchmark.m",
+      "Bytes": 6131,
+      "SHA256": "d094ec9e38533e3346de737b26c7c89e712ae03b1bd1c692d9ce11926a4beb86"
+    },
+    {
+      "File": "src/matlab/trazable_sha256.m",
+      "Bytes": 581,
+      "SHA256": "7db2101f9e84ef54d34ba39b47b06104ed5051887718511f5f558d7effe965bc"
+    },
+    {
+      "File": "src/matlab/verificar_revision.m",
+      "Bytes": 4859,
+      "SHA256": "28e220c0f4e66b8ad47b35ff5d8ff61c59a86e6b04c17232fa63616cac3f12be"
+    },
+    {
+      "File": "src/matlab_original_reference/MDPI_3DMSAGA_Production_TTS_Integrated.m",
+      "Bytes": 31847,
+      "SHA256": "c6779260f08cf57e691cfbf70d416c5404c2ac8b036f3e07a5380b1cfefb7364"
+    },
+    {
+      "File": "src/python_archived/analizar_exactitud_gemelo.py",
+      "Bytes": 12692,
+      "SHA256": "c4212cd0ab1874468c8e27ed11b8a8f3924d29ae6c18a723a973d2a62ebceec4"
+    },
+    {
+      "File": "src/python_archived/auditar_cuatro_rutas.py",
+      "Bytes": 6579,
+      "SHA256": "0415a7d834b517326d8b8289f4df584c5483e742d84f251ee88e0bb46fc7b49c"
+    },
+    {
+      "File": "src/python_archived/cerrar_analisis_gemelo.py",
+      "Bytes": 27536,
+      "SHA256": "2d3cd539ab02066ac60fd85509de6ed9fd3c5d02f9d1d196e7c843f4a1ef9581"
+    },
+    {
+      "File": "src/python_archived/cruzar_cuatro_rutas_tts.py",
+      "Bytes": 4546,
+      "SHA256": "11f91542a99eb42f9e5be6a4c895e7a090d79d1de9812367c2abab6039158dff"
+    },
+    {
+      "File": "src/python_archived/reclasificar_rutas_horarios.py",
+      "Bytes": 8382,
+      "SHA256": "810574c18835470dbade5db348907960df8e25a8d1dada8f0e630f5db2d6a985"
+    },
+    {
+      "File": "src/python_archived/validar_ruta2_test.py",
+      "Bytes": 13643,
+      "SHA256": "1b8cf5aa0ed3636641a413c040a74e638a537b39c33e5ddbc61a05fb91cafb48"
+    },
+    {
+      "File": "verification/analysis_runtime.json",
+      "Bytes": 157,
+      "SHA256": "80d6cea2a39fde0e52af871dac9b4ca2d40fe46ab936817422535a602f652c0e"
+    },
+    {
+      "File": "verification/credential_scan.json",
+      "Bytes": 242,
+      "SHA256": "9216dce7e4fc30c6a27d1c191e697a5ac19fb0b390f2dfa43cc341fb72ecbecd"
+    },
+    {
+      "File": "verification/extractor_offline.json",
+      "Bytes": 675,
+      "SHA256": "4221e293d50dd3c29fe3cf6d9bf989d820807cbc4e75a051e4a002c5b8666bd1"
+    },
+    {
+      "File": "verification/matlab_public_copy_attempt.json",
+      "Bytes": 329,
+      "SHA256": "7ee96fcc46855358b21c2fe43a86bb5fe3d99d25f5a61a360422603cd746b130"
+    },
+    {
+      "File": "verification/previous_matlab_execution_20261026.json",
+      "Bytes": 606,
+      "SHA256": "27e440abcfbd523ffdfd7c96d631ecb11c642313271a5252aa96a982e4331638"
+    },
+    {
+      "File": "verification/release_audit.json",
+      "Bytes": 837,
+      "SHA256": "e6ebbad4c29e32480c1b028f79f31dcea0d9e82def78732b40496011733f13f3"
+    },
+    {
+      "File": "verification/route4_reanalysis.json",
+      "Bytes": 222,
+      "SHA256": "201ce2ea7cddc9d560dd18af2d96dd56c9904f975763a657b6a95ed91860acb0"
+    }
+  ],
+  "Scope": "Actualizacion local C27-0810; no publicada"
+}

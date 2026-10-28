@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-10-11 21:14:02",
+  "elapsed_seconds": 0.44,
+  "sf": "SF9",
+  "sensibilidad_dbm": -130.0,
+  "ptx_dbm": 20.0,
+  "total_nodos_modelo": 2154,
+  "nodos_evaluados_campo": 270,
+  "nodos_con_enlace_ack": 112,
+  "nodos_puntos_ciegos": 158,
+  "tasa_cobertura_real_pct": 41.5,
+  "rmse_db": 14.36,
+  "mae_db": 10.85,
+  "bias_db": 1.95,
+  "std_err_db": 14.23,
+  "similitud_6db_pct": 34.8,
+  "similitud_10db_pct": 60.7,
+  "pearson_r": 0.821,
+  "r2": 0.674,
+  "max_dist_m": 1423.0,
+  "rutas_stats": [
+    {
+      "Ruta": "Ruta 1",
+      "Nodos_Totales_Ruta": 55,
+      "Nodos_Evaluados": 19,
+      "Nodos_Con_Enlace": 13,
+      "Puntos_Ciegos": 6,
+      "Tasa_Cobertura_Real_pct": 68.4,
+      "RMSE_dB": 22.92,
+      "MAE_dB": 19.11,
+      "Similitud_6dB_pct": 15.4,
+      "Rango_Max_m": 554.2
+    },
+    {
+      "Ruta": "Ruta 2",
+      "Nodos_Totales_Ruta": 125,
+      "Nodos_Evaluados": 87,
+      "Nodos_Con_Enlace": 46,
+      "Puntos_Ciegos": 41,
+      "Tasa_Cobertura_Real_pct": 52.9,
+      "RMSE_dB": 11.6,
+      "MAE_dB": 8.59,
+      "Similitud_6dB_pct": 45.7,
+      "Rango_Max_m": 1423.0
+    },
+    {
+      "Ruta": "Ruta 3",
+      "Nodos_Totales_Ruta": 132,
+      "Nodos_Evaluados": 76,
+      "Nodos_Con_Enlace": 28,
+      "Puntos_Ciegos": 48,
+      "Tasa_Cobertura_Real_pct": 36.8,
+      "RMSE_dB": 12.54,
+      "MAE_dB": 9.93,
+      "Similitud_6dB_pct": 25.0,
+      "Rango_Max_m": 933.3
+    },
+    {
+      "Ruta": "Ruta 4",
+      "Nodos_Totales_Ruta": 88,
+      "Nodos_Evaluados": 52,
+      "Nodos_Con_Enlace": 14,
+      "Puntos_Ciegos": 38,
+      "Tasa_Cobertura_Real_pct": 26.9,
+      "RMSE_dB": 11.24,
+      "MAE_dB": 8.79,
+      "Similitud_6dB_pct": 57.1,
+      "Rango_Max_m": 1014.3
+    }
+  ]
+}

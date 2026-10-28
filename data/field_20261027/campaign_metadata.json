@@ -1,0 +1,75 @@
+{
+  "Campaign": "C27-0810",
+  "DeclaredRoute": "Repeticion Ruta 4",
+  "Date": "2026-10-27",
+  "Timezone": "UTC-05:00",
+  "WindowStart": "08:10:00",
+  "WindowEndInclusive": "09:26:00",
+  "Scope": "Ventana operacional segun horas aproximadas declaradas; no se elimina contenido de originales",
+  "InvestigatorStatement": "El FT permanecio en la parrilla todo el tiempo. La antena se movio y se detuvieron para reubicarla.",
+  "InterventionTime": null,
+  "InterventionCausality": "No se atribuye la perdida de GNSS ni un cambio RF a esa intervencion sin sincronizacion",
+  "FrozenDatasetSHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91",
+  "Offsets": [
+    {
+      "File": "27octubreRuta4.1.csv",
+      "ChosenOffset": 1316,
+      "TemporalVotes": [
+        [
+          1316,
+          313
+        ],
+        [
+          1317,
+          36
+        ],
+        [
+          1315,
+          30
+        ],
+        [
+          1314,
+          4
+        ]
+      ],
+      "Rule": "Modo de offsets por proximidad temporal, verificado despues en toda la secuencia; no universal"
+    },
+    {
+      "File": "27octubreRuta4.2.csv",
+      "ChosenOffset": 1713,
+      "TemporalVotes": [
+        [
+          1713,
+          70
+        ],
+        [
+          1714,
+          7
+        ],
+        [
+          1712,
+          7
+        ],
+        [
+          1711,
+          1
+        ]
+      ],
+      "Rule": "Modo de offsets por proximidad temporal, verificado despues en toda la secuencia; no universal"
+    }
+  ],
+  "OriginalSources": [
+    {
+      "File": "fuentes/27octubreRuta4.1.csv",
+      "SHA256": "99ab14a4f8c328df5ebd327cc5c430f5dffe5ca4e48d8bc9b30ec0c61465bfc3",
+      "Bytes": 32112
+    },
+    {
+      "File": "fuentes/27octubreRuta4.2.csv",
+      "SHA256": "1f1dd9e9168b2b3930aacc8df7e9d21e5c012e36a2e4a385526987b23c68f4c1",
+      "Bytes": 6076
+    }
+  ],
+  "TTSSnapshotSHA256": "ab0a25aae3277842d74b030f46dddadc609967ce0209efbece9eab4ac25b4d9a",
+  "RawTTSStatus": "Copia byte a byte; sin credencial en respuesta. Se mantiene hash original y lineas fisicas."
+}

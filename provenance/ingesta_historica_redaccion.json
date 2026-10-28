@@ -1,0 +1,10 @@
+{
+  "Source": "OCTUBRE/Ingesta_Dual_TTN_FieldTester.m",
+  "SourceSHA256": "43fefda10a85e6bf988bf997a8cf70702dc25e3c2053b4184cee96f8eda83400",
+  "PreparedPath": "src/matlab_original_reference/Ingesta_Dual_TTN_FieldTester.m",
+  "PreparedSHA256": "efc02868236671fecf33a91581ac69d1e92bda6106031e293fa778e39370d4bd",
+  "Changes": [
+    "Credencial literal sustituida por getenv(TTS_API_KEY); original privado sin cambios."
+  ],
+  "Role": "historical_reference_not_validated_ingestion_entrypoint"
+}

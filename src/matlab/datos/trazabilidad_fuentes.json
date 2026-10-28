@@ -1,0 +1,1643 @@
+{
+  "CampaignID": "R2_20261026_desde1400_aproximado",
+  "CampaignRole": "evaluation",
+  "FT_timezone_assumed": "UTC-05:00",
+  "Start_movement": "14:00 aproximado, declarado por investigador",
+  "CounterRule": "FCnt=TxCnt+1 SOLO en esta cohorte, contrastado con originales",
+  "GPS_Time_Association": "Sin correccion temporal; semantica de timestamp pendiente",
+  "RawSessionKeyAvailable": false,
+  "IgnoredNonTestMessages": 1,
+  "CounterIdentity": [
+    "fieldtester",
+    "27FAC2FF"
+  ],
+  "Files": [
+    {
+      "Name": "respuesta_TTS_sin_tokens.jsonl",
+      "SHA256": "8bf8d17c80cd93bc539f39271447cabae89f00ad1c3738891474ba40072c07d4",
+      "Bytes": 1085513,
+      "OriginalSHA256": "afcd165d002b59b59db4e1d27c0648eaf21310243857e6e94fbd3398ed7cd3d5",
+      "Transformation": "Canonicalizacion JSONL; cero campos sensibles presentes/retirados; objetos de observacion sin cambios"
+    },
+    {
+      "Name": "26octRuta2Test.csv",
+      "SHA256": "0af5c08b28660cac8211bb75e6b8063238f2128358ef99080d8a833abc39ff1d",
+      "Bytes": 69403
+    },
+    {
+      "Name": "cruce_recorrido_desde14.csv",
+      "SHA256": "0832faedef6dcca7ecd2a695e3192be71aa0ef70b6c9d0529ec179197500979b",
+      "Bytes": 78041
+    },
+    {
+      "Name": "Dataset_TTS_API_Validation_original.csv",
+      "SHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91",
+      "Bytes": 258215
+    }
+  ],
+  "RecordPointers": [
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|474",
+      "FrameKey": "9024a114380e5f8c3fd5056155b16230247d34c0bc010f2f093ce387e2c510a3",
+      "TTS_original_line": 947,
+      "TTS_prepared_line": 474
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|475",
+      "FrameKey": "3c2a238f4fe80ad16c10946066f79549577f1e29d0c1077d306ab6a5cfb4b23d",
+      "TTS_original_line": 949,
+      "TTS_prepared_line": 475
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|476",
+      "FrameKey": "cccab27262716ea62c95e05c2f07220dae62e794a72f8ea7376d36bb08c319d4",
+      "TTS_original_line": 951,
+      "TTS_prepared_line": 476
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|477",
+      "FrameKey": "02c16f263eb565160bd7e64ef336bace4b186c0e992be532bda8a94b4b5c830e",
+      "TTS_original_line": 953,
+      "TTS_prepared_line": 477
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|478",
+      "FrameKey": "876e9dccb6dff814e04715499bb067b4d6db1b40220ab94a1362838f0f006f39",
+      "TTS_original_line": 955,
+      "TTS_prepared_line": 478
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|479",
+      "FrameKey": "3178dce4a4047d75d901da6a50ee7c8df8e6742efdc1b9a56e3efe8503327823",
+      "TTS_original_line": 957,
+      "TTS_prepared_line": 479
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|480",
+      "FrameKey": "ecea668f71e53951f74efc34c573e6609cb88364739d94b938c42abf27c7e3d4",
+      "TTS_original_line": 959,
+      "TTS_prepared_line": 480
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|481",
+      "FrameKey": "abfa3973cfbd91edacec9e354ef7cbe411029400ec8fbd762fa1321bb739fa59",
+      "TTS_original_line": 961,
+      "TTS_prepared_line": 481
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|482",
+      "FrameKey": "916b798265a9c298fcf4f38a89018682a0fa2bc4436648cb4d629613d26e175f",
+      "TTS_original_line": 963,
+      "TTS_prepared_line": 482
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|483",
+      "FrameKey": "3ea854a02ac67cfe499be07d74525fc68f47b653851e6d7c5d8b5a444d9c6648",
+      "TTS_original_line": 965,
+      "TTS_prepared_line": 483
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|484",
+      "FrameKey": "b11d350daf9b184bd78c32b25f7fac1570607029345c7d0479b29bd80caf15af",
+      "TTS_original_line": 967,
+      "TTS_prepared_line": 484
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|485",
+      "FrameKey": "1bb59c3003e73d6ddfa27f1c05d7dab736cd71544e15a2f9f00f9ef629927e59",
+      "TTS_original_line": 969,
+      "TTS_prepared_line": 485
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|486",
+      "FrameKey": "7fd88f321fb776626bd01ea8f508216eee856e633b7bb9adbea0359d6c001ebf",
+      "TTS_original_line": 971,
+      "TTS_prepared_line": 486
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|487",
+      "FrameKey": "32dd1569d43422a67090904d4f6383dd6b6d1b595bbf242ce0303481c2f6a711",
+      "TTS_original_line": 973,
+      "TTS_prepared_line": 487
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|488",
+      "FrameKey": "418035d5f3ef1038f01c051e4cce21f060ed5680c77a63ae30a548b5383ed6b1",
+      "TTS_original_line": 975,
+      "TTS_prepared_line": 488
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|489",
+      "FrameKey": "5b958f968fe70edb07432155e2eca3d305b54db95e5fc68a8372baf9035d8549",
+      "TTS_original_line": 977,
+      "TTS_prepared_line": 489
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|490",
+      "FrameKey": "fe88cca84bbecb690f1d0ab24ec35c215d52756fd4a91570ee57f1bb1726c560",
+      "TTS_original_line": 979,
+      "TTS_prepared_line": 490
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|491",
+      "FrameKey": "ecb522841162a91e194c17b972bf8a4e6eed07425a3e57100ef9f609de9be9e8",
+      "TTS_original_line": 981,
+      "TTS_prepared_line": 491
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|492",
+      "FrameKey": "00dea0c8f78aaaaae1409e9676b11ee47ec3fd1a6fc1849d9143fa85210fe469",
+      "TTS_original_line": 983,
+      "TTS_prepared_line": 492
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|493",
+      "FrameKey": "538ca084d608acac5f60a611bd0ee1fcdfe31566415f27790d744abed0196744",
+      "TTS_original_line": 985,
+      "TTS_prepared_line": 493
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|494",
+      "FrameKey": "06bc2afeb47560b0b14c448e71811bd275ec24895572bede046990864ff4383b",
+      "TTS_original_line": 987,
+      "TTS_prepared_line": 494
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|495",
+      "FrameKey": "718f7f0b0f03a2d59a2c9b778222d59b2511f414357b29a338e3d7da7f9b4cbd",
+      "TTS_original_line": 989,
+      "TTS_prepared_line": 495
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|496",
+      "FrameKey": "19656a70e85025ff54b217132612e4a8de8eacf81ced492351756eb7a29c5c3c",
+      "TTS_original_line": 991,
+      "TTS_prepared_line": 496
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|497",
+      "FrameKey": "dba3eecee5dbeace5f11fabc637f8b76cb7a72ea29a932a695fa7c51c522a270",
+      "TTS_original_line": 993,
+      "TTS_prepared_line": 497
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|498",
+      "FrameKey": "43e6243f7c3a5c01d6f9b0fa0111170b1abf77775e7bedb7bc678b24df511505",
+      "TTS_original_line": 995,
+      "TTS_prepared_line": 498
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|499",
+      "FrameKey": "6ff092e46e3644c12315e1ed39d1e3ed1822402848c04933e2db17bb9b5838bd",
+      "TTS_original_line": 997,
+      "TTS_prepared_line": 499
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|500",
+      "FrameKey": "f0d28886920a143933020b7c1a2067f96251fe8e66bf07fc4fa3f725a1e3c651",
+      "TTS_original_line": 999,
+      "TTS_prepared_line": 500
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|501",
+      "FrameKey": "fee0a532afda3a4d718bb9ff3d8df16dec8a45046da7f705cf6c7cb68fcfd50c",
+      "TTS_original_line": 1001,
+      "TTS_prepared_line": 501
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|502",
+      "FrameKey": "086bfaee8254fb5338164b5f5c98657ba81f92d78f14cdec5518a65180b2a8c7",
+      "TTS_original_line": 1003,
+      "TTS_prepared_line": 502
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|503",
+      "FrameKey": "a8902e8cfd35374b774a9d773d10f7faf8b20b0cf5170fa36215a68ffdd62547",
+      "TTS_original_line": 1005,
+      "TTS_prepared_line": 503
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|504",
+      "FrameKey": "045ddeaf4e51f48f9a2d0769257b2a6594cbe69c35fec377ffe8727a7c95735f",
+      "TTS_original_line": 1007,
+      "TTS_prepared_line": 504
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|505",
+      "FrameKey": "391910b97f5a0f8fad4642a03e2d5c240a112144ee9a05eebe67db6deeeb8dc1",
+      "TTS_original_line": 1009,
+      "TTS_prepared_line": 505
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|506",
+      "FrameKey": "4d3270d41a932da8ba9baeee38597dd0fe53d31ad7035d5f8b3e9749709d43a8",
+      "TTS_original_line": 1011,
+      "TTS_prepared_line": 506
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|507",
+      "FrameKey": "34771a7ceb2d72c954171147dfde92b2bc898b882128c202c534cd2bc44fd6f0",
+      "TTS_original_line": 1013,
+      "TTS_prepared_line": 507
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|508",
+      "FrameKey": "44a2e56dcbcff1b68d1a853f7fa5c83b5107ec98fb487e6435bbf255ac6e500c",
+      "TTS_original_line": 1015,
+      "TTS_prepared_line": 508
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|509",
+      "FrameKey": "fe3b08a2bda8a14139298b92c7a5cc7deb11cb5df8fd5d4710fd3aefba16a4fa",
+      "TTS_original_line": 1017,
+      "TTS_prepared_line": 509
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|510",
+      "FrameKey": "e92e52b92da130b67aa41a639f6f45ed794113c3882e7ffedf8a9145f8af8960",
+      "TTS_original_line": 1019,
+      "TTS_prepared_line": 510
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|511",
+      "FrameKey": "a15ac0f767647cd872fcb017a80d64c43f64bca408da07402703e20296192a53",
+      "TTS_original_line": 1021,
+      "TTS_prepared_line": 511
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|512",
+      "FrameKey": "6d719c62829c2db5fc5c2948a826ec2b697c4f549d873bb5a886d2aa4c8fc7f9",
+      "TTS_original_line": 1023,
+      "TTS_prepared_line": 512
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|513",
+      "FrameKey": "8640504c065d293391fab8d23a1515626bb35a9352035ab6be084c00b7c7613b",
+      "TTS_original_line": 1025,
+      "TTS_prepared_line": 513
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|514",
+      "FrameKey": "8462be143739507f3496bf43f7e4c2218af7f628e3e5f724519e3861c2f6a7d9",
+      "TTS_original_line": 1027,
+      "TTS_prepared_line": 514
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|515",
+      "FrameKey": "3273d4eb892134a8f06683723916cd9475c5d65aa7fd693dedf90b49cccbc8fb",
+      "TTS_original_line": 1029,
+      "TTS_prepared_line": 515
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|516",
+      "FrameKey": "293157aa95c181886821fee093a5082d8472bc9656ab588d8bf62b9ffa87249a",
+      "TTS_original_line": 1031,
+      "TTS_prepared_line": 516
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|517",
+      "FrameKey": "c6e48b74e1c9e0b38f0af39b5d26e7ed369ee0bdf225e7e724525614c01e5b97",
+      "TTS_original_line": 1033,
+      "TTS_prepared_line": 517
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|518",
+      "FrameKey": "d6983d9847672d44055fd1bb46037c65e7e74b9dc75d56dde2e819ea4467652f",
+      "TTS_original_line": 1035,
+      "TTS_prepared_line": 518
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|519",
+      "FrameKey": "8a76fc905512e170a2e21ded37fffbd07cf870bf9924be520b8f9f2f915629a7",
+      "TTS_original_line": 1037,
+      "TTS_prepared_line": 519
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|520",
+      "FrameKey": "b346967e5023d10a315a50247175b8aeccd96e6d8f44b71e4c6b9625282cae46",
+      "TTS_original_line": 1039,
+      "TTS_prepared_line": 520
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|521",
+      "FrameKey": "e85412d675a5d56b00cbc15669e00233d320314395f3b5b163f10a72f528f135",
+      "TTS_original_line": 1041,
+      "TTS_prepared_line": 521
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|522",
+      "FrameKey": "7e1ffe52fe64e9e3b1f77911b5da9ca77c6153621a2136712d6b391e82d9c9f4",
+      "TTS_original_line": 1043,
+      "TTS_prepared_line": 522
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|523",
+      "FrameKey": "6f75e8b5e76dc4f5b036cb97ea5fb325f54fb10977904f1c856cd922ca52c63a",
+      "TTS_original_line": 1045,
+      "TTS_prepared_line": 523
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|524",
+      "FrameKey": "5dbbd58a95ecaaaa1b38495cebe1d17fd8642747a3f96ed96663029ada260322",
+      "TTS_original_line": 1047,
+      "TTS_prepared_line": 524
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|525",
+      "FrameKey": "51c6078f0fc020c51dad0d3750a354f62afdffee0ca4d0f82a30dbd415192118",
+      "TTS_original_line": 1049,
+      "TTS_prepared_line": 525
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|526",
+      "FrameKey": "615549c972c32dd56d2d173149507380a5a03fcb4791d9facab68baf7c844bc8",
+      "TTS_original_line": 1051,
+      "TTS_prepared_line": 526
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|527",
+      "FrameKey": "d90f6aa951415abf8a0f20388bd50052c061fc19c6a2acf5a97c1584b5d625de",
+      "TTS_original_line": 1053,
+      "TTS_prepared_line": 527
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|528",
+      "FrameKey": "449e74561a1ed367320de4bbd69832989fa44107225273d478259332ee306e0e",
+      "TTS_original_line": 1055,
+      "TTS_prepared_line": 528
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|529",
+      "FrameKey": "41629bcea0670778eab402928ab1ef59162a32ec7c28a9096063e0594c28f6a5",
+      "TTS_original_line": 1057,
+      "TTS_prepared_line": 529
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|530",
+      "FrameKey": "651d010a92dcf6725bd247562685a330dce291abc20dc15e3fbdd8b36ac8027b",
+      "TTS_original_line": 1059,
+      "TTS_prepared_line": 530
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|531",
+      "FrameKey": "9fc3d777f51fab1d9c7acafa23aa93596c6f136f4d0be2f92737165fae33d6c3",
+      "TTS_original_line": 1061,
+      "TTS_prepared_line": 531
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|532",
+      "FrameKey": "e074901adf806ccb1325ffbde44c97570310bc6732f59dd9cb7a07a1ed82bc7d",
+      "TTS_original_line": 1063,
+      "TTS_prepared_line": 532
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|533",
+      "FrameKey": "597a2fb7464c20e3f31330434501316d234f6c832c79d98eae27bca78ddd7541",
+      "TTS_original_line": 1065,
+      "TTS_prepared_line": 533
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|534",
+      "FrameKey": "eb4a63410c07622b665135a831df051e110a06b38cc609e9a632ce1c0a326ffc",
+      "TTS_original_line": 1067,
+      "TTS_prepared_line": 534
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|535",
+      "FrameKey": "cfdfb42e40189b4bf784cc1f2688dfa4ce0e0dab55d0d990f8b5f35bd686b9e2",
+      "TTS_original_line": 1069,
+      "TTS_prepared_line": 535
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|536",
+      "FrameKey": "ee13ace29773da7a137c2e96bee7f1511c4b79e0a67c930b206c1bcf4fecaa3d",
+      "TTS_original_line": 1071,
+      "TTS_prepared_line": 536
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|537",
+      "FrameKey": "6d81359160ce9d806df75b57da802c7a5e7e3130b7734aa95d38918a1f1d0413",
+      "TTS_original_line": 1073,
+      "TTS_prepared_line": 537
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|538",
+      "FrameKey": "d585481e922d937368e8c284927bcd253fd74b840dc4be28e088338d8934110b",
+      "TTS_original_line": 1075,
+      "TTS_prepared_line": 538
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|539",
+      "FrameKey": "0701c170490e19e18994361fdb99cfffdf37676b7230f3462490408e0b4c5596",
+      "TTS_original_line": 1077,
+      "TTS_prepared_line": 539
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|540",
+      "FrameKey": "84bf7c659280df0f779df9896e6a00d61bdfec0df8af54e2ef1a5703c2eab0fe",
+      "TTS_original_line": 1079,
+      "TTS_prepared_line": 540
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|541",
+      "FrameKey": "428586cdc0aca2cb4e8f1e879109df9fe7b3b0dae566adc590f6c8270df866e8",
+      "TTS_original_line": 1081,
+      "TTS_prepared_line": 541
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|542",
+      "FrameKey": "e83dbd39f61ae5d6a8727371d304a3c76f4f51fb0308aeb919f7b48099237a31",
+      "TTS_original_line": 1083,
+      "TTS_prepared_line": 542
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|543",
+      "FrameKey": "c5edc7e8e94b7e85c208f1719c242d05fd9eab72478dcab760468c5b279a7011",
+      "TTS_original_line": 1085,
+      "TTS_prepared_line": 543
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|544",
+      "FrameKey": "70a7ec1dd6f03ccc8522160256c0fdb5aadb663ada89d63757421b46bea0eeb3",
+      "TTS_original_line": 1087,
+      "TTS_prepared_line": 544
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|545",
+      "FrameKey": "74930836074c86b267dae7e60bb58222fb8b6fee3bec92628c699595203517ca",
+      "TTS_original_line": 1089,
+      "TTS_prepared_line": 545
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|546",
+      "FrameKey": "f24bc76e3a7957b0ce2ddd7dea015684d290708511a2c4bf38d3eeae49e2717b",
+      "TTS_original_line": 1091,
+      "TTS_prepared_line": 546
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|547",
+      "FrameKey": "18a3a02b90501c8d2869c863917e55fa157211b7a5cd4323798dc79dc447a361",
+      "TTS_original_line": 1093,
+      "TTS_prepared_line": 547
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|548",
+      "FrameKey": "94b46451f824daa56b489ab5caedb82cbd168a6991cbdb7d7f1acb743f756fd1",
+      "TTS_original_line": 1095,
+      "TTS_prepared_line": 548
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|549",
+      "FrameKey": "5231b32f9181e001e2c1f4dbab067293c70533159d092ca919e19ae37b00519f",
+      "TTS_original_line": 1097,
+      "TTS_prepared_line": 549
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|550",
+      "FrameKey": "af01a51410bf6bdafc9b8756b39658772256944cefe353d8fc404ef3d6d320ee",
+      "TTS_original_line": 1099,
+      "TTS_prepared_line": 550
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|553",
+      "FrameKey": "ef3effc655fb8ed6a44f82c5ebc2c2ec646fe988262563ce0ca60b47ac63669d",
+      "TTS_original_line": 1101,
+      "TTS_prepared_line": 551
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|554",
+      "FrameKey": "3b50df18dd3063b537db24d976412511ce56b8f8e16085118c70cc6b9e49a033",
+      "TTS_original_line": 1103,
+      "TTS_prepared_line": 552
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|555",
+      "FrameKey": "113740bab1f2a922c987b58b366046c8b6b383ecfbfd11bdb90d3f1480f82726",
+      "TTS_original_line": 1105,
+      "TTS_prepared_line": 553
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|556",
+      "FrameKey": "e049c8a3a78a1d4848db68f453c815ee3eab67eec743f29eabaa4046ef838f65",
+      "TTS_original_line": 1107,
+      "TTS_prepared_line": 554
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|557",
+      "FrameKey": "d89b02741095f027374348f78f2f88c2be154fe1eaa6ec70fb33121c0bafc71d",
+      "TTS_original_line": 1109,
+      "TTS_prepared_line": 555
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|559",
+      "FrameKey": "b9a308645cb385b9047b8318b7469a7cf4042e8b7273a79d6921715e3c7b9375",
+      "TTS_original_line": 1111,
+      "TTS_prepared_line": 556
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|560",
+      "FrameKey": "456ee99301b02b4fb75d29a911c9b08c378df618816590c6922e36de00b1903a",
+      "TTS_original_line": 1113,
+      "TTS_prepared_line": 557
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|561",
+      "FrameKey": "c9e02b9dabb14eee43729c828c166afd5afa5028455ddf09d649a99d8e8c7989",
+      "TTS_original_line": 1115,
+      "TTS_prepared_line": 558
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|562",
+      "FrameKey": "94b82505f2bc7c7df197fe37003247349613e49a3412de62211e9fc548e99a6e",
+      "TTS_original_line": 1117,
+      "TTS_prepared_line": 559
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|563",
+      "FrameKey": "933aeef956788b2a1409b41028fa816da8a75129d1a3fd64538a0acb7ffb9228",
+      "TTS_original_line": 1119,
+      "TTS_prepared_line": 560
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|564",
+      "FrameKey": "0624a08528d3c5e0e174882153e37c247259b27c9031dfe484660ba52368fac4",
+      "TTS_original_line": 1121,
+      "TTS_prepared_line": 561
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|565",
+      "FrameKey": "b2621aa515fa5411459f6e59f19939cf27f65ae3df95977ed2538517880a0a59",
+      "TTS_original_line": 1123,
+      "TTS_prepared_line": 562
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|566",
+      "FrameKey": "5a010de62dd2fc1597d01ecbc03bcf969acc84144541525f605a12ac8917e2e1",
+      "TTS_original_line": 1125,
+      "TTS_prepared_line": 563
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|567",
+      "FrameKey": "85f5db8d42b02660583d7f7ac87d8a635579e6c57093e9fa2711f2a16dbcb75a",
+      "TTS_original_line": 1127,
+      "TTS_prepared_line": 564
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|568",
+      "FrameKey": "9dcffb522e5836696d8064286bb47dee5b1bdaec132d8c35be383f29ef391c61",
+      "TTS_original_line": 1129,
+      "TTS_prepared_line": 565
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|569",
+      "FrameKey": "f079b708209de4fd7eff0d3f1d8c71ebcf26feb5e1d053c517c6de4e3c6d759f",
+      "TTS_original_line": 1131,
+      "TTS_prepared_line": 566
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|570",
+      "FrameKey": "2508345e851a11eca35e932f3473b0e82ee89c569365ccbccd2ed3387ee7b730",
+      "TTS_original_line": 1133,
+      "TTS_prepared_line": 567
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|571",
+      "FrameKey": "cf9d1d2905355a3d12bf0f9c2cd3cb3f430ace2fb809ab1eb5be5a2e8b260c0d",
+      "TTS_original_line": 1135,
+      "TTS_prepared_line": 568
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|572",
+      "FrameKey": "bd040a17567ccd528c054aa3a219e7d82e108b052af89e3617234a312bc0e5cf",
+      "TTS_original_line": 1137,
+      "TTS_prepared_line": 569
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|573",
+      "FrameKey": "244f23ba3a9da6cedb568b4e62269888a2537840d4445a6c066893e51d5c60c0",
+      "TTS_original_line": 1139,
+      "TTS_prepared_line": 570
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|574",
+      "FrameKey": "a04f34d2ee2f49ea8f61d8d2839ecc92d09c665350174a5c7668a67776e064d0",
+      "TTS_original_line": 1141,
+      "TTS_prepared_line": 571
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|575",
+      "FrameKey": "e07842b7d4d7e2f2843b83c43bb2618cc5bec48ef616b2096a57eed6a8099e7f",
+      "TTS_original_line": 1143,
+      "TTS_prepared_line": 572
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|576",
+      "FrameKey": "94cd1e4c5ab2fb202c1739b386300a01b51873f3812c4231c87b015a84e18df5",
+      "TTS_original_line": 1145,
+      "TTS_prepared_line": 573
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|577",
+      "FrameKey": "529f9a306a856c40efb9392858a80f693aad5d7de0e4b6ca7c884afdb6147f85",
+      "TTS_original_line": 1147,
+      "TTS_prepared_line": 574
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|578",
+      "FrameKey": "c1b0429fb32fb21fdfda07e652199d470733d8e581eff5efc6020a4c6bc7d022",
+      "TTS_original_line": 1149,
+      "TTS_prepared_line": 575
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|579",
+      "FrameKey": "1ad30567497adc078d448537bff431a5261284b91fb3c02f66c8e6ff67af1291",
+      "TTS_original_line": 1151,
+      "TTS_prepared_line": 576
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|580",
+      "FrameKey": "c2898e192c6c63fa647338676bb92bf14fabefafb4dc269c0e9696a14731187d",
+      "TTS_original_line": 1153,
+      "TTS_prepared_line": 577
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|581",
+      "FrameKey": "98b063f680e8f1dcbb6145b38bb4df8c7edc4646b7d8f4434e412f2f0e100430",
+      "TTS_original_line": 1155,
+      "TTS_prepared_line": 578
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|582",
+      "FrameKey": "3c951340f32231d237d547144c5048c3356611b0c98e36e921a589ef130bd097",
+      "TTS_original_line": 1157,
+      "TTS_prepared_line": 579
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|583",
+      "FrameKey": "5078067d6679ac2f40d4bf6a5b27996507da817758a4c96459f8da83e2deb54e",
+      "TTS_original_line": 1159,
+      "TTS_prepared_line": 580
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|584",
+      "FrameKey": "10487cb2a84d722093937a2b6a2729a44b5ad6d8f226f49ef8b635348f0c0393",
+      "TTS_original_line": 1161,
+      "TTS_prepared_line": 581
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|585",
+      "FrameKey": "ceebdf1440d6d8f6e1847ea0be4a2f7e65a084e4e1c669b22feebcb4f37243ef",
+      "TTS_original_line": 1163,
+      "TTS_prepared_line": 582
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|586",
+      "FrameKey": "6201c2a1b33c9bb82d3ab20a1afe6965aa88f3a581b0bae6959bd90c34d52309",
+      "TTS_original_line": 1165,
+      "TTS_prepared_line": 583
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|588",
+      "FrameKey": "67f034503e93e9dfe6d94f5a3496ed856dd29091c3ae82e525f1e9c1263fc04f",
+      "TTS_original_line": 1167,
+      "TTS_prepared_line": 584
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|591",
+      "FrameKey": "f94ff3bf3a968e3f877931c74172e88d182dca1928e1fde8cc49734f9801df5c",
+      "TTS_original_line": 1169,
+      "TTS_prepared_line": 585
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|592",
+      "FrameKey": "df9e48d421db9575845569bd92e9f788dc13e11c8352720e115a2dc523f4f408",
+      "TTS_original_line": 1171,
+      "TTS_prepared_line": 586
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|593",
+      "FrameKey": "4095247b0ff2090b7413a7b744e731be764dcc0bfc08c27a25ccb89be005efc0",
+      "TTS_original_line": 1173,
+      "TTS_prepared_line": 587
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|594",
+      "FrameKey": "e0750164a70e813208fe906885468e9ee15e282e961d5460d8c35a9c8b723549",
+      "TTS_original_line": 1175,
+      "TTS_prepared_line": 588
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|595",
+      "FrameKey": "c179f14b955fb547651c7324dcd4fd92fabcc7c65b3248ea3def501c0d0d2243",
+      "TTS_original_line": 1177,
+      "TTS_prepared_line": 589
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|596",
+      "FrameKey": "8f980b81bb68949943615be2e3ff7e6cab5a14dbeb6da3f65a3968469c81fcb9",
+      "TTS_original_line": 1179,
+      "TTS_prepared_line": 590
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|597",
+      "FrameKey": "251b8ef695708a5e48a2bbe2b41b27c101480ad79b14705c482bdd2ea4182d1d",
+      "TTS_original_line": 1181,
+      "TTS_prepared_line": 591
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|598",
+      "FrameKey": "7bb31a14027ee91bb6c47009b5d11e1dbef450830e54a0af0c6a90ccf3c1050d",
+      "TTS_original_line": 1183,
+      "TTS_prepared_line": 592
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|599",
+      "FrameKey": "4fb962a391972a235ff6731b204dc4ec9eee390de714b7ab96a72db8f390e0cd",
+      "TTS_original_line": 1185,
+      "TTS_prepared_line": 593
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|600",
+      "FrameKey": "809433252cf4e916d3a59972913b2a45d3b2e1e98204963d8b102886f1ba14c6",
+      "TTS_original_line": 1187,
+      "TTS_prepared_line": 594
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|601",
+      "FrameKey": "123a5d7c3c923113292b4f3f1df38db373e040b33eefdb6b6aa92fc1ab987cfd",
+      "TTS_original_line": 1189,
+      "TTS_prepared_line": 595
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|603",
+      "FrameKey": "7a87cec4ed0e9e8beafa6404205183570974a514016a89993924a4f9c45f4430",
+      "TTS_original_line": 1191,
+      "TTS_prepared_line": 596
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|604",
+      "FrameKey": "d9fb697ce3a27e3e692b4c82d2571650989dcdf1f5e3223751b0d2e88c61eb65",
+      "TTS_original_line": 1193,
+      "TTS_prepared_line": 597
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|606",
+      "FrameKey": "e3d3ea03e5aa01bd024c8b916f0f3d4c8964257d7f80954bc96e73dbdddf069e",
+      "TTS_original_line": 1195,
+      "TTS_prepared_line": 598
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|607",
+      "FrameKey": "916327091c36986e36d54138ec41b54a60dcd9831176494540c903240701ba1f",
+      "TTS_original_line": 1197,
+      "TTS_prepared_line": 599
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|609",
+      "FrameKey": "c35afdb0a018abe43a9fb2d0ca8c86235d543e95614f9beea0e4b1d58b862368",
+      "TTS_original_line": 1199,
+      "TTS_prepared_line": 600
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|611",
+      "FrameKey": "69e2057af3fbbe964d9ac263ecc6d98978e6319200a56458810511eb1783f6de",
+      "TTS_original_line": 1201,
+      "TTS_prepared_line": 601
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|612",
+      "FrameKey": "6be90aefed4ffd2afbd57caa9f214a457b221d14040b5e0c6050a2d0ec63969a",
+      "TTS_original_line": 1203,
+      "TTS_prepared_line": 602
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|614",
+      "FrameKey": "0659c6204e2f64496e3a97e6b116fe9efecae52be9374de05509202304c82621",
+      "TTS_original_line": 1205,
+      "TTS_prepared_line": 603
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|615",
+      "FrameKey": "ec1196e0c019faf75b5afb5f43283d7c177e3472b23bff4663c19a5996b3fdda",
+      "TTS_original_line": 1207,
+      "TTS_prepared_line": 604
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|616",
+      "FrameKey": "328e6fb8dc2bd20a012e1485e645676070d8684715c75adf91802b6bb8201ddd",
+      "TTS_original_line": 1209,
+      "TTS_prepared_line": 605
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|617",
+      "FrameKey": "b9bcb69246c59028b82e9e2da5791c7e81d757f811c7d9f65a8355911ffbfb9c",
+      "TTS_original_line": 1211,
+      "TTS_prepared_line": 606
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|618",
+      "FrameKey": "a5bbd95f2557dfd6300cfcb36108acc30ce9f86d8368a40ffd8a5c55af55ef0d",
+      "TTS_original_line": 1213,
+      "TTS_prepared_line": 607
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|619",
+      "FrameKey": "7298f68b026490c795e35d62499199d677e9c0a920610318a21a0d678ec6f6f3",
+      "TTS_original_line": 1215,
+      "TTS_prepared_line": 608
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|620",
+      "FrameKey": "536ca40f5ff2d9b2c72e6f866defaa8e810920dadd9b8bd807b4742e3bf123ff",
+      "TTS_original_line": 1217,
+      "TTS_prepared_line": 609
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|621",
+      "FrameKey": "8da1b4e2090a8a308eb20d813b3173bafe79e2abe85508c183ec6cc700d55327",
+      "TTS_original_line": 1219,
+      "TTS_prepared_line": 610
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|622",
+      "FrameKey": "020b6c1d2dfc4eb13a9daad45559d4a63fe9e6a17d7a6a241ab9ef73696c959c",
+      "TTS_original_line": 1221,
+      "TTS_prepared_line": 611
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|623",
+      "FrameKey": "5b10dc47b76427f92ae34f5fa5011e535c0979de51b39fc581149f788aabcccd",
+      "TTS_original_line": 1223,
+      "TTS_prepared_line": 612
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|624",
+      "FrameKey": "11e9472f04c528e25450cdd594d8f55af44bc34c788d68086055d6ee221f5b05",
+      "TTS_original_line": 1225,
+      "TTS_prepared_line": 613
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|625",
+      "FrameKey": "83ba87f7ed0c20bc33a8fed26a87ab2d48c5b10f49915759a8b52727cfe9d905",
+      "TTS_original_line": 1227,
+      "TTS_prepared_line": 614
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|626",
+      "FrameKey": "fd7fe586afbf4c655ebb421ac04f730db772f9af3b1e1fc89c94f75ca1f36f1b",
+      "TTS_original_line": 1229,
+      "TTS_prepared_line": 615
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|627",
+      "FrameKey": "eced47afd1c40b1760c312f4203bb16713be3307f0f803f9a04e8cfebac6e5cc",
+      "TTS_original_line": 1231,
+      "TTS_prepared_line": 616
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|628",
+      "FrameKey": "e6b538e0b34ed17d0a78869fc4aa92939e6c89623dec4ee3cf99192450b48376",
+      "TTS_original_line": 1233,
+      "TTS_prepared_line": 617
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|629",
+      "FrameKey": "8da8de0148051e10046d7c47d2eaf21752a6c6ff5a148ce7ec64b52cbad73b42",
+      "TTS_original_line": 1235,
+      "TTS_prepared_line": 618
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|630",
+      "FrameKey": "b2baf083812c58772009c6058d4ee2a0c5e3c6b30715c97b6578d0fa42fe5bc0",
+      "TTS_original_line": 1237,
+      "TTS_prepared_line": 619
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|631",
+      "FrameKey": "ab8ad7c11f5a196b0cd864677a255326cb274e89130b8ce5b6e73c5d9e3cffd2",
+      "TTS_original_line": 1239,
+      "TTS_prepared_line": 620
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|632",
+      "FrameKey": "0a7b5d05229bba9a8422f21126d068a6748fbf75a580b4ece791602bd8c3b16f",
+      "TTS_original_line": 1241,
+      "TTS_prepared_line": 621
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|633",
+      "FrameKey": "b37ba8baa495a4c3bf79cece01192ecac6d62f4339dffc9d6125a8f300476603",
+      "TTS_original_line": 1243,
+      "TTS_prepared_line": 622
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|634",
+      "FrameKey": "69956c995deefebe89279854c2c71df415fea296e4b49d4f7e0069ad48570d0e",
+      "TTS_original_line": 1245,
+      "TTS_prepared_line": 623
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|635",
+      "FrameKey": "b3d48d6a727052c18822c410400757f395cd2e8775f8f59db19a08f49c292845",
+      "TTS_original_line": 1247,
+      "TTS_prepared_line": 624
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|636",
+      "FrameKey": "4cbeb2ee2de50079e771b732fddaac10bafaadc21e0c71deea1164a85b686fdc",
+      "TTS_original_line": 1249,
+      "TTS_prepared_line": 625
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|637",
+      "FrameKey": "f1c101e327c351f1cef4ba6eb71e5e46c453211d3ed421069db800abb53ebc3c",
+      "TTS_original_line": 1251,
+      "TTS_prepared_line": 626
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|638",
+      "FrameKey": "eafed0d7ad45e0738e0cde31c3eb8554d95f60ccbd057168f4b6c98b1f55e35d",
+      "TTS_original_line": 1253,
+      "TTS_prepared_line": 627
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|639",
+      "FrameKey": "14aadcfbbfe128df6f142247b31071a7b97922bf37495e436a826579cc041b15",
+      "TTS_original_line": 1255,
+      "TTS_prepared_line": 628
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|640",
+      "FrameKey": "685dd73a619b57b2944f44f65f6810ebe5e08d181dca779e63a94cc461e2db86",
+      "TTS_original_line": 1257,
+      "TTS_prepared_line": 629
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|641",
+      "FrameKey": "5d5330aaf207fa4a469aca530c80fad6a28dc4edc2b8f032e6583064355b69ed",
+      "TTS_original_line": 1259,
+      "TTS_prepared_line": 630
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|642",
+      "FrameKey": "9b5497656ade973e7a86e94c27683e231481752bc505853267506afc606da1a0",
+      "TTS_original_line": 1261,
+      "TTS_prepared_line": 631
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|643",
+      "FrameKey": "75bf737083f13a942563403a5c613099942ac3a24de6fb4640109b146355ea69",
+      "TTS_original_line": 1263,
+      "TTS_prepared_line": 632
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|644",
+      "FrameKey": "e129d5f647b5833fffacec77623385a25839ca94a84c834e31cb1066b9dcb004",
+      "TTS_original_line": 1265,
+      "TTS_prepared_line": 633
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|645",
+      "FrameKey": "7d879ad1e694f7fd99185e9092f1c8ec03290b8ef74fc6411f123a152119ca3d",
+      "TTS_original_line": 1267,
+      "TTS_prepared_line": 634
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|646",
+      "FrameKey": "d4cbae3fd3afc98aac6237428ba0c63620d84a6bd767974ec5ece507679c17e0",
+      "TTS_original_line": 1269,
+      "TTS_prepared_line": 635
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|647",
+      "FrameKey": "6cce6759b962032ddc7b1384ea09291c0d5abfc2530fe1d54525dbcdb8eea1f6",
+      "TTS_original_line": 1271,
+      "TTS_prepared_line": 636
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|648",
+      "FrameKey": "0c0d84ecfde1e4a570732eb5e83f1963eed22a8e5ad2f6cc9edf393add4ca88d",
+      "TTS_original_line": 1273,
+      "TTS_prepared_line": 637
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|649",
+      "FrameKey": "8f39bedb9a4d4f197393ec9c946407d25b1d02079eaa398197745d3c1d2af04f",
+      "TTS_original_line": 1275,
+      "TTS_prepared_line": 638
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|651",
+      "FrameKey": "061b775bb0368dc9352df911882321acf82fc06fe436894a8c21c10b8b3b727d",
+      "TTS_original_line": 1277,
+      "TTS_prepared_line": 639
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|652",
+      "FrameKey": "111dfef22d8d3cd7d22df0d47943c4d825cc00935e9801a882e5c95060bad65f",
+      "TTS_original_line": 1279,
+      "TTS_prepared_line": 640
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|653",
+      "FrameKey": "d7188a955c6670ac7687dfa469ec8be375e4b246e757b7d0b33e775bba440f26",
+      "TTS_original_line": 1281,
+      "TTS_prepared_line": 641
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|656",
+      "FrameKey": "84a02858212fc780bc986bcd52914b689bb1ffff9baae1b0ac7eb16fe7d3e36c",
+      "TTS_original_line": 1283,
+      "TTS_prepared_line": 642
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|657",
+      "FrameKey": "da59e9fc16cf4dac760752d02880834ed278ab50972c69b50667d29e2183a91b",
+      "TTS_original_line": 1285,
+      "TTS_prepared_line": 643
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|658",
+      "FrameKey": "a679a2649a69c6b6157eaa27a39eef22ef30f956bb951994dd70526575512bf7",
+      "TTS_original_line": 1287,
+      "TTS_prepared_line": 644
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|659",
+      "FrameKey": "2ed80f92c760e600e414256bc7e7097b5c38bf9312c39496cc27e22380a75084",
+      "TTS_original_line": 1289,
+      "TTS_prepared_line": 645
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|660",
+      "FrameKey": "c6d2a14cff9e5829ef6feecc6363ff4e32af1a62a9c00878e12367481dca8101",
+      "TTS_original_line": 1291,
+      "TTS_prepared_line": 646
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|661",
+      "FrameKey": "53a0ffc541b2a2ef339bb3b4f43c94e29ac33cc3d2cc240a5d44735b4b3e9ffa",
+      "TTS_original_line": 1293,
+      "TTS_prepared_line": 647
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|662",
+      "FrameKey": "0a01500bdad955908802a01935f1273d02674f1812ba0af1fdb33c1a2684f6c7",
+      "TTS_original_line": 1295,
+      "TTS_prepared_line": 648
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|663",
+      "FrameKey": "29fae33ed1866be3dd4a0cba4f573bcc9276ef2e562bc83df3b7aaa041319c98",
+      "TTS_original_line": 1297,
+      "TTS_prepared_line": 649
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|664",
+      "FrameKey": "c6155144bcce8d2987e7f5fb85e93523139460deeaeb8a6f272086d7ad7c3891",
+      "TTS_original_line": 1299,
+      "TTS_prepared_line": 650
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|665",
+      "FrameKey": "ccde34ea736dd676b1024e1483595f14fb4594608cd6aa8a9d5e598982ba3914",
+      "TTS_original_line": 1301,
+      "TTS_prepared_line": 651
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|666",
+      "FrameKey": "f1ad05bb369281240b34967eee4202e0b55315bea65c68d15e51f2b4440c1f4b",
+      "TTS_original_line": 1303,
+      "TTS_prepared_line": 652
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|667",
+      "FrameKey": "a39f880a9c787f18ee9fdf3b69a25a6ab65b1bc51178acf59e783148228903f0",
+      "TTS_original_line": 1305,
+      "TTS_prepared_line": 653
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|668",
+      "FrameKey": "56f7742ea24a24dfdd5cd316bbcda6fb4d6a5cf1360f9230cedad61c0ef06820",
+      "TTS_original_line": 1307,
+      "TTS_prepared_line": 654
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|669",
+      "FrameKey": "8b29638f6b9efb7914b1ef569d8b713b7e3ed32b40f428feb7ccfaa36ed03946",
+      "TTS_original_line": 1309,
+      "TTS_prepared_line": 655
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|670",
+      "FrameKey": "1c87cfec91a18abc7f7c00f87da6a4f1ebf4b7aab90266f124c0bbe463bcef46",
+      "TTS_original_line": 1311,
+      "TTS_prepared_line": 656
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|673",
+      "FrameKey": "69c32dd14f65f6439e4dc4402964d0cccbc5f342446cb69b08af486b278b832b",
+      "TTS_original_line": 1313,
+      "TTS_prepared_line": 657
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|674",
+      "FrameKey": "c03c4f607dcd1e61d546aa2984d0704fd21acd21123a00a735750a6e7e2c4bd3",
+      "TTS_original_line": 1315,
+      "TTS_prepared_line": 658
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|676",
+      "FrameKey": "6cde4cd47381e6e33dec15ef287c83b78cb2ce235344096e0ceb5bf82210ed25",
+      "TTS_original_line": 1317,
+      "TTS_prepared_line": 659
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|677",
+      "FrameKey": "d98b9080c360ccebd92fb80657d02fb0a8ace41ac062eaf68b15ae50a5d1f09e",
+      "TTS_original_line": 1319,
+      "TTS_prepared_line": 660
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|678",
+      "FrameKey": "0f9d076277211f2db45a4320519454aee9864822f4f6b30d14f34f0970dfbeb1",
+      "TTS_original_line": 1321,
+      "TTS_prepared_line": 661
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|679",
+      "FrameKey": "bc1ba0b7608a7f4506798cf0458905c157f0b07d6f54cb34de53e0bf6fb9818a",
+      "TTS_original_line": 1323,
+      "TTS_prepared_line": 662
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|680",
+      "FrameKey": "828837dfd48be7bc96547205e1731ca2e1babe517d853b0c048ad793154f7fff",
+      "TTS_original_line": 1325,
+      "TTS_prepared_line": 663
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|681",
+      "FrameKey": "30097e825e73dc10dc04a7b68fefc075fec4d86b1910c9e8d2c343c1618424ec",
+      "TTS_original_line": 1327,
+      "TTS_prepared_line": 664
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|682",
+      "FrameKey": "c38a90a3e1b843f05a09240e87681f891f11ac39333226c75eee36e8745f0804",
+      "TTS_original_line": 1329,
+      "TTS_prepared_line": 665
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|683",
+      "FrameKey": "0873e526f7f96f379204b0cd7aaef9a90bf5d52a09fe3b701ab7a484922aa545",
+      "TTS_original_line": 1331,
+      "TTS_prepared_line": 666
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|684",
+      "FrameKey": "c0fd89203e5649581191ad9c48ff73e1f29e2e6f122fd9046f745bd03b3fadb8",
+      "TTS_original_line": 1333,
+      "TTS_prepared_line": 667
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|685",
+      "FrameKey": "32ce914de44a5e5d95752ba64b03e237e467b06896492d78a79ac8f896840008",
+      "TTS_original_line": 1335,
+      "TTS_prepared_line": 668
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|686",
+      "FrameKey": "2c8dc3486b1972c7ab78dbb949d9121a05d9756606829b718df22b8f8f532006",
+      "TTS_original_line": 1337,
+      "TTS_prepared_line": 669
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|687",
+      "FrameKey": "e24fb6ca8c8d26c22ca10b6370468c1d49cb6ed612e5605faf9be516d8e939af",
+      "TTS_original_line": 1339,
+      "TTS_prepared_line": 670
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|688",
+      "FrameKey": "466c8ccd10887940d22e47f053ac95a425a777a99331d0fee7a2aa2d5b77e51f",
+      "TTS_original_line": 1341,
+      "TTS_prepared_line": 671
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|689",
+      "FrameKey": "7859094646050c9644bfc543163618e144cef90f7d708d25845b2b7837667d8f",
+      "TTS_original_line": 1343,
+      "TTS_prepared_line": 672
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|690",
+      "FrameKey": "bd6f1251d680f19c3961dafcdbaa0655021dd192bb634548522143c41b7a58c9",
+      "TTS_original_line": 1345,
+      "TTS_prepared_line": 673
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|691",
+      "FrameKey": "a4cacfff11adc25ca22c7de01f8a226345135dbefba357a8560a8de818350b4f",
+      "TTS_original_line": 1347,
+      "TTS_prepared_line": 674
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|693",
+      "FrameKey": "bfd4058213f6679efc35269a44e51e1985146f838cab46affcce8b940ff81e7d",
+      "TTS_original_line": 1349,
+      "TTS_prepared_line": 675
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|694",
+      "FrameKey": "a35272374fd7f7b333227acbfdea7e58a6f954899c1ac7d9839005b0e7296a28",
+      "TTS_original_line": 1351,
+      "TTS_prepared_line": 676
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|695",
+      "FrameKey": "10dd4ab04f4a4c349353574a5862a549c2d4f1e063241aac263029653e9d119d",
+      "TTS_original_line": 1353,
+      "TTS_prepared_line": 677
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|696",
+      "FrameKey": "cb9f1f11fc2cc24b0078df398de88bfaba523c58d05dabd493b4b6e558aa7e23",
+      "TTS_original_line": 1355,
+      "TTS_prepared_line": 678
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|697",
+      "FrameKey": "efba75f26b48e57f010f8000547e111b482619aee9f3f8f2e6cbb07aed00fb72",
+      "TTS_original_line": 1357,
+      "TTS_prepared_line": 679
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|698",
+      "FrameKey": "6b16adbc3af4745e166221e4b09ad29c4317b25089fd19ea7e2af967e169841a",
+      "TTS_original_line": 1359,
+      "TTS_prepared_line": 680
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|699",
+      "FrameKey": "3443f60b127e82e0f32331a3222c921e9744220873239c3509e13f686b62af6d",
+      "TTS_original_line": 1361,
+      "TTS_prepared_line": 681
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|700",
+      "FrameKey": "02f3ed81b834353327b5d9694ea86cf506b65cffe8567a89c5320258d9e2ac56",
+      "TTS_original_line": 1363,
+      "TTS_prepared_line": 682
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|701",
+      "FrameKey": "53ca05c2eb0c07c1ee9ddae4566a6ef46a1d80185ef9e383e8e53022672d2c04",
+      "TTS_original_line": 1365,
+      "TTS_prepared_line": 683
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|702",
+      "FrameKey": "355af3612c79e2626cba8767f82f2d329f74e17949cf887e7ed00fb0bd52138d",
+      "TTS_original_line": 1367,
+      "TTS_prepared_line": 684
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|704",
+      "FrameKey": "6dfd0c6c13a3d215544a609cbd3c7a30c2e84daddeb8ca0b4ca4b6cd26a7d938",
+      "TTS_original_line": 1369,
+      "TTS_prepared_line": 685
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|705",
+      "FrameKey": "c6dcad66327736f1a172f409adf565d32a66897b80ccda338ff821d57e6cb4c1",
+      "TTS_original_line": 1371,
+      "TTS_prepared_line": 686
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|706",
+      "FrameKey": "1bdce7f5b5aa8fd9b3084fec61066af2112d9812343880b4a099bf769443a300",
+      "TTS_original_line": 1373,
+      "TTS_prepared_line": 687
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|707",
+      "FrameKey": "93c7443d6e088f6062b36482f28e4d91df3d89d510c842601bb37b6bc4e98243",
+      "TTS_original_line": 1375,
+      "TTS_prepared_line": 688
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|708",
+      "FrameKey": "ac7b43203fc2b1a1633bd3d2aadcd9567ceb2f8d029f287805ffe3f37bfbc731",
+      "TTS_original_line": 1377,
+      "TTS_prepared_line": 689
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|710",
+      "FrameKey": "98661d356e48c8eb28c5d10bc70425736e4fe05e7cd5af4a87dc50edac2fdc98",
+      "TTS_original_line": 1379,
+      "TTS_prepared_line": 690
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|711",
+      "FrameKey": "74bd9e47b58e216cf8f6d59c8fce6ac011698444d652fb25dd2d8e0001946cd0",
+      "TTS_original_line": 1381,
+      "TTS_prepared_line": 691
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|713",
+      "FrameKey": "396dcf51148d97152523ba44303fcc69868738c12ce4da9efedb18cbbb93eae6",
+      "TTS_original_line": 1383,
+      "TTS_prepared_line": 692
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|714",
+      "FrameKey": "472991c1e791527acffd56480bcbaeef68bd7847cd7b9882d0441d5eb4b7b290",
+      "TTS_original_line": 1385,
+      "TTS_prepared_line": 693
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|715",
+      "FrameKey": "b3bda22783dfe7261d8bd5fd2ead37c6bff1fd4f3324d7775c925f430fe8447c",
+      "TTS_original_line": 1387,
+      "TTS_prepared_line": 694
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|716",
+      "FrameKey": "c9b2d770a94232887a511777a71927e81e0791a4264201506b04b198d081f953",
+      "TTS_original_line": 1389,
+      "TTS_prepared_line": 695
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|717",
+      "FrameKey": "fa53fdfb2b772b8b3ed1245dd76e6a87986b717b79de3f19a45b43601bd03f11",
+      "TTS_original_line": 1391,
+      "TTS_prepared_line": 696
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|718",
+      "FrameKey": "b0e7013030242d5ea3c9aee9455aa90fd853dacd091595dcec390e1162553044",
+      "TTS_original_line": 1393,
+      "TTS_prepared_line": 697
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|721",
+      "FrameKey": "ca389e1c947955213311a1ce413ce1569d8a791db74d6fc3c77d74e4c0327c3d",
+      "TTS_original_line": 1395,
+      "TTS_prepared_line": 698
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|722",
+      "FrameKey": "294735f26be7b344864d52083b5c30e30e671eeec97e2b63ad48014da7a98fab",
+      "TTS_original_line": 1397,
+      "TTS_prepared_line": 699
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|723",
+      "FrameKey": "11537dfb493dc3f8fdd4265af1cfbd41910db59ae5774fb99dd1951a69b40b4c",
+      "TTS_original_line": 1399,
+      "TTS_prepared_line": 700
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|724",
+      "FrameKey": "84539d25cdeb8068788c9110d55add99ca4bdc08e0399150c2246ddc44775c69",
+      "TTS_original_line": 1401,
+      "TTS_prepared_line": 701
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|725",
+      "FrameKey": "d74f6e5a5180706a91a27139db148b145747883b96be42e2a10af8b1b45be57d",
+      "TTS_original_line": 1403,
+      "TTS_prepared_line": 702
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|726",
+      "FrameKey": "3564cda4b9dada606d641b81d656821c97f6c363db18bd3c8d3503661c911aff",
+      "TTS_original_line": 1405,
+      "TTS_prepared_line": 703
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|727",
+      "FrameKey": "11dfe9faf3c2cca7c0ff3eacc8326dc05c85c5c84f2e1756997792672b5e1d3f",
+      "TTS_original_line": 1407,
+      "TTS_prepared_line": 704
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|728",
+      "FrameKey": "20c9b065619f52205836d086adf85ac53409996ffbdf0369f5b87425e6c79e0f",
+      "TTS_original_line": 1409,
+      "TTS_prepared_line": 705
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|729",
+      "FrameKey": "993ac746517d8b63a68e3eb09798035a92580be9c3ced80da69edbfd93e82e12",
+      "TTS_original_line": 1411,
+      "TTS_prepared_line": 706
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|730",
+      "FrameKey": "030050c0d584802a33098f32f48af44c16180f2aeea61fe177a771e3c6d4381c",
+      "TTS_original_line": 1413,
+      "TTS_prepared_line": 707
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|731",
+      "FrameKey": "51e2ec6a80959e708ef5381bd65011e39a1f5c5fca8fd0c13a7e8d70cfb1f906",
+      "TTS_original_line": 1415,
+      "TTS_prepared_line": 708
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|732",
+      "FrameKey": "564cb589d9e83844be6d51010a6ab3ec5a31db3e7f989bb0ea5772e0636aedb8",
+      "TTS_original_line": 1417,
+      "TTS_prepared_line": 709
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|733",
+      "FrameKey": "4fbccc111bba98824f2e6c5c15fce6a564b260c3e20ca79931acb18ba8eb6839",
+      "TTS_original_line": 1419,
+      "TTS_prepared_line": 710
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|734",
+      "FrameKey": "a07152a633c464ac57462dd8b304282455879b05c1ecd24688d4b7a9bf29868c",
+      "TTS_original_line": 1421,
+      "TTS_prepared_line": 711
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|735",
+      "FrameKey": "a8a589d3089455eeea26eefc2782cbf84a3cc9eba5faabf89fd7639a82f09679",
+      "TTS_original_line": 1423,
+      "TTS_prepared_line": 712
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|737",
+      "FrameKey": "fe5a2a71250a6736aa0c41584e45767e35c2389c27facd25d76cff3bb636eff0",
+      "TTS_original_line": 1425,
+      "TTS_prepared_line": 713
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|738",
+      "FrameKey": "c078ed99487c7f1f1dd61442e1fdd556c8446ae561034a0beff33089be11682d",
+      "TTS_original_line": 1427,
+      "TTS_prepared_line": 714
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|739",
+      "FrameKey": "6197feb2f93ad025d7a9750a34db6effc23e61432c41c239cba1fa5cbef50a6b",
+      "TTS_original_line": 1429,
+      "TTS_prepared_line": 715
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|740",
+      "FrameKey": "d3450a3652816900345f2cbe42afb5aeb95d4fb11fe2fc10cc420a31794b0cb9",
+      "TTS_original_line": 1431,
+      "TTS_prepared_line": 716
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|741",
+      "FrameKey": "fca0cfd7fcb55cdc935d3d6560bf75210c9db3a1b8589d3ed55e7b8d519b028d",
+      "TTS_original_line": 1433,
+      "TTS_prepared_line": 717
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|742",
+      "FrameKey": "a053b954fd4ed4ab45112efa0cc4f1f9deb80870b8a6f4e31fadc76b3e28e3da",
+      "TTS_original_line": 1435,
+      "TTS_prepared_line": 718
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|743",
+      "FrameKey": "5dc4b56486a97b46517d0df65a659661b49d9e6b4ee24e8c0b9082c0407e9776",
+      "TTS_original_line": 1437,
+      "TTS_prepared_line": 719
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|744",
+      "FrameKey": "30cb383c4b194c0ced9c2057451dab2e49647ad6ae912509bf17ff76bc3e3ef3",
+      "TTS_original_line": 1439,
+      "TTS_prepared_line": 720
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|745",
+      "FrameKey": "9a77100c09b35ee4256e69ea4358d7128eceede06488b40d842f9350de03b6b9",
+      "TTS_original_line": 1441,
+      "TTS_prepared_line": 721
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|746",
+      "FrameKey": "c8be8f4e043d68739f00c1610fe0ed6e696662d66791e2b94c0267e41df62f80",
+      "TTS_original_line": 1443,
+      "TTS_prepared_line": 722
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|747",
+      "FrameKey": "d5ce478d125b71466b5186fe2de5d2689877c1ee34a87cefdd434bf4bed2452a",
+      "TTS_original_line": 1445,
+      "TTS_prepared_line": 723
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|748",
+      "FrameKey": "2b2707a0660dc6848c4d29537e5703d559f58d0c647d02fa90ab7b426ea65ea7",
+      "TTS_original_line": 1447,
+      "TTS_prepared_line": 724
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|749",
+      "FrameKey": "f0c0818fc78aa386c8a2f54e639b809ccb64a0f8a67c476a6a9e8768da6a570e",
+      "TTS_original_line": 1449,
+      "TTS_prepared_line": 725
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|750",
+      "FrameKey": "840494efc50d1a1fe5251f8405cc456e9221f88e196c0c58cffbbc54232f08ec",
+      "TTS_original_line": 1451,
+      "TTS_prepared_line": 726
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|751",
+      "FrameKey": "cb1815482b1c8bed3c8bf800400ab44bd4b5ce6a4647497cc05a9d0d34e224bc",
+      "TTS_original_line": 1453,
+      "TTS_prepared_line": 727
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|752",
+      "FrameKey": "529f3119532a594c4d3dcdb87d52112c0cb8200234bbc58196bbbb86e8be2a22",
+      "TTS_original_line": 1455,
+      "TTS_prepared_line": 728
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|753",
+      "FrameKey": "f5c9906451dfaf596a3197c7ac8f3b553b238c0c2d9592efe638014ce09049cd",
+      "TTS_original_line": 1457,
+      "TTS_prepared_line": 729
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|754",
+      "FrameKey": "8b138e7794faf769a7610954f3cc319e16ef5cbe63766ddcdec4ab5ce05a9056",
+      "TTS_original_line": 1459,
+      "TTS_prepared_line": 730
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|755",
+      "FrameKey": "9733b9911a07297c9c34df5d21aa8f07d63f531934c7f3f9bb809720c9e7a3f7",
+      "TTS_original_line": 1461,
+      "TTS_prepared_line": 731
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|756",
+      "FrameKey": "6ed3220b609456d4785755c8b15d4b0fe1d6b78abb42fa134448c116a3647595",
+      "TTS_original_line": 1463,
+      "TTS_prepared_line": 732
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|757",
+      "FrameKey": "4cdefbe70e3ccde0041eefde61b591d9c8219233c681e1eebeada20714a8b7d8",
+      "TTS_original_line": 1465,
+      "TTS_prepared_line": 733
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|758",
+      "FrameKey": "9815a26824b4a8160f0cf4b1b4414450199f2043a9397f1b083d59ea4b6d94e4",
+      "TTS_original_line": 1467,
+      "TTS_prepared_line": 734
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|759",
+      "FrameKey": "b415d93902e79e3b5c0b6eaa1b655f5d27e0972ba576048528f11d23ef708729",
+      "TTS_original_line": 1469,
+      "TTS_prepared_line": 735
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|760",
+      "FrameKey": "568a4b9fe74c3da3eeaa29521513a772b3f1b849ceee468e3a1d765c441758a7",
+      "TTS_original_line": 1471,
+      "TTS_prepared_line": 736
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|761",
+      "FrameKey": "2f3b953c3b42ef9424a2c24dc8bf54130f0428643bf96dd87cb6d69526d825a7",
+      "TTS_original_line": 1473,
+      "TTS_prepared_line": 737
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|762",
+      "FrameKey": "e241c8e0165e5057740116104c60dfcbd7eabbd21778854c101ef178cfa3f088",
+      "TTS_original_line": 1475,
+      "TTS_prepared_line": 738
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|763",
+      "FrameKey": "a8dbe9a9bcdf23cf80e14d9295082e3ecd91ee84b5c7843d481725c985609156",
+      "TTS_original_line": 1477,
+      "TTS_prepared_line": 739
+    },
+    {
+      "TrialKey": "R2_20261026_desde1400_aproximado|764",
+      "FrameKey": "caaae8b5fa9e2b4849885924d4a735fc698c7df7b07c28b5d8f2c4472ea2af15",
+      "TTS_original_line": 1479,
+      "TTS_prepared_line": 740
+    }
+  ],
+  "CampaignLabelClarification": "R2 es una etiqueta interna heredada; por horario corresponde a C26-1400 y Ruta 1 declarada por el investigador."
+}

@@ -1,0 +1,11 @@
+ID,Resultado,Evidencia,Limite
+C01,670 ensayos; 504 recibidos en tres ventanas,data/field_20261026/ensayos_ventanas_declaradas.csv,No incluye ventana sin denominador
+C02,"C26-1400: 291 ensayos, 267 recibidos",src/matlab/datos/ensayos.csv,Falta tramo final declarado; etiqueta interna heredada R2
+C03,"RMSE congelado 11.7646995431 dB, 103 candidatos",data/field_model_comparison/red_mejor_enlace_intersecciones_sin_anclas.csv,Máximo de red; asociación temporal/espacial provisional
+C04,Ruta 4 original sin CSV; cero mensajes observados,data/field_20261026/reclasificacion_horarios.json,No equivale a PDR=0 ni identifica causa
+C05,Objetos TTS preservados y huellas diferenciadas,provenance/redactions.json,Serialización cambia; cero campos retirados
+C06,"Cohorte de campo: 2630 registros, 2628 calles y dos anclas",src/matlab/datos/nodos_referencia.csv,No sustituye la cohorte estática de 2153 puntos
+C07,"C27-0810: 432 ensayos, 332 con TTS",data/field_20261027/resultados/ensayos_ventana_declarada.csv,Ventana inclusiva 08:10:00–09:26:00; dos archivos con reinicio local
+C08,181 ensayos con GPS; último 08:41:51,data/field_20261027/resultados/asociaciones_GPS.csv,El resto conserva radio pero no permite asociación espacial
+C09,35 candidatos: RMSE calibrado 23.8523673578 dB,data/field_20261027/resultados/network_cal_candidatos_45m.csv,"Predicciones congeladas, no recalibradas; posición/tiempo provisionales"
+C10,121 solo Paltas; 76 solo PUCESA; 135 ambos,data/field_20261027/resultados/ensayos_ventana_declarada.csv,Complementariedad observada; no ensayo causal de desconexión

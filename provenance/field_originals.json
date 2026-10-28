@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "File": "data/field_20261026/ft_originals/26octRuta2Test (1).csv",
+      "Role": "Ruta 1",
+      "Bytes": 69403,
+      "SHA256": "0af5c08b28660cac8211bb75e6b8063238f2128358ef99080d8a833abc39ff1d",
+      "Transformation": "Ninguna; copia byte a byte"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octRuta1.csv",
+      "Role": "Ruta 2",
+      "Bytes": 26352,
+      "SHA256": "27d262fc285a23e202418d4aac3134bd1196e68a73d850bf13ebd9d447f97890",
+      "Transformation": "Ninguna; copia byte a byte"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octTuta3.csv",
+      "Role": "Ruta 3",
+      "Bytes": 18287,
+      "SHA256": "11730fee2b94fbc227bc04d669248d937f62e1ff8d3a80fcb67865288a07c000",
+      "Transformation": "Ninguna; copia byte a byte"
+    },
+    {
+      "File": "data/field_20261026/ft_originals/26octRura4(amla).csv",
+      "Role": "Prueba local 17:05; no Ruta 4",
+      "Bytes": 4576,
+      "SHA256": "6f0faa02fda5030aafb278ed2dc43bc2fead2c0d00bcfcfe70f434aa432bb29c",
+      "Transformation": "Ninguna; copia byte a byte"
+    }
+  ],
+  "ActualRoute4": "Sin archivo correspondiente a 22:08-23:00; repeticion posterior pendiente"
+}

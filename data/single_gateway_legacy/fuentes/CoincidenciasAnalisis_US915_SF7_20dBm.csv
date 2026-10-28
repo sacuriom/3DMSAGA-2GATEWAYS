@@ -1,0 +1,50 @@
+Calle_1,Calle_2,Lat,Lon,Altitud_m,Clutter,RSSI_Teorico_dBm,RSSI_Empirico_dBm,Error_dB
+Almagro,Benalcázar,-1.2477433,-78.6334242,2640,Dense Urban,-96.9,-104,-7.1
+Autachi,Imbabura,-1.2509956,-78.6279262,2653,Dense Urban,-70.36,-56,14.36
+Autachi,Paltas,-1.2516403,-78.6275273,2694,Dense Urban,-47.97,-33,14.97
+Avenida Antonio Clavijo,Granada,-1.259688,-78.634896,2686,Residential,-93.67,-104,-10.33
+Avenida Antonio Clavijo,Manuel Isaías Sánchez,-1.260385,-78.635044,2688,Residential,-94.31,-103,-8.69
+Avenida Antonio Clavijo,Tenerife,-1.2569826,-78.6338505,2665,Dense Urban,-98.87,-102,-3.13
+Avenida Archidona,Avenida El Rey,-1.2430366,-78.6224785,2612,Dense Urban,-101.43,-99,2.43
+Avenida Bolivariana,Chimul,-1.2443728,-78.622547,2615,Dense Urban,-99.92,-101,-1.08
+Avenida De Los Shyris,Doce de Octubre,-1.250551,-78.63408,2637,Residential,-87.87,-91,-3.13
+Avenida El Rey,Montes del Cajas,-1.2427725,-78.6220465,2613,Dense Urban,-101.97,-96,5.97
+Avenida Los Andes,Sangay,-1.239907,-78.6230519,2598,Dense Urban,-104.24,-98,6.24
+Avenida Pichincha,Avenida Rumiñahui,-1.251502,-78.625043,2664,Dense Urban,-84.81,-75,9.81
+Avenida Pichincha,Ignacio Indaburo,-1.2520213,-78.6249918,2663,Dense Urban,-85.16,-88,-2.84
+Avenida Pichincha,José García,-1.2537987,-78.624793,2676,Residential,-80.95,-79,1.95
+Avenida Pichincha,Manco Cápac,-1.254243,-78.62475,2679,Residential,-81.92,-86,-4.08
+Avenida Pichincha,Manco Cápac,-1.2541579,-78.6247614,2679,Residential,-81.72,-85,-3.28
+Avenida Quis Quis,Unnamed Road,-1.2510458,-78.6313818,2646,Dense Urban,-89.4,-104,-14.6
+Benalcázar,Orellana,-1.2470897,-78.6327841,2639,Dense Urban,-96.72,-100,-3.28
+Benalcázar,Pizarro,-1.2482689,-78.6339541,2627,Dense Urban,-97.24,-104,-6.76
+Cantoc,Epiclachima,-1.2508335,-78.626333,2652,Dense Urban,-78.68,-67,11.68
+Cantoc,Imbabura,-1.2500143,-78.6264934,2649,Dense Urban,-81.71,-76,5.71
+Caran XI,Chaquitinta,-1.256467,-78.6308086,2669,Dense Urban,-94.55,-99,-4.45
+Carihuayrazo,Sangay,-1.2404146,-78.6227286,2602,Dense Urban,-103.89,-101,2.89
+Cañar,Imbabura,-1.249296,-78.624333,2648,Dense Urban,-90.27,-94,-3.73
+Chapera,Epiclachima,-1.2506935,-78.6257894,2656,Dense Urban,-82.17,-65,17.17
+Chapera,Imbabura,-1.2496503,-78.6260274,2648,Dense Urban,-84.71,-86,-1.29
+Chaquitinta,Pachacutec,-1.256135,-78.6303573,2669,Residential,-85.34,-93,-7.66
+Chaquitinta,Unnamed Road,-1.2556344,-78.629539,2673,Residential,-83.37,-87,-3.63
+Chaquitinta,Unnamed Road,-1.2555638,-78.6289634,2674,Residential,-82.61,-80,2.61
+Condorazo,Isidro Ayora,-1.2557851,-78.625829,2682,Residential,-83.64,-84,-0.36
+Cápac,Imbabura,-1.2515838,-78.628884,2656,Dense Urban,-76.06,-77,-0.94
+Cápac Yupanqui,Imbabura,-1.2500695,-78.6267111,2650,Dense Urban,-80.68,-80,0.68
+César Silva,Juan Francisco Montalvo,-1.2571305,-78.6318984,2666,Dense Urban,-96.84,-101,-4.16
+Duchicela,Isidro Ayora,-1.2563261,-78.625751,2684,Dense Urban,-92.91,-92,0.91
+Hualcopo,Imbabura,-1.2513133,-78.6284292,2657,Dense Urban,-71.93,-74,-2.07
+Hualcopo,Paltas,-1.2519227,-78.6280531,2659,Dense Urban,-66.83,-59,7.83
+Imbabura,Mainaloa,-1.2518525,-78.629326,2655,Dense Urban,-79.67,-88,-8.33
+Imbabura,Paccha,-1.250675,-78.6274455,2651,Dense Urban,-73.8,-63,10.8
+Imbabura,Unnamed Road,-1.2524075,-78.6302295,2652,Residential,-77.79,-96,-18.21
+Imbabura,Yahuar Huaca,-1.2534033,-78.6314111,2652,Residential,-82.7,-95,-12.3
+Isidro Ayora,Nari Pillahuazo,-1.2568801,-78.625686,2687,Dense Urban,-94.16,-98,-3.84
+La Libertad,Puerto Ayora,-1.2485663,-78.6212079,2631,Dense Urban,-97.21,-102,-4.79
+Latacunga,Paccha,-1.251619,-78.626989,2658,Dense Urban,-69.47,-41,28.47
+Letamendi,San Cristóbal,-1.2522024,-78.6217044,2655,Dense Urban,-94.99,-97,-2.01
+Magallanes,Orellana,-1.2475346,-78.6323272,2638,Dense Urban,-95.52,-99,-3.48
+Manabi,Oriente,-1.2452649,-78.6237677,2618,Dense Urban,-97.78,-103,-5.22
+Otoya,Tomala,-1.2525412,-78.6310086,2650,Residential,-80.69,-101,-20.31
+Paccha,Paltas,-1.2514127,-78.6270996,2656,Dense Urban,-68.69,-30,38.69
+Saraguros,Unnamed Road,-1.2519608,-78.6304942,2650,Dense Urban,-86.01,-94,-7.99

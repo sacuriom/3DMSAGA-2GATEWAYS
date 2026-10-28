@@ -1,0 +1,80 @@
+{
+  "auditoria_ok": true,
+  "cohortes": [
+    {
+      "cohorte": "B2_SF9_global_archivado",
+      "n_rssi": 112,
+      "rmse_db": 14.362489431800165,
+      "mae_db": 10.851875,
+      "bias_emp_menos_teo_db": 1.9450892857142854,
+      "sd_error_poblacional_db": 14.230169723132994,
+      "similitud_6db_pct": 34.82142857142857,
+      "similitud_10db_pct": 60.714285714285715,
+      "pearson_r": 0.820922810951721,
+      "pearson_r_cuadrado": 0.6739142615408751
+    },
+    {
+      "cohorte": "C_SF7_Master_US915_20dBm",
+      "n_rssi": 49,
+      "rmse_db": 10.473049572447309,
+      "mae_db": 7.474285714285714,
+      "bias_emp_menos_teo_db": 0.0020408163265310765,
+      "sd_error_poblacional_db": 10.47304937360688,
+      "similitud_6db_pct": 57.142857142857146,
+      "similitud_10db_pct": 75.51020408163265,
+      "pearson_r": 0.8548752386931987,
+      "pearson_r_cuadrado": 0.7308116737307535
+    },
+    {
+      "cohorte": "SF9_Master_US915_20dBm_n30",
+      "n_rssi": 30,
+      "rmse_db": 10.228795790968423,
+      "mae_db": 8.248999999999999,
+      "bias_emp_menos_teo_db": -2.5709999999999993,
+      "sd_error_poblacional_db": 9.900415260651107,
+      "similitud_6db_pct": 43.333333333333336,
+      "similitud_10db_pct": 66.66666666666667,
+      "pearson_r": 0.8366528953092636,
+      "pearson_r_cuadrado": 0.6999880672293736
+    }
+  ],
+  "total_actual_rutas": {
+    "ruta": "Total_union_actual_4rutas",
+    "evaluados": 234,
+    "con_rssi": 101,
+    "sin_rssi": 133,
+    "fraccion_con_rssi_pct": 43.162393162393165,
+    "rango_maximo_observado_m": 1423.0,
+    "rmse_db": 13.785334796280596,
+    "mae_db": 10.342376237623764,
+    "bias_emp_menos_teo_db": 1.81009900990099,
+    "sd_error_poblacional_db": 13.665979548495601,
+    "similitud_6db_pct": 37.62376237623762,
+    "similitud_10db_pct": 62.37623762376238,
+    "pearson_r": 0.8152442457454011,
+    "pearson_r_cuadrado": 0.664623180220988
+  },
+  "reconstruccion_rf": {
+    "B2_2154": {
+      "n": 2154,
+      "altura_efectiva_m": 2707.0,
+      "distancia_horizontal": "Haversine",
+      "error_maximo_exportacion_db": 0.0049998056134086255,
+      "rmse_exportacion_db": 0.0028957745413140897
+    },
+    "C_SF7_49": {
+      "n": 49,
+      "altura_efectiva_m": 2700.0,
+      "distancia_horizontal": "proyeccion_local",
+      "error_maximo_exportacion_db": 0.004952739432624753,
+      "rmse_exportacion_db": 0.003033789819842377
+    },
+    "SF9_Master_30": {
+      "n": 30,
+      "altura_efectiva_m": 2700.0,
+      "distancia_horizontal": "proyeccion_local",
+      "error_maximo_exportacion_db": 0.004948020354973437,
+      "rmse_exportacion_db": 0.003030498678218323
+    }
+  }
+}

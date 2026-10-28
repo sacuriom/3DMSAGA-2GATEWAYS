@@ -1,0 +1,7 @@
+{
+  "OriginalScriptSHA256": "c574c5ff877dfadd43bdd459c97f0f55811b860f49ad932615f8bae2b34133b6",
+  "PreparedScript": "src/matlab_original_reference/MDPI_3DMSAGA_Production_TTS_Integrated.m",
+  "PreparedSHA256": "c6779260f08cf57e691cfbf70d416c5404c2ac8b036f3e07a5380b1cfefb7364",
+  "Scope": "Referencia historica sanitizada; no sustituye la revision trazable ni demuestra consulta API por el nombre del dataset. No ejecutar sin revisar configuracion.",
+  "CacheSHA256": "ef7a13b55b090f5b2cb54fb8a31c38a2e3587989a68990fb79ca747756a0bb0d"
+}

@@ -1,0 +1,6 @@
+{
+  "Python": "3.12.14",
+  "Numpy": "2.3.5",
+  "Reportlab": "4.4.9",
+  "Scope": "Analisis y figura locales; auditoria CI usa solo biblioteca estandar"
+}

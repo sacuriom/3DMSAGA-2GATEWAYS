@@ -1,0 +1,20 @@
+{
+  "Files": [
+    {
+      "Name": "ensayos.csv",
+      "SHA256": "e116c105094056cf244606fcb939ba039384a03210c549c1668978170c8e7523"
+    },
+    {
+      "Name": "recepciones.csv",
+      "SHA256": "81024131cff5e41b26b25c82344f211c770886ef8aade2f3d06dc539cc80b5f3"
+    },
+    {
+      "Name": "nodos_referencia.csv",
+      "SHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91"
+    },
+    {
+      "Name": "trazabilidad_fuentes.json",
+      "SHA256": "436f6b734481abef96c527cc12b1ca7d326969c6baf72549e348cf76d5bac6cb"
+    }
+  ]
+}

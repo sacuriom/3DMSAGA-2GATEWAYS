@@ -1,0 +1,31 @@
+Calle_1,Calle_2,Lat,Lon,Altitud_m,Clutter,RSSI_Teorico_dBm,RSSI_Empirico_dBm,Error_dB
+Almagro,Benalcázar,-1.2477433,-78.6334242,2640,Dense Urban,-96.9,-102,-5.1
+Autachi,Paltas,-1.2516403,-78.6275273,2694,Dense Urban,-47.97,-36,11.97
+Avenida Atahualpa,Avenida De Los Shyris,-1.2503654,-78.6324851,2639,Residential,-84.84,-95,-10.16
+Avenida Bolivariana,Azuay,-1.2452884,-78.6221619,2617,Dense Urban,-99.22,-93,6.22
+Avenida Cevallos,Francisco Flor,-1.245401,-78.6308536,2583,Dense Urban,-97.09,-101,-3.91
+Avenida De Los Shyris,La Niña,-1.2502243,-78.6331581,2639,Residential,-86.31,-93,-6.69
+Avenida Los Chasquis,Los Incas,-1.2485847,-78.6218651,2638,Dense Urban,-96.13,-105,-8.87
+Avenida Quis Quis,Unnamed Road,-1.2510458,-78.6313818,2646,Dense Urban,-89.4,-92,-2.6
+Avenida Rumiñahui,Unnamed Road,-1.2532977,-78.6296486,2660,Residential,-77.34,-87,-9.66
+Avenida Rumiñahui,Unnamed Road,-1.2533874,-78.6295994,2661,Residential,-77.43,-80,-2.57
+Avenida los Chasquis,Imbabura,-1.2509203,-78.6222292,2649,Dense Urban,-93.91,-105,-11.09
+Benalcázar,Orellana,-1.2470897,-78.6327841,2639,Dense Urban,-96.72,-96,0.72
+Benalcázar,Pizarro,-1.2466175,-78.6323396,2635,Dense Urban,-96.74,-102,-5.26
+Chalco Maita,Duchicela,-1.2564741,-78.626745,2684,Dense Urban,-92.56,-92,0.56
+Chalco Maita,Nari Pillahuazo,-1.2570254,-78.6266732,2687,Dense Urban,-93.88,-103,-9.12
+Chaquitinta,Unnamed Road,-1.2555638,-78.6289634,2674,Residential,-82.61,-85,-2.39
+Cortés,Orellana,-1.2466597,-78.6332138,2637,Dense Urban,-97.76,-89,8.76
+Cápac,Paltas,-1.2521542,-78.628523,2660,Dense Urban,-73.74,-51,22.74
+Doce de Octubre,Magallanes,-1.249552,-78.634309,2629,Residential,-88.66,-101,-12.34
+Duchicela,Manco Cápac,-1.2567692,-78.628761,2681,Dense Urban,-93.37,-80,13.37
+Duchicela,Roca Inca,-1.2566241,-78.627711,2681,Dense Urban,-92.73,-97,-4.27
+Hualcopo,Paltas,-1.2519227,-78.6280531,2659,Dense Urban,-66.83,-46,20.83
+Imbabura,Unnamed Road,-1.2524075,-78.6302295,2652,Residential,-77.79,-100,-22.21
+Los Incas,Unnamed Road,-1.2517241,-78.630647,2648,Dense Urban,-86.58,-102,-15.42
+Magallanes,Pizarro,-1.2492339,-78.6340021,2629,Dense Urban,-96.61,-97,-0.39
+Magallanes,Santa María,-1.2487769,-78.6335429,2634,Dense Urban,-96.16,-101,-4.84
+Mainaloa,Paltas,-1.252405,-78.6289788,2659,Residential,-71.49,-74,-2.51
+Nari Pillahuazo,Roca Inca,-1.2571781,-78.627647,2686,Dense Urban,-94.03,-102,-7.97
+Orellana,Pizarro,-1.2466339,-78.6334588,2631,Residential,-89.73,-101,-11.27
+Paltas,Unnamed Road,-1.2528808,-78.6299265,2656,Residential,-77.34,-81,-3.66

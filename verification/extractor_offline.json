@@ -1,0 +1,18 @@
+{
+  "extracted_at_utc": "20261027T134451Z",
+  "source": "offline_response",
+  "script_sha256": "9d8e72e6f3e394f6c57a96806870746a7bcf02c7369c182533955ec0d4595a63",
+  "raw_sha256": "8bf8d17c80cd93bc539f39271447cabae89f00ad1c3738891474ba40072c07d4",
+  "response_objects": 741,
+  "parse_errors": 0,
+  "message_rows": 741,
+  "distinct_message_records": 741,
+  "reception_rows": 1208,
+  "messages_with_two_or_more_gateways": 467,
+  "gateway_ids": [
+    "gateway1",
+    "gateway2"
+  ],
+  "limit_reached": false,
+  "scope": "Received messages only; not a PDR denominator. Message_ID identifies a server record, not all retransmissions of an application message."
+}

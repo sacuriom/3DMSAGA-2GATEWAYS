@@ -1,0 +1,105 @@
+\section{Validación empírica en campo y auditoría del Gemelo Digital}\label{sec:Cap4.6}
+Con el objetivo de auditar la validez física del Gemelo Digital y verificar experimentalmente el canal de propagación simulado frente a la variabilidad real, se ejecutó una campaña de medición en campo (\textit{drive-test}) georreferenciada en la zona urbana de Ambato. Esta auditoría contrastó las predicciones teóricas de potencia recibida ($RSSI$) y confirmación de enlace frente a las transmisiones reales del protocolo LoRaWAN.
+
+\subsection{Normativa espectral y transición técnica (AU915 vs. US915 / ARCOTEL)}
+La evaluación física consideró dos configuraciones normativas de radiofrecuencia:
+\begin{enumerate}
+    \item \textbf{Exploración preliminar bajo AU915 ($P_{tx} = 30$ dBm):} Fase inicial orientada a cuantificar el alcance macrocelular máximo empleando un transceptor Milesight FT101 en el plan de frecuencias AU915 a 1.0 W de potencia de emisión. Esta cota, aunque útil para el mapeo perimétrico, introdujo artefactos de saturación en receptores a corta distancia ($d < 250$ m) y no refleja la normativa local de baja potencia.
+    \item \textbf{Operación regulada bajo US915 / ARCOTEL ($P_{tx} = 20$ dBm):} Configuración homologada según las regulaciones de la Agencia de Regulación y Control de las Telecomunicaciones (ARCOTEL) de Ecuador para bandas ISM no licenciadas (915--928 MHz), limitando la potencia isotrópica radiada equivalente (EIRP) a $20$ dBm ($100$ mW). En esta modalidad se ejecutaron mediciones comparativas en $SF=9$ (sensibilidad $S_{rx} = -130$ dBm) y $SF=7$ (sensibilidad $S_{rx} = -125$ dBm).
+\end{enumerate}
+
+La estación base consistió en un gateway industrial de 8 canales \textbf{Milesight UG67}, instalado en las coordenadas centrales del Gemelo Digital (intersección de calles Paltas y Autachi: $1.25164^\circ$ S, $78.62765^\circ$ W, altitud de $2,694$ msnm, $H_{ant} = 6.0$ m sobre cubierta, ganancia de antena omnidireccional $G = 2.15$ dBi).
+
+\subsection{Estrategia de adquisición de datos: Muestreo libre frente a 4 Rutas TSP dirigidas}
+La investigación contrastó rigurosamente dos paradigmas de adquisición de telemetría:
+\begin{itemize}
+    \item \textbf{Muestreo Oportunista (Conducción no estructurada):} Recolección pasiva en trayectos vehiculares habituales. El análisis espacial identificó un marcado sesgo por aglomeración (\textit{spatial clumping}): el 65\% de las tramas se registraron sobre tres avenidas colectoras de alta velocidad, omitiendo calles secundarias y zonas críticas de borde celular ($-100$ a $-120$ dBm).
+    \item \textbf{Campaña de Rutas Dirigidas mediante TSP:} Para eliminar dicho sesgo, se diseñó un algoritmo en Python y MATLAB que seleccionó $200$ intersecciones no repetidas sobre los $2,154$ nodos del Gemelo Digital de Ambato, sujetas a tres restricciones: (1) exclusión de puntos evaluados previamente mediante distancia de Haversine ($d \ge 65$ m), (2) estratificación equitativa en bandas de RSSI teórica (fuerte, media y borde de sensibilidad), y (3) optimización de trayectoria vehicular resolviendo el Problema del Viajante (TSP) para cuatro circuitos zonales: Ruta 1 (Noroeste: Ficoa/Miraflores), Ruta 2 (Suroeste: Huachi/Clavijo), Ruta 3 (Noreste: Pichincha/Centro) y Ruta 4 (Sureste: 9 de Octubre/Atis). Los waypoints se particionaron en secuencias continuas de navegación de 8 puntos integradas a Google Maps, transmitiendo a velocidad vehicular media ($25$ km/h) con antena en techo ($H_{tester} = 1.5$ m).
+\end{itemize}
+
+\subsection{Emparejamiento topológico Z-Snapping y métricas de error}
+Para compensar la incertidumbre altimétrica inherente a los receptores GPS estándar en cañones urbanos andinos ($\pm 15$ m), se implementó el algoritmo de \textbf{Z-Snapping Topológico}. Cada punto de telemetría empírica $(\phi_i, \lambda_i, z_{gps,i})$ se emparejó con el nodo $k$ más próximo de la malla del Gemelo Digital mediante un radio de tolerancia euclidiana $r_{snap} \le 50$ m, reasignando su cota como $z_{corr,i} = z_{SRTM,k} + H_{tester}$.
+
+La correlación entre el nivel de potencia modelado por 3D-M-SAGA ($RSSI_{theo}$) y el valor medido por el Field Tester ($RSSI_{emp}$) se evaluó mediante la raíz del error cuadrático medio ($RMSE$), el error absoluto medio ($MAE$), el sesgo medio ($\text{Bias}$) y la similitud dentro del margen de desvanecimiento log-normal de la Recomendación UIT-R P.1411 ($\pm 6.0$ dB):
+\begin{align}
+    \text{RMSE} &= \sqrt{\frac{1}{N_{ack}} \sum_{i=1}^{N_{ack}} \left( RSSI_{theo,i} - RSSI_{emp,i} \right)^2 } \\
+    \text{MAE} &= \frac{1}{N_{ack}} \sum_{i=1}^{N_{ack}} \left| RSSI_{theo,i} - RSSI_{emp,i} \right| \\
+    \text{Bias} &= \frac{1}{N_{ack}} \sum_{i=1}^{N_{ack}} \left( RSSI_{theo,i} - RSSI_{emp,i} \right) \\
+    \text{Similitud}_{(\pm 6\,\text{dB})} &= \frac{1}{N_{ack}} \sum_{i=1}^{N_{ack}} \mathbb{I}\left( \left| RSSI_{theo,i} - RSSI_{emp,i} \right| \le 6.0\,\text{dB} \right) \times 100\%
+\end{align}
+
+\subsection{Resultados comparativos multi-escenario y correlación lineal}
+El procesamiento de los $1,363$ registros de telemetría recolectados en las diferentes campañas experimentales arrojó el consolidado estadístico presentado en la Tabla \ref{tab:comparativa_escenarios_fieldtester}.
+
+\begin{table}[htbp]
+\centering
+\caption{Validación empírica multi-escenario en Ambato: impacto de la potencia radiada, banda de operación y estrategia de muestreo.}
+\label{tab:comparativa_escenarios_fieldtester}
+\small
+\setlength{\tabcolsep}{3pt}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{1.05cm}>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\toprule
+\textbf{Escenario experimental} & \textbf{Banda} & \shortstack{\textbf{Ptx}\\\textbf{(dBm)}} & \textbf{SF} & \shortstack{\textbf{Nodos}\\\textbf{con ACK}} & \shortstack{\textbf{RMSE}\\\textbf{(dB)}} & \shortstack{\textbf{Similitud}\\\textbf{($\pm 6$ dB)}} \\
+\midrule
+A: Histórico No Dirigido & AU915 & 30 & 9 & 70 & 17.39 & 20.0\% \\
+B: Preliminar 10-Octubre & US915 & 20 & 9 & 50 & 12.48 & 30.0\% \\
+\textbf{B.1: Consolidado 4 Rutas (10--11 Oct)} & \textbf{US915} & \textbf{20} & \textbf{9} & \textbf{83} & \textbf{13.14} & \textbf{39.8\%} \\
+B.2: Acumulado Global SF9 & US/AU & 20--30 & 9 & 112 & 14.36 & 34.8\% \\
+\textbf{C: Optimizado Calibrado SF7} & \textbf{US915} & \textbf{20} & \textbf{7} & \textbf{49} & \textbf{10.47} & \textbf{57.1\%} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Los resultados confirman que el diseño de trayectorias dirigidas (Escenario B.1) reduce el error de modelado a un $RMSE = 13.14$ dB y un $MAE = 9.84$ dB, duplicando la tasa de concordancia UIT-R P.1411 respecto al muestreo no estructurado ($39.8\%$ frente a $20.0\%$). Sobre la totalidad de los 112 nodos con enlace confirmado en SF9 (Escenario B.2), el modelo exhibe un sesgo medio prácticamente nulo ($\text{Bias} = +1.95$ dB), con una desviación de error de $\sigma_{err} = 14.23$ dB, un coeficiente de correlación de Pearson $r = 0.821$ ($R^2 = 0.674$) y un $60.7\%$ de los puntos contenidos en el umbral extendido de $\pm 10$ dB. En condiciones de SF7 (Escenario C), el RMSE desciende a $10.47$ dB con una similitud del $57.1\%$, reflejando una correspondencia notable entre el modelo y la propagación física urbana.
+
+\subsection{Desglose de las cuatro rutas urbanas y análisis de rango real}
+La Tabla \ref{tab:detalle_4rutas_sf9} desglosa el comportamiento específico de la red en los cuatro circuitos urbanos evaluados bajo el protocolo SF9 y potencia regulada de 20 dBm.
+
+\begin{table}[htbp]
+\centering
+\caption{Desempeño empírico por circuito vehicular urbano en Ambato bajo SF9 ($P_{tx} = 20$ dBm).}
+\label{tab:detalle_4rutas_sf9}
+\small
+\setlength{\tabcolsep}{3pt}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.8cm}>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\toprule
+\textbf{Circuito vial evaluado} & \textbf{Evaluados} & \shortstack{\textbf{Enlace}\\\textbf{(ACK)}} & \shortstack{\textbf{Puntos}\\\textbf{ciegos}} & \shortstack{\textbf{Cobertura}\\\textbf{(\%)}} & \shortstack{\textbf{Rango}\\\textbf{máx. (m)}} & \shortstack{\textbf{RMSE}\\\textbf{(dB)}} \\
+\midrule
+Ruta 1 (Noroeste: Ficoa / Miraflores) & 19 & 13 & 6 & 68.4\% & 554 & 22.92 \\
+Ruta 2 (Suroeste: Huachi / Clavijo) & 87 & 46 & 41 & 52.9\% & 1,423 & 11.60 \\
+Ruta 3 (Noreste: Pichincha / Centro) & 76 & 28 & 48 & 36.8\% & 933 & 12.54 \\
+Ruta 4 (Sureste: 9 de Octubre / Atis) & 52 & 14 & 38 & 26.9\% & 1,014 & 11.24 \\
+\midrule
+\textbf{Consolidado 4 Rutas} & \textbf{200} & \textbf{83} & \textbf{117} & \textbf{41.5\%} & \textbf{1,423} & \textbf{13.14} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\textwidth]{Figuras/Figura_Overlay_Empirico_2D.png}
+    \caption{Superposición de telemetría empírica sobre el mapa de propagación 3D del Gemelo Digital en Ambato. Los círculos georreferenciados corresponden a los paquetes confirmados por el Field Tester tras la aplicación de \textit{Z-Snapping}, desplegados sobre la cobertura predicha para el Gateway Milesight UG67.}
+    \label{fig:zsnapping_overlay}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{Figuras/Figura_Scatter_Error_RF.png}
+    \caption{Diagrama de dispersión: RSSI teórico predicho por 3D-M-SAGA frente a RSSI empírico medido en campo para el Escenario C ($SF=7$, $P_{tx}=20$ dBm). Las líneas discontinuas rojas acotan la banda de desvanecimiento log-normal UIT-R P.1411 ($\pm 6$ dB).}
+    \label{fig:scatter_error}
+\end{figure}
+
+La contrastación espacial evidencia dos fenómenos determinantes para la ingeniería de radiofrecuencia en ciudades andinas:
+\begin{itemize}
+    \item \textbf{Corte Abrupto de Alcance Físico frente a Cobertura Teórica:} En espacio libre ideal con atenuación homogénea de clutter, el modelo 3D-M-SAGA proyecta un alcance teórico de hasta $4,432$ metros para el umbral de sensibilidad de SF9 ($-130$ dBm). Sin embargo, la experimentación física fijó el alcance empírico máximo en $1,423$ metros (registrado en la periferia de Huachi Chico, Ruta 2). Más allá de este umbral, el desvanecimiento inducido por el apantallamiento topológico interrumpe completamente la demodulación de los paquetes de enlace descendente (ACK).
+    \item \textbf{Mecanismos de Atenuación en Puntos Ciegos:} De las 200 intersecciones auditadas en las 4 rutas, $117$ nodos ($58.5\%$) resultaron ser puntos ciegos. La investigación identificó dos fuentes electromagnéticas principales:
+    \begin{enumerate}
+        \item \textit{Difracción de Filo de Cuchillo en Terrazas Fluviales (Ruta 3):} El descenso hacia la ribera del río Ambato introduce una pérdida por difracción de cresta superior a $25$ dB, extinguiendo la señal en calles encajonadas de Pichincha Norte y Cevallos.
+        \item \textit{Apantallamiento por Cañón Urbano de Hormigón (Rutas 2 y 4):} En arterias densamente edificadas con estructuras de hormigón armado de 4 a 5 plantas (Av. 9 de Octubre, Los Atis y Galo Vela), las pérdidas por penetración y dispersión multifrayecto agregan entre $15$ y $22$ dB de atenuación sobre el modelo medio, impidiendo la recepción en el gateway.
+    \end{enumerate}
+\end{itemize}
+
+La totalidad de las mediciones y coordenadas validadas se compilaron en el dataset \nolinkurl{Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv}, y los puntos ciegos identificados se aislaron en \nolinkurl{Puntos_Ciegos_Identificados_SF9.csv}. En el marco de despliegue de ciudades inteligentes, este inventario constituye una herramienta prescriptiva de ingeniería, permitiendo programar órdenes de trabajo precisas para la micro-densificación de la red mediante pasarelas complementarias de baja cota.
+

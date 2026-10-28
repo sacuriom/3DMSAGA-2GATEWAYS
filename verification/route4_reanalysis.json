@@ -1,0 +1,5 @@
+{
+  "Status": "PASS",
+  "Scope": "Resumen completo reproducido desde CSV FT y JSONL TTS; igualdad con resultado conservado",
+  "FrozenDatasetSHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91"
+}

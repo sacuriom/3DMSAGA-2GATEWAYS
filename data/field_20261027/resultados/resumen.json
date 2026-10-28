@@ -1,0 +1,365 @@
+{
+  "Campaign": "C27-0810",
+  "DeclaredWindow": "2026-10-27 08:10:00–09:26:00 UTC-05",
+  "Files": [
+    {
+      "File": "27octubreRuta4.1.csv",
+      "Rows": 396,
+      "First": "2026-10-27 08:06:29",
+      "Last": "2026-10-27 09:15:41",
+      "GPS": 201,
+      "TTS": 313,
+      "CounterGaps": 0
+    },
+    {
+      "File": "27octubreRuta4.2.csv",
+      "Rows": 87,
+      "First": "2026-10-27 09:16:26",
+      "Last": "2026-10-27 09:31:25",
+      "GPS": 0,
+      "TTS": 70,
+      "CounterGaps": 0
+    }
+  ],
+  "AllRecords": {
+    "Trials": 483,
+    "TTS_received": 383,
+    "NotFound": 100,
+    "StoredReception_pct": 79.29606625258799,
+    "GPS": 201,
+    "GPS_pct": 41.61490683229814,
+    "GPS_and_TTS": 149,
+    "GW1": 305,
+    "GW2": 254,
+    "Both": 176,
+    "OnlyGW1": 129,
+    "OnlyGW2": 78,
+    "Median_FT_minus_radio_s": 9.271,
+    "Min_FT_minus_radio_s": 8.699,
+    "Max_FT_minus_radio_s": 16.997,
+    "FT_RSSI_present": 278,
+    "FT_RSSI_missing_TTS_received": 105,
+    "First": "2026-10-27 08:06:29",
+    "Last": "2026-10-27 09:31:25",
+    "FirstGPS": "2026-10-27 08:06:29",
+    "LastGPS": "2026-10-27 08:41:51"
+  },
+  "Declared": {
+    "Trials": 432,
+    "TTS_received": 332,
+    "NotFound": 100,
+    "StoredReception_pct": 76.85185185185185,
+    "GPS": 181,
+    "GPS_pct": 41.898148148148145,
+    "GPS_and_TTS": 129,
+    "GW1": 256,
+    "GW2": 211,
+    "Both": 135,
+    "OnlyGW1": 121,
+    "OnlyGW2": 76,
+    "Median_FT_minus_radio_s": 9.2585,
+    "Min_FT_minus_radio_s": 8.699,
+    "Max_FT_minus_radio_s": 9.827,
+    "FT_RSSI_present": 229,
+    "FT_RSSI_missing_TTS_received": 103,
+    "First": "2026-10-27 08:10:05",
+    "Last": "2026-10-27 09:26:00",
+    "FirstGPS": "2026-10-27 08:10:05",
+    "LastGPS": "2026-10-27 08:41:51"
+  },
+  "OffsetEvidence": [
+    {
+      "File": "27octubreRuta4.1.csv",
+      "ChosenOffset": 1316,
+      "TemporalVotes": [
+        [
+          1316,
+          313
+        ],
+        [
+          1317,
+          36
+        ],
+        [
+          1315,
+          30
+        ],
+        [
+          1314,
+          4
+        ]
+      ],
+      "Rule": "Modo de offsets por proximidad temporal, verificado despues en toda la secuencia; no universal"
+    },
+    {
+      "File": "27octubreRuta4.2.csv",
+      "ChosenOffset": 1713,
+      "TemporalVotes": [
+        [
+          1713,
+          70
+        ],
+        [
+          1714,
+          7
+        ],
+        [
+          1712,
+          7
+        ],
+        [
+          1711,
+          1
+        ]
+      ],
+      "Rule": "Modo de offsets por proximidad temporal, verificado despues en toda la secuencia; no universal"
+    }
+  ],
+  "NonTestMessages": [
+    {
+      "FCnt": 1316,
+      "Time_radio_local": "2026-10-27 08:06:04.720000",
+      "Payload_hex": "c0ec00f010",
+      "SourceLine": 1
+    },
+    {
+      "FCnt": 1801,
+      "Time_radio_local": "2026-10-27 09:31:26.740000",
+      "Payload_hex": "03a1000000000000000004a224fd340005a30906a4b80b",
+      "SourceLine": 769
+    }
+  ],
+  "SnapshotSHA256": "ab0a25aae3277842d74b030f46dddadc609967ce0209efbece9eab4ac25b4d9a",
+  "FrozenDatasetSHA256": "54865c30f0d5b8636d7b7998ac06f447b21a7465b0a26cd8dc2e78ad46b2ab91",
+  "AntennaIntervention": "Investigador declara permanencia en parrilla, desplazamiento de antena y parada para reubicarla. Hora exacta no documentada; no se atribuye causalidad a la perdida GNSS.",
+  "GPS": "No imputado ni reconstruido despues de ultima posicion",
+  "PotentialGPSExcursions": 2,
+  "OutsideROI": 0,
+  "StreetCandidatesVisited45m": 44,
+  "StreetCandidatesWithSignal45m": 35,
+  "OverlapWithC26_1400": 4,
+  "NewVsC26_1400": 31,
+  "UnionWithC26_1400": 134,
+  "Comparisons": [
+    {
+      "Radius_m": 15,
+      "Series": "gateway1",
+      "Receptions": 15,
+      "n": 8,
+      "RMSE_dB": 24.85306822104667,
+      "MAE_dB": 21.174999999999997,
+      "Bias_obs_minus_pred_dB": 17.699999999999996,
+      "P90_abs_dB": 40.529999999999994,
+      "Within6_pct": 12.5,
+      "Within10_pct": 25.0
+    },
+    {
+      "Radius_m": 15,
+      "Series": "gateway2",
+      "Receptions": 6,
+      "n": 3,
+      "RMSE_dB": 38.959337776712786,
+      "MAE_dB": 36.96666666666667,
+      "Bias_obs_minus_pred_dB": 36.96666666666667,
+      "P90_abs_dB": 49.43999999999999,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 15,
+      "Series": "network_raw",
+      "Receptions": 16,
+      "n": 9,
+      "RMSE_dB": 25.624120581115665,
+      "MAE_dB": 21.33333333333333,
+      "Bias_obs_minus_pred_dB": 15.22222222222222,
+      "P90_abs_dB": 44.879999999999995,
+      "Within6_pct": 11.11111111111111,
+      "Within10_pct": 22.22222222222222
+    },
+    {
+      "Radius_m": 15,
+      "Series": "network_cal",
+      "Receptions": 16,
+      "n": 9,
+      "RMSE_dB": 23.99798602660926,
+      "MAE_dB": 23.366666666666664,
+      "Bias_obs_minus_pred_dB": -16.655555555555555,
+      "P90_abs_dB": 28.84,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 30,
+      "Series": "gateway1",
+      "Receptions": 42,
+      "n": 21,
+      "RMSE_dB": 22.49104583733586,
+      "MAE_dB": 18.176190476190477,
+      "Bias_obs_minus_pred_dB": 12.366666666666664,
+      "P90_abs_dB": 39.0,
+      "Within6_pct": 23.809523809523807,
+      "Within10_pct": 33.33333333333333
+    },
+    {
+      "Radius_m": 30,
+      "Series": "gateway2",
+      "Receptions": 29,
+      "n": 15,
+      "RMSE_dB": 38.83119021267998,
+      "MAE_dB": 37.266666666666666,
+      "Bias_obs_minus_pred_dB": 37.266666666666666,
+      "P90_abs_dB": 55.46,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 30,
+      "Series": "network_raw",
+      "Receptions": 49,
+      "n": 25,
+      "RMSE_dB": 21.450668987236735,
+      "MAE_dB": 16.791999999999998,
+      "Bias_obs_minus_pred_dB": 9.383999999999997,
+      "P90_abs_dB": 39.98000000000001,
+      "Within6_pct": 28.000000000000004,
+      "Within10_pct": 36.0
+    },
+    {
+      "Radius_m": 30,
+      "Series": "network_cal",
+      "Receptions": 49,
+      "n": 25,
+      "RMSE_dB": 23.202973947319773,
+      "MAE_dB": 22.084,
+      "Bias_obs_minus_pred_dB": -13.34,
+      "P90_abs_dB": 29.080000000000005,
+      "Within6_pct": 4.0,
+      "Within10_pct": 8.0
+    },
+    {
+      "Radius_m": 45,
+      "Series": "gateway1",
+      "Receptions": 54,
+      "n": 30,
+      "RMSE_dB": 23.115074446487657,
+      "MAE_dB": 18.85333333333333,
+      "Bias_obs_minus_pred_dB": 11.686666666666666,
+      "P90_abs_dB": 39.690000000000005,
+      "Within6_pct": 20.0,
+      "Within10_pct": 33.33333333333333
+    },
+    {
+      "Radius_m": 45,
+      "Series": "gateway2",
+      "Receptions": 45,
+      "n": 23,
+      "RMSE_dB": 39.36763181577739,
+      "MAE_dB": 37.49565217391305,
+      "Bias_obs_minus_pred_dB": 37.49565217391305,
+      "P90_abs_dB": 58.46,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 45,
+      "Series": "network_raw",
+      "Receptions": 69,
+      "n": 35,
+      "RMSE_dB": 22.14770545999872,
+      "MAE_dB": 17.7,
+      "Bias_obs_minus_pred_dB": 10.208571428571428,
+      "P90_abs_dB": 40.52000000000001,
+      "Within6_pct": 25.71428571428571,
+      "Within10_pct": 37.142857142857146
+    },
+    {
+      "Radius_m": 45,
+      "Series": "network_cal",
+      "Receptions": 69,
+      "n": 35,
+      "RMSE_dB": 23.8523673577997,
+      "MAE_dB": 22.731428571428573,
+      "Bias_obs_minus_pred_dB": -10.72,
+      "P90_abs_dB": 31.620000000000005,
+      "Within6_pct": 2.857142857142857,
+      "Within10_pct": 8.571428571428571
+    },
+    {
+      "Radius_m": 60,
+      "Series": "gateway1",
+      "Receptions": 68,
+      "n": 37,
+      "RMSE_dB": 22.631507575394423,
+      "MAE_dB": 19.1,
+      "Bias_obs_minus_pred_dB": 12.591891891891892,
+      "P90_abs_dB": 39.32,
+      "Within6_pct": 16.216216216216218,
+      "Within10_pct": 27.027027027027028
+    },
+    {
+      "Radius_m": 60,
+      "Series": "gateway2",
+      "Receptions": 53,
+      "n": 28,
+      "RMSE_dB": 37.90686424835029,
+      "MAE_dB": 36.067857142857136,
+      "Bias_obs_minus_pred_dB": 36.067857142857136,
+      "P90_abs_dB": 57.11000000000001,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 60,
+      "Series": "network_raw",
+      "Receptions": 87,
+      "n": 43,
+      "RMSE_dB": 21.58446900726495,
+      "MAE_dB": 17.70232558139535,
+      "Bias_obs_minus_pred_dB": 10.97674418604651,
+      "P90_abs_dB": 38.120000000000026,
+      "Within6_pct": 23.25581395348837,
+      "Within10_pct": 34.883720930232556
+    },
+    {
+      "Radius_m": 60,
+      "Series": "network_cal",
+      "Receptions": 87,
+      "n": 43,
+      "RMSE_dB": 24.013518479544846,
+      "MAE_dB": 23.034883720930235,
+      "Bias_obs_minus_pred_dB": -10.355813953488374,
+      "P90_abs_dB": 31.600000000000005,
+      "Within6_pct": 2.3255813953488373,
+      "Within10_pct": 4.651162790697675
+    },
+    {
+      "Radius_m": 45,
+      "Series": "network_cal_historical",
+      "Receptions": 21,
+      "n": 6,
+      "RMSE_dB": 24.835626292351343,
+      "MAE_dB": 23.616666666666664,
+      "Bias_obs_minus_pred_dB": 11.550000000000002,
+      "P90_abs_dB": 31.35,
+      "Within6_pct": 0.0,
+      "Within10_pct": 0.0
+    },
+    {
+      "Radius_m": 45,
+      "Series": "network_cal_new_historical_locations",
+      "Receptions": 48,
+      "n": 29,
+      "RMSE_dB": 23.643829843220672,
+      "MAE_dB": 22.54827586206897,
+      "Bias_obs_minus_pred_dB": -15.327586206896555,
+      "P90_abs_dB": 28.279999999999998,
+      "Within6_pct": 3.4482758620689653,
+      "Within10_pct": 10.344827586206897
+    }
+  ],
+  "Scope": "Asociacion provisional por posicion FT; sin reajuste RF ni correccion temporal",
+  "PriorThreeWindowsStreetCandidates": 182,
+  "NewVsThreeWindows": 30,
+  "UnionWithThreeWindows": 212
+}

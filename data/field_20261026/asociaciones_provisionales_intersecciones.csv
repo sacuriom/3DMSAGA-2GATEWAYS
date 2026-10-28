@@ -1,0 +1,826 @@
+﻿Route,Tx_Cnt,Time_FT,Node_ID,Primary_Street,Intersecting_Street,MatchDistance_m,Within45m,Infrastructure,TTS_received
+Ruta1,1,2026-10-26 16:14:37,1440,Autachi,Paltas,13.367060364447177,True,False,True
+Ruta1,2,2026-10-26 16:14:48,1440,Autachi,Paltas,8.996578167779768,True,False,True
+Ruta1,3,2026-10-26 16:14:58,2,Sector Paltas,Gateway1PALTAS (TTN),7.72244621495522,True,True,True
+Ruta1,4,2026-10-26 16:15:09,2,Sector Paltas,Gateway1PALTAS (TTN),3.1330892369055867,True,True,True
+Ruta1,5,2026-10-26 16:15:19,2,Sector Paltas,Gateway1PALTAS (TTN),2.405334226756763,True,True,True
+Ruta1,6,2026-10-26 16:15:30,2,Sector Paltas,Gateway1PALTAS (TTN),2.3561157804048625,True,True,True
+Ruta1,7,2026-10-26 16:15:40,2,Sector Paltas,Gateway1PALTAS (TTN),11.990425358800374,True,True,True
+Ruta1,8,2026-10-26 16:15:51,2,Sector Paltas,Gateway1PALTAS (TTN),10.828745939195668,True,True,True
+Ruta1,9,2026-10-26 16:16:01,1440,Autachi,Paltas,10.474710036635788,True,False,True
+Ruta1,10,2026-10-26 16:16:11,1440,Autachi,Paltas,6.661003837844414,True,False,True
+Ruta1,11,2026-10-26 16:16:22,1440,Autachi,Paltas,9.49876423840726,True,False,True
+Ruta1,12,2026-10-26 16:16:32,1440,Autachi,Paltas,5.235529765827039,True,False,True
+Ruta1,13,2026-10-26 16:16:43,1440,Autachi,Paltas,9.592540957562353,True,False,True
+Ruta1,14,2026-10-26 16:16:53,2,Sector Paltas,Gateway1PALTAS (TTN),8.788808436487745,True,True,True
+Ruta1,15,2026-10-26 16:17:04,1440,Autachi,Paltas,10.020547320853133,True,False,True
+Ruta1,16,2026-10-26 16:17:14,2,Sector Paltas,Gateway1PALTAS (TTN),5.832898487661908,True,True,True
+Ruta1,17,2026-10-26 16:17:25,2,Sector Paltas,Gateway1PALTAS (TTN),5.6685263247281785,True,True,True
+Ruta1,18,2026-10-26 16:17:35,2,Sector Paltas,Gateway1PALTAS (TTN),8.226064776829375,True,True,True
+Ruta1,19,2026-10-26 16:17:46,1440,Autachi,Paltas,8.927429398748801,True,False,True
+Ruta1,20,2026-10-26 16:17:56,2,Sector Paltas,Gateway1PALTAS (TTN),5.896828301519806,True,True,True
+Ruta1,21,2026-10-26 16:18:06,2,Sector Paltas,Gateway1PALTAS (TTN),5.341985342455739,True,True,True
+Ruta1,22,2026-10-26 16:18:17,2,Sector Paltas,Gateway1PALTAS (TTN),5.18873089518964,True,True,True
+Ruta1,23,2026-10-26 16:18:27,2,Sector Paltas,Gateway1PALTAS (TTN),5.29615107008491,True,True,True
+Ruta1,24,2026-10-26 16:18:38,2,Sector Paltas,Gateway1PALTAS (TTN),7.536437690258259,True,True,True
+Ruta1,25,2026-10-26 16:18:48,2,Sector Paltas,Gateway1PALTAS (TTN),6.897460666162365,True,True,True
+Ruta1,26,2026-10-26 16:18:59,1440,Autachi,Paltas,8.411414275325082,True,False,True
+Ruta1,27,2026-10-26 16:19:09,1440,Autachi,Paltas,10.2425480837613,True,False,True
+Ruta1,28,2026-10-26 16:19:20,2,Sector Paltas,Gateway1PALTAS (TTN),9.46773234130265,True,True,True
+Ruta1,29,2026-10-26 16:19:30,1440,Autachi,Paltas,11.255700243427075,True,False,True
+Ruta1,30,2026-10-26 16:19:41,2,Sector Paltas,Gateway1PALTAS (TTN),1.8902120456690075,True,True,True
+Ruta1,31,2026-10-26 16:19:51,2,Sector Paltas,Gateway1PALTAS (TTN),2.2349849886598077,True,True,True
+Ruta1,32,2026-10-26 16:20:02,2,Sector Paltas,Gateway1PALTAS (TTN),10.044579473418315,True,True,True
+Ruta1,33,2026-10-26 16:20:12,1440,Autachi,Paltas,13.495438205800165,True,False,True
+Ruta1,34,2026-10-26 16:20:23,1440,Autachi,Paltas,7.365354553626191,True,False,True
+Ruta1,35,2026-10-26 16:20:33,1440,Autachi,Paltas,10.737310977976486,True,False,True
+Ruta1,36,2026-10-26 16:20:43,1440,Autachi,Paltas,11.440379785642403,True,False,True
+Ruta1,37,2026-10-26 16:20:54,2,Sector Paltas,Gateway1PALTAS (TTN),20.80398183855795,True,True,True
+Ruta1,38,2026-10-26 16:21:04,1380,Hualcopo,Paltas,16.575426132316753,True,False,True
+Ruta1,39,2026-10-26 16:21:15,1380,Hualcopo,Paltas,15.466350419685222,True,False,True
+Ruta1,40,2026-10-26 16:21:25,1422,Avenida Rumiñahui,Hualcopo,15.881401384417558,True,False,True
+Ruta1,41,2026-10-26 16:21:36,1422,Avenida Rumiñahui,Hualcopo,12.81997787269662,True,False,True
+Ruta1,42,2026-10-26 16:21:46,1425,Avenida Rumiñahui,Hualcopo,30.942823689472117,True,False,True
+Ruta1,43,2026-10-26 16:21:57,1425,Avenida Rumiñahui,Hualcopo,51.59934782760999,False,False,True
+Ruta1,44,2026-10-26 16:22:07,1425,Avenida Rumiñahui,Hualcopo,54.923658477868145,False,False,True
+Ruta1,45,2026-10-26 16:22:18,1425,Avenida Rumiñahui,Hualcopo,56.22769138636747,False,False,True
+Ruta1,46,2026-10-26 16:22:28,1684,Avenida Pichincha,Avenida Rumiñahui,34.96448965360941,True,False,True
+Ruta1,47,2026-10-26 16:22:38,1684,Avenida Pichincha,Avenida Rumiñahui,29.818934817171392,True,False,True
+Ruta1,48,2026-10-26 16:22:49,1684,Avenida Pichincha,Avenida Rumiñahui,34.651383060823164,True,False,True
+Ruta1,49,2026-10-26 16:22:59,1684,Avenida Pichincha,Avenida Rumiñahui,40.6576577763953,True,False,True
+Ruta1,50,2026-10-26 16:23:10,1684,Avenida Pichincha,Avenida Rumiñahui,41.38287636234406,True,False,True
+Ruta1,51,2026-10-26 16:23:20,1684,Avenida Pichincha,Avenida Rumiñahui,29.93387888501365,True,False,True
+Ruta1,52,2026-10-26 16:23:31,1788,Avenida Rumiñahui,José Suárez,58.26066698600368,False,False,True
+Ruta1,53,2026-10-26 16:23:41,1788,Avenida Rumiñahui,José Suárez,58.07277004231055,False,False,True
+Ruta1,54,2026-10-26 16:23:52,1788,Avenida Rumiñahui,José Suárez,28.146370277267035,True,False,True
+Ruta1,55,2026-10-26 16:24:02,1868,Antonio Arellano,Avenida Rumiñahui,10.082475835296764,True,False,True
+Ruta1,56,2026-10-26 16:24:13,1868,Antonio Arellano,Avenida Rumiñahui,22.655317846031444,True,False,True
+Ruta1,57,2026-10-26 16:24:23,1868,Antonio Arellano,Avenida Rumiñahui,22.851166806573247,True,False,True
+Ruta1,58,2026-10-26 16:24:34,1868,Antonio Arellano,Avenida Rumiñahui,21.398201880877988,True,False,True
+Ruta1,59,2026-10-26 16:24:44,1868,Antonio Arellano,Avenida Rumiñahui,21.367859551665486,True,False,True
+Ruta1,60,2026-10-26 16:24:54,1868,Antonio Arellano,Avenida Rumiñahui,21.170595965589747,True,False,True
+Ruta1,61,2026-10-26 16:25:05,1927,Avenida Rumiñahui,Unnamed Road,13.366261427922469,True,False,True
+Ruta1,62,2026-10-26 16:25:15,1958,Avenida los Chasquis,Imbabura,5.569740030943178,True,False,False
+Ruta1,63,2026-10-26 16:25:26,1955,Avenida Los Chasquis,Avenida los Chasquis,15.657421959553883,True,False,False
+Ruta1,64,2026-10-26 16:25:36,1955,Avenida Los Chasquis,Avenida los Chasquis,18.958300604332763,True,False,True
+Ruta1,65,2026-10-26 16:25:46,1998,Avenida los Chasquis,Puerto Ayora,7.6161798286470805,True,False,False
+Ruta1,66,2026-10-26 16:25:57,1998,Avenida los Chasquis,Puerto Ayora,7.322353755773054,True,False,False
+Ruta1,67,2026-10-26 16:26:07,2032,Avenida los Chasquis,Oriente,33.96706709095961,True,False,False
+Ruta1,68,2026-10-26 16:26:17,2032,Avenida los Chasquis,Oriente,32.72841566092543,True,False,False
+Ruta1,69,2026-10-26 16:26:28,1967,Napo,Oriente,28.0639048784527,True,False,False
+Ruta1,70,2026-10-26 16:26:38,1967,Napo,Oriente,25.941184827452233,True,False,True
+Ruta1,71,2026-10-26 16:26:48,1974,Avenida Bolivariana,Azuay,27.18838804491537,True,False,False
+Ruta1,72,2026-10-26 16:26:59,1974,Avenida Bolivariana,Azuay,34.51635753779909,True,False,False
+Ruta1,73,2026-10-26 16:27:09,1980,Avenida Bolivariana,Eugenio Espejo,42.77728959222177,True,False,False
+Ruta1,74,2026-10-26 16:27:19,1924,Avenida Bolivariana,Chimul,22.297310514549356,True,False,True
+Ruta1,75,2026-10-26 16:27:30,1924,Avenida Bolivariana,Chimul,23.20838234098521,True,False,True
+Ruta1,76,2026-10-26 16:27:40,1924,Avenida Bolivariana,Chimul,35.68882193060979,True,False,False
+Ruta1,77,2026-10-26 16:27:51,2000,Chimul,Corazón,29.0401848054491,True,False,False
+Ruta1,78,2026-10-26 16:28:01,2000,Chimul,Corazón,39.25962335392578,True,False,True
+Ruta1,79,2026-10-26 16:28:12,2000,Chimul,Corazón,41.30875286319586,True,False,False
+Ruta1,80,2026-10-26 16:28:22,2108,Corazón,Puntas,72.07501394473553,False,False,True
+Ruta1,81,2026-10-26 16:28:32,2108,Corazón,Puntas,61.89926631532697,False,False,False
+Ruta1,82,2026-10-26 16:28:43,2108,Corazón,Puntas,45.11800499016808,False,False,True
+Ruta1,83,2026-10-26 16:28:53,2108,Corazón,Puntas,54.105920399646976,False,False,True
+Ruta1,84,2026-10-26 16:29:04,2108,Corazón,Puntas,48.81545229598621,False,False,True
+Ruta1,85,2026-10-26 16:29:14,2108,Corazón,Puntas,48.148558267180384,False,False,False
+Ruta1,86,2026-10-26 16:29:24,2108,Corazón,Puntas,59.63908542493683,False,False,True
+Ruta1,87,2026-10-26 16:29:35,2090,Pajan,Saraurcu,53.780104501109975,False,False,True
+Ruta1,88,2026-10-26 16:29:45,2108,Corazón,Puntas,10.07375108573159,True,False,True
+Ruta1,89,2026-10-26 16:29:55,2108,Corazón,Puntas,29.637597750363614,True,False,False
+Ruta1,90,2026-10-26 16:30:06,2133,Montes del Cajas,Quimsa,33.82845669794617,True,False,True
+Ruta1,91,2026-10-26 16:30:16,2185,Puntas,Sincholagua,31.0538868555391,True,False,False
+Ruta1,92,2026-10-26 16:30:27,2193,Cerro Hermoso,Sincholagua,18.403992493258933,True,False,False
+Ruta1,93,2026-10-26 16:30:37,2193,Cerro Hermoso,Sincholagua,18.395596812634633,True,False,True
+Ruta1,94,2026-10-26 16:30:47,2222,Cerro Hermoso,Villonaco,13.945078340713474,True,False,False
+Ruta1,95,2026-10-26 16:30:58,2260,Cerro Hermoso,Quilimas,17.58103446937872,True,False,False
+Ruta1,96,2026-10-26 16:31:08,2287,Camino del Rey,Cerro Hermoso,11.129126196570006,True,False,False
+Ruta1,97,2026-10-26 16:31:18,2287,Camino del Rey,Cerro Hermoso,6.762124288160762,True,False,True
+Ruta1,98,2026-10-26 16:31:29,2323,Cerro Hermoso,Miñarica,13.157970522488357,True,False,False
+Ruta1,99,2026-10-26 16:31:39,2323,Cerro Hermoso,Miñarica,40.436058587356634,True,False,False
+Ruta1,100,2026-10-26 16:31:49,2323,Cerro Hermoso,Miñarica,42.02462341487053,True,False,False
+Ruta1,101,2026-10-26 16:32:00,2323,Cerro Hermoso,Miñarica,42.20954632531179,True,False,False
+Ruta1,102,2026-10-26 16:32:10,2323,Cerro Hermoso,Miñarica,147.16778714635558,False,False,False
+Ruta1,103,2026-10-26 16:32:20,2323,Cerro Hermoso,Miñarica,231.74115979712914,False,False,False
+Ruta1,104,2026-10-26 16:32:31,2323,Cerro Hermoso,Miñarica,235.93432523615473,False,False,True
+Ruta1,105,2026-10-26 16:32:41,2279,Camino del Rey,Montes del Cajas,434.02042134780754,False,False,True
+Ruta1,106,2026-10-26 16:32:52,2279,Camino del Rey,Montes del Cajas,434.797125625,False,False,False
+Ruta1,107,2026-10-26 16:33:02,2279,Camino del Rey,Montes del Cajas,436.0287431918224,False,False,False
+Ruta1,108,2026-10-26 16:33:12,2279,Camino del Rey,Montes del Cajas,641.8940636911101,False,False,False
+Ruta1,109,2026-10-26 16:33:23,2279,Camino del Rey,Montes del Cajas,658.9424720376874,False,False,False
+Ruta1,110,2026-10-26 16:33:33,2279,Camino del Rey,Montes del Cajas,713.4497903523625,False,False,False
+Ruta1,111,2026-10-26 16:33:43,2279,Camino del Rey,Montes del Cajas,865.4785576050576,False,False,True
+Ruta1,112,2026-10-26 16:33:54,2279,Camino del Rey,Montes del Cajas,872.6172116544858,False,False,False
+Ruta1,113,2026-10-26 16:34:04,2279,Camino del Rey,Montes del Cajas,1051.7568009262761,False,False,True
+Ruta1,114,2026-10-26 16:34:15,2279,Camino del Rey,Montes del Cajas,1200.2785141977658,False,False,True
+Ruta1,115,2026-10-26 16:34:25,2279,Camino del Rey,Montes del Cajas,1305.3969077346985,False,False,False
+Ruta1,116,2026-10-26 16:34:35,2279,Camino del Rey,Montes del Cajas,1305.8415804716399,False,False,True
+Ruta1,117,2026-10-26 16:34:46,2279,Camino del Rey,Montes del Cajas,1474.4717914781006,False,False,False
+Ruta1,118,2026-10-26 16:34:56,2279,Camino del Rey,Montes del Cajas,1489.2107431445363,False,False,True
+Ruta1,119,2026-10-26 16:35:07,2114,Avenida El Rey,Napo Galeras,1491.6847561702887,False,False,True
+Ruta1,120,2026-10-26 16:35:17,2114,Avenida El Rey,Napo Galeras,1481.0775564272421,False,False,True
+Ruta1,121,2026-10-26 16:35:28,2114,Avenida El Rey,Napo Galeras,1574.7674135827044,False,False,False
+Ruta1,122,2026-10-26 16:35:38,2114,Avenida El Rey,Napo Galeras,1576.3443522930056,False,False,False
+Ruta1,123,2026-10-26 16:35:48,2114,Avenida El Rey,Napo Galeras,1576.653332780773,False,False,True
+Ruta1,124,2026-10-26 16:35:59,2114,Avenida El Rey,Napo Galeras,1583.7816783652015,False,False,True
+Ruta1,125,2026-10-26 16:36:09,2114,Avenida El Rey,Napo Galeras,1583.8129326879603,False,False,True
+Ruta1,126,2026-10-26 16:36:19,2279,Camino del Rey,Montes del Cajas,1686.3286608002977,False,False,True
+Ruta1,127,2026-10-26 16:36:30,2279,Camino del Rey,Montes del Cajas,1744.7506243434532,False,False,True
+Ruta1,128,2026-10-26 16:36:40,2279,Camino del Rey,Montes del Cajas,1743.2940016171667,False,False,False
+Ruta1,129,2026-10-26 16:36:51,2114,Avenida El Rey,Napo Galeras,1666.1986413743268,False,False,True
+Ruta1,130,2026-10-26 16:37:01,2114,Avenida El Rey,Napo Galeras,1628.107853375744,False,False,True
+Ruta1,131,2026-10-26 16:37:11,2114,Avenida El Rey,Napo Galeras,1488.965096173316,False,False,True
+Ruta1,132,2026-10-26 16:37:22,2114,Avenida El Rey,Napo Galeras,1485.4297615065454,False,False,True
+Ruta1,133,2026-10-26 16:37:32,2279,Camino del Rey,Montes del Cajas,1467.4080078893094,False,False,True
+Ruta1,134,2026-10-26 16:37:43,2279,Camino del Rey,Montes del Cajas,1422.2975476415795,False,False,True
+Ruta1,135,2026-10-26 16:37:53,2279,Camino del Rey,Montes del Cajas,1376.812145370889,False,False,True
+Ruta1,136,2026-10-26 16:38:03,2279,Camino del Rey,Montes del Cajas,1407.8761612935061,False,False,False
+Ruta1,137,2026-10-26 16:38:14,2279,Camino del Rey,Montes del Cajas,1408.4354568187007,False,False,True
+Ruta1,138,2026-10-26 16:38:24,2279,Camino del Rey,Montes del Cajas,1429.8198435361473,False,False,False
+Ruta1,139,2026-10-26 16:38:35,2279,Camino del Rey,Montes del Cajas,1436.6209190348072,False,False,True
+Ruta1,140,2026-10-26 16:38:45,2279,Camino del Rey,Montes del Cajas,1445.0847082188145,False,False,True
+Ruta1,141,2026-10-26 16:38:56,2114,Avenida El Rey,Napo Galeras,1424.181022409962,False,False,False
+Ruta1,142,2026-10-26 16:39:06,2114,Avenida El Rey,Napo Galeras,1418.5194564749027,False,False,False
+Ruta1,143,2026-10-26 16:39:16,2114,Avenida El Rey,Napo Galeras,1413.672357928367,False,False,False
+Ruta1,144,2026-10-26 16:39:27,2093,Antisana,Avenida Los Andes,1318.7887536688945,False,False,True
+Ruta1,145,2026-10-26 16:39:37,2093,Antisana,Avenida Los Andes,1282.2807199052525,False,False,False
+Ruta1,146,2026-10-26 16:39:47,2093,Antisana,Avenida Los Andes,1281.2873567646056,False,False,True
+Ruta1,147,2026-10-26 16:39:58,1909,Carihuayrazo,Sangay,1221.3776357301638,False,False,True
+Ruta1,148,2026-10-26 16:40:08,1909,Carihuayrazo,Sangay,1220.495848337022,False,False,True
+Ruta1,149,2026-10-26 16:40:19,1909,Carihuayrazo,Sangay,1226.597219471895,False,False,False
+Ruta1,150,2026-10-26 16:40:29,1909,Carihuayrazo,Sangay,1169.5463280850488,False,False,True
+Ruta1,151,2026-10-26 16:40:40,1909,Carihuayrazo,Sangay,1162.9450453514646,False,False,True
+Ruta1,152,2026-10-26 16:40:50,1909,Carihuayrazo,Sangay,1152.9237606482163,False,False,False
+Ruta1,153,2026-10-26 16:41:00,1909,Carihuayrazo,Sangay,1154.8500842197718,False,False,False
+Ruta1,154,2026-10-26 16:41:11,1909,Carihuayrazo,Sangay,1188.1878222636904,False,False,True
+Ruta1,155,2026-10-26 16:41:21,1909,Carihuayrazo,Sangay,1191.7454493112452,False,False,True
+Ruta1,156,2026-10-26 16:41:32,1909,Carihuayrazo,Sangay,1194.5779533674988,False,False,True
+Ruta1,157,2026-10-26 16:41:42,1909,Carihuayrazo,Sangay,1367.9842736814094,False,False,True
+Ruta1,158,2026-10-26 16:41:53,1669,Primera Imprenta,Tomás Sevilla,1380.9108886726706,False,False,True
+Ruta1,159,2026-10-26 16:42:03,1669,Primera Imprenta,Tomás Sevilla,1356.8719306558964,False,False,True
+Ruta1,160,2026-10-26 16:42:13,1669,Primera Imprenta,Tomás Sevilla,1352.5084764460587,False,False,False
+Ruta1,161,2026-10-26 16:42:24,1669,Primera Imprenta,Tomás Sevilla,1213.633395591782,False,False,True
+Ruta1,162,2026-10-26 16:42:34,1669,Primera Imprenta,Tomás Sevilla,1210.0003969784161,False,False,True
+Ruta1,163,2026-10-26 16:42:45,1669,Primera Imprenta,Tomás Sevilla,1057.9006906202646,False,False,False
+Ruta1,164,2026-10-26 16:42:55,1669,Primera Imprenta,Tomás Sevilla,962.5475989344027,False,False,True
+Ruta1,165,2026-10-26 16:43:05,1593,Darquea,Eloy Alfaro,883.2049071962854,False,False,True
+Ruta1,166,2026-10-26 16:43:16,1593,Darquea,Eloy Alfaro,855.5045354315877,False,False,False
+Ruta1,167,2026-10-26 16:43:26,1593,Darquea,Eloy Alfaro,793.189115315836,False,False,False
+Ruta1,168,2026-10-26 16:43:37,1593,Darquea,Eloy Alfaro,791.9648296560989,False,False,False
+Ruta1,169,2026-10-26 16:43:47,1593,Darquea,Eloy Alfaro,719.5057767708531,False,False,False
+Ruta1,170,2026-10-26 16:43:57,1593,Darquea,Eloy Alfaro,717.7867531250079,False,False,False
+Ruta1,171,2026-10-26 16:44:08,1352,Cuenca,Joaquín Lalama,629.6402133569042,False,False,False
+Ruta1,172,2026-10-26 16:44:18,1352,Cuenca,Joaquín Lalama,626.9904013487564,False,False,True
+Ruta1,173,2026-10-26 16:44:28,1352,Cuenca,Joaquín Lalama,615.2883297788204,False,False,True
+Ruta1,174,2026-10-26 16:44:39,1352,Cuenca,Joaquín Lalama,524.0864626913677,False,False,False
+Ruta1,175,2026-10-26 16:44:49,1352,Cuenca,Joaquín Lalama,523.5197215337183,False,False,True
+Ruta1,176,2026-10-26 16:45:00,1352,Cuenca,Joaquín Lalama,444.6556539549288,False,False,True
+Ruta1,177,2026-10-26 16:45:10,1352,Cuenca,Joaquín Lalama,363.4258872003188,False,False,False
+Ruta1,178,2026-10-26 16:45:20,1352,Cuenca,Joaquín Lalama,333.80742283093554,False,False,False
+Ruta1,179,2026-10-26 16:45:31,1352,Cuenca,Joaquín Lalama,317.35458917262827,False,False,True
+Ruta1,180,2026-10-26 16:45:41,1265,Araujo,Obispo Iturralde,288.75655965578034,False,False,False
+Ruta1,181,2026-10-26 16:45:52,1265,Araujo,Obispo Iturralde,250.1918337130028,False,False,False
+Ruta1,182,2026-10-26 16:46:02,1265,Araujo,Obispo Iturralde,218.8883233737969,False,False,False
+Ruta1,183,2026-10-26 16:46:12,1265,Araujo,Obispo Iturralde,176.63007470103437,False,False,False
+Ruta1,184,2026-10-26 16:46:23,1265,Araujo,Obispo Iturralde,179.20420031047536,False,False,False
+Ruta1,185,2026-10-26 16:46:33,1265,Araujo,Obispo Iturralde,126.12451122418234,False,False,False
+Ruta1,186,2026-10-26 16:46:44,1265,Araujo,Obispo Iturralde,125.80451907295577,False,False,False
+Ruta1,187,2026-10-26 16:46:54,1110,Juan León Mera,Lizardo Ruiz,94.8815111553015,False,False,True
+Ruta1,188,2026-10-26 16:47:04,1110,Juan León Mera,Lizardo Ruiz,81.07856908190396,False,False,True
+Ruta1,189,2026-10-26 16:47:15,1110,Juan León Mera,Lizardo Ruiz,65.81908240276701,False,False,True
+Ruta1,190,2026-10-26 16:47:25,1110,Juan León Mera,Lizardo Ruiz,52.12593170395409,False,False,False
+Ruta1,191,2026-10-26 16:47:36,1110,Juan León Mera,Lizardo Ruiz,50.865890305514206,False,False,True
+Ruta1,192,2026-10-26 16:47:46,1110,Juan León Mera,Lizardo Ruiz,10.637043749262109,True,False,True
+Ruta1,193,2026-10-26 16:47:57,1110,Juan León Mera,Lizardo Ruiz,9.498308831731501,True,False,False
+Ruta1,194,2026-10-26 16:48:07,1110,Juan León Mera,Lizardo Ruiz,13.808731207601232,True,False,True
+Ruta1,195,2026-10-26 16:48:18,1110,Juan León Mera,Lizardo Ruiz,14.957850689179082,True,False,True
+Ruta1,196,2026-10-26 16:48:28,1110,Juan León Mera,Lizardo Ruiz,15.096583914310425,True,False,True
+Ruta1,197,2026-10-26 16:48:39,1110,Juan León Mera,Lizardo Ruiz,15.25912307729661,True,False,True
+Ruta1,198,2026-10-26 16:48:49,1079,Lizardo Ruiz,Unnamed Road,27.573239566334085,True,False,True
+Ruta1,199,2026-10-26 16:48:59,1079,Lizardo Ruiz,Unnamed Road,24.544573094388962,True,False,True
+Ruta1,200,2026-10-26 16:49:10,1079,Lizardo Ruiz,Unnamed Road,16.45835097884238,True,False,True
+Ruta1,201,2026-10-26 16:49:20,1079,Lizardo Ruiz,Unnamed Road,14.527138782101359,True,False,True
+Ruta1,202,2026-10-26 16:49:31,1079,Lizardo Ruiz,Unnamed Road,10.899370756697662,True,False,False
+Ruta1,203,2026-10-26 16:49:41,1079,Lizardo Ruiz,Unnamed Road,7.875966271152844,True,False,False
+Ruta1,204,2026-10-26 16:49:52,1079,Lizardo Ruiz,Unnamed Road,5.743837789249814,True,False,False
+Ruta1,205,2026-10-26 16:50:02,1095,Juan Montalvo,Perez De Anda,17.69998389528817,True,False,True
+Ruta1,206,2026-10-26 16:50:12,1095,Juan Montalvo,Perez De Anda,23.012831574494843,True,False,False
+Ruta1,207,2026-10-26 16:50:23,1143,Cuenca,Juan Montalvo,22.80121414270704,True,False,False
+Ruta1,208,2026-10-26 16:50:33,1143,Cuenca,Juan Montalvo,26.339768974446454,True,False,True
+Ruta1,209,2026-10-26 16:50:44,1143,Cuenca,Juan Montalvo,26.556045075112458,True,False,True
+Ruta1,210,2026-10-26 16:50:54,1143,Cuenca,Juan Montalvo,10.182106587401268,True,False,True
+Ruta1,211,2026-10-26 16:51:04,1143,Cuenca,Juan Montalvo,25.672402091925882,True,False,True
+Ruta1,212,2026-10-26 16:51:15,1143,Cuenca,Juan Montalvo,32.668256186636164,True,False,True
+Ruta1,213,2026-10-26 16:51:25,1143,Cuenca,Juan Montalvo,36.32141838781186,True,False,False
+Ruta1,214,2026-10-26 16:51:36,1143,Cuenca,Juan Montalvo,36.40044017646767,True,False,False
+Ruta1,215,2026-10-26 16:51:46,1134,Mariano Castillo,Vicente Rocafuerte,32.757915438951024,True,False,False
+Ruta1,216,2026-10-26 16:51:56,1134,Mariano Castillo,Vicente Rocafuerte,22.976221529112966,True,False,False
+Ruta1,217,2026-10-26 16:52:07,1134,Mariano Castillo,Vicente Rocafuerte,18.299958873802712,True,False,True
+Ruta1,218,2026-10-26 16:52:17,1134,Mariano Castillo,Vicente Rocafuerte,21.151151237469126,True,False,False
+Ruta1,219,2026-10-26 16:52:27,1191,Mariano Castillo,Simón Bolívar,37.254120031202035,True,False,True
+Ruta1,220,2026-10-26 16:52:38,1191,Mariano Castillo,Simón Bolívar,39.19440525767053,True,False,False
+Ruta1,221,2026-10-26 16:52:48,1191,Mariano Castillo,Simón Bolívar,32.46967981029498,True,False,True
+Ruta1,222,2026-10-26 16:52:59,1243,Antonio José de Sucre,Mariano Castillo,20.786235073649152,True,False,True
+Ruta1,223,2026-10-26 16:53:09,1243,Antonio José de Sucre,Mariano Castillo,21.6822313973027,True,False,True
+Ruta1,224,2026-10-26 16:53:19,1243,Antonio José de Sucre,Mariano Castillo,39.122997200587164,True,False,True
+Ruta1,225,2026-10-26 16:53:30,1243,Antonio José de Sucre,Mariano Castillo,44.2278187408305,True,False,True
+Ruta1,226,2026-10-26 16:53:40,1304,Avenida Cevallos,Mariano Castillo,41.07499513983227,True,False,True
+Ruta1,227,2026-10-26 16:53:51,1304,Avenida Cevallos,Mariano Castillo,47.10119259956407,False,False,False
+Ruta1,228,2026-10-26 16:54:01,1300,Avenida Cevallos,Mariano Castillo,36.95317870969011,True,False,False
+Ruta1,229,2026-10-26 16:54:12,1300,Avenida Cevallos,Mariano Castillo,37.11277002255188,True,False,False
+Ruta1,230,2026-10-26 16:54:22,1300,Avenida Cevallos,Mariano Castillo,27.773159333300157,True,False,True
+Ruta1,231,2026-10-26 16:54:32,1300,Avenida Cevallos,Mariano Castillo,13.406716067472438,True,False,True
+Ruta1,232,2026-10-26 16:54:43,1304,Avenida Cevallos,Mariano Castillo,42.278767204303705,True,False,False
+Ruta1,233,2026-10-26 16:54:53,1240,Avenida Cevallos,Quito,35.04350013350441,True,False,True
+Ruta1,234,2026-10-26 16:55:03,1240,Avenida Cevallos,Quito,22.890910054046106,True,False,True
+Ruta1,235,2026-10-26 16:55:14,1239,Avenida Cevallos,Quito,22.105434763722958,True,False,True
+Ruta1,236,2026-10-26 16:55:24,1171,Avenida Cevallos,Guayaquil,31.564298100507237,True,False,False
+Ruta1,237,2026-10-26 16:55:35,1168,Avenida Cevallos,Guayaquil,33.99172727041887,True,False,False
+Ruta1,238,2026-10-26 16:55:45,1117,Avenida Cevallos,José Joaquín de Olmedo,31.177232673061333,True,False,False
+Ruta1,239,2026-10-26 16:55:55,1051,Antonio José de Sucre,José Joaquín de Olmedo,24.760304558966805,True,False,True
+Ruta1,240,2026-10-26 16:56:06,1051,Antonio José de Sucre,José Joaquín de Olmedo,32.75019946939417,True,False,True
+Ruta1,241,2026-10-26 16:56:16,1118,Antonio José de Sucre,Guayaquil,48.822466409611366,False,False,False
+Ruta1,242,2026-10-26 16:56:26,1118,Antonio José de Sucre,Guayaquil,48.79778024747838,False,False,True
+Ruta1,243,2026-10-26 16:56:37,1118,Antonio José de Sucre,Guayaquil,29.109422612286316,True,False,True
+Ruta1,244,2026-10-26 16:56:47,1200,Avenida Cevallos,Pasaje José Enrique Rodó,13.41823921193591,True,False,False
+Ruta1,245,2026-10-26 16:56:57,1200,Avenida Cevallos,Pasaje José Enrique Rodó,14.059167650509503,True,False,False
+Ruta1,246,2026-10-26 16:57:08,1200,Avenida Cevallos,Pasaje José Enrique Rodó,14.247378759208356,True,False,False
+Ruta1,247,2026-10-26 16:57:18,1168,Avenida Cevallos,Guayaquil,11.559182511092908,True,False,False
+Ruta1,248,2026-10-26 16:57:29,1168,Avenida Cevallos,Guayaquil,11.399774737180714,True,False,True
+Ruta1,249,2026-10-26 16:57:39,1171,Avenida Cevallos,Guayaquil,19.98441295507699,True,False,False
+Ruta1,250,2026-10-26 16:57:49,1168,Avenida Cevallos,Guayaquil,30.719141081665843,True,False,False
+Ruta1,251,2026-10-26 16:58:00,1120,Avenida Cevallos,José Joaquín de Olmedo,28.393466683769066,True,False,True
+Ruta1,252,2026-10-26 16:58:10,1117,Avenida Cevallos,José Joaquín de Olmedo,14.286235197567724,True,False,True
+Ruta1,253,2026-10-26 16:58:20,1090,Avenida Cevallos,Francisco Flor,12.723363811629183,True,False,True
+Ruta1,254,2026-10-26 16:58:31,1090,Avenida Cevallos,Francisco Flor,13.712567445692217,True,False,False
+Ruta1,255,2026-10-26 16:58:41,1077,Floreana I,Yahuira,1.6414641683705142,True,False,False
+Ruta1,256,2026-10-26 16:58:51,1077,Floreana I,Yahuira,15.25912307729682,True,False,False
+Ruta1,257,2026-10-26 16:59:02,1069,Troya,Yahuira,8.492144506393116,True,False,False
+Ruta1,258,2026-10-26 16:59:12,1069,Troya,Yahuira,14.96957347473576,True,False,False
+Ruta1,259,2026-10-26 16:59:22,1044,Avenida Atahualpa,Puerto de Palos,32.85367482991364,True,False,True
+Ruta1,260,2026-10-26 16:59:33,947,Magallanes,Orellana,71.74809925223585,False,False,True
+Ruta1,261,2026-10-26 16:59:44,952,Unnamed Road,Yahuira,16.456428577542976,True,False,True
+Ruta1,262,2026-10-26 16:59:54,922,Avenida Atahualpa,Avenida De Los Shyris,51.967748170915364,False,False,True
+Ruta1,263,2026-10-26 17:00:05,922,Avenida Atahualpa,Avenida De Los Shyris,20.22988126198652,True,False,True
+Ruta1,264,2026-10-26 17:00:15,975,Huayna Cápac,Unnamed Road,24.328852177425592,True,False,True
+Ruta1,265,2026-10-26 17:00:25,975,Huayna Cápac,Unnamed Road,18.211724092734006,True,False,True
+Ruta1,266,2026-10-26 17:00:36,1038,Avenida Quis Quis,Unnamed Road,43.26639840372836,True,False,True
+Ruta1,267,2026-10-26 17:00:46,1038,Avenida Quis Quis,Unnamed Road,37.71116293646389,True,False,True
+Ruta1,268,2026-10-26 17:00:57,1038,Avenida Quis Quis,Unnamed Road,33.279259599879815,True,False,True
+Ruta1,269,2026-10-26 17:01:07,1038,Avenida Quis Quis,Unnamed Road,30.059084728999366,True,False,True
+Ruta1,270,2026-10-26 17:01:18,1038,Avenida Quis Quis,Unnamed Road,20.795832123754575,True,False,True
+Ruta1,271,2026-10-26 17:01:28,1038,Avenida Quis Quis,Unnamed Road,20.795832123754575,True,False,True
+Ruta1,272,2026-10-26 17:01:39,1038,Avenida Quis Quis,Unnamed Road,28.108361733484234,True,False,True
+Ruta1,273,2026-10-26 17:01:49,1093,Avenida Quis Quis,Calicuchima,17.492962863905248,True,False,True
+Ruta1,274,2026-10-26 17:02:00,1140,Avenida Quis Quis,Cañaris,22.578004589796542,True,False,True
+Ruta1,275,2026-10-26 17:02:10,1140,Avenida Quis Quis,Cañaris,42.210435568683536,True,False,True
+Ruta1,276,2026-10-26 17:02:21,1216,Cañaris,Razo Razo,16.910553092408904,True,False,True
+Ruta1,277,2026-10-26 17:02:31,1270,Quimbalembo,Razo Razo,22.293605992617827,True,False,True
+Ruta1,278,2026-10-26 17:02:42,1270,Quimbalembo,Razo Razo,14.97748385783133,True,False,True
+Ruta1,279,2026-10-26 17:02:52,1289,Los Incas,Quimbalembo,8.885687517982143,True,False,True
+Ruta1,280,2026-10-26 17:03:03,1216,Cañaris,Razo Razo,31.011369340084585,True,False,True
+Ruta1,281,2026-10-26 17:03:13,1224,Cápac,Los Incas,16.856594801388013,True,False,True
+Ruta1,282,2026-10-26 17:03:24,1236,Cápac,Lloque Yupangui,25.79424182284975,True,False,True
+Ruta1,283,2026-10-26 17:03:34,1258,Cápac,Saraguros,7.248514681625224,True,False,True
+Ruta1,284,2026-10-26 17:03:45,1288,Cápac,Imbabura,11.917860686834125,True,False,True
+Ruta1,285,2026-10-26 17:03:55,1288,Cápac,Imbabura,28.91954870875207,True,False,True
+Ruta1,286,2026-10-26 17:04:06,1288,Cápac,Imbabura,28.98426319795605,True,False,True
+Ruta1,287,2026-10-26 17:04:16,1380,Hualcopo,Paltas,38.89538587255658,True,False,True
+Ruta1,288,2026-10-26 17:04:27,1380,Hualcopo,Paltas,38.15277366639524,True,False,True
+Ruta1,289,2026-10-26 17:04:37,1380,Hualcopo,Paltas,6.861927620027648,True,False,True
+Ruta1,290,2026-10-26 17:04:48,1380,Hualcopo,Paltas,23.911234441462177,True,False,True
+Ruta2,474,2026-10-26 14:00:04,1440,Autachi,Paltas,5.236791890513048,True,False,True
+Ruta2,475,2026-10-26 14:00:15,1440,Autachi,Paltas,10.356055696383402,True,False,True
+Ruta2,476,2026-10-26 14:00:25,1440,Autachi,Paltas,7.33220860491629,True,False,True
+Ruta2,477,2026-10-26 14:00:36,2,Sector Paltas,Gateway1PALTAS (TTN),4.727422499108511,True,True,True
+Ruta2,478,2026-10-26 14:00:46,2,Sector Paltas,Gateway1PALTAS (TTN),13.373119929595536,True,True,True
+Ruta2,479,2026-10-26 14:00:57,2,Sector Paltas,Gateway1PALTAS (TTN),5.348764438293137,True,True,True
+Ruta2,480,2026-10-26 14:01:07,2,Sector Paltas,Gateway1PALTAS (TTN),3.361134624045655,True,True,True
+Ruta2,481,2026-10-26 14:01:18,2,Sector Paltas,Gateway1PALTAS (TTN),2.5206189588160286,True,True,True
+Ruta2,482,2026-10-26 14:01:28,2,Sector Paltas,Gateway1PALTAS (TTN),20.895112971362792,True,True,True
+Ruta2,483,2026-10-26 14:01:39,2,Sector Paltas,Gateway1PALTAS (TTN),10.14932091876384,True,True,True
+Ruta2,484,2026-10-26 14:01:49,2,Sector Paltas,Gateway1PALTAS (TTN),10.735387403110296,True,True,True
+Ruta2,485,2026-10-26 14:02:00,2,Sector Paltas,Gateway1PALTAS (TTN),8.035031153949074,True,True,True
+Ruta2,486,2026-10-26 14:02:10,2,Sector Paltas,Gateway1PALTAS (TTN),2.028637285979965,True,True,True
+Ruta2,487,2026-10-26 14:02:21,2,Sector Paltas,Gateway1PALTAS (TTN),2.5791366053439666,True,True,True
+Ruta2,488,2026-10-26 14:02:31,2,Sector Paltas,Gateway1PALTAS (TTN),10.600729890490788,True,True,True
+Ruta2,489,2026-10-26 14:02:42,2,Sector Paltas,Gateway1PALTAS (TTN),15.172303445768906,True,True,True
+Ruta2,490,2026-10-26 14:02:53,2,Sector Paltas,Gateway1PALTAS (TTN),15.004891101878327,True,True,True
+Ruta2,491,2026-10-26 14:03:03,2,Sector Paltas,Gateway1PALTAS (TTN),14.30914422033204,True,True,True
+Ruta2,492,2026-10-26 14:03:14,2,Sector Paltas,Gateway1PALTAS (TTN),6.729131418380349,True,True,True
+Ruta2,493,2026-10-26 14:03:24,2,Sector Paltas,Gateway1PALTAS (TTN),13.208652734426527,True,True,True
+Ruta2,494,2026-10-26 14:03:35,2,Sector Paltas,Gateway1PALTAS (TTN),2.918322739379549,True,True,True
+Ruta2,495,2026-10-26 14:03:45,2,Sector Paltas,Gateway1PALTAS (TTN),5.182564417381632,True,True,True
+Ruta2,496,2026-10-26 14:03:56,2,Sector Paltas,Gateway1PALTAS (TTN),0.8094964419717815,True,True,True
+Ruta2,497,2026-10-26 14:04:06,2,Sector Paltas,Gateway1PALTAS (TTN),6.969363029028218,True,True,True
+Ruta2,498,2026-10-26 14:04:17,2,Sector Paltas,Gateway1PALTAS (TTN),9.611299147073574,True,True,True
+Ruta2,499,2026-10-26 14:04:27,2,Sector Paltas,Gateway1PALTAS (TTN),15.775063256753556,True,True,True
+Ruta2,500,2026-10-26 14:04:38,2,Sector Paltas,Gateway1PALTAS (TTN),6.067940749888247,True,True,True
+Ruta2,501,2026-10-26 14:04:48,2,Sector Paltas,Gateway1PALTAS (TTN),4.2608624819789505,True,True,True
+Ruta2,502,2026-10-26 14:04:59,2,Sector Paltas,Gateway1PALTAS (TTN),2.4687224098021985,True,True,True
+Ruta2,503,2026-10-26 14:05:09,2,Sector Paltas,Gateway1PALTAS (TTN),4.202760321429797,True,True,True
+Ruta2,504,2026-10-26 14:05:20,2,Sector Paltas,Gateway1PALTAS (TTN),5.959157569635576,True,True,True
+Ruta2,505,2026-10-26 14:05:30,2,Sector Paltas,Gateway1PALTAS (TTN),6.384687038315049,True,True,True
+Ruta2,506,2026-10-26 14:05:41,2,Sector Paltas,Gateway1PALTAS (TTN),4.862285439656075,True,True,True
+Ruta2,507,2026-10-26 14:05:52,2,Sector Paltas,Gateway1PALTAS (TTN),3.237985766971842,True,True,True
+Ruta2,508,2026-10-26 14:06:02,1440,Autachi,Paltas,13.943751320003921,True,False,True
+Ruta2,509,2026-10-26 14:06:13,2,Sector Paltas,Gateway1PALTAS (TTN),6.3709795090652985,True,True,True
+Ruta2,510,2026-10-26 14:06:23,2,Sector Paltas,Gateway1PALTAS (TTN),2.29181790709584,True,True,True
+Ruta2,511,2026-10-26 14:06:34,1440,Autachi,Paltas,11.016387623383077,True,False,True
+Ruta2,512,2026-10-26 14:06:44,2,Sector Paltas,Gateway1PALTAS (TTN),8.263376033439357,True,True,True
+Ruta2,513,2026-10-26 14:06:55,1440,Autachi,Paltas,32.850365361250745,True,False,True
+Ruta2,514,2026-10-26 14:07:05,2,Sector Paltas,Gateway1PALTAS (TTN),7.082450526584015,True,True,True
+Ruta2,515,2026-10-26 14:07:16,2,Sector Paltas,Gateway1PALTAS (TTN),3.8335048596238086,True,True,True
+Ruta2,516,2026-10-26 14:07:26,2,Sector Paltas,Gateway1PALTAS (TTN),11.14728099389779,True,True,True
+Ruta2,517,2026-10-26 14:07:37,2,Sector Paltas,Gateway1PALTAS (TTN),10.852829374077093,True,True,True
+Ruta2,518,2026-10-26 14:07:47,1440,Autachi,Paltas,10.985749359666686,True,False,True
+Ruta2,519,2026-10-26 14:07:58,2,Sector Paltas,Gateway1PALTAS (TTN),6.915872844247697,True,True,True
+Ruta2,520,2026-10-26 14:08:08,2,Sector Paltas,Gateway1PALTAS (TTN),8.191239806663866,True,True,True
+Ruta2,521,2026-10-26 14:08:19,2,Sector Paltas,Gateway1PALTAS (TTN),8.03056716775374,True,True,True
+Ruta2,522,2026-10-26 14:08:30,2,Sector Paltas,Gateway1PALTAS (TTN),7.648534286927608,True,True,True
+Ruta2,523,2026-10-26 14:08:40,2,Sector Paltas,Gateway1PALTAS (TTN),8.996958803534627,True,True,True
+Ruta2,524,2026-10-26 14:08:51,2,Sector Paltas,Gateway1PALTAS (TTN),5.765242540058111,True,True,True
+Ruta2,525,2026-10-26 14:09:01,2,Sector Paltas,Gateway1PALTAS (TTN),8.566426448291741,True,True,True
+Ruta2,526,2026-10-26 14:09:12,2,Sector Paltas,Gateway1PALTAS (TTN),20.249526499351106,True,True,True
+Ruta2,527,2026-10-26 14:09:22,2,Sector Paltas,Gateway1PALTAS (TTN),12.779168377304721,True,True,True
+Ruta2,528,2026-10-26 14:09:33,2,Sector Paltas,Gateway1PALTAS (TTN),11.02394784949834,True,True,True
+Ruta2,529,2026-10-26 14:09:43,2,Sector Paltas,Gateway1PALTAS (TTN),5.528390422332934,True,True,True
+Ruta2,530,2026-10-26 14:09:54,2,Sector Paltas,Gateway1PALTAS (TTN),10.496384432710197,True,True,True
+Ruta2,531,2026-10-26 14:10:30,2,Sector Paltas,Gateway1PALTAS (TTN),8.461975395431594,True,True,True
+Ruta2,532,2026-10-26 14:10:41,2,Sector Paltas,Gateway1PALTAS (TTN),2.4687224107270045,True,True,True
+Ruta2,533,2026-10-26 14:10:52,2,Sector Paltas,Gateway1PALTAS (TTN),2.0044451892388278,True,True,True
+Ruta2,534,2026-10-26 14:11:02,1440,Autachi,Paltas,7.803466215725368,True,False,True
+Ruta2,535,2026-10-26 14:11:13,2,Sector Paltas,Gateway1PALTAS (TTN),6.6502808842964605,True,True,True
+Ruta2,536,2026-10-26 14:11:23,2,Sector Paltas,Gateway1PALTAS (TTN),9.190868863214236,True,True,True
+Ruta2,537,2026-10-26 14:11:34,2,Sector Paltas,Gateway1PALTAS (TTN),8.043764591166322,True,True,True
+Ruta2,538,2026-10-26 14:11:45,2,Sector Paltas,Gateway1PALTAS (TTN),7.5686063504164425,True,True,True
+Ruta2,539,2026-10-26 14:11:55,2,Sector Paltas,Gateway1PALTAS (TTN),11.89655252556796,True,True,True
+Ruta2,540,2026-10-26 14:12:06,2,Sector Paltas,Gateway1PALTAS (TTN),8.176026974209114,True,True,True
+Ruta2,541,2026-10-26 14:12:16,1380,Hualcopo,Paltas,22.877367756371378,True,False,True
+Ruta2,542,2026-10-26 14:12:27,1380,Hualcopo,Paltas,9.068786557616702,True,False,True
+Ruta2,543,2026-10-26 14:12:38,1380,Hualcopo,Paltas,16.677780112894766,True,False,True
+Ruta2,544,2026-10-26 14:12:48,1422,Avenida Rumiñahui,Hualcopo,6.771545246209407,True,False,True
+Ruta2,545,2026-10-26 14:12:59,1422,Avenida Rumiñahui,Hualcopo,55.04918263266827,False,False,True
+Ruta2,546,2026-10-26 14:13:10,1422,Avenida Rumiñahui,Hualcopo,60.352988228982724,False,False,True
+Ruta2,547,2026-10-26 14:13:20,1214,Avenida Rumiñahui,Unnamed Road,35.45447606737748,True,False,True
+Ruta2,548,2026-10-26 14:13:31,1214,Avenida Rumiñahui,Unnamed Road,28.331180546873977,True,False,True
+Ruta2,549,2026-10-26 14:13:41,1214,Avenida Rumiñahui,Unnamed Road,72.97942509583363,False,False,True
+Ruta2,550,2026-10-26 14:13:52,1081,Avenida Rumiñahui,Pachacutec,25.835475539469417,True,False,True
+Ruta2,551,2026-10-26 14:14:02,1037,Avenida Rumiñahui,Caran XI,15.129809342565306,True,False,False
+Ruta2,552,2026-10-26 14:14:13,1037,Avenida Rumiñahui,Caran XI,14.698344265496738,True,False,False
+Ruta2,553,2026-10-26 14:14:24,996,Avenida Atahualpa,Avenida Rumiñahui,49.57454758881862,False,False,True
+Ruta2,554,2026-10-26 14:14:34,1036,Avenida Atahualpa,César Silva,17.90023645011045,True,False,True
+Ruta2,555,2026-10-26 14:14:45,1080,Avenida Atahualpa,Isaac Robayo,9.229178911479835,True,False,True
+Ruta2,556,2026-10-26 14:14:55,1100,Augusto Villacrés,Unnamed Road,31.64465934587954,True,False,True
+Ruta2,557,2026-10-26 14:15:06,1154,Avenida Atahualpa,Nari Pillahuazo,64.59903467487419,False,False,True
+Ruta2,558,2026-10-26 14:15:16,1218,Avenida Jácome Clavijo,Unnamed Road,37.80805820912371,True,False,False
+Ruta2,559,2026-10-26 14:15:27,1222,Avenida Jácome Clavijo,Unnamed Road,11.866038322636328,True,False,True
+Ruta2,560,2026-10-26 14:15:38,1192,Avenida Jácome Clavijo,Pasaje Moreno Loor,7.1650455626684755,True,False,True
+Ruta2,561,2026-10-26 14:15:48,1192,Avenida Jácome Clavijo,Pasaje Moreno Loor,4.482142720380148,True,False,True
+Ruta2,562,2026-10-26 14:15:59,1136,Avenida Jácome Clavijo,Gustavo Eguez,5.668526324732922,True,False,True
+Ruta2,563,2026-10-26 14:16:10,1129,Avenida Jácome Clavijo,Gustavo Eguez,27.69462348936177,True,False,True
+Ruta2,564,2026-10-26 14:16:20,1049,Avenida Jácome Clavijo,Teófilo López (Roberto Mera),12.564972919504385,True,False,True
+Ruta2,565,2026-10-26 14:16:31,1032,Acosta Solís,Avenida Jácome Clavijo,12.918556410153778,True,False,True
+Ruta2,566,2026-10-26 14:16:41,1032,Acosta Solís,Avenida Jácome Clavijo,13.303240779359454,True,False,True
+Ruta2,567,2026-10-26 14:16:52,1035,Acosta Solís,Avenida Jácome Clavijo,4.781381845717721,True,False,True
+Ruta2,568,2026-10-26 14:17:03,1032,Acosta Solís,Avenida Jácome Clavijo,3.2472775255555613,True,False,True
+Ruta2,569,2026-10-26 14:17:13,1014,Avenida Jácome Clavijo,Javier Montalvo,27.754180952111412,True,False,True
+Ruta2,570,2026-10-26 14:17:24,1014,Avenida Jácome Clavijo,Javier Montalvo,24.066183289645096,True,False,True
+Ruta2,571,2026-10-26 14:17:34,1004,Avenida Jácome Clavijo,Unnamed Road,27.197057023578786,True,False,True
+Ruta2,572,2026-10-26 14:17:45,980,Avenida Jácome Clavijo,Manuel Isaías Sánchez,32.771370456607066,True,False,True
+Ruta2,573,2026-10-26 14:17:56,980,Avenida Jácome Clavijo,Manuel Isaías Sánchez,34.071915720272116,True,False,True
+Ruta2,574,2026-10-26 14:18:06,924,Arturo Borja,Avenida Jácome Clavijo,12.647863439580894,True,False,True
+Ruta2,575,2026-10-26 14:18:17,904,Avenida Jácome Clavijo,Unnamed Road,19.731147534778547,True,False,True
+Ruta2,576,2026-10-26 14:18:27,835,Avenida Jácome Clavijo,Isaías Toro Ruiz,30.4375279724196,True,False,True
+Ruta2,577,2026-10-26 14:18:38,835,Avenida Jácome Clavijo,Isaías Toro Ruiz,21.631115270491698,True,False,True
+Ruta2,578,2026-10-26 14:18:49,795,Avenida Jácome Clavijo,Ernesto Albán Mosquera,4.596003593442527,True,False,True
+Ruta2,579,2026-10-26 14:18:59,838,Ernesto Albán Mosquera,Germán Chacón,28.412668810461305,True,False,True
+Ruta2,580,2026-10-26 14:19:10,838,Ernesto Albán Mosquera,Germán Chacón,40.21063792714467,True,False,True
+Ruta2,581,2026-10-26 14:19:21,885,Germán Chacón,Isaías Toro Ruiz,43.221191683976116,True,False,True
+Ruta2,582,2026-10-26 14:19:31,959,Germán Chacón,Unnamed Road,42.812139547422696,True,False,True
+Ruta2,583,2026-10-26 14:19:42,959,Germán Chacón,Unnamed Road,12.495227837129015,True,False,True
+Ruta2,584,2026-10-26 14:19:52,986,Arturo Borja,Germán Chacón,40.89025820330586,True,False,True
+Ruta2,585,2026-10-26 14:20:03,986,Arturo Borja,Germán Chacón,41.75843792465876,True,False,True
+Ruta2,586,2026-10-26 14:20:14,1053,Germán Chacón,Manuel Isaías Sánchez,26.004396950399855,True,False,True
+Ruta2,587,2026-10-26 14:20:24,1163,Acosta Solís,Germán Chacón,33.53119080547801,True,False,False
+Ruta2,588,2026-10-26 14:20:35,1145,Acosta Solís,Walter Bellolio,13.447182121338567,True,False,True
+Ruta2,589,2026-10-26 14:20:45,1097,Acosta Solís,Gustavo Egüez,16.51622095578704,True,False,False
+Ruta2,590,2026-10-26 14:20:56,1097,Acosta Solís,Gustavo Egüez,3.351679016474489,True,False,False
+Ruta2,591,2026-10-26 14:21:06,1097,Acosta Solís,Gustavo Egüez,32.941058797658705,True,False,True
+Ruta2,592,2026-10-26 14:21:17,1032,Acosta Solís,Avenida Jácome Clavijo,8.41528180708056,True,False,True
+Ruta2,593,2026-10-26 14:21:28,1014,Avenida Jácome Clavijo,Javier Montalvo,21.221586727276623,True,False,True
+Ruta2,594,2026-10-26 14:21:38,1014,Avenida Jácome Clavijo,Javier Montalvo,26.053637033828593,True,False,True
+Ruta2,595,2026-10-26 14:21:49,1014,Avenida Jácome Clavijo,Javier Montalvo,26.497421188891444,True,False,True
+Ruta2,596,2026-10-26 14:22:00,924,Arturo Borja,Avenida Jácome Clavijo,37.68074751916891,True,False,True
+Ruta2,597,2026-10-26 14:22:10,882,Avenida Jácome Clavijo,Pasaje Walter Medina,6.892410306933151,True,False,True
+Ruta2,598,2026-10-26 14:22:21,839,Avenida Jácome Clavijo,Isaías Toro Ruiz,18.624561443875013,True,False,True
+Ruta2,599,2026-10-26 14:22:31,795,Avenida Jácome Clavijo,Ernesto Albán Mosquera,6.60779105938383,True,False,True
+Ruta2,600,2026-10-26 14:22:42,776,Avenida Jácome Clavijo,Unnamed Road,17.855795705897304,True,False,True
+Ruta2,601,2026-10-26 14:22:53,742,Celiano Monge,Valdura,32.69060596655168,True,False,True
+Ruta2,602,2026-10-26 14:23:03,787,Avenida Jácome Clavijo,Valdura,12.213771490864639,True,False,False
+Ruta2,603,2026-10-26 14:23:14,787,Avenida Jácome Clavijo,Valdura,10.56585758048384,True,False,True
+Ruta2,604,2026-10-26 14:23:24,831,Avenida Jácome Clavijo,Víctor Rendón,20.59510267320587,True,False,True
+Ruta2,605,2026-10-26 14:23:35,866,Avenida Jácome Clavijo,Gaspar de Villaroel,32.86813313158924,True,False,False
+Ruta2,606,2026-10-26 14:23:46,866,Avenida Jácome Clavijo,Gaspar de Villaroel,30.60762395715921,True,False,True
+Ruta2,607,2026-10-26 14:23:56,1000,Avenida Jácome Clavijo,Luis Felipe Borja,28.96038405216549,True,False,True
+Ruta2,608,2026-10-26 14:24:07,1000,Avenida Jácome Clavijo,Luis Felipe Borja,30.071201914522852,True,False,False
+Ruta2,609,2026-10-26 14:24:17,1020,Avenida Jácome Clavijo,Unnamed Road,11.664569400439719,True,False,True
+Ruta2,610,2026-10-26 14:24:28,1020,Avenida Jácome Clavijo,Unnamed Road,42.663964453743176,True,False,False
+Ruta2,611,2026-10-26 14:24:39,948,Avenida Cervantes,Celiano Monge,21.555627267291992,True,False,True
+Ruta2,612,2026-10-26 14:24:49,948,Avenida Cervantes,Celiano Monge,39.76869904545756,True,False,True
+Ruta2,613,2026-10-26 14:25:00,881,Avenida Cervantes,Unnamed Road,38.987967056795874,True,False,False
+Ruta2,614,2026-10-26 14:25:10,824,Avenida Cervantes,Ernesto Alvarado,23.64073380142614,True,False,True
+Ruta2,615,2026-10-26 14:25:21,743,Avenida Cervantes,Pareja Diezcanseco,35.679550544349006,True,False,True
+Ruta2,616,2026-10-26 14:25:32,743,Avenida Cervantes,Pareja Diezcanseco,35.61526091200656,True,False,True
+Ruta2,617,2026-10-26 14:25:42,686,Avenida Cervantes,Escandón,60.525624892791775,False,False,True
+Ruta2,618,2026-10-26 14:25:53,545,Jorge Carrera,Marcos Montalvo,33.42798553370287,True,False,True
+Ruta2,619,2026-10-26 14:26:04,545,Jorge Carrera,Marcos Montalvo,45.215368064844114,False,False,True
+Ruta2,620,2026-10-26 14:26:14,427,Avenida Cervantes,Unnamed Road,20.843612200886934,True,False,True
+Ruta2,621,2026-10-26 14:26:25,427,Avenida Cervantes,Unnamed Road,45.71050137261912,False,False,True
+Ruta2,622,2026-10-26 14:26:36,355,Avenida Cervantes,Avenida Manuela Sáenz,54.28684867618443,False,False,True
+Ruta2,623,2026-10-26 14:26:46,355,Avenida Cervantes,Avenida Manuela Sáenz,20.01176214329491,True,False,True
+Ruta2,624,2026-10-26 14:26:57,364,Avenida Manuela Sáenz,Ernesto López,12.603094794128936,True,False,True
+Ruta2,625,2026-10-26 14:27:08,1,Campus PUCESA,Gateway2PUCESA (TTN),10.620494605053691,True,True,True
+Ruta2,626,2026-10-26 14:27:18,1,Campus PUCESA,Gateway2PUCESA (TTN),7.092938993446211,True,True,True
+Ruta2,627,2026-10-26 14:27:29,395,Avenida Manuela Sáenz,Remigio Crespo,42.0049781870878,True,False,True
+Ruta2,628,2026-10-26 14:27:40,395,Avenida Manuela Sáenz,Remigio Crespo,41.523983319624676,True,False,True
+Ruta2,629,2026-10-26 14:27:50,443,Abelardo Moncayo,Remigio Crespo,22.369689157082014,True,False,True
+Ruta2,630,2026-10-26 14:28:01,507,Jorge Carrera,Remigio Crespo,27.272060912963934,True,False,True
+Ruta2,631,2026-10-26 14:28:11,507,Jorge Carrera,Remigio Crespo,30.70971112513672,True,False,True
+Ruta2,632,2026-10-26 14:28:22,466,Gaspar de Villaroel,Jorge Carrera,12.730622234208418,True,False,True
+Ruta2,633,2026-10-26 14:28:33,440,Avenida Manuela Sáenz,Gaspar de Villaroel,7.3497491609484955,True,False,True
+Ruta2,634,2026-10-26 14:28:43,440,Avenida Manuela Sáenz,Gaspar de Villaroel,15.33293860704267,True,False,True
+Ruta2,635,2026-10-26 14:28:54,464,Avenida Manuela Sáenz,Avenida Victor Hugo,41.22438737480567,True,False,True
+Ruta2,636,2026-10-26 14:29:05,473,Avenida Manuela Sáenz,Avenida Victor Hugo,32.06438681074571,True,False,True
+Ruta2,637,2026-10-26 14:29:15,473,Avenida Manuela Sáenz,Avenida Victor Hugo,30.022630194029944,True,False,True
+Ruta2,638,2026-10-26 14:29:26,475,Avenida Manuela Sáenz,Avenida Victor Hugo,11.89655252556787,True,False,True
+Ruta2,639,2026-10-26 14:29:37,525,Aguilera Malta,Avenida Victor Hugo,22.105434763707773,True,False,True
+Ruta2,640,2026-10-26 14:29:48,573,Avenida Victor Hugo,De la Cuadra,10.73731097742699,True,False,True
+Ruta2,641,2026-10-26 14:29:58,614,Aurelio Espinoza,Avenida Victor Hugo,32.88088839073482,True,False,True
+Ruta2,642,2026-10-26 14:30:09,688,Avenida Victor Hugo,Ernesto Alvarado,42.80713442754446,True,False,True
+Ruta2,643,2026-10-26 14:30:19,688,Avenida Victor Hugo,Ernesto Alvarado,42.701584879806305,True,False,True
+Ruta2,644,2026-10-26 14:30:30,796,Celiano Monge,Víctor Rendón,61.50389169813818,False,False,True
+Ruta2,645,2026-10-26 14:30:41,799,Avenida Jácome Clavijo,Avenida Victor Hugo,38.706052975647495,True,False,True
+Ruta2,646,2026-10-26 14:30:51,842,Avenida Victor Hugo,Cosme Renella,10.035343149198042,True,False,True
+Ruta2,647,2026-10-26 14:31:02,877,Avenida Victor Hugo,Ernesto Albán Mosquera,13.494867249233163,True,False,True
+Ruta2,648,2026-10-26 14:31:12,877,Avenida Victor Hugo,Ernesto Albán Mosquera,16.56108609627565,True,False,True
+Ruta2,649,2026-10-26 14:31:23,1021,Arturo Borja,Avenida Victor Hugo,8.806104993057723,True,False,True
+Ruta2,650,2026-10-26 14:31:33,1021,Arturo Borja,Avenida Victor Hugo,10.991511450966836,True,False,False
+Ruta2,651,2026-10-26 14:31:44,1102,Avenida Victor Hugo,Manuel Isaías Sánchez,26.059502196911193,True,False,True
+Ruta2,652,2026-10-26 14:31:55,1102,Avenida Victor Hugo,Manuel Isaías Sánchez,24.228108561685435,True,False,True
+Ruta2,653,2026-10-26 14:32:05,1137,Arístides Sartorio,Avenida Victor Hugo,20.998121365267313,True,False,True
+Ruta2,654,2026-10-26 14:32:16,1202,Acosta Solís,Avenida Victor Hugo,12.81043049969314,True,False,False
+Ruta2,655,2026-10-26 14:32:27,1202,Acosta Solís,Avenida Victor Hugo,10.647417947472114,True,False,False
+Ruta2,656,2026-10-26 14:32:37,1297,Avenida Victor Hugo,Marcos Montalvo,44.05495726726255,True,False,True
+Ruta2,657,2026-10-26 14:32:48,1297,Avenida Victor Hugo,Marcos Montalvo,43.47768908396969,True,False,True
+Ruta2,658,2026-10-26 14:32:58,1297,Avenida Victor Hugo,Marcos Montalvo,40.71989131163058,True,False,True
+Ruta2,659,2026-10-26 14:33:09,1297,Avenida Victor Hugo,Marcos Montalvo,44.53883414606887,True,False,True
+Ruta2,660,2026-10-26 14:33:20,1297,Avenida Victor Hugo,Marcos Montalvo,34.24168255528664,True,False,True
+Ruta2,661,2026-10-26 14:33:30,1297,Avenida Victor Hugo,Marcos Montalvo,35.34016279132314,True,False,True
+Ruta2,662,2026-10-26 14:33:41,1297,Avenida Victor Hugo,Marcos Montalvo,35.50171837162503,True,False,True
+Ruta2,663,2026-10-26 14:33:51,1297,Avenida Victor Hugo,Marcos Montalvo,45.01558133198275,False,False,True
+Ruta2,664,2026-10-26 14:34:02,1297,Avenida Victor Hugo,Marcos Montalvo,48.44942410408828,False,False,True
+Ruta2,665,2026-10-26 14:34:13,1297,Avenida Victor Hugo,Marcos Montalvo,11.077740500350693,True,False,True
+Ruta2,666,2026-10-26 14:34:23,1297,Avenida Victor Hugo,Marcos Montalvo,4.675476347374027,True,False,True
+Ruta2,667,2026-10-26 14:34:34,1431,Avenida Atahualpa,Rio Guayllabamba,36.316473875827704,True,False,True
+Ruta2,668,2026-10-26 14:34:44,1431,Avenida Atahualpa,Rio Guayllabamba,30.28534378323998,True,False,True
+Ruta2,669,2026-10-26 14:34:55,1431,Avenida Atahualpa,Rio Guayllabamba,54.220113160358565,False,False,True
+Ruta2,670,2026-10-26 14:35:06,1444,Avenida Atahualpa,Río Salado,6.8332166646739045,True,False,True
+Ruta2,671,2026-10-26 14:35:16,1395,Avenida Atahualpa,Río Cutuchi,6.934195841032115,True,False,False
+Ruta2,672,2026-10-26 14:35:27,1384,Avenida Atahualpa,Río Cutuchi,11.966191385741269,True,False,False
+Ruta2,673,2026-10-26 14:35:37,1372,Avenida Atahualpa,Unnamed Road,13.057216142672177,True,False,True
+Ruta2,674,2026-10-26 14:35:48,1372,Avenida Atahualpa,Unnamed Road,29.709851025855937,True,False,True
+Ruta2,675,2026-10-26 14:35:59,1439,Rio Rircay,Río Cutuchi,22.04901288640881,True,False,False
+Ruta2,676,2026-10-26 14:36:09,1439,Rio Rircay,Río Cutuchi,29.37194476705497,True,False,True
+Ruta2,677,2026-10-26 14:36:20,1509,Río Coca,Río Cutuchi,53.73303018833299,False,False,True
+Ruta2,678,2026-10-26 14:36:30,1604,Avenida los Chasquis,Río Cutuchi,15.860403613750835,True,False,True
+Ruta2,679,2026-10-26 14:36:41,1604,Avenida los Chasquis,Río Cutuchi,15.25647996649855,True,False,True
+Ruta2,680,2026-10-26 14:36:52,1572,Avenida los Chasquis,Río Papallacta,66.42281181229573,False,False,True
+Ruta2,681,2026-10-26 14:37:02,1572,Avenida los Chasquis,Río Papallacta,14.24978721925266,True,False,True
+Ruta2,682,2026-10-26 14:37:13,1572,Avenida los Chasquis,Río Papallacta,40.20896315381253,True,False,True
+Ruta2,683,2026-10-26 14:37:24,1535,Avenida los Chasquis,Río Payamino,2.3951317562744365,True,False,True
+Ruta2,684,2026-10-26 14:37:34,1608,Río Cutzutagua,Río Payamino,22.426366862954627,True,False,True
+Ruta2,685,2026-10-26 14:37:45,1666,Río Payamino,Río Talantag,12.808573183934325,True,False,True
+Ruta2,686,2026-10-26 14:37:55,1666,Río Payamino,Río Talantag,23.33853555278288,True,False,True
+Ruta2,687,2026-10-26 14:38:06,1759,Río Guapante,Río Payamino,32.26771249717231,True,False,True
+Ruta2,688,2026-10-26 14:38:17,1759,Río Guapante,Río Payamino,13.382317936914646,True,False,True
+Ruta2,689,2026-10-26 14:38:27,1759,Río Guapante,Río Payamino,31.928428153880944,True,False,True
+Ruta2,690,2026-10-26 14:38:38,1759,Río Guapante,Río Payamino,38.337812023114694,True,False,True
+Ruta2,691,2026-10-26 14:38:49,1759,Río Guapante,Río Payamino,35.63392783147088,True,False,True
+Ruta2,692,2026-10-26 14:38:59,1759,Río Guapante,Río Payamino,38.21901074682463,True,False,False
+Ruta2,693,2026-10-26 14:39:10,1759,Río Guapante,Río Payamino,45.854596964586236,False,False,True
+Ruta2,694,2026-10-26 14:39:20,1853,Rio Patate,Río Payamino,48.69278316134327,False,False,True
+Ruta2,695,2026-10-26 14:39:31,1853,Rio Patate,Río Payamino,45.027284374782624,False,False,True
+Ruta2,696,2026-10-26 14:39:42,1853,Rio Patate,Río Payamino,23.363897435207512,True,False,True
+Ruta2,697,2026-10-26 14:39:52,1853,Rio Patate,Río Payamino,14.762352253588482,True,False,True
+Ruta2,698,2026-10-26 14:40:03,1853,Rio Patate,Río Payamino,8.60810771278159,True,False,True
+Ruta2,699,2026-10-26 14:40:14,1853,Rio Patate,Río Payamino,12.156845051381758,True,False,True
+Ruta2,700,2026-10-26 14:40:24,1853,Rio Patate,Río Payamino,6.671695598667839,True,False,True
+Ruta2,701,2026-10-26 14:40:35,1853,Rio Patate,Río Payamino,13.487400272492595,True,False,True
+Ruta2,702,2026-10-26 14:40:46,1853,Rio Patate,Río Payamino,19.458635619836077,True,False,True
+Ruta2,703,2026-10-26 14:40:56,1959,Avenida los Atis,Río Payamino,39.792480066998614,True,False,False
+Ruta2,704,2026-10-26 14:41:07,1959,Avenida los Atis,Río Payamino,6.3069205227306675,True,False,True
+Ruta2,705,2026-10-26 14:41:17,1963,Avenida los Atis,Río Alajua,5.630427223951632,True,False,True
+Ruta2,706,2026-10-26 14:41:28,1992,Avenida los Atis,Machangara,19.419807221252714,True,False,True
+Ruta2,707,2026-10-26 14:41:39,1987,Avenida los Atis,Machangara,22.340912100954505,True,False,True
+Ruta2,708,2026-10-26 14:41:49,1987,Avenida los Atis,Machangara,19.65672286989324,True,False,True
+Ruta2,709,2026-10-26 14:42:00,1959,Avenida los Atis,Río Payamino,27.20045795250719,True,False,False
+Ruta2,710,2026-10-26 14:42:10,1940,Avenida los Atis,Unnamed Road,33.34552843205867,True,False,True
+Ruta2,711,2026-10-26 14:42:21,1939,Avenida los Atis,Unnamed Road,8.933818005581934,True,False,True
+Ruta2,712,2026-10-26 14:42:31,1926,Avenida los Atis,Unnamed Road,5.765242540058287,True,False,False
+Ruta2,713,2026-10-26 14:42:42,1914,Avenida los Atis,Pasaje E,20.934330899673434,True,False,True
+Ruta2,714,2026-10-26 14:42:52,1914,Avenida los Atis,Pasaje E,8.192842614644888,True,False,True
+Ruta2,715,2026-10-26 14:43:03,1915,Avenida los Atis,Febres Cordero,10.097264815303419,True,False,True
+Ruta2,716,2026-10-26 14:43:14,1915,Avenida los Atis,Febres Cordero,18.46642437181671,True,False,True
+Ruta2,717,2026-10-26 14:43:24,1899,Avenida los Atis,Unnamed Road,20.52788482552448,True,False,True
+Ruta2,718,2026-10-26 14:43:35,1899,Avenida los Atis,Unnamed Road,14.873156493568635,True,False,True
+Ruta2,719,2026-10-26 14:43:46,1885,Avenida los Atis,Rio Guayllabamba,57.90305536963316,False,False,False
+Ruta2,720,2026-10-26 14:43:56,1880,Avenida Victor Hugo,Avenida los Atis,69.02886242121298,False,False,False
+Ruta2,721,2026-10-26 14:44:07,1880,Avenida Victor Hugo,Avenida los Atis,63.5935807465656,False,False,True
+Ruta2,722,2026-10-26 14:44:18,1889,Avenida los Atis,Unnamed Road,32.91555893563121,True,False,True
+Ruta2,723,2026-10-26 14:44:28,1842,Cuero y Caicedo,Velasco Ibarra,20.25526330093774,True,False,True
+Ruta2,724,2026-10-26 14:44:39,1842,Cuero y Caicedo,Velasco Ibarra,13.741880061715735,True,False,True
+Ruta2,725,2026-10-26 14:44:49,1813,Cuero y Caicedo,Gonzalo Cordova,16.192382492277694,True,False,True
+Ruta2,726,2026-10-26 14:45:00,1794,Avenida los Atis,Selva Alegre,21.359977718331645,True,False,True
+Ruta2,727,2026-10-26 14:45:11,1794,Avenida los Atis,Selva Alegre,32.41095283549007,True,False,True
+Ruta2,728,2026-10-26 14:45:21,1753,Avenida los Atis,Pasaje Juan Daliva,14.389398073582845,True,False,True
+Ruta2,729,2026-10-26 14:45:32,1753,Avenida los Atis,Pasaje Juan Daliva,12.77109761366579,True,False,True
+Ruta2,730,2026-10-26 14:45:43,1730,Avenida los Chasquis,Baquerizo Moreno,14.493955043344318,True,False,True
+Ruta2,731,2026-10-26 14:45:53,1754,Avenida los Chasquis,Isidro Viteri,16.6637394426997,True,False,True
+Ruta2,732,2026-10-26 14:46:04,1771,Avenida los Chasquis,Poveda Burbano (J. Maria Urbina),20.48626939710396,True,False,True
+Ruta2,733,2026-10-26 14:46:14,1782,Avenida Pichincha,Avenida los Chasquis,27.538268424646756,True,False,True
+Ruta2,734,2026-10-26 14:46:25,1764,Avenida Pichincha,Daquilema,37.40748126796703,True,False,True
+Ruta2,735,2026-10-26 14:46:36,1748,Avenida Pichincha,Nari Pillahuazo,37.82472060545315,True,False,True
+Ruta2,736,2026-10-26 14:46:46,1741,Avenida Pichincha,Francisco de Marcos,34.36411434938117,True,False,False
+Ruta2,737,2026-10-26 14:46:57,1720,Avenida Pichincha,Cacique Álvarez,22.983572631924808,True,False,True
+Ruta2,738,2026-10-26 14:47:08,1708,Avenida Pichincha,Manco Cápac,47.031482492188154,False,False,True
+Ruta2,739,2026-10-26 14:47:18,1708,Avenida Pichincha,Manco Cápac,15.251724145768456,True,False,True
+Ruta2,740,2026-10-26 14:47:29,1700,Avenida Pichincha,Unnamed Road,31.354397784744652,True,False,True
+Ruta2,741,2026-10-26 14:47:40,1693,Avenida Pichincha,José Mires,35.868857334764456,True,False,True
+Ruta2,742,2026-10-26 14:47:50,1684,Avenida Pichincha,Avenida Rumiñahui,20.996012296310468,True,False,True
+Ruta2,743,2026-10-26 14:48:01,1684,Avenida Pichincha,Avenida Rumiñahui,59.31148461352916,False,False,True
+Ruta2,744,2026-10-26 14:48:12,1570,Cantoc,Latacunga,44.97292357634958,True,False,True
+Ruta2,745,2026-10-26 14:48:22,1508,Avenida Rumiñahui,Paccha,31.169725328570674,True,False,True
+Ruta2,746,2026-10-26 14:48:33,1476,Paccha,Paltas,0.9498474881690407,True,False,True
+Ruta2,747,2026-10-26 14:48:44,1476,Paccha,Paltas,24.980177179420675,True,False,True
+Ruta2,748,2026-10-26 14:48:54,1476,Paccha,Paltas,26.94049099710549,True,False,True
+Ruta2,749,2026-10-26 14:49:05,1440,Autachi,Paltas,11.674674308869953,True,False,True
+Ruta2,750,2026-10-26 14:49:16,1440,Autachi,Paltas,14.154394772488093,True,False,True
+Ruta2,751,2026-10-26 14:49:26,1440,Autachi,Paltas,4.238548200285216,True,False,True
+Ruta2,752,2026-10-26 14:49:37,1440,Autachi,Paltas,12.49582788066096,True,False,True
+Ruta2,753,2026-10-26 14:49:48,1440,Autachi,Paltas,9.814375766059706,True,False,True
+Ruta2,754,2026-10-26 14:49:58,1440,Autachi,Paltas,18.32853090074299,True,False,True
+Ruta2,755,2026-10-26 14:50:09,1440,Autachi,Paltas,21.93359075921692,True,False,True
+Ruta2,756,2026-10-26 14:50:20,1440,Autachi,Paltas,8.876712356453558,True,False,True
+Ruta2,757,2026-10-26 14:50:30,1440,Autachi,Paltas,11.346784733183965,True,False,True
+Ruta2,758,2026-10-26 14:50:41,1440,Autachi,Paltas,7.706045270198776,True,False,True
+Ruta2,759,2026-10-26 14:50:52,1440,Autachi,Paltas,9.848099322995516,True,False,True
+Ruta2,760,2026-10-26 14:51:02,2,Sector Paltas,Gateway1PALTAS (TTN),18.162643564047052,True,True,True
+Ruta2,761,2026-10-26 14:51:13,2,Sector Paltas,Gateway1PALTAS (TTN),36.66500620851949,True,True,True
+Ruta2,762,2026-10-26 14:51:23,2,Sector Paltas,Gateway1PALTAS (TTN),35.850707227808876,True,True,True
+Ruta2,763,2026-10-26 14:51:34,1380,Hualcopo,Paltas,30.045505431103376,True,False,True
+Ruta2,764,2026-10-26 14:51:45,2,Sector Paltas,Gateway1PALTAS (TTN),19.0782449638448,True,True,True
+Ruta3,1,2026-10-26 21:32:16,1033,Imbabura,Yahuar Huaca,45.93455174384279,False,False,True
+Ruta3,2,2026-10-26 21:32:26,974,Los Incas,Yahuar Huaca,18.239891196701606,True,False,True
+Ruta3,4,2026-10-26 21:32:51,1245,Imbabura,Mainaloa,33.77977069566084,True,False,True
+Ruta3,5,2026-10-26 21:33:01,1245,Imbabura,Mainaloa,56.01826437178234,False,False,True
+Ruta3,6,2026-10-26 21:33:12,1498,Chalco Maita,Manco Cápac,175.16399226575675,False,False,True
+Ruta3,7,2026-10-26 21:33:23,1245,Imbabura,Mainaloa,40.121363640010856,True,False,True
+Ruta3,8,2026-10-26 21:33:33,1245,Imbabura,Mainaloa,35.946170860855375,True,False,True
+Ruta3,9,2026-10-26 21:33:44,1155,Imbabura,Unnamed Road,22.491445415786703,True,False,True
+Ruta3,10,2026-10-26 21:33:54,1155,Imbabura,Unnamed Road,33.163186921343,True,False,True
+Ruta3,11,2026-10-26 21:34:05,1341,Cápac,Paltas,54.588797057088975,False,False,True
+Ruta3,12,2026-10-26 21:34:15,1390,Autachi,Imbabura,25.2390659782128,True,False,True
+Ruta3,13,2026-10-26 21:34:26,1476,Paccha,Paltas,52.66964533273647,False,False,True
+Ruta3,14,2026-10-26 21:34:36,1449,Imbabura,Paccha,28.591782724271045,True,False,True
+Ruta3,15,2026-10-26 21:34:47,1483,Imbabura,Puruhaes,40.142546023968684,True,False,True
+Ruta3,16,2026-10-26 21:34:57,2,Sector Paltas,Gateway1PALTAS (TTN),26.43032317686983,True,True,True
+Ruta3,17,2026-10-26 21:35:08,1348,Hualcopo,Imbabura,28.9410651819442,True,False,True
+Ruta3,18,2026-10-26 21:35:19,1390,Autachi,Imbabura,4.368274471739697,True,False,True
+Ruta3,19,2026-10-26 21:35:29,1348,Hualcopo,Imbabura,30.588504868128506,True,False,True
+Ruta3,20,2026-10-26 21:35:40,1390,Autachi,Imbabura,24.140350162097004,True,False,True
+Ruta3,21,2026-10-26 21:35:50,1245,Imbabura,Mainaloa,23.877974070593982,True,False,True
+Ruta3,22,2026-10-26 21:36:01,1178,Paltas,Unnamed Road,22.675332318502655,True,False,True
+Ruta3,23,2026-10-26 21:36:11,1155,Imbabura,Unnamed Road,19.08842280651618,True,False,True
+Ruta3,24,2026-10-26 21:36:22,1348,Hualcopo,Imbabura,11.928182437044025,True,False,True
+Ruta3,25,2026-10-26 21:36:32,1390,Autachi,Imbabura,25.373638238197906,True,False,True
+Ruta3,27,2026-10-26 21:36:53,2,Sector Paltas,Gateway1PALTAS (TTN),22.100630161930074,True,True,True
+Ruta3,28,2026-10-26 21:37:04,1508,Avenida Rumiñahui,Paccha,55.15783713339332,False,False,True
+Ruta3,29,2026-10-26 21:37:15,1380,Hualcopo,Paltas,15.808843671716705,True,False,True
+Ruta3,31,2026-10-26 21:37:36,1128,Saraguros,Unnamed Road,46.2551267843218,False,False,True
+Ruta3,33,2026-10-26 21:37:57,1128,Saraguros,Unnamed Road,30.36800374444821,True,False,True
+Ruta3,35,2026-10-26 21:38:18,1380,Hualcopo,Paltas,36.61534702048494,True,False,True
+Ruta3,36,2026-10-26 21:38:28,1380,Hualcopo,Paltas,10.3053896934997,True,False,True
+Ruta3,37,2026-10-26 21:38:39,1380,Hualcopo,Paltas,10.3053896934997,True,False,True
+Ruta3,38,2026-10-26 21:38:49,1380,Hualcopo,Paltas,8.026958488244825,True,False,True
+Ruta3,39,2026-10-26 21:39:00,1245,Imbabura,Mainaloa,62.78149713341661,False,False,True
+Ruta3,40,2026-10-26 21:39:11,1107,Los Incas,Unnamed Road,31.826450125864497,True,False,True
+Ruta3,41,2026-10-26 21:39:21,1215,Mainaloa,Saraguros,11.567206541506378,True,False,True
+Ruta3,42,2026-10-26 21:39:32,1258,Cápac,Saraguros,30.580242428552992,True,False,True
+Ruta3,43,2026-10-26 21:39:42,1348,Hualcopo,Imbabura,8.845977936704461,True,False,True
+Ruta3,44,2026-10-26 21:39:53,1348,Hualcopo,Imbabura,11.463060357908878,True,False,True
+Ruta3,45,2026-10-26 21:40:03,1390,Autachi,Imbabura,65.22028336038497,False,False,True
+Ruta3,46,2026-10-26 21:40:14,1390,Autachi,Imbabura,40.33928448751147,True,False,True
+Ruta3,47,2026-10-26 21:40:24,1449,Imbabura,Paccha,35.589996587648244,True,False,True
+Ruta3,48,2026-10-26 21:40:35,1582,Chapera,Imbabura,16.160776637426917,True,False,True
+Ruta3,49,2026-10-26 21:40:45,1670,Avenida Pichincha,Latacunga,63.48510998130757,False,False,True
+Ruta3,50,2026-10-26 21:40:56,1670,Avenida Pichincha,Latacunga,65.10248923103765,False,False,True
+Ruta3,51,2026-10-26 21:41:07,1988,Avenida los Chasquis,Gualaceo,25.940080431609957,True,False,True
+Ruta3,52,2026-10-26 21:41:17,1862,Imbabura,Portoviejo,31.532135961447842,True,False,False
+Ruta3,53,2026-10-26 21:41:28,1936,Imbabura,Latacunga,18.042864740102484,True,False,True
+Ruta3,54,2026-10-26 21:41:38,1936,Imbabura,Latacunga,18.503342387621846,True,False,False
+Ruta3,55,2026-10-26 21:41:49,1836,Cotopaxi,Tungurahua,42.41997770651196,True,False,True
+Ruta3,56,2026-10-26 21:41:59,1908,Cotopaxi,Imbabura,15.225221563944348,True,False,False
+Ruta3,57,2026-10-26 21:42:10,1919,Imbabura,Unnamed Road,18.1043771278018,True,False,False
+Ruta3,58,2026-10-26 21:42:20,1936,Imbabura,Latacunga,28.095117018302854,True,False,False
+Ruta3,59,2026-10-26 21:42:30,1941,Avenida los Chasquis,Unnamed Road,6.806437987450215,True,False,False
+Ruta3,60,2026-10-26 21:42:41,1938,Avenida los Chasquis,Unnamed Road,4.446716326900514,True,False,False
+Ruta3,61,2026-10-26 21:42:51,1949,Avenida los Chasquis,Letamendi,26.359058824591596,True,False,False
+Ruta3,62,2026-10-26 21:43:02,2018,Letamendi,San Cristóbal,33.27106835894072,True,False,True
+Ruta3,63,2026-10-26 21:43:12,2018,Letamendi,San Cristóbal,26.66081144676485,True,False,False
+Ruta3,64,2026-10-26 21:43:23,2045,Estanislao Zambrano,Letamendi,23.63896001066626,True,False,False
+Ruta3,65,2026-10-26 21:43:33,2076,Leon Cevallos,Letamendi,4.62803163204709,True,False,False
+Ruta3,66,2026-10-26 21:43:44,2076,Leon Cevallos,Letamendi,4.59600359344264,True,False,True
+Ruta3,67,2026-10-26 21:43:54,2076,Leon Cevallos,Letamendi,4.375495304197236,True,False,True
+Ruta3,68,2026-10-26 21:44:05,2107,Eusebio Barrera,Letamendi,16.147773381393208,True,False,False
+Ruta3,69,2026-10-26 21:44:15,2107,Eusebio Barrera,Letamendi,53.08202271499712,False,False,True
+Ruta3,70,2026-10-26 21:44:26,2166,Eusebio Barrera,Imbabura,40.579035061928124,True,False,True
+Ruta3,71,2026-10-26 21:44:36,2216,Albión,Letamendi,48.05550295624909,False,False,True
+Ruta3,72,2026-10-26 21:44:47,2236,Cazadores,Rosa Robalino,48.1039934349464,False,False,False
+Ruta3,73,2026-10-26 21:44:57,2230,Imbabura,Seymour,38.20917259405889,True,False,False
+Ruta3,74,2026-10-26 21:45:08,2278,Imbabura,Pedro Tobar,54.44810811025413,False,False,False
+Ruta3,75,2026-10-26 21:45:18,2278,Imbabura,Pedro Tobar,12.167004062695064,True,False,True
+Ruta3,76,2026-10-26 21:45:29,2278,Imbabura,Pedro Tobar,17.378928386353845,True,False,True
+Ruta3,77,2026-10-26 21:45:39,2304,Imbabura,Sucumbios,11.634064876434872,True,False,False
+Ruta3,79,2026-10-26 21:46:00,2307,Muisne,Sucumbios,74.91154231151455,False,False,False
+Ruta3,80,2026-10-26 21:46:10,2414,Imbabura,Isidro Viteri,63.83990194177149,False,False,True
+Ruta3,81,2026-10-26 21:46:21,2414,Imbabura,Isidro Viteri,26.878559253784754,True,False,False
+Ruta3,82,2026-10-26 21:46:31,2414,Imbabura,Isidro Viteri,26.380561546165158,True,False,False
+Ruta3,83,2026-10-26 21:46:42,2414,Imbabura,Isidro Viteri,26.81836321712963,True,False,False
+Ruta3,84,2026-10-26 21:46:52,2433,Avenida Tres Carabelas,Isidro Viteri,5.95867362406841,True,False,False
+Ruta3,85,2026-10-26 21:47:02,2433,Avenida Tres Carabelas,Isidro Viteri,12.674305543394397,True,False,True
+Ruta3,86,2026-10-26 21:47:13,2433,Avenida Tres Carabelas,Isidro Viteri,48.85487892070669,False,False,False
+Ruta3,88,2026-10-26 21:47:34,2449,Avenida Luis Alberto Valencia,Avenida Tres Carabelas,76.33053194895932,False,False,False
+Ruta3,89,2026-10-26 21:47:44,2449,Avenida Luis Alberto Valencia,Avenida Tres Carabelas,58.62041342773187,False,False,True
+Ruta3,90,2026-10-26 21:47:55,2482,Avenida Bolivariana,Unnamed Road,13.141643340541094,True,False,False
+Ruta3,91,2026-10-26 21:48:05,2491,Avenida Bolivariana,Cataguango,68.33113327334122,False,False,False
+Ruta3,92,2026-10-26 21:48:16,2504,Avenida Bolivariana,Avenida Galo Vela,0.8466614975384061,True,False,True
+Ruta3,93,2026-10-26 21:48:26,2505,Avenida Bolivariana,Avenida Galo Vela,58.70656340619284,False,False,True
+Ruta3,94,2026-10-26 21:48:37,2530,Avenida Bolivariana,Avenida Victor Hugo,104.90869893274892,False,False,True
+Ruta3,95,2026-10-26 21:48:47,2541,Leito,Yahuarcocha,65.79592944173994,False,False,False
+Ruta3,96,2026-10-26 21:48:58,2565,Avenida Galo Vela,Gran Colombia,35.51551394265488,True,False,True
+Ruta3,97,2026-10-26 21:49:08,2565,Avenida Galo Vela,Gran Colombia,6.258141089165294,True,False,True
+Ruta3,98,2026-10-26 21:49:19,2579,Avenida Galo Vela,Paltacalo,38.840178261308445,True,False,True
+Ruta3,99,2026-10-26 21:49:29,2579,Avenida Galo Vela,Paltacalo,32.96471919193414,True,False,False
+Ruta3,100,2026-10-26 21:49:40,2591,Avenida Galo Vela,Jambelí,25.32268186673846,True,False,True
+Ruta3,101,2026-10-26 21:49:50,2600,Avenida Galo Vela,Punin,22.866134289801355,True,False,True
+Ruta3,102,2026-10-26 21:50:01,2606,Avenida Galo Vela,Mitad del Mundo,20.8791562578392,True,False,True
+Ruta3,103,2026-10-26 21:50:11,2622,Avenida Galo Vela,San Pedro Alejandrino,10.04457947341821,True,False,False
+Ruta3,104,2026-10-26 21:50:22,2629,Avenida Galo Vela,Convento de San Agustín,17.089967000672857,True,False,True
+Ruta3,105,2026-10-26 21:50:32,2629,Avenida Galo Vela,Convento de San Agustín,19.791773548342814,True,False,False
+Ruta3,106,2026-10-26 21:50:43,2629,Avenida Galo Vela,Convento de San Agustín,60.103045733351955,False,False,False
+Ruta3,107,2026-10-26 21:50:53,2629,Avenida Galo Vela,Convento de San Agustín,87.45532535814962,False,False,False
+Ruta3,108,2026-10-26 21:51:04,2629,Avenida Galo Vela,Convento de San Agustín,97.54012310207604,False,False,True
+Ruta3,109,2026-10-26 21:51:14,2629,Avenida Galo Vela,Convento de San Agustín,122.75371915994853,False,False,True
+Ruta3,110,2026-10-26 21:51:25,2629,Avenida Galo Vela,Convento de San Agustín,140.48802029587236,False,False,False
+Ruta3,111,2026-10-26 21:51:35,2629,Avenida Galo Vela,Convento de San Agustín,141.7913029864678,False,False,True
+Ruta3,112,2026-10-26 21:51:46,2629,Avenida Galo Vela,Convento de San Agustín,137.79843466580692,False,False,True
+Ruta3,113,2026-10-26 21:51:56,2629,Avenida Galo Vela,Convento de San Agustín,139.994300376547,False,False,True
+Ruta3,115,2026-10-26 21:52:17,2629,Avenida Galo Vela,Convento de San Agustín,90.21460335137172,False,False,True
+Ruta3,116,2026-10-26 21:52:28,2629,Avenida Galo Vela,Convento de San Agustín,84.3855946922402,False,False,True
+Ruta3,117,2026-10-26 21:52:39,2629,Avenida Galo Vela,Convento de San Agustín,83.34878551750086,False,False,True
+Ruta3,118,2026-10-26 21:52:49,2629,Avenida Galo Vela,Convento de San Agustín,55.615258796281196,False,False,False
+Ruta3,119,2026-10-26 21:53:00,2629,Avenida Galo Vela,Convento de San Agustín,59.43347740033118,False,False,True
+Ruta3,120,2026-10-26 21:53:10,2612,Avenida Galo Vela,La Rotonda,75.02147766952825,False,False,True
+Ruta3,121,2026-10-26 21:53:21,2600,Avenida Galo Vela,Punin,38.22719290222393,True,False,True
+Ruta3,122,2026-10-26 21:53:31,2579,Avenida Galo Vela,Paltacalo,32.246177080405545,True,False,False
+Ruta3,123,2026-10-26 21:53:42,2569,Avenida Galo Vela,Gran Colombia,57.54049429326759,False,False,False
+Ruta3,124,2026-10-26 21:53:52,2569,Avenida Galo Vela,Gran Colombia,28.475577818755806,True,False,True
+Ruta3,125,2026-10-26 21:54:02,2541,Leito,Yahuarcocha,54.81756277535101,False,False,False
+Ruta3,126,2026-10-26 21:54:13,2514,Avenida Bolivariana,Morales,13.346988248535405,True,False,True
+Ruta3,127,2026-10-26 21:54:23,2539,Avenida Galo Vela,Yahuarcocha,60.54972565180486,False,False,True
+Ruta3,128,2026-10-26 21:54:34,2505,Avenida Bolivariana,Avenida Galo Vela,7.234523466175054,True,False,True
+Ruta3,129,2026-10-26 21:54:45,2513,Avenida Bolivariana,Leito,11.255578007984823,True,False,True
+Ruta3,130,2026-10-26 21:54:55,2514,Avenida Bolivariana,Morales,17.01966945101461,True,False,False
+Ruta3,131,2026-10-26 21:55:06,2525,Avenida Bolivariana,Avenida Victor Hugo,19.04490892976628,True,False,True
+Ruta3,132,2026-10-26 21:55:16,2494,Avenida Victor Hugo,Batalla de Pichincha,46.69995239366917,False,False,True
+Ruta3,133,2026-10-26 21:55:27,2431,Elizalde,Punin,57.461306258323205,False,False,False
+Ruta3,134,2026-10-26 21:55:37,2464,Avenida Victor Hugo,Mauricio Echanique,27.716034481504256,True,False,False
+Ruta3,135,2026-10-26 21:55:48,2455,Avenida Victor Hugo,Batalla de Tarqui,28.039751689654672,True,False,True
+Ruta3,136,2026-10-26 21:55:58,2455,Avenida Victor Hugo,Batalla de Tarqui,66.88225200733679,False,False,True
+Ruta3,137,2026-10-26 21:56:09,2405,Avenida Luis Alberto Valencia,Avenida Victor Hugo,49.3683023558117,False,False,True
+Ruta3,138,2026-10-26 21:56:19,2405,Avenida Luis Alberto Valencia,Avenida Victor Hugo,48.947974085356094,False,False,True
+Ruta3,139,2026-10-26 21:56:30,2392,Avenida Luis Alberto Valencia,Avenida Victor Hugo,24.520829600384147,True,False,True
+Ruta3,140,2026-10-26 21:56:41,2361,Avenida Victor Hugo,Granaderos,21.069940597298302,True,False,True
+Ruta3,141,2026-10-26 21:56:51,2272,Avenida Victor Hugo,José de Antepara,35.515513942654856,True,False,True
+Ruta3,142,2026-10-26 21:57:02,2272,Avenida Victor Hugo,José de Antepara,19.582188999329077,True,False,True
+Ruta3,143,2026-10-26 21:57:12,2272,Avenida Victor Hugo,José de Antepara,22.303978986072497,True,False,True
+Ruta3,144,2026-10-26 21:57:23,2231,Avenida Victor Hugo,Unnamed Road,24.895121460006347,True,False,True
+Ruta3,145,2026-10-26 21:57:33,2174,Agustin Velasco,Avenida Victor Hugo,22.594131851428422,True,False,True
+Ruta3,146,2026-10-26 21:57:44,2174,Agustin Velasco,Avenida Victor Hugo,21.461772530652183,True,False,True
+Ruta3,147,2026-10-26 21:57:54,2080,Avenida Victor Hugo,Javier Ascázubi,24.82632777926828,True,False,True
+Ruta3,148,2026-10-26 21:58:05,1969,Avenida Victor Hugo,La Valle,67.51574712086757,False,False,True
+Ruta3,149,2026-10-26 21:58:16,2006,Ante,Unnamed Road,26.92560371479392,True,False,True
+Ruta3,150,2026-10-26 21:58:26,2006,Ante,Unnamed Road,27.57165929412495,True,False,True
+Ruta3,151,2026-10-26 21:58:37,1999,9 de Octubre,Unnamed Road,24.549011348174083,True,False,True
+Ruta3,152,2026-10-26 21:58:47,1999,9 de Octubre,Unnamed Road,5.716311782255552,True,False,True
+Ruta3,153,2026-10-26 21:58:58,2036,9 de Octubre,Javier Ascázubi,6.082196436214513,True,False,True
+Ruta3,154,2026-10-26 21:59:08,2010,Cuero y Caicedo,Javier Ascázubi,33.547622227768606,True,False,True
+Ruta3,155,2026-10-26 21:59:19,2010,Cuero y Caicedo,Javier Ascázubi,23.132591894829645,True,False,True
+Ruta3,156,2026-10-26 21:59:29,2010,Cuero y Caicedo,Javier Ascázubi,34.71922535500739,True,False,True
+Ruta3,157,2026-10-26 21:59:40,2056,Calle J,Cuero y Caicedo,40.45203981470056,True,False,True
+Ruta3,159,2026-10-26 22:00:01,1972,Javier Ascázubi,Pablo Arenas,6.920663886921281,True,False,True
+Ruta3,160,2026-10-26 22:00:11,1932,Javier Ascázubi,Selva Alegre,49.05484863759375,False,False,False
+Ruta3,161,2026-10-26 22:00:22,1932,Javier Ascázubi,Selva Alegre,47.51370006584707,False,False,True
+Ruta3,162,2026-10-26 22:00:32,1932,Javier Ascázubi,Selva Alegre,48.4132692611687,False,False,True
+Ruta3,163,2026-10-26 22:00:43,1946,Avenida Los Héroes,Manuel Matheu,27.977726029424883,True,False,True
+Ruta3,164,2026-10-26 22:00:53,1877,Avenida Los Héroes,Javier Ascázubi,32.578862578939756,True,False,True
+Ruta3,165,2026-10-26 22:01:04,1860,Javier Ascázubi,Unnamed Road,18.409017794432568,True,False,True
+Ruta3,166,2026-10-26 22:01:14,1860,Javier Ascázubi,Unnamed Road,17.202809802128176,True,False,True
+Ruta3,167,2026-10-26 22:01:25,1845,Isidro Viteri,Javier Ascázubi,24.104850696378826,True,False,False
+Ruta3,168,2026-10-26 22:01:35,1845,Isidro Viteri,Javier Ascázubi,25.00831155496834,True,False,False
+Ruta3,169,2026-10-26 22:01:46,1814,Javier Ascázubi,Unnamed Road,45.44286950244334,False,False,True
+Ruta3,170,2026-10-26 22:01:57,1787,Avenida los Chasquis,Javier Ascázubi,24.443783363460422,True,False,True
+Ruta3,171,2026-10-26 22:02:07,1773,Avenida Pichincha,Zopozopangui,27.665826375181204,True,False,True
+Ruta3,172,2026-10-26 22:02:18,1764,Avenida Pichincha,Daquilema,15.259123077296886,True,False,True
+Ruta3,173,2026-10-26 22:02:28,1748,Avenida Pichincha,Nari Pillahuazo,11.537983631970889,True,False,True
+Ruta3,174,2026-10-26 22:02:39,1741,Avenida Pichincha,Francisco de Marcos,18.422784933297816,True,False,True
+Ruta3,175,2026-10-26 22:02:49,1741,Avenida Pichincha,Francisco de Marcos,16.938148900069322,True,False,True
+Ruta3,176,2026-10-26 22:03:00,1716,Avenida Pichincha,Sinchiroca,32.41853001542745,True,False,True
+Ruta3,177,2026-10-26 22:03:11,1716,Avenida Pichincha,Sinchiroca,33.19286135877309,True,False,True
+Ruta3,178,2026-10-26 22:03:21,1707,Avenida Pichincha,Manco Cápac,20.067193445978432,True,False,True
+Ruta3,179,2026-10-26 22:03:32,1700,Avenida Pichincha,Unnamed Road,23.859917399100674,True,False,True
+Ruta3,180,2026-10-26 22:03:42,1700,Avenida Pichincha,Unnamed Road,26.64146992114351,True,False,True
+Ruta3,181,2026-10-26 22:03:53,1693,Avenida Pichincha,José Mires,4.527504007020763,True,False,True
+Ruta3,182,2026-10-26 22:04:03,1693,Avenida Pichincha,José Mires,4.676544050103151,True,False,True
+Ruta3,183,2026-10-26 22:04:14,1790,José Mires,José Suárez,10.740141869217268,True,False,True
+Ruta3,184,2026-10-26 22:04:25,1790,José Mires,José Suárez,26.13037381346916,True,False,True
+Ruta3,185,2026-10-26 22:04:35,1866,Antonio Arellano,José Mires,21.91158043769345,True,False,True
+Ruta3,186,2026-10-26 22:04:46,1866,Antonio Arellano,José Mires,30.08205234968966,True,False,True
+Ruta3,187,2026-10-26 22:04:56,1866,Antonio Arellano,José Mires,30.422095226756237,True,False,True
+Ruta3,188,2026-10-26 22:05:07,1866,Antonio Arellano,José Mires,30.89793993707937,True,False,False
+Ruta3,189,2026-10-26 22:05:17,1866,Antonio Arellano,José Mires,31.91778421131534,True,False,True
+Ruta3,190,2026-10-26 22:05:28,1788,Avenida Rumiñahui,José Suárez,46.16038599015461,False,False,True
+Ruta3,191,2026-10-26 22:05:39,1788,Avenida Rumiñahui,José Suárez,44.57707878432328,True,False,True
+Ruta3,192,2026-10-26 22:05:49,1683,Avenida Pichincha,Avenida Rumiñahui,31.724207712559014,True,False,True
+Ruta3,193,2026-10-26 22:06:00,1683,Avenida Pichincha,Avenida Rumiñahui,17.951880613900613,True,False,True
+Ruta3,194,2026-10-26 22:06:10,1684,Avenida Pichincha,Avenida Rumiñahui,7.875737423305205,True,False,True
+Ruta3,195,2026-10-26 22:06:21,1683,Avenida Pichincha,Avenida Rumiñahui,19.377169758738486,True,False,True
+Ruta3,196,2026-10-26 22:06:32,1619,Chapera,Latacunga,56.18907976337428,False,False,True
+Ruta3,197,2026-10-26 22:06:42,1570,Cantoc,Latacunga,39.69059757344334,True,False,True
+Ruta3,198,2026-10-26 22:06:53,1570,Cantoc,Latacunga,31.040883103772494,True,False,True
+Ruta3,199,2026-10-26 22:07:03,1521,Latacunga,Puruhaes,19.832102482051408,True,False,True
+Ruta3,200,2026-10-26 22:07:14,1521,Latacunga,Puruhaes,16.721985455624633,True,False,True
+Ruta3,201,2026-10-26 22:07:25,2,Sector Paltas,Gateway1PALTAS (TTN),11.05728752423153,True,True,True
+Ruta3,202,2026-10-26 22:07:35,2,Sector Paltas,Gateway1PALTAS (TTN),15.143480412193709,True,True,True
+Ruta3,203,2026-10-26 22:07:46,2,Sector Paltas,Gateway1PALTAS (TTN),25.17274757096009,True,True,True
+Ruta4,1,2026-10-26 17:05:38,1380,Hualcopo,Paltas,11.460603324190464,True,False,True
+Ruta4,2,2026-10-26 17:05:49,1380,Hualcopo,Paltas,5.907774243958465,True,False,True
+Ruta4,3,2026-10-26 17:05:59,1380,Hualcopo,Paltas,5.907774243958465,True,False,True
+Ruta4,4,2026-10-26 17:06:10,1380,Hualcopo,Paltas,16.06094972875799,True,False,True
+Ruta4,5,2026-10-26 17:06:20,1380,Hualcopo,Paltas,19.767311049612413,True,False,True
+Ruta4,6,2026-10-26 17:06:31,1380,Hualcopo,Paltas,18.354107791354455,True,False,True
+Ruta4,7,2026-10-26 17:06:41,1380,Hualcopo,Paltas,16.99552078904645,True,False,True
+Ruta4,8,2026-10-26 17:06:52,1380,Hualcopo,Paltas,11.476719756368244,True,False,True
+Ruta4,9,2026-10-26 17:07:02,1380,Hualcopo,Paltas,19.86345949167674,True,False,True
+Ruta4,10,2026-10-26 17:07:13,1380,Hualcopo,Paltas,17.27825486113218,True,False,True
+Ruta4,11,2026-10-26 17:07:24,1380,Hualcopo,Paltas,18.91946870289644,True,False,True
+Ruta4,12,2026-10-26 17:07:34,1380,Hualcopo,Paltas,33.76710072627525,True,False,True
+Ruta4,13,2026-10-26 17:07:45,1422,Avenida Rumiñahui,Hualcopo,7.027297544446581,True,False,True
+Ruta4,14,2026-10-26 17:07:55,1425,Avenida Rumiñahui,Hualcopo,7.74241143679178,True,False,True
+Ruta4,15,2026-10-26 17:08:06,1422,Avenida Rumiñahui,Hualcopo,27.356475373607886,True,False,True
+Ruta4,16,2026-10-26 17:08:16,1274,Mainaloa,Paltas,69.54285526074001,False,False,True
+Ruta4,17,2026-10-26 17:08:27,1274,Mainaloa,Paltas,67.05232988981705,False,False,True
+Ruta4,18,2026-10-26 17:08:37,1210,Avenida Rumiñahui,Unnamed Road,38.983107841325236,True,False,True
+Ruta4,19,2026-10-26 17:08:48,1210,Avenida Rumiñahui,Unnamed Road,38.983107841325236,True,False,True
+Ruta4,20,2026-10-26 17:08:58,1214,Avenida Rumiñahui,Unnamed Road,43.03714646424722,True,False,True
+Ruta4,21,2026-10-26 17:09:09,1214,Avenida Rumiñahui,Unnamed Road,18.983106853395253,True,False,True
+Ruta4,22,2026-10-26 17:09:19,1178,Paltas,Unnamed Road,23.961225921034387,True,False,True
+Ruta4,23,2026-10-26 17:09:30,1178,Paltas,Unnamed Road,33.320037431651976,True,False,True
+Ruta4,24,2026-10-26 17:09:40,1274,Mainaloa,Paltas,24.67554545042344,True,False,True
+Ruta4,25,2026-10-26 17:09:51,1274,Mainaloa,Paltas,22.119140021266247,True,False,True
+Ruta4,26,2026-10-26 17:10:02,1380,Hualcopo,Paltas,6.073894823160776,True,False,True
+Ruta4,27,2026-10-26 17:10:12,2,Sector Paltas,Gateway1PALTAS (TTN),11.485357982835616,True,True,True
+Ruta4,28,2026-10-26 17:10:23,2,Sector Paltas,Gateway1PALTAS (TTN),11.751167022230193,True,True,True
+Ruta4,29,2026-10-26 17:10:33,2,Sector Paltas,Gateway1PALTAS (TTN),12.057930334483872,True,True,True
+Ruta4,30,2026-10-26 17:10:44,1440,Autachi,Paltas,5.902760060437904,True,False,True
+Ruta4,31,2026-10-26 17:10:54,1440,Autachi,Paltas,12.270623792366916,True,False,True
+Ruta4,32,2026-10-26 17:11:05,1440,Autachi,Paltas,10.978453690278029,True,False,True
+Ruta4,33,2026-10-26 17:11:15,1440,Autachi,Paltas,6.916456593833359,True,False,True
+Ruta4,34,2026-10-26 17:11:26,1440,Autachi,Paltas,10.794921661972067,True,False,True
+Ruta4,35,2026-10-26 17:11:36,1440,Autachi,Paltas,13.29903785660833,True,False,True
+Ruta4,36,2026-10-26 17:11:47,1440,Autachi,Paltas,5.22962239270649,True,False,True
+Ruta4,37,2026-10-26 17:11:58,1440,Autachi,Paltas,8.51040303584526,True,False,True
+Ruta4,38,2026-10-26 17:12:08,1440,Autachi,Paltas,9.11084223472974,True,False,True
+Ruta4,39,2026-10-26 17:12:19,1440,Autachi,Paltas,7.431520663428309,True,False,True
+Ruta4,40,2026-10-26 17:12:29,1440,Autachi,Paltas,13.638245578635036,True,False,True
+Ruta4,41,2026-10-26 17:12:40,1440,Autachi,Paltas,2.5785308854891977,True,False,True
+Ruta4,42,2026-10-26 17:12:50,1440,Autachi,Paltas,9.38651839786611,True,False,True
+Ruta4,43,2026-10-26 17:13:01,1440,Autachi,Paltas,9.38651839786611,True,False,True
+Ruta4,44,2026-10-26 17:13:11,2,Sector Paltas,Gateway1PALTAS (TTN),8.62908938406511,True,True,True
+Ruta4,45,2026-10-26 17:13:22,2,Sector Paltas,Gateway1PALTAS (TTN),8.790814538824177,True,True,True
+Ruta4,46,2026-10-26 17:13:33,2,Sector Paltas,Gateway1PALTAS (TTN),8.574467674910803,True,True,True
+Ruta4,47,2026-10-26 17:13:43,2,Sector Paltas,Gateway1PALTAS (TTN),6.936221674153598,True,True,True
+Ruta4,48,2026-10-26 17:13:54,2,Sector Paltas,Gateway1PALTAS (TTN),7.046698452829421,True,True,True
+Ruta4,49,2026-10-26 17:14:04,2,Sector Paltas,Gateway1PALTAS (TTN),5.393733430443243,True,True,True
+Ruta4,50,2026-10-26 17:14:15,2,Sector Paltas,Gateway1PALTAS (TTN),10.69432239786448,True,True,True

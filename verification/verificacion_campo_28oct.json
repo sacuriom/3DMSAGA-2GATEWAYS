@@ -1,0 +1,32 @@
+{
+  "Status": "PASS",
+  "Scope": "Auditoria de snapshots preparados para difusion; asociacion espacial provisional",
+  "DeclaredWindows": {
+    "Ruta 1": [
+      291,
+      267
+    ],
+    "Ruta 2": [
+      231,
+      134
+    ],
+    "Ruta 3": [
+      148,
+      103
+    ]
+  },
+  "Route4Original": "Sin CSV ni denominador; cero mensajes observados en la ventana original",
+  "FrozenCalibratedNetworkRMSE_dB": 11.76469954311651,
+  "RepeatedRoute4": {
+    "Status": "PASS",
+    "Campaign": "C27-0810",
+    "Trials": 432,
+    "TTSReceived": 332,
+    "GPS": 181,
+    "StreetCandidates": 35,
+    "CalibratedFrozenRMSE_dB": 23.852367357799697,
+    "RawBestRMSE_dB": 22.14770545999872,
+    "Within6_Count": 1,
+    "Scope": "Radio verificable; contraste espacial parcial sin imputacion GNSS ni recalibracion"
+  }
+}

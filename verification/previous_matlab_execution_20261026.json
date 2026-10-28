@@ -1,0 +1,14 @@
+{
+  "MATLAB": "R2026b",
+  "Status": "Ejecutado y verificado",
+  "PythonIntegrityTests": 6,
+  "Trials": 291,
+  "ReceivedTrials": 267,
+  "GatewayReceptionRows": 397,
+  "StreetCandidates": 103,
+  "CandidateGatewayPairs": 150,
+  "RMSE_LegacyCalibrated_dB": 11.7646995431165,
+  "PhysicalRecalculation": "No ejecutado con datos de campo: faltan condiciones documentadas",
+  "SyntheticTests": "Ecuacion uplink, +3dB, rechazo de cotas no asociadas, offsets por gateway con pendiente fija",
+  "Warning": "Integridad y reproducibilidad no equivalen a calibracion instrumental ni exactitud garantizada"
+}

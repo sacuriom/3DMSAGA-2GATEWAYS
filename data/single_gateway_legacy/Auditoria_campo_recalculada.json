@@ -1,0 +1,186 @@
+{
+  "auditoria_ok": true,
+  "generado_utc": "2026-10-28T06:52:09.842555+00:00",
+  "alcance": "Recálculo de CSV archivados y fidelidad del predictor singleGW; no nueva campaña ni prueba externa independiente.",
+  "signo_residual": "RSSI_empirico - RSSI_teorico",
+  "n_malla_campo": 2154,
+  "n_visitados_b2": 270,
+  "n_con_rssi_b2": 112,
+  "n_sin_rssi_b2": 158,
+  "fraccion_nodos_con_rssi_b2_pct": 41.48148148148148,
+  "no_equivale_pdr_paquetes": true,
+  "cohortes": [
+    {
+      "cohorte": "B2_SF9_global_archivado",
+      "n_rssi": 112,
+      "rmse_db": 14.362489431800165,
+      "mae_db": 10.851875,
+      "bias_emp_menos_teo_db": 1.9450892857142854,
+      "sd_error_poblacional_db": 14.230169723132994,
+      "similitud_6db_pct": 34.82142857142857,
+      "similitud_10db_pct": 60.714285714285715,
+      "pearson_r": 0.820922810951721,
+      "pearson_r_cuadrado": 0.6739142615408751
+    },
+    {
+      "cohorte": "C_SF7_Master_US915_20dBm",
+      "n_rssi": 49,
+      "rmse_db": 10.473049572447309,
+      "mae_db": 7.474285714285714,
+      "bias_emp_menos_teo_db": 0.0020408163265310765,
+      "sd_error_poblacional_db": 10.47304937360688,
+      "similitud_6db_pct": 57.142857142857146,
+      "similitud_10db_pct": 75.51020408163265,
+      "pearson_r": 0.8548752386931987,
+      "pearson_r_cuadrado": 0.7308116737307535
+    },
+    {
+      "cohorte": "SF9_Master_US915_20dBm_n30",
+      "n_rssi": 30,
+      "rmse_db": 10.228795790968423,
+      "mae_db": 8.248999999999999,
+      "bias_emp_menos_teo_db": -2.5709999999999993,
+      "sd_error_poblacional_db": 9.900415260651107,
+      "similitud_6db_pct": 43.333333333333336,
+      "similitud_10db_pct": 66.66666666666667,
+      "pearson_r": 0.8366528953092636,
+      "pearson_r_cuadrado": 0.6999880672293736
+    }
+  ],
+  "rutas": [
+    {
+      "ruta": "Ruta 1",
+      "evaluados": 19,
+      "con_rssi": 13,
+      "sin_rssi": 6,
+      "fraccion_con_rssi_pct": 68.42105263157895,
+      "rango_maximo_observado_m": 554.2,
+      "rmse_db": 22.924456205277632,
+      "mae_db": 19.106153846153845,
+      "bias_emp_menos_teo_db": 17.35538461538461,
+      "sd_error_poblacional_db": 14.977360153236729,
+      "similitud_6db_pct": 15.384615384615385,
+      "similitud_10db_pct": 30.76923076923077,
+      "pearson_r": 0.7958979860031236,
+      "pearson_r_cuadrado": 0.6334536041238282
+    },
+    {
+      "ruta": "Ruta 2",
+      "evaluados": 87,
+      "con_rssi": 46,
+      "sin_rssi": 41,
+      "fraccion_con_rssi_pct": 52.87356321839081,
+      "rango_maximo_observado_m": 1423.0,
+      "rmse_db": 11.602943685716701,
+      "mae_db": 8.58891304347826,
+      "bias_emp_menos_teo_db": 1.1423913043478264,
+      "sd_error_poblacional_db": 11.546568506775662,
+      "similitud_6db_pct": 45.65217391304348,
+      "similitud_10db_pct": 80.43478260869566,
+      "pearson_r": 0.6003538445303722,
+      "pearson_r_cuadrado": 0.3604247386423983
+    },
+    {
+      "ruta": "Ruta 3",
+      "evaluados": 76,
+      "con_rssi": 28,
+      "sin_rssi": 48,
+      "fraccion_con_rssi_pct": 36.8421052631579,
+      "rango_maximo_observado_m": 933.3,
+      "rmse_db": 12.536334193056597,
+      "mae_db": 9.929642857142857,
+      "bias_emp_menos_teo_db": -3.1996428571428575,
+      "sd_error_poblacional_db": 12.121136934575679,
+      "similitud_6db_pct": 25.0,
+      "similitud_10db_pct": 46.42857142857143,
+      "pearson_r": 0.9019605242169645,
+      "pearson_r_cuadrado": 0.8135327872457414
+    },
+    {
+      "ruta": "Ruta 4",
+      "evaluados": 52,
+      "con_rssi": 14,
+      "sin_rssi": 38,
+      "fraccion_con_rssi_pct": 26.923076923076923,
+      "rango_maximo_observado_m": 1014.3,
+      "rmse_db": 11.238674299044352,
+      "mae_db": 8.791428571428574,
+      "bias_emp_menos_teo_db": -0.4114285714285718,
+      "sd_error_poblacional_db": 11.231140927377426,
+      "similitud_6db_pct": 57.142857142857146,
+      "similitud_10db_pct": 64.28571428571429,
+      "pearson_r": 0.9622699669589385,
+      "pearson_r_cuadrado": 0.9259634893111566
+    },
+    {
+      "ruta": "Total_union_actual_4rutas",
+      "evaluados": 234,
+      "con_rssi": 101,
+      "sin_rssi": 133,
+      "fraccion_con_rssi_pct": 43.162393162393165,
+      "rango_maximo_observado_m": 1423.0,
+      "rmse_db": 13.785334796280596,
+      "mae_db": 10.342376237623764,
+      "bias_emp_menos_teo_db": 1.81009900990099,
+      "sd_error_poblacional_db": 13.665979548495601,
+      "similitud_6db_pct": 37.62376237623762,
+      "similitud_10db_pct": 62.37623762376238,
+      "pearson_r": 0.8152442457454011,
+      "pearson_r_cuadrado": 0.664623180220988
+    }
+  ],
+  "reconstruccion_rf": {
+    "B2_2154": {
+      "n": 2154,
+      "altura_efectiva_m": 2707.0,
+      "distancia_horizontal": "Haversine",
+      "error_maximo_exportacion_db": 0.0049998056134086255,
+      "rmse_exportacion_db": 0.0028957745413140897
+    },
+    "C_SF7_49": {
+      "n": 49,
+      "altura_efectiva_m": 2700.0,
+      "distancia_horizontal": "proyeccion_local",
+      "error_maximo_exportacion_db": 0.004952739432624753,
+      "rmse_exportacion_db": 0.003033789819842377
+    },
+    "SF9_Master_30": {
+      "n": 30,
+      "altura_efectiva_m": 2700.0,
+      "distancia_horizontal": "proyeccion_local",
+      "error_maximo_exportacion_db": 0.004948020354973437,
+      "rmse_exportacion_db": 0.003030498678218323
+    }
+  },
+  "transcripcion_original_B1": {
+    "n_evaluados": 200,
+    "n_con_enlace": 83,
+    "n_sin_enlace": 117,
+    "rmse_db": 13.14,
+    "mae_db": 9.84,
+    "similitud_6db_pct": 39.8,
+    "estado": "Conservada de tesis original; no se identificó el CSV exacto de esta cohorte. No reemplaza la unión actual de rutas ni el global B2."
+  },
+  "limitaciones": [
+    "El procesamiento histórico conserva el RSSI máximo por nodo, no su media.",
+    "B2 incluye campañas AU915/US915 y potencias 20/30 dBm; su predictor se fija a 20 dBm.",
+    "La disponibilidad de RSSI se emplea como indicador de enlace en scratch_process_sf9.py; no sustituye una auditoría de contadores ACK ni fija el sentido de medición.",
+    "La suite describe parámetros calibrados con la campaña; no hay partición documentada de calibración/validación reservada.",
+    "Master usa altura efectiva 2700 m y B2 usa 2707 m; son variantes identificadas, no valores intercambiables.",
+    "Las fracciones se refieren a nodos de las cohortes y no al área cubierta de la ciudad."
+  ],
+  "fuentes_sha256": {
+    "fuentes/CoincidenciasAnalisis_US915_SF7_20dBm.csv": "a3be21b12971c83c7110a419d8be11e5b63a8f7fae0f95f5218cbdb557f8de82",
+    "fuentes/CoincidenciasAnalisis_US915_SF9_20dBm.csv": "c9a0135323fa7d7d6451c2ead8bf7ee877950bc0bbf7647b6b61147a1f4a4ebd",
+    "fuentes/Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv": "b38ddd7885359fb137084d66ae077ce3f7b4fe288f45f2094d4be3946d2421d2",
+    "fuentes/DigitalTwin_Base_Model_campo_2154.csv": "d8ae819d92bfbd2fc91cd6448eb404a708499be845267e25d5fc5fb6a5c81b6c",
+    "fuentes/MDPI_FieldTester_Master_Suite.m": "7cd93043deccf1d23a6491991dca7d78da8256b0493387005e1e598dc6c69fc9",
+    "fuentes/Puntos_Ciegos_Identificados_SF9.csv": "5bb7e58cb277ee4599040ab6469bae379c8f630ca6d89bfd4eb403da88e1c069",
+    "fuentes/Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv": "40c524577b78368ac62fc44d67852a22b50d5d8e87876025d218b6addf7a3004",
+    "fuentes/Resumen_Comparativo_Escenarios_archivado.csv": "366385d30d291078da797e2a95a40ecfb76f17c16971ee822fe465f8ebf90bdc",
+    "fuentes/resumen_comparativo_sf9_archivado.json": "f3ad9419bd4e04876aaff042072832093f4c0071d95155594f73e94793cb9d4b",
+    "fuentes/scratch_process_sf9.py": "b4b4f8f3f796971e16b61f9395b89fe8754398f9a4de1b91bdec05a074fd7ab8",
+    "fuentes/Seccion_campo_tesis_original_archivada.tex.txt": "5782d81bcc743b2fbe0519feff843c1860b14cc7d6a648a0d55eb7c4efe4ec73"
+  },
+  "script_sha256": "e366d16e22c8f3565c3813b989e5f43bd30ffe6bbd029b522dd7cd06a7c4c308"
+}

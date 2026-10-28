@@ -1,0 +1,24 @@
+{
+  "extracted_at_utc": "20261027T144018Z",
+  "source": "live_tts_api",
+  "script_sha256": "9d8e72e6f3e394f6c57a96806870746a7bcf02c7369c182533955ec0d4595a63",
+  "credential_prefix_correction": "Removed single extra character before documented token type",
+  "endpoint": "https://coberturaiotambato.nam1.cloud.thethings.industries/api/v3/as/applications/field-tester-ambato/packages/storage/uplink_message",
+  "after": "2026-10-27T13:00:00Z",
+  "requested_limit": 1000,
+  "http_status": 200,
+  "content_type": "text/event-stream",
+  "raw_sha256": "ab0a25aae3277842d74b030f46dddadc609967ce0209efbece9eab4ac25b4d9a",
+  "response_objects": 385,
+  "parse_errors": 0,
+  "message_rows": 385,
+  "distinct_message_records": 385,
+  "reception_rows": 562,
+  "messages_with_two_or_more_gateways": 177,
+  "gateway_ids": [
+    "gateway1",
+    "gateway2"
+  ],
+  "limit_reached": false,
+  "scope": "Received messages only; not a PDR denominator. Message_ID identifies a server record, not all retransmissions of an application message."
+}
