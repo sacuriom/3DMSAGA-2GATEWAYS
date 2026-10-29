@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Validación de Cobertura 4 Rutas — 3D-M-SAGA vs Field Tester SF9 | Ambato</title>
+  <meta name="description" content="Dashboard de validación de cobertura de 4 rutas en Ambato: comparación entre modelo tridimensional 3D-M-SAGA y mediciones empíricas del Field Tester en SF9."/>
+  
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Datos Locales -->
+  <script src="calles_ambato.js"></script>
+  <script src="rutas_fieldtester.js"></script>
+  <script src="verificacion_4rutas_data.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(15, 23, 42, 0.95);
+      --bg-sidebar: #0d1424;
+      --border-card: rgba(56, 189, 248, 0.2);
+      --accent-cyan: #00d4ff;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --r1-color: #0284c7;
+      --r2-color: #10b981;
+      --r3-color: #8b5cf6;
+      --r4-color: #f59e0b;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      height: 100vh; width: 100vw;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+
+    /* HEADER */
+    #header {
+      height: 60px; min-height: 60px;
+      background: rgba(9, 13, 22, 0.98);
+      border-bottom: 1px solid rgba(30, 58, 95, 0.7);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.25rem; z-index: 1000;
+    }
+    .logo-group { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-badge {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; box-shadow: 0 0 16px rgba(0, 212, 255, 0.4);
+    }
+    .logo-text h1 { font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+    .header-badges { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .pill {
+      background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);
+      padding: 0.3rem 0.65rem; border-radius: 999px; font-size: 0.72rem; color: var(--accent-cyan);
+      font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    }
+    .pill.green { background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.35); color: #34d399; }
+    .pill.purple { background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.35); color: #a78bfa; }
+
+    /* MAIN CONTAINER */
+    #main-container {
+      flex: 1; display: flex; position: relative; overflow: hidden;
+    }
+
+    /* MAP */
+    #map { flex: 1; height: 100%; width: 100%; background: #080d1a; }
+
+    /* SIDEBAR */
+    #sidebar {
+      width: 460px; min-width: 460px; max-width: 460px;
+      background: var(--bg-sidebar);
+      border-left: 1px solid rgba(30, 58, 95, 0.8);
+      display: flex; flex-direction: column;
+      z-index: 500; overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    #sidebar.collapsed { transform: translateX(460px); }
+
+    .sidebar-tabs {
+      display: flex; border-bottom: 1px solid rgba(30, 58, 95, 0.8);
+      background: rgba(10, 15, 28, 0.95);
+    }
+    .tab-btn {
+      flex: 1; padding: 0.75rem 0.5rem; border: none; background: transparent;
+      color: var(--text-muted); font-size: 0.75rem; font-weight: 600; cursor: pointer;
+      border-bottom: 2px solid transparent; transition: all 0.2s; text-align: center;
+    }
+    .tab-btn:hover { color: var(--text-main); }
+    .tab-btn.active { color: var(--accent-cyan); border-bottom-color: var(--accent-cyan); background: rgba(0, 212, 255, 0.04); }
+
+    .sidebar-content { flex: 1; overflow-y: auto; padding: 1.1rem; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* KPI CARDS */
+    .kpi-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.65rem; margin-bottom: 1rem; }
+    .kpi-box {
+      background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(30, 58, 95, 0.8);
+      border-radius: 8px; padding: 0.75rem; position: relative; overflow: hidden;
+    }
+    .kpi-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--kpi-color, var(--accent-cyan));
+    }
+    .kpi-title { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-num { font-size: 1.35rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: var(--kpi-color, #fff); margin-top: 0.2rem; }
+    .kpi-desc { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* FILTER BAR */
+    .filter-group { margin-bottom: 1.1rem; }
+    .filter-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; }
+    .btn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+    .filter-btn {
+      padding: 0.45rem 0.4rem; font-size: 0.72rem; border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.2); background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main); cursor: pointer; transition: all 0.2s; font-weight: 500; text-align: center;
+    }
+    .filter-btn:hover { border-color: var(--accent-cyan); background: rgba(0, 212, 255, 0.1); }
+    .filter-btn.active {
+      background: var(--btn-color, var(--accent-cyan)); color: #000;
+      font-weight: 700; border-color: transparent;
+    }
+
+    /* TABLE */
+    .table-container { max-height: 380px; overflow-y: auto; border: 1px solid rgba(30, 58, 95, 0.8); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.73rem; }
+    th {
+      background: #090e1c; color: var(--text-muted); padding: 0.55rem 0.5rem;
+      text-align: left; font-size: 0.67rem; text-transform: uppercase; position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid rgba(30, 58, 95, 0.8);
+    }
+    td { padding: 0.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: var(--text-main); }
+    tr:hover { background: rgba(0, 212, 255, 0.06); cursor: pointer; }
+
+    /* BADGES */
+    .badge {
+      display: inline-block; padding: 0.15rem 0.45rem; border-radius: 4px;
+      font-size: 0.65rem; font-weight: 700; font-family: 'JetBrains Mono', monospace;
+    }
+    .badge-ok { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-blind { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4); }
+    .badge-err-ok { color: #10b981; }
+    .badge-err-warn { color: #f59e0b; }
+    .badge-err-bad { color: #ef4444; }
+
+    /* CHARTS */
+    .chart-card {
+      background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(30, 58, 95, 0.8);
+      border-radius: 8px; padding: 0.85rem; margin-bottom: 0.9rem;
+    }
+    .chart-title { font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .chart-wrap { position: relative; height: 190px; }
+
+    /* FLOATING TOGGLE BUTTON */
+    #toggle-sidebar {
+      position: absolute; top: 12px; right: 472px; z-index: 600;
+      background: var(--bg-sidebar); border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.5); font-size: 1rem;
+      transition: all 0.3s;
+    }
+    #sidebar.collapsed ~ #toggle-sidebar { right: 12px; }
+
+    /* POPUP LEAFLET STYLING */
+    .leaflet-popup-content-wrapper {
+      background: rgba(13, 20, 36, 0.96) !important;
+      color: #fff !important; border: 1px solid var(--accent-cyan) !important;
+      border-radius: 10px !important; backdrop-filter: blur(10px);
+    }
+    .leaflet-popup-tip { background: rgba(13, 20, 36, 0.96) !important; }
+    .pop-title { font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.3rem; }
+    .pop-row { font-size: 0.72rem; color: var(--text-muted); margin: 0.2rem 0; display: flex; justify-content: space-between; }
+    .pop-val { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #fff; }
+    .pop-err { font-size: 0.75rem; font-weight: 700; margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="logo-group">
+      <div class="logo-badge">📡</div>
+      <div class="logo-text">
+        <h1>Validación Multi-Ruta LoRaWAN — Modelo 3D-M-SAGA vs Field Tester FT101</h1>
+        <p>Campaña Integral de Cobertura (Rutas 1 a 4) · SF9 · Gateway Milesight UG67 en Ambato</p>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="pill green">4 Rutas Evaluadas</span>
+      <span class="pill purple">SF9 (DR1 - 125 kHz)</span>
+      <span class="pill">270 Nodos Evaluados</span>
+      <span class="pill">UIT-R P.1411 (±6 dB)</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <div id="main-container">
+    <div id="map"></div>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+      <div class="sidebar-tabs">
+        <button class="tab-btn active" onclick="switchTab('resumen')">📊 Resumen &amp; KPIs</button>
+        <button class="tab-btn" onclick="switchTab('graficos')">📈 Gráficos RF</button>
+        <button class="tab-btn" onclick="switchTab('puntos')">📋 Puntos Ciegos</button>
+        <button class="tab-btn" onclick="switchTab('descarga')">💾 CSVs Maestros</button>
+      </div>
+
+      <div class="sidebar-content">
+        <!-- TAB 1: RESUMEN -->
+        <div id="tab-resumen" class="tab-pane active">
+          <div class="filter-group">
+            <div class="filter-label">Filtrar por Ruta de Seguimiento</div>
+            <div class="btn-grid">
+              <button class="filter-btn active" onclick="filterRoute('ALL', this)" style="--btn-color:var(--accent-cyan)">Todas</button>
+              <button class="filter-btn" onclick="filterRoute('Ruta 1', this)" style="--btn-color:var(--r1-color)">Ruta 1 (NO)</button>
+              <button class="filter-btn" onclick="filterRoute('Ruta 2', this)" style="--btn-color:var(--r2-color)">Ruta 2 (SO)</button>
+              <button class="filter-btn" onclick="filterRoute('Ruta 3', this)" style="--btn-color:var(--r3-color)">Ruta 3 (NE)</button>
+              <button class="filter-btn" onclick="filterRoute('Ruta 4', this)" style="--btn-color:var(--r4-color)">Ruta 4 (SE)</button>
+              <button class="filter-btn" onclick="filterRoute('BLIND_ONLY', this)" style="--btn-color:#c084fc">Solo Ciegos</button>
+            </div>
+          </div>
+
+          <div class="kpi-row">
+            <div class="kpi-box" style="--kpi-color:var(--accent-cyan)">
+              <div class="kpi-title">Nodos Evaluados</div>
+              <div class="kpi-num" id="kpi-nodos">270</div>
+              <div class="kpi-desc">In-situ con GPS en Ambato</div>
+            </div>
+            <div class="kpi-box" style="--kpi-color:var(--accent-green)">
+              <div class="kpi-title">Enlaces con ACK</div>
+              <div class="kpi-num" id="kpi-ack">112</div>
+              <div class="kpi-desc" id="kpi-ack-pct">41.5% Cobertura Real</div>
+            </div>
+            <div class="kpi-box" style="--kpi-color:#c084fc">
+              <div class="kpi-title">Puntos Ciegos</div>
+              <div class="kpi-num" id="kpi-ciegos">158</div>
+              <div class="kpi-desc">Packet Loss 100% / Timeout</div>
+            </div>
+            <div class="kpi-box" style="--kpi-color:var(--accent-amber)">
+              <div class="kpi-title">RMSE Global</div>
+              <div class="kpi-num" id="kpi-rmse">14.36 dB</div>
+              <div class="kpi-desc">MAE: 10.85 dB | Bias: +1.95 dB</div>
+            </div>
+            <div class="kpi-box" style="--kpi-color:#38bdf8">
+              <div class="kpi-title">Similitud (±6 dB)</div>
+              <div class="kpi-num" id="kpi-sim6">34.8%</div>
+              <div class="kpi-desc">Margen UIT-R P.1411 (log-normal)</div>
+            </div>
+            <div class="kpi-box" style="--kpi-color:#f43f5e">
+              <div class="kpi-title">Rango Máximo Real</div>
+              <div class="kpi-num" id="kpi-rango">1,423 m</div>
+              <div class="kpi-desc">vs 4,432 m modelo 3D-M-SAGA</div>
+            </div>
+          </div>
+
+          <div style="font-size:0.75rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin:0.8rem 0 0.4rem;">
+            Desglose Comparativo por Ruta Vehicular
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ruta</th>
+                  <th>Evaluados</th>
+                  <th>ACKs</th>
+                  <th>Ciegos</th>
+                  <th>Cobertura</th>
+                  <th>RMSE</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-rutas"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: GRÁFICOS RF -->
+        <div id="tab-graficos" class="tab-pane">
+          <div class="chart-card">
+            <div class="chart-title">Dispersión: RSSI Teórico 3D-M-SAGA vs RSSI Empírico (SF9)</div>
+            <div class="chart-wrap"><canvas id="chartScatter"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">Histograma del Error Residual (ΔR = RSSI_emp - RSSI_theo)</div>
+            <div class="chart-wrap"><canvas id="chartErrorHist"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">Cobertura Real vs Puntos Ciegos por Cuadrante</div>
+            <div class="chart-wrap"><canvas id="chartCoverageBar"></canvas></div>
+          </div>
+        </div>
+
+        <!-- TAB 3: PUNTOS CIEGOS DETALLADOS -->
+        <div id="tab-puntos" class="tab-pane">
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.6rem;">
+            Se identificaron <strong>158 intersecciones urbanas</strong> con pérdida completa de confirmación (puntos ciegos empíricos) durante las campañas del 10 y 11 de octubre:
+          </div>
+          <div class="table-container" style="max-height: 480px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Calle Principal</th>
+                  <th>Intersección</th>
+                  <th>Dist. GW</th>
+                  <th>Ruta</th>
+                  <th>Diagnóstico</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-ciegos"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 4: DESCARGA DE CSVS -->
+        <div id="tab-descarga" class="tab-pane">
+          <div style="font-size:0.8rem;line-height:1.6;color:var(--text-muted);">
+            <p style="margin-bottom:0.8rem;"><strong style="color:var(--accent-cyan)">Documentos CSV Maestros Generados:</strong></p>
+            
+            <div style="background:rgba(15,23,42,0.9);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:0.9rem;margin-bottom:0.8rem;">
+              <div style="font-weight:700;color:#fff;font-size:0.82rem;">1. Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv</div>
+              <div style="font-size:0.72rem;margin-top:0.3rem;">2,154 nodos completos del Gemelo Digital con datos de cobertura teórica 3D-M-SAGA, telemetría empírica de campo, errores punto a punto y clasificación.</div>
+              <a href="Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv" download style="display:inline-block;margin-top:0.5rem;padding:0.35rem 0.8rem;background:var(--accent-cyan);color:#000;border-radius:5px;font-size:0.72rem;font-weight:700;text-decoration:none;">⬇️ Descargar CSV Maestro Completo</a>
+            </div>
+
+            <div style="background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:0.9rem;margin-bottom:0.8rem;">
+              <div style="font-weight:700;color:#fff;font-size:0.82rem;">2. Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv</div>
+              <div style="font-size:0.72rem;margin-top:0.3rem;">270 nodos evaluados in-situ en las 4 rutas con enlaces exitosos (112) y puntos ciegos (158).</div>
+              <a href="Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv" download style="display:inline-block;margin-top:0.5rem;padding:0.35rem 0.8rem;background:var(--accent-green);color:#000;border-radius:5px;font-size:0.72rem;font-weight:700;text-decoration:none;">⬇️ Descargar Nodos Evaluados</a>
+            </div>
+
+            <div style="background:rgba(15,23,42,0.9);border:1px solid rgba(139,92,246,0.25);border-radius:8px;padding:0.9rem;">
+              <div style="font-weight:700;color:#fff;font-size:0.82rem;">3. Puntos_Ciegos_Identificados_SF9.csv</div>
+              <div style="font-size:0.72rem;margin-top:0.3rem;">Listado priorizado de las 158 zonas sin cobertura para órdenes de trabajo predictivas y mitigación de sombras orográficas.</div>
+              <a href="Puntos_Ciegos_Identificados_SF9.csv" download style="display:inline-block;margin-top:0.5rem;padding:0.35rem 0.8rem;background:#c084fc;color:#000;border-radius:5px;font-size:0.72rem;font-weight:700;text-decoration:none;">⬇️ Descargar Puntos Ciegos</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <button id="toggle-sidebar" onclick="toggleSidebar()" title="Ocultar/Mostrar panel lateral">◀</button>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════
+    // INICIALIZACIÓN DE DATOS Y MAPA LEAFLET
+    // ═══════════════════════════════════════════════════════════════════
+    const DATA = window.VERIFICACION_4RUTAS_DATA || { evaluated_points: [], blind_points: [], metadata: {} };
+    const meta = DATA.metadata || {};
+    const evalPts = DATA.evaluated_points || [];
+    const blindPts = DATA.blind_points || [];
+
+    const map = L.map('map', {
+      center: [-1.25164, -78.62765],
+      zoom: 15,
+      zoomControl: true
+    });
+
+    // CartoDB Dark Matter
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Gateway Marker
+    const gwIcon = L.divIcon({
+      html: `<div style="background:linear-gradient(135deg,#00d4ff,#7c3aed);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#000;font-weight:800;font-size:12px;border:2px solid #fff;box-shadow:0 0 16px #00d4ff;">GW</div>`,
+      className: '',
+      iconSize: [26, 26],
+      iconAnchor: [13, 13]
+    });
+    L.marker([-1.25164, -78.62765], { icon: gwIcon }).addTo(map)
+      .bindPopup(`<div class="pop-title">📡 Gateway Milesight UG67</div><div class="pop-row"><span>Ubicación:</span><span class="pop-val">Paltas y Autachi</span></div><div class="pop-row"><span>Altitud:</span><span class="pop-val">2,707 msnm</span></div><div class="pop-row"><span>Frecuencia:</span><span class="pop-val">915 MHz (AU915)</span></div>`);
+
+    // Calles offline (capa vectorial)
+    if (window.CALLES_AMBATO) {
+      L.geoJSON(window.CALLES_AMBATO, {
+        style: { color: '#1e3a5f', weight: 1.2, opacity: 0.35 }
+      }).addTo(map);
+    }
+
+    // Rutas planificadas (polilíneas tenues)
+    const routeColors = {
+      'Ruta 1': '#0284c7',
+      'Ruta 2': '#10b981',
+      'Ruta 3': '#8b5cf6',
+      'Ruta 4': '#f59e0b'
+    };
+
+    if (window.RUTAS_FIELDTESTER && window.RUTAS_FIELDTESTER.circuits) {
+      window.RUTAS_FIELDTESTER.circuits.forEach(c => {
+        const latlngs = c.points.map(p => [p.Lat, p.Lon]);
+        L.polyline(latlngs, {
+          color: c.color,
+          weight: 2.5,
+          opacity: 0.45,
+          dashArray: '5, 8'
+        }).addTo(map);
+      });
+    }
+
+    // Capas de Marcadores
+    let markerLayerGroup = L.layerGroup().addTo(map);
+
+    function getSignalColor(rssi) {
+      if (rssi >= -80) return '#10b981'; // Strong (Verde)
+      if (rssi >= -100) return '#f59e0b'; // Middle (Ámbar)
+      return '#ef4444'; // Weak (Rojo)
+    }
+
+    function renderMarkers(routeFilter = 'ALL') {
+      markerLayerGroup.clearLayers();
+
+      evalPts.forEach(pt => {
+        if (routeFilter === 'BLIND_ONLY' && !pt.Punto_Ciego_Empirico) return;
+        if (routeFilter !== 'ALL' && routeFilter !== 'BLIND_ONLY' && pt.Ruta !== routeFilter) return;
+
+        let marker;
+        if (pt.Punto_Ciego_Empirico) {
+          // Marcador de punto ciego (Púrpura con cruz)
+          const bIcon = L.divIcon({
+            html: `<div style="background:#8b5cf6;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 8px #8b5cf6;opacity:0.85;"></div>`,
+            className: '',
+            iconSize: [12, 12],
+            iconAnchor: [6, 6]
+          });
+          marker = L.marker([pt.Lat, pt.Lon], { icon: bIcon });
+          marker.bindPopup(`
+            <div class="pop-title" style="color:#c084fc;">⚠️ Punto Ciego (Packet Loss 100%)</div>
+            <div class="pop-row"><span>Ubicación:</span><span class="pop-val">${pt.Calle_1} y ${pt.Calle_2}</span></div>
+            <div class="pop-row"><span>Ruta:</span><span class="pop-val">${pt.Ruta}</span></div>
+            <div class="pop-row"><span>Distancia GW:</span><span class="pop-val">${pt.Dist_GW_m.toFixed(0)} m</span></div>
+            <div class="pop-row"><span>Altitud:</span><span class="pop-val">${pt.Altitud_m} msnm</span></div>
+            <div class="pop-row"><span>Clutter:</span><span class="pop-val">${pt.Clutter}</span></div>
+            <div class="pop-row"><span>RSSI Teórico 3D:</span><span class="pop-val">${pt.RSSI_Teorico_dBm} dBm</span></div>
+            <div class="pop-err" style="color:#f43f5e;">GW sin respuesta / Timeout en campo</div>
+          `);
+        } else {
+          // Marcador con ACK confirmado
+          const c = getSignalColor(pt.RSSI_Empirico_dBm);
+          const err = pt.Error_Residual_dB;
+          const errColor = Math.abs(err) <= 6 ? '#10b981' : (Math.abs(err) <= 10 ? '#f59e0b' : '#ef4444');
+
+          marker = L.circleMarker([pt.Lat, pt.Lon], {
+            radius: 6.5,
+            fillColor: c,
+            color: '#fff',
+            weight: 1.5,
+            opacity: 1,
+            fillOpacity: 0.9
+          });
+          marker.bindPopup(`
+            <div class="pop-title">📡 ${pt.Calle_1} y ${pt.Calle_2}</div>
+            <div class="pop-row"><span>Ruta:</span><span class="pop-val">${pt.Ruta}</span></div>
+            <div class="pop-row"><span>Distancia GW:</span><span class="pop-val">${pt.Dist_GW_m.toFixed(0)} m</span></div>
+            <div class="pop-row"><span>Altitud:</span><span class="pop-val">${pt.Altitud_m} msnm</span></div>
+            <div class="pop-row"><span>RSSI Teórico 3D:</span><span class="pop-val">${pt.RSSI_Teorico_dBm} dBm</span></div>
+            <div class="pop-row"><span>RSSI Empírico:</span><span class="pop-val" style="color:${c}">${pt.RSSI_Empirico_dBm} dBm</span></div>
+            <div class="pop-row"><span>SNR Medido:</span><span class="pop-val">${pt.SNR_Empirico_dB !== null ? pt.SNR_Empirico_dB + ' dB' : 'N/D'}</span></div>
+            <div class="pop-err" style="color:${errColor}">
+              Error Residual ΔR: ${err > 0 ? '+' : ''}${err} dB ${Math.abs(err) <= 6 ? '(✓ Cumple ±6 dB)' : ''}
+            </div>
+          `);
+        }
+        markerLayerGroup.addLayer(marker);
+      });
+    }
+
+    renderMarkers('ALL');
+
+    // ═══════════════════════════════════════════════════════════════════
+    // POBLAR TABLAS Y KPIS
+    // ═══════════════════════════════════════════════════════════════════
+    function populateRouteTable() {
+      const tbody = document.getElementById('tbody-rutas');
+      tbody.innerHTML = '';
+      (meta.rutas_stats || []).forEach(r => {
+        tbody.innerHTML += `
+          <tr onclick="filterRoute('${r.Ruta}', null)">
+            <td><strong style="color:${routeColors[r.Ruta] || '#fff'}">${r.Ruta}</strong></td>
+            <td>${r.Nodos_Evaluados}</td>
+            <td style="color:#10b981;font-weight:700;">${r.Nodos_Con_Enlace}</td>
+            <td style="color:#c084fc;">${r.Puntos_Ciegos}</td>
+            <td>${r.Tasa_Cobertura_Real_pct}%</td>
+            <td style="font-family:'JetBrains Mono';">${r.RMSE_dB !== null ? r.RMSE_dB + ' dB' : 'N/D'}</td>
+          </tr>
+        `;
+      });
+    }
+    populateRouteTable();
+
+    function populateBlindTable() {
+      const tbody = document.getElementById('tbody-ciegos');
+      tbody.innerHTML = '';
+      blindPts.slice(0, 80).forEach(b => {
+        tbody.innerHTML += `
+          <tr onclick="map.setView([${b.Lat}, ${b.Lon}], 17)">
+            <td><strong>${b.Calle_1}</strong></td>
+            <td>${b.Calle_2}</td>
+            <td>${b.Dist_GW_m.toFixed(0)}m</td>
+            <td><span class="badge" style="background:${routeColors[b.Ruta]||'#475569'}33;color:${routeColors[b.Ruta]||'#fff'}">${b.Ruta}</span></td>
+            <td style="color:#c084fc;font-size:0.68rem;">Sombra / Cañón</td>
+          </tr>
+        `;
+      });
+    }
+    populateBlindTable();
+
+    // ═══════════════════════════════════════════════════════════════════
+    // FILTROS
+    // ═══════════════════════════════════════════════════════════════════
+    function filterRoute(routeName, btnElem) {
+      if (btnElem) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btnElem.classList.add('active');
+      }
+
+      renderMarkers(routeName);
+
+      // Actualizar KPIs según filtro
+      let pts = evalPts;
+      if (routeName === 'BLIND_ONLY') pts = evalPts.filter(p => p.Punto_Ciego_Empirico);
+      else if (routeName !== 'ALL') pts = evalPts.filter(p => p.Ruta === routeName);
+
+      const acks = pts.filter(p => p.Estado_Empirico === 'Cubierto_Con_Enlace');
+      const blinds = pts.filter(p => p.Punto_Ciego_Empirico);
+
+      document.getElementById('kpi-nodos').textContent = pts.length;
+      document.getElementById('kpi-ack').textContent = acks.length;
+      document.getElementById('kpi-ack-pct').textContent = pts.length > 0 ? (acks.length / pts.length * 100).toFixed(1) + '% Cobertura Real' : '0%';
+      document.getElementById('kpi-ciegos').textContent = blinds.length;
+
+      if (acks.length > 0) {
+        const errs = acks.map(p => p.Error_Residual_dB);
+        const rmseVal = Math.sqrt(errs.reduce((a, b) => a + b*b, 0) / errs.length).toFixed(2);
+        const sim6Val = (errs.filter(e => Math.abs(e) <= 6).length / errs.length * 100).toFixed(1);
+        const maxDist = Math.max(...acks.map(p => p.Dist_GW_m)).toFixed(0);
+
+        document.getElementById('kpi-rmse').textContent = rmseVal + ' dB';
+        document.getElementById('kpi-sim6').textContent = sim6Val + '%';
+        document.getElementById('kpi-rango').textContent = maxDist + ' m';
+      } else {
+        document.getElementById('kpi-rmse').textContent = 'N/D';
+        document.getElementById('kpi-sim6').textContent = '0%';
+        document.getElementById('kpi-rango').textContent = '0 m';
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // PANELES LATERALES
+    // ═══════════════════════════════════════════════════════════════════
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+
+      if (tabId === 'graficos') renderCharts();
+    }
+
+    function toggleSidebar() {
+      const s = document.getElementById('sidebar');
+      const btn = document.getElementById('toggle-sidebar');
+      s.classList.toggle('collapsed');
+      btn.textContent = s.classList.contains('collapsed') ? '▶' : '◀';
+      setTimeout(() => map.invalidateSize(), 350);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // GRÁFICOS CHART.JS
+    // ═══════════════════════════════════════════════════════════════════
+    let chartsInitialized = false;
+    function renderCharts() {
+      if (chartsInitialized) return;
+      chartsInitialized = true;
+
+      const acks = evalPts.filter(p => p.Estado_Empirico === 'Cubierto_Con_Enlace');
+
+      // 1. Scatter Plot
+      const scatterData = acks.map(p => ({ x: p.RSSI_Teorico_dBm, y: p.RSSI_Empirico_dBm }));
+      new Chart(document.getElementById('chartScatter'), {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Nodos Validados (SF9)',
+            data: scatterData,
+            backgroundColor: 'rgba(0, 212, 255, 0.75)',
+            borderColor: '#00d4ff',
+            pointRadius: 4.5
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: 'RSSI Teórico 3D-M-SAGA (dBm)', color: '#94a3b8' }, ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            y: { title: { display: true, text: 'RSSI Empírico Field Tester (dBm)', color: '#94a3b8' }, ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { labels: { color: '#94a3b8' } } }
+        }
+      });
+
+      // 2. Histograma de Error Residual
+      const errBins = ['<-15', '-15 a -10', '-10 a -6', '-6 a 0', '0 a +6', '+6 a +10', '+10 a +15', '>+15'];
+      const errCounts = [0,0,0,0,0,0,0,0];
+      acks.forEach(p => {
+        const e = p.Error_Residual_dB;
+        if (e < -15) errCounts[0]++;
+        else if (e < -10) errCounts[1]++;
+        else if (e < -6) errCounts[2]++;
+        else if (e < 0) errCounts[3]++;
+        else if (e < 6) errCounts[4]++;
+        else if (e < 10) errCounts[5]++;
+        else if (e < 15) errCounts[6]++;
+        else errCounts[7]++;
+      });
+
+      new Chart(document.getElementById('chartErrorHist'), {
+        type: 'bar',
+        data: {
+          labels: errBins,
+          datasets: [{
+            label: 'Frecuencia de Error ΔR (dB)',
+            data: errCounts,
+            backgroundColor: ['#ef4444','#f97316','#f59e0b','#10b981','#10b981','#f59e0b','#f97316','#ef4444'],
+            borderRadius: 5
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            y: { ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+
+      // 3. Cobertura Real vs Ciegos
+      const rLabels = (meta.rutas_stats || []).map(r => r.Ruta);
+      const rAcks = (meta.rutas_stats || []).map(r => r.Nodos_Con_Enlace);
+      const rBlinds = (meta.rutas_stats || []).map(r => r.Puntos_Ciegos);
+
+      new Chart(document.getElementById('chartCoverageBar'), {
+        type: 'bar',
+        data: {
+          labels: rLabels,
+          datasets: [
+            { label: 'Enlaces ACK', data: rAcks, backgroundColor: '#10b981', borderRadius: 4 },
+            { label: 'Puntos Ciegos', data: rBlinds, backgroundColor: '#8b5cf6', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            x: { stacked: true, ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            y: { stacked: true, ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { labels: { color: '#94a3b8' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

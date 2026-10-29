@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planificador de Rutas de Medición Vehicular — LoRaWAN Ambato | Google Maps</title>
+  <meta name="description" content="Planificador operativo de rutas de medición en auto con paradas en Google Maps para validación empírica LoRaWAN Field Tester FT101."/>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Datos locales: Calles de Ambato y Rutas Optimizadas -->
+  <script src="calles_ambato.js"></script>
+  <script src="rutas_fieldtester.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(15, 23, 42, 0.96);
+      --border-card: rgba(56, 189, 248, 0.22);
+      --accent-cyan: #00d4ff;
+      --accent-orange: #f97316;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --r1-color: #0284c7;
+      --r2-color: #10b981;
+      --r3-color: #8b5cf6;
+      --r4-color: #f59e0b;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh; width: 100vw;
+    }
+
+    /* ── HEADER ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 1000;
+      background: rgba(9, 13, 22, 0.96); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30, 58, 95, 0.7);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.25rem; gap: 1rem;
+    }
+    .logo-group { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-badge {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #8b5cf6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; box-shadow: 0 0 16px rgba(2, 132, 199, 0.4);
+    }
+    .logo-text h1 { font-size: 1rem; font-weight: 700; color: #fff; }
+    .logo-text p { font-size: 0.72rem; color: var(--text-muted); }
+
+    .header-actions { display: flex; align-items: center; gap: 0.65rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.45rem 0.9rem; border-radius: 8px;
+      font-size: 0.76rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white; border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-muted); border-color: rgba(51, 65, 85, 0.8);
+    }
+    .btn-secondary:hover { color: #fff; background: rgba(51, 65, 85, 0.9); }
+
+    /* ── MAP CONTAINER ── */
+    #map {
+      position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
+      z-index: 1; background: #0a0f1d;
+    }
+
+    /* ── SIDEBAR (LEFT) ── */
+    #sidebar {
+      position: fixed; top: 74px; left: 16px; bottom: 16px; width: 380px;
+      z-index: 900; background: var(--bg-card);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px; display: flex; flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    #sidebar.collapsed { transform: translateX(-410px); }
+
+    .sidebar-header {
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sidebar-header h2 { font-size: 0.92rem; font-weight: 700; color: #fff; }
+
+    /* Tabs de Rutas */
+    .route-tabs {
+      display: flex; background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+      padding: 0.35rem 0.65rem; gap: 0.35rem; overflow-x: auto;
+    }
+    .tab-btn {
+      flex: 1; padding: 0.45rem 0.5rem; text-align: center;
+      background: none; border: 1px solid transparent;
+      border-radius: 8px; color: var(--text-muted);
+      font-size: 0.72rem; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: all 0.2s;
+    }
+    .tab-btn:hover { color: #fff; background: rgba(51, 65, 85, 0.5); }
+    .tab-btn.active {
+      color: #fff; border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(2, 132, 199, 0.2);
+    }
+
+    .route-details {
+      padding: 0.85rem 1rem; border-bottom: 1px solid rgba(30, 58, 95, 0.4);
+      background: rgba(15, 23, 42, 0.5);
+    }
+    .route-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .route-desc { font-size: 0.7rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.6rem; }
+    .route-kpis {
+      display: flex; gap: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    }
+    .route-kpi-item {
+      background: rgba(30, 41, 59, 0.6); padding: 0.25rem 0.5rem;
+      border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+
+    /* Lista de Etapas de Google Maps y Paradas */
+    .stages-scroll {
+      flex: 1; overflow-y: auto; padding: 0.75rem 1rem;
+    }
+
+    .stage-card {
+      background: rgba(17, 24, 39, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 10px; padding: 0.85rem; margin-bottom: 0.85rem;
+      transition: all 0.2s;
+    }
+    .stage-card:hover { border-color: var(--accent-cyan); }
+    .stage-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.55rem;
+    }
+    .stage-name { font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .gmaps-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: #1a73e8; color: #fff; text-decoration: none;
+      padding: 0.35rem 0.7rem; border-radius: 6px;
+      font-size: 0.72rem; font-weight: 700; box-shadow: 0 2px 8px rgba(26, 115, 232, 0.4);
+      transition: all 0.2s;
+    }
+    .gmaps-btn:hover { background: #1557b0; transform: translateY(-1px); }
+
+    .stops-list { list-style: none; margin-top: 0.5rem; }
+    .stop-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.35rem 0; border-bottom: 1px solid rgba(30, 58, 95, 0.4);
+      font-size: 0.72rem; gap: 0.5rem;
+    }
+    .stop-row:last-child { border-bottom: none; }
+    .stop-idx {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #0284c7; color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 0.65rem;
+      font-weight: 700; flex-shrink: 0;
+    }
+    .stop-name {
+      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      color: #e2e8f0; cursor: pointer;
+    }
+    .stop-name:hover { color: var(--accent-cyan); }
+    .stop-rssi {
+      font-family: 'JetBrains Mono', monospace; font-weight: 600;
+      color: var(--accent-orange); font-size: 0.7rem;
+    }
+
+    /* ── TOGGLE SIDEBAR BUTTON ── */
+    #btnOpenSidebar {
+      position: fixed; top: 74px; left: 16px; z-index: 890; display: none;
+    }
+    #sidebar.collapsed ~ #btnOpenSidebar { display: inline-flex; }
+
+    /* ── CAPAS Y SELECTOR (TOP RIGHT) ── */
+    #layerBox {
+      position: fixed; top: 74px; right: 16px; z-index: 900;
+      background: var(--bg-card); backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px; padding: 0.65rem 0.85rem;
+    }
+    .layer-select {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      color: #fff; border-radius: 7px; padding: 0.35rem 0.6rem;
+      font-size: 0.74rem; outline: none; cursor: pointer;
+    }
+
+    /* Numbered stop icon in Leaflet */
+    .num-icon {
+      border-radius: 50%;
+      color: white; font-weight: 800; font-size: 10px;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="header">
+    <div class="logo-group">
+      <div class="logo-badge">🚗</div>
+      <div class="logo-text">
+        <h1>Rutas de Medición Vehicular · LoRaWAN Ambato</h1>
+        <p>96 Intersecciones Rectificadas SF7 · Excluye 159 Posiciones Cubiertas el 10-Oct</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn" id="btnMasterLoop" href="#" target="_blank" style="background: linear-gradient(135deg, #10b981, #059669); color: white; border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);">
+        🚀 Gran Circuito Completo (Sin Paradas)
+      </a>
+      <a class="btn btn-secondary" href="verificacion_rutas_10oct.html" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">
+        📊 Verificación 10-Oct
+      </a>
+      <a class="btn btn-primary" href="mapa_cobertura_lorawan.html">
+        🗺️ Explorador de Cobertura
+      </a>
+      <button class="btn btn-secondary" onclick="exportKML()">
+        💾 Exportar KML / GPS
+      </button>
+      <div style="font-size:0.73rem;color:var(--accent-orange);display:flex;align-items:center;gap:0.4rem;background:rgba(249,115,22,0.1);padding:0.35rem 0.65rem;border-radius:8px;border:1px solid rgba(249,115,22,0.3);">
+        <span>📡 GW UG67: -1.25164, -78.62765</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAP CONTAINER ── -->
+  <div id="map"></div>
+
+  <!-- ── BOTÓN MOSTRAR SIDEBAR ── -->
+  <button id="btnOpenSidebar" class="btn btn-secondary" onclick="toggleSidebar()">
+    ☰ Mostrar Rutas
+  </button>
+
+  <!-- ── SIDEBAR CON RUTAS Y GOOGLE MAPS ── -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h2>Plan de Medición en Auto</h2>
+      <button class="close-btn" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.1rem;" onclick="toggleSidebar()">✕</button>
+    </div>
+
+    <!-- Pestañas de las 4 Rutas Rectificadas -->
+    <div class="route-tabs">
+      <button class="tab-btn active" onclick="selectRoute(0)">Ruta 1 (Noroeste)</button>
+      <button class="tab-btn" onclick="selectRoute(1)">Ruta 2 (Suroeste)</button>
+      <button class="tab-btn" onclick="selectRoute(2)">Ruta 3 (Noreste)</button>
+      <button class="tab-btn" onclick="selectRoute(3)">Ruta 4 (Sureste)</button>
+    </div>
+
+    <!-- Metadatos de la Ruta Activa -->
+    <div class="route-details" id="routeDetails">
+      <!-- Inyectado por JS -->
+    </div>
+
+    <!-- Lista de Etapas de Google Maps y Paradas -->
+    <div class="stages-scroll" id="stagesList">
+      <!-- Inyectado por JS -->
+    </div>
+  </aside>
+
+  <!-- ── SELECTOR DE MAPA BASE Y CAPAS ── -->
+  <div id="layerBox">
+    <select id="baseMapSelect" class="layer-select" onchange="changeBaseMap(this.value)">
+      <option value="esri_street" selected>Esri World Street (Calles Oficiales)</option>
+      <option value="carto_voyager">CARTO Voyager (Calles & Detalle)</option>
+      <option value="esri_sat">Esri World Imagery (Satélite HD)</option>
+      <option value="carto_dark">CARTO Dark Matter (Modo Oscuro)</option>
+    </select>
+    <label style="display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#94a3b8;margin-top:7px;cursor:pointer;">
+      <input type="checkbox" id="chkCovered" onchange="toggleCoveredLayer(this.checked)">
+      <span>Mostrar 159 Nodos Cubiertos (10-Oct)</span>
+    </label>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT LOGIC                                                    -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <script>
+    const GW = { lat: -1.25164, lon: -78.62765, name: "Gateway Milesight UG67" };
+    let activeRouteIdx = 0;
+    let markersLayer = L.layerGroup();
+    let polylineLayer = L.layerGroup();
+    let coveredLayer = L.layerGroup();
+    let streetLayer = null;
+
+    // Mapa Leaflet
+    const map = L.map('map', {
+      center: [GW.lat, GW.lon],
+      zoom: 15,
+      zoomControl: true
+    });
+
+    // Capas base sin 403
+    const tileLayers = {
+      esri_street: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '© Esri World Street Map', maxZoom: 19
+      }),
+      carto_voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '© CARTO Voyager', maxZoom: 19, subdomains: 'abcd'
+      }),
+      esri_sat: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '© Esri World Imagery', maxZoom: 19
+      }),
+      carto_dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© CARTO Dark', maxZoom: 19, subdomains: 'abcd'
+      })
+    };
+
+    let activeBase = tileLayers.esri_street;
+    activeBase.addTo(map);
+
+    function changeBaseMap(key) {
+      if (activeBase) map.removeLayer(activeBase);
+      activeBase = tileLayers[key];
+      activeBase.addTo(map);
+    }
+
+    // Capa vectorial offline de Ambato
+    if (window.CALLES_AMBATO && window.CALLES_AMBATO.features) {
+      streetLayer = L.geoJSON(window.CALLES_AMBATO, {
+        style: { color: '#38bdf8', weight: 1.5, opacity: 0.45 }
+      }).addTo(map);
+    }
+
+    // Marcador del Gateway
+    const gwIcon = L.divIcon({
+      className: '',
+      html: `<div style="
+        width:34px;height:34px;border-radius:50%;
+        background:radial-gradient(circle,#f97316,#dc2626);
+        border:3px solid white;
+        box-shadow:0 0 16px rgba(249,115,22,0.8);
+        display:flex;align-items:center;justify-content:center;
+        font-size:1.1rem;
+      ">📡</div>`,
+      iconSize: [34,34], iconAnchor: [17,17]
+    });
+    L.marker([GW.lat, GW.lon], { icon: gwIcon, zIndexOffset: 9999 }).addTo(map)
+      .bindPopup(`<b>${GW.name}</b><br>Coordenadas: ${GW.lat}, ${GW.lon}<br>Altitud: 2707 m`);
+
+    polylineLayer.addTo(map);
+    markersLayer.addTo(map);
+    coveredLayer.addTo(map);
+
+    function toggleCoveredLayer(show) {
+      coveredLayer.clearLayers();
+      if (!show || !window.RUTAS_FIELDTESTER || !window.RUTAS_FIELDTESTER.puntos_cubiertos_10oct) return;
+      window.RUTAS_FIELDTESTER.puntos_cubiertos_10oct.forEach(p => {
+        const circle = L.circleMarker([p.Lat, p.Lon], {
+          radius: 5,
+          fillColor: '#64748b',
+          color: '#cbd5e1',
+          weight: 1.5,
+          fillOpacity: 0.7
+        });
+        circle.bindPopup(`
+          <div style="font-size:0.75rem;">
+            <b style="color:#64748b;">✔ NODO YA CUBIERTO (10-Oct)</b><br>
+            <b>${p.Street_1} y ${p.Street_2}</b><br>
+            <b>RSSI Teórico:</b> ${p.Expected_RSSI} dBm<br>
+            <b>Dist. Gateway:</b> ${p.dist_gw_m} m
+          </div>
+        `);
+        coveredLayer.addLayer(circle);
+      });
+    }
+
+    function renderCurrentRoute() {
+      if (!window.RUTAS_FIELDTESTER || !window.RUTAS_FIELDTESTER.circuits) return;
+
+      const circuit = window.RUTAS_FIELDTESTER.circuits[activeRouteIdx];
+      const color = circuit.color;
+
+      // Actualizar enlace maestro global en header
+      if (window.RUTAS_FIELDTESTER.enlace_maestro_continuo_gmaps) {
+        document.getElementById('btnMasterLoop').href = window.RUTAS_FIELDTESTER.enlace_maestro_continuo_gmaps;
+      }
+
+      // Actualizar Detalles en Sidebar
+      document.getElementById('routeDetails').innerHTML = `
+        <div class="route-title" style="color:${color}">${circuit.name}</div>
+        <div class="route-desc">${circuit.desc}</div>
+        <div class="route-kpis">
+          <span class="route-kpi-item">📍 ${circuit.total_points} paradas</span>
+          <span class="route-kpi-item">📏 ${circuit.total_dist_km} km</span>
+          <span class="route-kpi-item">⏱️ ~${circuit.est_time_min} min</span>
+        </div>
+        ${circuit.enlace_continuo_gmaps ? `
+          <a href="${circuit.enlace_continuo_gmaps}" target="_blank" class="btn" style="width:100%;justify-content:center;margin-top:0.65rem;background:rgba(2,132,199,0.22);border:1px solid rgba(56,189,248,0.5);color:#38bdf8;font-size:0.75rem;padding:0.45rem;">
+            🚗 Conducir Ruta Continua (Sin Paradas)
+          </a>
+        ` : ''}
+      `;
+
+      // Renderizar Etapas de Google Maps y Paradas
+      const stagesList = document.getElementById('stagesList');
+      stagesList.innerHTML = '';
+
+      markersLayer.clearLayers();
+      polylineLayer.clearLayers();
+
+      const routeCoords = [[GW.lat, GW.lon]];
+
+      circuit.stages.forEach(stg => {
+        const card = document.createElement('div');
+        card.className = 'stage-card';
+
+        let stopsHtml = '';
+        stg.points.forEach((p, idx) => {
+          stopsHtml += `
+            <div class="stop-row" onclick="focusPoint(${p.Lat}, ${p.Lon})">
+              <span class="stop-idx" style="background:${color}">${idx + 1}</span>
+              <span class="stop-name" title="${p.Street_1} y ${p.Street_2}">${p.Street_1} y ${p.Street_2}</span>
+              <span class="stop-rssi">${p.Expected_RSSI} dBm</span>
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="stage-header">
+            <span class="stage-name">Etapa ${stg.stage_num} (${stg.points.length} paradas)</span>
+            <a class="gmaps-btn" href="${stg.gmaps_url}" target="_blank" rel="noopener">
+              🚗 Abrir en Google Maps
+            </a>
+          </div>
+          <div class="stops-list">${stopsHtml}</div>
+        `;
+
+        stagesList.appendChild(card);
+      });
+
+      // Dibujar marcadores y polyline
+      circuit.points.forEach((p, idx) => {
+        routeCoords.push([p.Lat, p.Lon]);
+
+        const numIcon = L.divIcon({
+          className: '',
+          html: `<div class="num-icon" style="background:${color};width:22px;height:22px;">${idx + 1}</div>`,
+          iconSize: [22, 22], iconAnchor: [11, 11]
+        });
+
+        const m = L.marker([p.Lat, p.Lon], { icon: numIcon });
+        m.bindPopup(`
+          <b style="color:${color}">${p.Street_1} y ${p.Street_2}</b><br>
+          <b>Parada #${idx + 1}</b> de ${circuit.name}<br>
+          <hr style="margin:4px 0;border:0;border-top:1px solid #334155;">
+          <b>RSSI Esperado (3D-M-SAGA):</b> ${p.Expected_RSSI} dBm<br>
+          <b>Altitud SRTM:</b> ${p.Altitude_m} msnm<br>
+          <b>Distancia al Gateway:</b> ${p.dist_gw_m} m<br>
+          <b>Coordenadas:</b> <code>${p.Lat.toFixed(5)}, ${p.Lon.toFixed(5)}</code><br>
+          <a href="https://www.google.com/maps/search/?api=1&query=${p.Lat},${p.Lon}" target="_blank" style="color:#00d4ff;display:inline-block;margin-top:4px;">Ver punto individual en Google Maps</a>
+        `);
+        markersLayer.addLayer(m);
+      });
+
+      // Polyline del recorrido completo
+      const poly = L.polyline(routeCoords, {
+        color: color, weight: 3.5, opacity: 0.85, dashArray: '4, 8'
+      });
+      polylineLayer.addLayer(poly);
+
+      // Centrar mapa en la ruta
+      map.fitBounds(poly.getBounds(), { padding: [50, 50] });
+    }
+
+    function selectRoute(idx) {
+      activeRouteIdx = idx;
+      document.querySelectorAll('.tab-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+      renderCurrentRoute();
+    }
+
+    function focusPoint(lat, lon) {
+      map.setView([lat, lon], 17);
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    }
+
+    function exportKML() {
+      if (!window.RUTAS_FIELDTESTER) return;
+      let kml = `<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">\n<Document>\n<name>Rutas Vehiculares LoRaWAN Ambato</name>\n`;
+
+      window.RUTAS_FIELDTESTER.circuits.forEach(c => {
+        kml += `<Folder><name>${c.name}</name>\n`;
+        c.points.forEach((p, idx) => {
+          kml += `  <Placemark>\n    <name>#${idx+1}: ${p.Street_1} y ${p.Street_2}</name>\n    <description>RSSI Esperado: ${p.Expected_RSSI} dBm, Altitud: ${p.Altitude_m}m</description>\n    <Point><coordinates>${p.Lon},${p.Lat},${p.Altitude_m}</coordinates></Point>\n  </Placemark>\n`;
+        });
+        kml += `</Folder>\n`;
+      });
+
+      kml += `</Document>\n</kml>`;
+      const blob = new Blob([kml], { type: "application/vnd.google-earth.kml+xml" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = "Rutas_Vehiculares_FieldTester_Ambato.kml"; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCurrentRoute();
+    });
+  </script>
+</body>
+</html>

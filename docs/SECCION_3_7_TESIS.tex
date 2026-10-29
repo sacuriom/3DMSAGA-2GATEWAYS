@@ -1,0 +1,68 @@
+\section{Validación empírica, ingesta de datos y contraste espacial}
+\label{sec:Cap3.7}
+
+La evaluación empírica examina la concordancia entre las predicciones de señal y las observaciones de campo. Se distinguen dos etapas: una campaña inicial con un gateway Milesight UG67 en Paltas y servidor local, y una extensión con dos gateways instalados en Paltas y PUCESA, registrados en The Things Stack (TTS). Estas etapas conservan configuraciones y conjuntos de datos separados; sus resultados no se agregan como réplicas equivalentes. El despliegue físico de dos gateways también se distingue de las topologías seleccionadas por el optimizador y evaluadas en ns-3.
+
+El código y los datos preparados para respaldar esta sección se organizan para su incorporación al repositorio \url{https://github.com/sacuriom/3DMSAGA-2GATEWAYS}. Esta colección complementa el repositorio del modelo de planificación \url{https://github.com/sacuriom/msaga} y permite identificar las fuentes, las transformaciones y los límites de cada contraste. La disponibilidad remota debe comprobarse con la versión o el identificador de commit citado en la entrega definitiva.
+
+\subsection{Instrumentación y configuración de las campañas}
+
+Los recorridos se realizan con un Field Tester LoRaWAN Milesight FT101, equipado con una antena externa para la banda de 915 MHz y posicionamiento GNSS. Según la declaración del investigador y las fotografías del montaje, el dispositivo permanece en la parrilla del vehículo a una altura aproximada de 1,80 m sobre el suelo. La ganancia típica declarada de su antena se sitúa entre 2 y 3 dBi; este intervalo no constituye una medición calibrada.
+
+En la etapa dual, el gateway de Paltas se sitúa a la altura de un tercer piso y el de PUCESA en un piso 12. Estas descripciones se conservan como antecedentes de instalación, sin convertirlas automáticamente en metros. La altura sobre el terreno se distingue de la altitud sobre el nivel del mar. La etiqueta de una antena fotografiada indica 5 dBi y 902--928 MHz; su aplicación a todas las antenas requiere confirmación. La presencia de dos antenas por gateway no justifica sumar sus ganancias.
+
+La configuración registra por separado los parámetros archivados y los físicamente documentados. En particular, el valor de potencia exportado por el FT101 no se interpreta directamente como potencia conducida o EIRP. Las discrepancias de potencia, las alturas no medidas y la referencia vertical se mantienen como limitaciones del contraste. La configuración reproducible se encuentra en \nolinkurl{src/matlab/config_campana_ambato.m}.
+
+\subsection{Conservación de las fuentes e ingesta de registros}
+
+Cada archivo se conserva con su procedencia y huella SHA-256. La etapa de un gateway se documenta en \nolinkurl{data/single_gateway_legacy/}, con los resultados derivados disponibles y el script histórico correspondiente. La copia archivada de \nolinkurl{MDPI_FieldTester_Master_Suite.m} es la suite de un gateway identificada por su contenido y huella; el archivo homónimo actualmente presente en OCTUBRE contiene un visor dual y no debe sustituirla por coincidencia de nombre. La auditoría de los resultados históricos utiliza \nolinkurl{auditar_campo.py}; la ejecución de la suite original requiere además las entradas locales completas de la campaña.
+
+Para la etapa dual se conservan los CSV originales del FT101 y una captura independiente de los mensajes de TTS. El extractor \nolinkurl{scripts/extraer_tts_verificable.py} admite descarga de Storage con una credencial privada y lectura sin conexión de una captura JSONL. La clave no se incorpora al repositorio. La activación de Storage no permite reconstruir mensajes históricos que no fueron almacenados o conservados por otra vía.
+
+Los CSV locales aportan los ensayos instrumentales, incluidos aquellos sin recepción identificada en TTS. Los metadatos de TTS aportan fecha, contador de trama, parámetros de radio e identidad de los gateways receptores. Las coordenadas del registro de ubicación de un gateway no se utilizan como posición del FT101. El nombre de un archivo, como \nolinkurl{Dataset_TTS_API_Validation.csv}, tampoco acredita por sí mismo una descarga directa del servidor.
+
+\subsection{Identidad de mensajes, correspondencia temporal y recepción dual}
+
+La unión de las fuentes conserva el archivo y la prueba de origen, el contador local, el contador de trama y las marcas temporales. Los contadores locales pueden reiniciarse; los desplazamientos de contador utilizados en las capturas auditadas son específicos de cada segmento. Por tanto, no se extrapolan a nuevas rutas ni sustituyen la comprobación temporal y de sesión. La hora local se interpreta como UTC$-5$ y se mantiene separada de las marcas UTC de TTS. Una diferencia temporal observada se informa sin corregir automáticamente la posición GNSS.
+
+Se distingue el ensayo transmitido del registro de recepción por gateway. Un mismo mensaje recibido por ambos gateways cuenta como un único ensayo recibido, conservando dos observaciones de radio. En las capturas analizadas, el identificador TTS \texttt{gateway1} corresponde a Paltas y \texttt{gateway2} a PUCESA; el orden de las anclas en MATLAB comienza por PUCESA. La correspondencia explícita impide intercambiar los receptores al comparar sus RSSI.
+
+Para un segmento con denominador instrumental disponible, la fracción de ensayos con recepción identificada se calcula como
+\begin{equation}
+ P_{\mathrm{rec}}=100\frac{N_{\mathrm{ensayos\ con\ recepción\ TTS}}}
+ {N_{\mathrm{ensayos\ FT\ de\ la\ ventana}}}.
+\end{equation}
+La interpretación de un ensayo sin correspondencia como pérdida de radio requiere comprobar la completitud de la captura y la unión de fuentes. Si falta el archivo instrumental, no se asigna un denominador ni se declara una tasa de entrega nula. La proporción de candidatos espaciales con RSSI se informa por separado y no se denomina PDR.
+
+\subsection{Asociación espacial y tratamiento de coordenadas ausentes}
+
+Las posiciones válidas del FT101 se asocian al candidato vial más próximo en un sistema local métrico. Para coordenadas expresadas en grados se emplea
+\begin{align}
+ x_i&=(\lambda_i-\lambda_0)\frac{\pi}{180}R_\oplus
+       \cos(\phi_0\pi/180),\\
+ y_i&=(\phi_i-\phi_0)\frac{\pi}{180}R_\oplus,
+\end{align}
+donde $R_\oplus=6371000$ m y el origen es común a las dos fuentes. Se conserva el identificador del candidato, la distancia al vecino más próximo y la separación respecto del segundo vecino. La auditoría modular utiliza 45 m como radio principal y presenta sensibilidad a 15, 30 y 60 m. El script de ingesta histórico emplea 40 m; esta diferencia se documenta como cambio de versión, sin atribuir un umbral universal al error GNSS.
+
+La asociación al candidato es una aproximación espacial y no demuestra que la medición se tomó exactamente en la intersección. Cuando una representación tridimensional asigna la cota del candidato más la altura del terminal, esa coordenada vertical es derivada del modelo, no una corrección certificada de la altitud GNSS. Tampoco se trata SRTM como una medición exacta de la rasante vial. Los ensayos sin coordenadas se conservan para el análisis de recepción, pero se excluyen del contraste espacial; no se interpolan posiciones ni se utiliza la ruta prevista en Maps como trayectoria medida.
+
+\subsection{Contraste de señal y separación entre ajuste y evaluación}
+
+La implementación modular \nolinkurl{src/matlab/MDPI_3DMSAGA_Trazable.m} distingue la auditoría de predicciones archivadas del recálculo físico del enlace. Para cada recepción se conserva el RSSI observado en el gateway y la predicción correspondiente a ese receptor. El análisis del mejor enlace de red se presenta como una serie distinta de los contrastes por gateway. Las agregaciones por candidato y sus tamaños de muestra quedan identificados en los archivos de resultados; los máximos históricos y las medianas de otras series no se consideran estadísticas equivalentes.
+
+Para $n$ pares válidos se define $e_i=R_i^{\mathrm{obs}}-R_i^{\mathrm{pred}}$ y se calculan
+\begin{align}
+ \mathrm{sesgo}&=\frac{1}{n}\sum_{i=1}^n e_i,&
+ \mathrm{MAE}&=\frac{1}{n}\sum_{i=1}^n |e_i|,&
+ \mathrm{RMSE}&=\sqrt{\frac{1}{n}\sum_{i=1}^n e_i^2}.
+\end{align}
+Como medida descriptiva adicional, se informa la proporción de errores dentro de $\pm6$ dB, sin atribuirle un umbral universal de validación. La selección de pares no debe depender únicamente de que la predicción supere la sensibilidad, pues excluiría discrepancias relevantes. No se asigna un RSSI ficticio a los ensayos sin recepción.
+
+El ajuste y la evaluación se distinguen por conjunto, fecha y versión del predictor. Un error calculado sobre los datos usados para estimar coeficientes describe ajuste, no validación independiente. En la repetición de Ruta 4 del 27 de octubre se mantiene congelado el predictor histórico y no se recalibra con ese recorrido. Los parámetros físicos aún desconocidos impiden presentar el recálculo como una caracterización instrumental completa.
+
+\subsection{Segmentos disponibles y reproducción computacional}
+
+La ventana C26-1400 del 26 de octubre, correspondiente a Ruta 1 según el horario declarado por el investigador, reúne 291 ensayos y 267 con recepción identificada. La etiqueta interna heredada contiene R2 y se conserva para mantener la trazabilidad. Las otras ventanas auditadas de ese día se mantienen separadas. La repetición C27-0810 de Ruta 4 comprende el intervalo 08:10--09:26 del 27 de octubre: 432 ensayos, 332 con recepción y 181 con coordenadas. La interrupción de GNSS limita el contraste espacial, aunque los ensayos posteriores siguen aportando evidencia de recepción. La parada para reubicar una antena desplazada se registra como incidencia sin asignarle una causa o instante no comprobados.
+
+La verificación \nolinkurl{scripts/verify_release.py} contrasta las fuentes y los resultados de ambas fechas. La auditoría histórica de un gateway se reproduce con \nolinkurl{data/single_gateway_legacy/auditar_campo.py}. En MATLAB, \nolinkurl{verificar_revision.m} comprueba el modo de auditoría congelada y el rechazo de un recálculo físico con parámetros incompletos. Este modo reproduce C26-1400; el análisis de Ruta 4 dispone de un procedimiento independiente y no se atribuye a la ejecución MATLAB por defecto. La reproducción numérica de un archivo y la concordancia física con el campo constituyen comprobaciones diferentes.
+

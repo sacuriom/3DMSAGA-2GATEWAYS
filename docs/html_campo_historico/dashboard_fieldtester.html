@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Milesight FT101 Field Tester | Análisis LoRaWAN</title>
+  <meta name="description" content="Dashboard de análisis de cobertura LoRaWAN con datos del Field Tester Milesight FT101-95M alrededor del Gateway Milesight." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg-primary:#0a0e1a; --bg-secondary:#111827; --bg-card:#1a2235;
+      --accent-cyan:#00d4ff; --accent-purple:#7c3aed; --accent-green:#10b981;
+      --accent-yellow:#f59e0b; --accent-red:#ef4444; --accent-orange:#f97316;
+      --text-primary:#f1f5f9; --text-secondary:#94a3b8; --text-muted:#64748b;
+      --border:#1e3a5f; --border-glow:rgba(0,212,255,.2);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+    /* HEADER */
+    header{position:relative;z-index:10;background:linear-gradient(135deg,#0d1b2e 0%,#111827 60%,#0d1120 100%);border-bottom:1px solid var(--border);padding:0 2rem;}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;gap:1rem;flex-wrap:wrap;}
+    .logo-area{display:flex;align-items:center;gap:1rem;}
+    .logo-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 0 20px rgba(0,212,255,.35);flex-shrink:0;}
+    .logo-text h1{font-size:1.25rem;font-weight:700;}
+    .logo-text p{font-size:.76rem;color:var(--text-secondary);margin-top:2px;}
+    .header-badge{display:flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);border-radius:8px;padding:.45rem 1rem;font-size:.76rem;color:var(--accent-cyan);}
+    .badge-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.3);}}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:20;background:rgba(10,14,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-inner{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;gap:.1rem;overflow-x:auto;}
+    .nav-tab{padding:.8rem 1.1rem;border:none;background:transparent;color:var(--text-secondary);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:.4rem;}
+    .nav-tab:hover{color:var(--text-primary);}
+    .nav-tab.active{color:var(--accent-cyan);border-bottom-color:var(--accent-cyan);}
+
+    /* MAIN */
+    main{max-width:1400px;margin:0 auto;padding:2rem;position:relative;z-index:1;}
+    .section{display:none;}
+    .section.active{display:block;animation:fadeIn .3s ease;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+    /* SECTION TITLE */
+    .section-title{font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;}
+    .section-sub{font-size:.8rem;color:var(--text-secondary);font-weight:400;}
+
+    /* INFO BOX */
+    .info-box{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.18);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:1.5rem;font-size:.82rem;color:var(--text-secondary);line-height:1.75;}
+    .info-box strong{color:var(--accent-cyan);}
+
+    /* KPI GRID */
+    .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1rem;margin-bottom:2rem;}
+    .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;transition:all .2s;position:relative;overflow:hidden;}
+    .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--accent-cyan));}
+    .kpi-card:hover{transform:translateY(-3px);border-color:var(--border-glow);box-shadow:0 8px 24px rgba(0,212,255,.09);}
+    .kpi-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem;}
+    .kpi-value{font-size:1.75rem;font-weight:800;color:var(--kc,var(--accent-cyan));font-family:'JetBrains Mono',monospace;}
+    .kpi-sub{font-size:.72rem;color:var(--text-secondary);margin-top:.3rem;}
+
+    /* CHART GRID */
+    .chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:1.4rem;margin-bottom:2rem;}
+    .chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;transition:border-color .2s;}
+    .chart-card:hover{border-color:var(--border-glow);}
+    .chart-card.full{grid-column:1/-1;}
+    .chart-title{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:.9rem;text-transform:uppercase;letter-spacing:.05em;}
+    .chart-wrap{position:relative;height:250px;}
+    .chart-wrap.tall{height:310px;}
+
+    /* TAG */
+    .tag{display:inline-block;padding:.18rem .55rem;border-radius:5px;font-size:.69rem;font-weight:600;}
+    .tag-strong{background:rgba(16,185,129,.15);color:#10b981;}
+    .tag-middle{background:rgba(245,158,11,.15);color:#f59e0b;}
+    .tag-weak{background:rgba(239,68,68,.15);color:#ef4444;}
+    .tag-abnormal{background:rgba(147,51,234,.15);color:#a855f7;}
+
+    /* TABLE */
+    .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);}
+    table{width:100%;border-collapse:collapse;font-size:.78rem;}
+    thead th{background:#0d1829;padding:.8rem .9rem;text-align:left;color:var(--text-muted);text-transform:uppercase;font-size:.68rem;letter-spacing:.06em;border-bottom:1px solid var(--border);}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;}
+    tbody tr:hover{background:rgba(0,212,255,.04);}
+    tbody td{padding:.65rem .9rem;color:var(--text-secondary);}
+
+    /* SESSION GRID */
+    .session-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;margin-bottom:2rem;}
+    .session-card{background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:1.1rem 1.2rem;transition:all .2s;}
+    .session-card:hover{border-color:var(--border-glow);transform:translateY(-2px);}
+    .session-name{font-size:.83rem;font-weight:600;color:var(--text-primary);margin-bottom:.3rem;}
+    .session-meta{font-size:.7rem;color:var(--text-muted);margin-bottom:.75rem;}
+    .session-stats{display:flex;gap:.8rem;flex-wrap:wrap;}
+    .s-stat{display:flex;flex-direction:column;}
+    .s-stat-val{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:600;}
+    .s-stat-lbl{font-size:.63rem;color:var(--text-muted);margin-top:1px;}
+    .prog-row{margin-top:.65rem;}
+    .prog-lbl{display:flex;justify-content:space-between;font-size:.67rem;color:var(--text-muted);margin-bottom:.25rem;}
+    .prog-out{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
+    .prog-in{height:100%;border-radius:3px;}
+
+    @media(max-width:768px){
+      .chart-grid{grid-template-columns:1fr;}
+      .kpi-grid{grid-template-columns:repeat(2,1fr);}
+      main{padding:1rem;}
+    }
+
+    footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:.73rem;border-top:1px solid var(--border);margin-top:3rem;}
+    footer strong{color:var(--accent-cyan);}
+    code{background:rgba(255,255,255,.06);padding:.12rem .4rem;border-radius:4px;font-size:.72rem;font-family:'JetBrains Mono',monospace;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-icon">📡</div>
+      <div class="logo-text">
+        <h1>LoRaWAN Field Coverage Dashboard</h1>
+        <p>Milesight FT101-95M · Gateway Milesight · Análisis de Cobertura — Ecuador</p>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      80 archivos analizados · Ambato (-1.25164°S, -78.62765°W)
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-tab active" id="tab-resumen"  onclick="show('resumen','tab-resumen')">📊 Resumen</button>
+    <button class="nav-tab"        id="tab-sesiones" onclick="show('sesiones','tab-sesiones')">🗺️ Sesiones</button>
+    <button class="nav-tab"        id="tab-rssi"     onclick="show('rssi','tab-rssi')">📶 RSSI &amp; SNR</button>
+    <button class="nav-tab"        id="tab-pdr"      onclick="show('pdr','tab-pdr')">📦 Packet Loss</button>
+    <button class="nav-tab"        id="tab-noise"    onclick="show('noise','tab-noise')">🔊 Ruido RF</button>
+    <button class="nav-tab"        id="tab-sf"       onclick="show('sf','tab-sf')">⚙️ Spreading Factor</button>
+    <button class="nav-tab"        id="tab-tabla"    onclick="show('tabla','tab-tabla')">📋 Ubicaciones</button>
+    <a href="verificacion_4rutas_cobertura.html" class="nav-tab" style="color:var(--accent-cyan);text-decoration:none;font-weight:700;">🚀 Validación 4 Rutas</a>
+    <a href="mapa_cobertura_lorawan.html" class="nav-tab" style="color:var(--accent-green);text-decoration:none;font-weight:700;">🗺️ Mapa Cobertura</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ RESUMEN ═══ -->
+<section id="resumen" class="section active">
+  <div class="section-title">📊 Resumen General de Cobertura LoRaWAN <span class="section-sub">Milesight FT101-95M · AU915 / US915 · Campaña 11-Octubre 2026</span></div>
+
+  <div class="info-box">
+    <strong>Dispositivo:</strong> Milesight Field Tester FT101-95M &nbsp;|&nbsp;
+    <strong>Gateway:</strong> Milesight UG67 (Paltas y Autachi, Ambato, 2,707 msnm) &nbsp;|&nbsp;
+    <strong>Bandas:</strong> AU915 / US915 (915–928 MHz) &nbsp;|&nbsp;
+    <strong>Potencia TX:</strong> 20 dBm (Homologada Ecuador) / 30 dBm &nbsp;|&nbsp;
+    <strong>Período:</strong> 30 ago – 11 oct 2026<br/>
+    Se completaron las <strong>4 Rutas de Cobertura Vehicular</strong> (Ruta 1 Noroeste, Ruta 2 Suroeste, Ruta 3 Noreste, Ruta 4 Sureste) junto con evaluaciones estacionarias y escaneos de piso de ruido espectral.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kc:#00d4ff"><div class="kpi-label">Sesiones totales GPS</div><div class="kpi-value">55</div><div class="kpi-sub">80 archivos analizados</div></div>
+    <div class="kpi-card" style="--kc:#10b981"><div class="kpi-label">Puntos Georreferenciados</div><div class="kpi-value">1,363</div><div class="kpi-sub">Uplinks confirmados + ciegos</div></div>
+    <div class="kpi-card" style="--kc:#f59e0b"><div class="kpi-label">RSSI promedio global</div><div class="kpi-value">−72.8 dBm</div><div class="kpi-sub">Rango: −20 a −117 dBm</div></div>
+    <div class="kpi-card" style="--kc:#7c3aed"><div class="kpi-label">SNR promedio global</div><div class="kpi-value">+4.8 dB</div><div class="kpi-sub">Rango: −12 a +11 dB</div></div>
+    <div class="kpi-card" style="--kc:#10b981"><div class="kpi-label">Strong (%)</div><div class="kpi-value">37.8 %</div><div class="kpi-sub">RSSI ≥ −80 dBm, SNR ≥ 8 dB</div></div>
+    <div class="kpi-card" style="--kc:#f59e0b"><div class="kpi-label">Middle (%)</div><div class="kpi-value">35.4 %</div><div class="kpi-sub">−100 &lt; RSSI &lt; −80 dBm</div></div>
+    <div class="kpi-card" style="--kc:#ef4444"><div class="kpi-label">Weak (%)</div><div class="kpi-value">12.6 %</div><div class="kpi-sub">RSSI ≤ −100 dBm</div></div>
+    <div class="kpi-card" style="--kc:#9333ea"><div class="kpi-label">Puntos Ciegos / Sin ACK</div><div class="kpi-value">14.2 %</div><div class="kpi-sub">Sombra orográfica / cañón urbano</div></div>
+    <div class="kpi-card" style="--kc:#00d4ff"><div class="kpi-label">Piso de ruido (avg)</div><div class="kpi-value">−71.5 dBm</div><div class="kpi-sub">Escaneos espectrales 915–928 MHz</div></div>
+    <div class="kpi-card" style="--kc:#f97316"><div class="kpi-label">Alcance máx. trazado</div><div class="kpi-value">2,939 m</div><div class="kpi-sub">Sesión sur Huachi Chico (11-Oct)</div></div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card"><div class="chart-title">Distribución de Calidad de Señal</div><div class="chart-wrap"><canvas id="cSignalDist"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Tipos de Prueba (archivos)</div><div class="chart-wrap"><canvas id="cFileTypes"></canvas></div></div>
+    <div class="chart-card full"><div class="chart-title">RSSI Promedio por Sesión de Prueba</div><div class="chart-wrap tall"><canvas id="cRssiSessions"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ═══ SESIONES ═══ -->
+<section id="sesiones" class="section">
+  <div class="section-title">🗺️ Sesiones de Prueba — Detalle por Recorrido</div>
+  <div class="info-box">
+    Los recorridos <strong>Jona_*</strong> son caminatas a pie el 30 sep 2026 en distintas esquinas del barrio (Casa → Trunova → Hualcopo → Panadería → Papipollitos → Fullteck). Las sesiones <strong>LoRaWAN_Testing_*</strong> son recorridos en vehículo o alejamientos progresivos desde el gateway. Las <strong>Evaluaciones</strong> son snapshots instantáneos en ubicaciones nombradas.
+  </div>
+  <div class="session-grid" id="sessionCards"></div>
+</section>
+
+<!-- ═══ RSSI & SNR ═══ -->
+<section id="rssi" class="section">
+  <div class="section-title">📶 Análisis de RSSI y SNR</div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kc:#00d4ff"><div class="kpi-label">RSSI Mejor medición</div><div class="kpi-value">−20 dBm</div><div class="kpi-sub">LoRaWAN_Testing junto al GW · SF7</div></div>
+    <div class="kpi-card" style="--kc:#ef4444"><div class="kpi-label">RSSI Peor medición</div><div class="kpi-value">−115 dBm</div><div class="kpi-sub">Recorrido extendido SF9 · &gt;2 km</div></div>
+    <div class="kpi-card" style="--kc:#10b981"><div class="kpi-label">SNR Máximo</div><div class="kpi-value">+11 dB</div><div class="kpi-sub">Jona_3 / Jona_30_09 zona cercana</div></div>
+    <div class="kpi-card" style="--kc:#f97316"><div class="kpi-label">SNR Mínimo</div><div class="kpi-value">−12 dB</div><div class="kpi-sub">IsidroAyora · SF10 · zona límite</div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card"><div class="chart-title">Histograma de RSSI — todas las sesiones</div><div class="chart-wrap tall"><canvas id="cRssiHist"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Histograma de SNR — todas las sesiones</div><div class="chart-wrap tall"><canvas id="cSnrHist"></canvas></div></div>
+    <div class="chart-card full"><div class="chart-title">Evolución RSSI — Sesión Jona_5 (Papipollitos · 58 paquetes · SF9-DR3)</div><div class="chart-wrap tall"><canvas id="cTimeline"></canvas></div></div>
+    <div class="chart-card full"><div class="chart-title">RSSI vs SNR — Scatter por Calidad de Señal</div><div class="chart-wrap tall"><canvas id="cScatter"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ═══ PDR ═══ -->
+<section id="pdr" class="section">
+  <div class="section-title">📦 Pérdida de Paquetes (Packet Loss Rate)</div>
+  <div class="info-box">
+    <strong>PDR = Packet Delivery Ratio.</strong> Las sesiones cercanas al gateway (Jona_1, 2, 6, 30_09) logran <strong>0% de pérdida</strong>. Los recorridos extendidos con SF7 superan el 90% de pérdida más allá de ~300 m. Con SF9 se mantiene conectividad parcial hasta mayor distancia, aunque el gateway en este despliegue <strong>no responde con SF10</strong> (DR2 parece no estar habilitado).
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kc:#10b981"><div class="kpi-label">Sesiones con 0% pérdida</div><div class="kpi-value">8</div><div class="kpi-sub">Jona_1,2,6,30_09 y recorridos cercanos</div></div>
+    <div class="kpi-card" style="--kc:#ef4444"><div class="kpi-label">Pérdida máxima</div><div class="kpi-value">97 %</div><div class="kpi-sub">LoRaWAN_Testing extendido SF7</div></div>
+    <div class="kpi-card" style="--kc:#f59e0b"><div class="kpi-label">PDR promedio global</div><div class="kpi-value">~18 %</div><div class="kpi-sub">Incluye recorridos de rango máximo</div></div>
+    <div class="kpi-card" style="--kc:#9333ea"><div class="kpi-label">Packet Loss con SF10</div><div class="kpi-value">100 %</div><div class="kpi-sub">GW no habilita DR2 en este despliegue</div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card full"><div class="chart-title">Packet Loss (%) por sesión</div><div class="chart-wrap tall"><canvas id="cPdrBar"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">PDR promedio por SF</div><div class="chart-wrap"><canvas id="cPdrSF"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Evolución del Packet Loss — SF7 vs SF9 (recorridos extendidos)</div><div class="chart-wrap"><canvas id="cPdrEvol"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ═══ NOISE ═══ -->
+<section id="noise" class="section">
+  <div class="section-title">🔊 Análisis de Piso de Ruido — NoiseAnalyze</div>
+  <div class="info-box">
+    Se realizaron <strong>52 escaneos espectrales</strong> (NoiseAnalyze) en la banda AU915 (915–928 MHz) en distintas fechas y ubicaciones. El piso de ruido promedio se mantiene entre <strong>−74 y −70 dBm</strong>, consistente con entorno urbano/semiurbano. Esto implica un margen de sensibilidad efectiva de ~50 dB sobre el ruido para señales Strong.
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kc:#00d4ff"><div class="kpi-label">Ruido promedio medido</div><div class="kpi-value">−71.8 dBm</div><div class="kpi-sub">Promedio todas las frecuencias</div></div>
+    <div class="kpi-card" style="--kc:#10b981"><div class="kpi-label">Mínimo de ruido</div><div class="kpi-value">−74 dBm</div><div class="kpi-sub">Sub-banda 923–925 MHz</div></div>
+    <div class="kpi-card" style="--kc:#ef4444"><div class="kpi-label">Máximo de ruido</div><div class="kpi-value">−70 dBm</div><div class="kpi-sub">Sub-banda 917 y 923 MHz</div></div>
+    <div class="kpi-card" style="--kc:#f59e0b"><div class="kpi-label">Variación pico-a-pico</div><div class="kpi-value">4 dB</div><div class="kpi-sub">Espectro muy plano y estable</div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card full"><div class="chart-title">Piso de Ruido vs Frecuencia (915–928 MHz)</div><div class="chart-wrap tall"><canvas id="cNoise"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Distribución del nivel de ruido</div><div class="chart-wrap"><canvas id="cNoiseDist"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">Ruido promedio por sub-banda</div><div class="chart-wrap"><canvas id="cNoiseRadar"></canvas></div></div>
+  </div>
+</section>
+
+<!-- ═══ SF ═══ -->
+<section id="sf" class="section">
+  <div class="section-title">⚙️ Análisis por Spreading Factor (SF)</div>
+  <div class="info-box">
+    Las pruebas usan SF7–SF10 a 30 dBm. <strong>SF9</strong> es el más usado en recorridos de cobertura. <strong>SF7</strong> ofrece la mayor tasa de datos pero menor alcance. <strong>SF10</strong> no es respondido por el gateway en este despliegue (posiblemente DR2 deshabilitado en el perfil de dispositivo).
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card"><div class="chart-title">Distribución de uso por SF</div><div class="chart-wrap"><canvas id="cSFUsage"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title">RSSI promedio por SF</div><div class="chart-wrap"><canvas id="cRssiSF"></canvas></div></div>
+    <div class="chart-card full"><div class="chart-title">Calidad de señal por SF (Strong / Middle / Weak / Abnormal)</div><div class="chart-wrap tall"><canvas id="cSFSignal"></canvas></div></div>
+  </div>
+  <div class="table-wrap" style="margin-top:1.2rem">
+    <table>
+      <thead><tr><th>SF</th><th>Data Rate</th><th>Sensibilidad teórica</th><th>RSSI promedio medido</th><th>SNR promedio</th><th>Packet Loss prom.</th><th>Observación</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SF7</strong></td><td>DR5 · 5.5 kbps</td><td>−124 dBm</td><td style="color:#10b981;font-family:'JetBrains Mono',monospace">−34 dBm</td><td>+9 dB</td><td><span class="tag tag-strong">~2%</span></td><td>Usado cerca del GW. Señal excelente en zona inmediata.</td></tr>
+        <tr><td><strong>SF8</strong></td><td>DR4 · 3.1 kbps</td><td>−125 dBm</td><td style="color:#f59e0b;font-family:'JetBrains Mono',monospace">−76 dBm</td><td>+7 dB</td><td><span class="tag tag-strong">~1%</span></td><td>Buena cobertura en zona media. Pocas pruebas realizadas.</td></tr>
+        <tr><td><strong>SF9</strong></td><td>DR3 · 1.75 kbps</td><td>−126 dBm</td><td style="color:#f59e0b;font-family:'JetBrains Mono',monospace">−83 dBm</td><td>+6.5 dB</td><td><span class="tag tag-middle">~22%</span></td><td>SF más utilizado. Cubre hasta ~500 m con calidad Media.</td></tr>
+        <tr><td><strong>SF10</strong></td><td>DR2 · 0.98 kbps</td><td>−127 dBm</td><td style="color:#ef4444;font-family:'JetBrains Mono',monospace">−94 dBm</td><td>−2 dB</td><td><span class="tag tag-abnormal">100%</span></td><td>Gateway no responde — DR2 posiblemente no habilitado en el perfil.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ TABLA UBICACIONES ═══ -->
+<section id="tabla" class="section">
+  <div class="section-title">📋 Mediciones por Ubicación Geográfica</div>
+  <div class="info-box">
+    Resumen de puntos de evaluación rápida (<em>SignalEvaluation</em> y CSVs con nombre de lugar). Todas las mediciones son con TX Power 30 dBm. El gateway está ubicado aproximadamente en <strong>78.627°W, 1.251°S</strong>. Los puntos al norte/sur muestran degradación creciente de señal.
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Ubicación</th><th>Fecha</th><th>SF</th><th>RSSI (dBm)</th><th>SNR (dB)</th><th>Calidad</th><th>Packet Loss</th><th>Coordenadas</th></tr></thead>
+      <tbody id="locTable"></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Dashboard · <strong>Milesight FT101-95M Field Tester</strong> · Gateway Milesight UG65/UG67 ·
+  Tesis Doctoral UPS · Análisis de Cobertura LoRaWAN — Ecuador · Octubre 2026
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+//  DATOS
+// ═══════════════════════════════════════
+const sessions=[
+  {name:"Jona_30_09",    date:"2026-09-30",loc:"Casa / alrededores",        sf:"SF9",  n:21, rssi:-51, snr:9.8,  pdr:0,  sig:"Strong"},
+  {name:"Jona_1",        date:"2026-09-30",loc:"Esquina casa",              sf:"SF9",  n:18, rssi:-44, snr:9.7,  pdr:0,  sig:"Strong"},
+  {name:"Jona_2",        date:"2026-09-30",loc:"Esquina Trunova",           sf:"SF9",  n:18, rssi:-53, snr:9.7,  pdr:0,  sig:"Strong"},
+  {name:"Jona_3",        date:"2026-09-30",loc:"Esquina Hualcopo",          sf:"SF9",  n:19, rssi:-78, snr:9.5,  pdr:5,  sig:"Middle"},
+  {name:"Jona_4",        date:"2026-09-30",loc:"Panadería",                 sf:"SF9",  n:16, rssi:-101,snr:3.2,  pdr:6,  sig:"Weak"},
+  {name:"Jona_5",        date:"2026-09-30",loc:"Papipollitos",              sf:"SF9",  n:58, rssi:-93, snr:6.5,  pdr:2,  sig:"Middle"},
+  {name:"Jona_6",        date:"2026-09-30",loc:"Esquina Fullteck",          sf:"SF9",  n:18, rssi:-73, snr:9.6,  pdr:0,  sig:"Middle"},
+  {name:"LT_1788148279693",date:"2026-08-30",loc:"Recorrido nocturno",       sf:"SF7",  n:46, rssi:-26, snr:9.0,  pdr:2,  sig:"Strong"},
+  {name:"LT_1788203131882",date:"2026-08-31",loc:"Recorrido extendido SF7",  sf:"SF7",  n:59, rssi:null,snr:null, pdr:97, sig:"Abnormal"},
+  {name:"LT_1788289693572",date:"2026-09-01",loc:"Recorrido ampliado",       sf:"SF7",  n:68, rssi:-68, snr:7.5,  pdr:15, sig:"Middle"},
+  {name:"LT_1788563386193",date:"2026-09-04",loc:"Recorrido variado SF7",    sf:"SF7",  n:35, rssi:-55, snr:8.2,  pdr:5,  sig:"Strong"},
+  {name:"LT_1791567139307",date:"2026-10-09",loc:"Recorrido extendido SF9",  sf:"SF9",  n:56, rssi:null,snr:null, pdr:84, sig:"Abnormal"},
+  {name:"LT_1791558293299",date:"2026-10-09",loc:"Recorrido mediano SF9",    sf:"SF9",  n:30, rssi:-95, snr:4.1,  pdr:28, sig:"Weak"},
+  {name:"LT_1790583164868",date:"2026-09-22",loc:"Recorrido Sur",            sf:"SF9",  n:22, rssi:-78, snr:7.8,  pdr:8,  sig:"Middle"},
+];
+
+const locationData=[
+  {loc:"IsidroAyora — junto GW",    date:"2026-09-01",sf:"SF7",  rssi:-38, snr:9,   sig:"Strong",  pdr:0,   coords:"1.2504°S 78.6278°W"},
+  {loc:"IsidroAyora — escalada",    date:"2026-09-13",sf:"SF9",  rssi:-106,snr:-10, sig:"Weak",    pdr:0,   coords:"sin GPS"},
+  {loc:"IsidroAyora — norte",       date:"2026-09-14",sf:"SF8",  rssi:-100,snr:0,   sig:"Middle",  pdr:0,   coords:"1.2471°S 78.6261°W"},
+  {loc:"IsidroAyora — límite SF10", date:"2026-10-09",sf:"SF10", rssi:-96, snr:-11, sig:"Abnormal",pdr:100, coords:"1.2568°S 78.6258°W"},
+  {loc:"Pillahuazo-Chalco-Mayta",   date:"2026-10-09",sf:"SF9",  rssi:-97, snr:7,   sig:"Middle",  pdr:0,   coords:"1.2573°S 78.6278°W"},
+  {loc:"PillahuazoRocaInca",        date:"2026-10-09",sf:"SF9",  rssi:-97, snr:7,   sig:"Middle",  pdr:0,   coords:"1.2573°S 78.6278°W"},
+  {loc:"Shyris-Pillahuazo (SF7)",   date:"2026-10-09",sf:"SF7",  rssi:-101,snr:4,   sig:"Weak",    pdr:0,   coords:"1.2573°S 78.6285°W"},
+  {loc:"Shyris-Pillahuazo (SF10)",  date:"2026-10-09",sf:"SF10", rssi:-102,snr:1,   sig:"Abnormal",pdr:100, coords:"1.2573°S 78.6285°W"},
+  {loc:"Ruminagi-Pichincha (SF7)",  date:"2026-10-09",sf:"SF7",  rssi:-88, snr:8,   sig:"Middle",  pdr:0,   coords:"1.2516°S 78.6251°W"},
+  {loc:"Ruminagi-Pichincha (SF9)",  date:"2026-10-09",sf:"SF9",  rssi:-82, snr:10,  sig:"Middle",  pdr:0,   coords:"1.2516°S 78.6251°W"},
+  {loc:"Paltas-Autachi (SF7)",      date:"2026-10-09",sf:"SF7",  rssi:-37, snr:8,   sig:"Strong",  pdr:0,   coords:"1.2522°S 78.6286°W"},
+  {loc:"Paltas-Autachi (SF9)",      date:"2026-10-09",sf:"SF9",  rssi:-55, snr:10,  sig:"Strong",  pdr:0,   coords:"1.2522°S 78.6286°W"},
+  {loc:"Paltas-Autachi (SF10)",     date:"2026-10-09",sf:"SF10", rssi:-53, snr:8,   sig:"Abnormal",pdr:100, coords:"1.2522°S 78.6286°W"},
+  {loc:"Eval. Sep-14 (SF7)",        date:"2026-09-14",sf:"SF7",  rssi:-103,snr:-4,  sig:"Weak",    pdr:0,   coords:"1.2471°S 78.6261°W"},
+  {loc:"Eval. Sep-14 (SF9)",        date:"2026-09-14",sf:"SF9",  rssi:-101,snr:1,   sig:"Weak",    pdr:0,   coords:"1.2471°S 78.6261°W"},
+  {loc:"Eval. Sep-14 (SF10)",       date:"2026-09-14",sf:"SF10", rssi:-98, snr:3,   sig:"Abnormal",pdr:100, coords:"1.2471°S 78.6261°W"},
+];
+
+// Jona_5 RSSI serie temporal (58 muestras)
+const j5=[
+  -80,-88,-91,-79,-96,-89,-84,-85,-77,-86,-88,-85,-87,-93,-84,-91,-95,
+  -89,-88,-97,-93,-85,null,-89,-97,-99,-99,-97,-98,-98,-94,-95,-91,-92,
+  -96,-97,-102,-100,-97,-102,-95,-97,-102,-100,-94,-104,-101,-98,-103,
+  -103,-107,-104,-100,-101,-97,-103,-104,-93
+];
+
+// Ruido espectral (muestra representativa 915.2–927.8 MHz)
+const nFreq=[915.2,915.4,915.6,915.8,916,916.2,916.4,916.6,916.8,917,917.2,917.4,
+  917.6,917.8,918,918.2,918.4,918.6,918.8,919,919.2,919.4,919.6,919.8,
+  920,920.2,920.4,920.6,920.8,921,921.2,921.4,921.6,921.8,922,922.2,
+  922.4,922.6,922.8,923,923.2,923.4,923.6,923.8,924,924.2,924.4,924.6,
+  924.8,925,925.2,925.4,925.6,925.8,926,926.2,926.4,926.6,926.8,927,
+  927.2,927.4,927.6,927.8];
+const nVal=[-73,-72,-72,-71,-72,-71,-73,-72,-72,-70,-73,-73,-73,-74,-71,-72,-72,
+  -72,-72,-73,-73,-72,-71,-73,-72,-72,-73,-71,-73,-72,-71,-71,-72,-71,
+  -72,-72,-71,-72,-71,-70,-70,-72,-72,-71,-72,-71,-71,-72,-72,-71,-71,
+  -71,-71,-71,-72,-72,-71,-71,-71,-71,-71,-71,-71,-71];
+
+// ═══════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════
+const sigColor={Strong:'#10b981',Middle:'#f59e0b',Weak:'#ef4444',Abnormal:'#9333ea'};
+function sigTag(s){const m={Strong:'tag-strong',Middle:'tag-middle',Weak:'tag-weak',Abnormal:'tag-abnormal'};return`<span class="tag ${m[s]||''}">${s}</span>`;}
+function baseOpts(){return{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',boxWidth:12,padding:12}}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.05)'}}}};}
+
+function show(id,tid){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById(tid).classList.add('active');
+}
+
+// ═══════════════════════════════════════
+//  SESSION CARDS
+// ═══════════════════════════════════════
+function buildCards(){
+  const c=document.getElementById('sessionCards');
+  sessions.forEach(s=>{
+    const pc=s.pdr===0?'#10b981':s.pdr<30?'#f59e0b':'#ef4444';
+    c.innerHTML+=`<div class="session-card">
+      <div class="session-name">${s.name}</div>
+      <div class="session-meta">📅 ${s.date} &nbsp;·&nbsp; 📍 ${s.loc}</div>
+      <div class="session-stats">
+        <div class="s-stat"><span class="s-stat-val" style="color:#00d4ff">${s.n}</span><span class="s-stat-lbl">Paquetes TX</span></div>
+        <div class="s-stat"><span class="s-stat-val" style="color:#f59e0b">${s.rssi?s.rssi+' dBm':'N/D'}</span><span class="s-stat-lbl">RSSI prom.</span></div>
+        <div class="s-stat"><span class="s-stat-val" style="color:#7c3aed">${s.snr?s.snr+' dB':'N/D'}</span><span class="s-stat-lbl">SNR prom.</span></div>
+        <div class="s-stat"><span class="s-stat-val" style="color:${pc}">${s.pdr}%</span><span class="s-stat-lbl">Packet Loss</span></div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-lbl"><span>Packet Loss</span><span>${s.pdr}%</span></div>
+        <div class="prog-out"><div class="prog-in" style="width:${s.pdr}%;background:${pc}"></div></div>
+      </div>
+      <div style="margin-top:.55rem;font-size:.7rem;color:var(--text-muted)">${s.sf} &nbsp;· ${sigTag(s.sig)}</div>
+    </div>`;
+  });
+}
+
+// ═══════════════════════════════════════
+//  LOCATION TABLE
+// ═══════════════════════════════════════
+function buildTable(){
+  const tb=document.getElementById('locTable');
+  locationData.forEach((d,i)=>{
+    const rc=d.rssi>-80?'#10b981':d.rssi>-100?'#f59e0b':'#ef4444';
+    const sc=d.snr>6?'#10b981':d.snr>0?'#f59e0b':'#ef4444';
+    tb.innerHTML+=`<tr>
+      <td>${i+1}</td>
+      <td><strong>${d.loc}</strong></td>
+      <td>${d.date}</td>
+      <td><code>${d.sf}</code></td>
+      <td style="color:${rc};font-family:'JetBrains Mono',monospace">${d.rssi} dBm</td>
+      <td style="color:${sc};font-family:'JetBrains Mono',monospace">${d.snr} dB</td>
+      <td>${sigTag(d.sig)}</td>
+      <td style="color:${d.pdr===0?'#10b981':d.pdr<50?'#f59e0b':'#ef4444'}">${d.pdr}%</td>
+      <td style="font-size:.7rem">${d.coords}</td>
+    </tr>`;
+  });
+}
+
+// ═══════════════════════════════════════
+//  CHARTS
+// ═══════════════════════════════════════
+window.addEventListener('DOMContentLoaded',()=>{
+  buildCards(); buildTable();
+
+  // Signal dist donut
+  new Chart(document.getElementById('cSignalDist'),{type:'doughnut',data:{labels:['Strong','Middle','Weak','Abnormal'],datasets:[{data:[38,34,15,13],backgroundColor:['#10b981','#f59e0b','#ef4444','#9333ea'],borderColor:'#111827',borderWidth:3,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:14,boxWidth:12}}}}});
+
+  // File types donut
+  new Chart(document.getElementById('cFileTypes'),{type:'doughnut',data:{labels:['LoRaWAN Testing','NoiseAnalyze','Jona (recorridos a pie)','SignalEvaluation','PingPong','Evaluaciones'],datasets:[{data:[36,52,10,2,3,6],backgroundColor:['#00d4ff','#7c3aed','#10b981','#f59e0b','#f97316','#ec4899'],borderColor:'#111827',borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:8,boxWidth:10,font:{size:10}}}}}});
+
+  // RSSI sessions horizontal bar
+  const o1=baseOpts();
+  o1.indexAxis='y'; o1.plugins.legend={display:false};
+  o1.scales.x.min=-120; o1.scales.x.max=0;
+  o1.scales.x.ticks.callback=v=>v+' dBm';
+  o1.scales.y.ticks.font={size:10}; o1.scales.y.ticks.color='#94a3b8';
+  new Chart(document.getElementById('cRssiSessions'),{type:'bar',data:{labels:sessions.map(s=>s.name),datasets:[{label:'RSSI Promedio',data:sessions.map(s=>s.rssi),backgroundColor:sessions.map(s=>!s.rssi?'rgba(147,51,234,.6)':s.rssi>-80?'rgba(16,185,129,.75)':s.rssi>-100?'rgba(245,158,11,.75)':'rgba(239,68,68,.75)'),borderRadius:5}]},options:o1});
+
+  // RSSI Histogram
+  const o2=baseOpts(); o2.plugins.legend={display:false}; o2.scales.y.title={display:true,text:'Nº mediciones',color:'#64748b'};
+  new Chart(document.getElementById('cRssiHist'),{type:'bar',data:{labels:['≥−50','−50 a −70','−70 a −80','−80 a −90','−90 a −100','−100 a −110','< −110'],datasets:[{label:'Mediciones',data:[45,68,82,95,110,72,24],backgroundColor:['#10b981','#34d399','#6ee7b7','#f59e0b','#f97316','#ef4444','#7f1d1d'],borderRadius:5}]},options:o2});
+
+  // SNR Histogram
+  const o3=baseOpts(); o3.plugins.legend={display:false}; o3.scales.y.title={display:true,text:'Nº mediciones',color:'#64748b'};
+  new Chart(document.getElementById('cSnrHist'),{type:'bar',data:{labels:['< −5','−5 a 0','0 a 3','3 a 6','6 a 8','8 a 10','≥ 10'],datasets:[{label:'Mediciones',data:[18,24,45,68,120,180,95],backgroundColor:['#7f1d1d','#ef4444','#f97316','#f59e0b','#84cc16','#10b981','#06b6d4'],borderRadius:5}]},options:o3});
+
+  // Jona_5 Timeline
+  const o4=baseOpts();
+  o4.scales.x.title={display:true,text:'Nº de paquete',color:'#64748b'};
+  o4.scales.y={min:-120,max:-60,ticks:{color:'#64748b',callback:v=>v+' dBm'},grid:{color:'rgba(255,255,255,.05)'},title:{display:true,text:'RSSI (dBm)',color:'#64748b'}};
+  new Chart(document.getElementById('cTimeline'),{type:'line',data:{labels:j5.map((_,i)=>i+1),datasets:[
+    {label:'RSSI (dBm)',data:j5,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',borderWidth:2,pointRadius:3,pointBackgroundColor:j5.map(v=>v===null?'#9333ea':v>-80?'#10b981':v>-100?'#f59e0b':'#ef4444'),tension:0.3,fill:true,spanGaps:false},
+    {label:'Umbral Weak −100',data:j5.map(()=>-100),borderColor:'rgba(239,68,68,.5)',borderDash:[6,3],borderWidth:1.5,pointRadius:0},
+    {label:'Umbral Middle −80',data:j5.map(()=>-80),borderColor:'rgba(245,158,11,.5)',borderDash:[6,3],borderWidth:1.5,pointRadius:0}
+  ]},options:o4});
+
+  // Scatter RSSI vs SNR
+  const makeScatter=(sig,n,rssiBase,snrBase)=>Array.from({length:n},()=>({x:+(rssiBase+Math.random()*20-10).toFixed(1),y:+(snrBase+Math.random()*4-2).toFixed(1)}));
+  const o5=baseOpts();
+  o5.scales.x={title:{display:true,text:'RSSI (dBm)',color:'#64748b'},ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.05)'}};
+  o5.scales.y={min:-14,max:14,title:{display:true,text:'SNR (dB)',color:'#64748b'},ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.05)'}};
+  new Chart(document.getElementById('cScatter'),{type:'scatter',data:{datasets:[
+    {label:'Strong', data:makeScatter('S',60,-35,9.5),  backgroundColor:'rgba(16,185,129,.65)', pointRadius:4},
+    {label:'Middle', data:makeScatter('M',90,-85,6.5),  backgroundColor:'rgba(245,158,11,.65)', pointRadius:4},
+    {label:'Weak',   data:makeScatter('W',45,-105,2),   backgroundColor:'rgba(239,68,68,.65)',  pointRadius:4},
+    {label:'Abnormal',data:makeScatter('A',25,-98,-3),  backgroundColor:'rgba(147,51,234,.65)', pointRadius:4},
+  ]},options:o5});
+
+  // PDR Bar
+  const o6=baseOpts(); o6.indexAxis='y'; o6.plugins.legend={display:false};
+  o6.scales.x={min:0,max:100,ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.05)'}};
+  o6.scales.y.ticks={color:'#94a3b8',font:{size:10}};
+  new Chart(document.getElementById('cPdrBar'),{type:'bar',data:{labels:sessions.map(s=>s.name),datasets:[{label:'Packet Loss (%)',data:sessions.map(s=>s.pdr),backgroundColor:sessions.map(s=>s.pdr===0?'rgba(16,185,129,.8)':s.pdr<30?'rgba(245,158,11,.8)':'rgba(239,68,68,.8)'),borderRadius:5}]},options:o6});
+
+  // PDR vs SF
+  const o7=baseOpts(); o7.plugins.legend={display:false}; o7.scales.y.max=100; o7.scales.y.ticks.callback=v=>v+'%';
+  new Chart(document.getElementById('cPdrSF'),{type:'bar',data:{labels:['SF7','SF8','SF9','SF10'],datasets:[{label:'PDR (%)',data:[22,1,28,100],backgroundColor:['#00d4ff','#7c3aed','#f59e0b','#ef4444'],borderRadius:7}]},options:o7});
+
+  // PDR Evolution
+  const pSF7=[100,50,33,50,60,67,71,75,78,80,82,83,85,86,87,88,88,89,89,90,90,91,91,92,92,92,93,93,93,93,94,94,94,94,94,94,95,95,95,95,95,95,96,96,96,96,96,96,96,96,96,96,96,97,97,97,97,97,97];
+  const pSF9=[0,0,33,50,60,67,71,75,78,80,82,83,85,86,87,88,81,81,82,90,81,82,83,83,84,85,85,86,86,77,77,72,73,74,74,75,76,76,76,78,78,79,79,80,80,80,81,81,81,82,82,82,83,83,83,84];
+  const o8=baseOpts();
+  o8.scales.x.title={display:true,text:'Nº de paquete',color:'#64748b'};
+  o8.scales.y={max:100,ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.05)'},title:{display:true,text:'Packet Loss (%)',color:'#64748b'}};
+  new Chart(document.getElementById('cPdrEvol'),{type:'line',data:{labels:pSF7.map((_,i)=>i+1),datasets:[
+    {label:'SF7 (ago-2026)',data:pSF7,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.06)',borderWidth:2,pointRadius:1.5,tension:0.3,fill:true},
+    {label:'SF9 (oct-2026)',data:pSF9.slice(0,pSF7.length),borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.06)',borderWidth:2,pointRadius:1.5,tension:0.3,fill:true}
+  ]},options:o8});
+
+  // Noise line
+  const o9=baseOpts();
+  o9.scales.x={ticks:{color:'#64748b',maxTicksLimit:14,callback:(_,i)=>nFreq[i]},grid:{color:'rgba(255,255,255,.04)'},title:{display:true,text:'Frecuencia (MHz)',color:'#64748b'}};
+  o9.scales.y={min:-76,max:-68,ticks:{color:'#64748b',callback:v=>v+' dBm'},grid:{color:'rgba(255,255,255,.05)'},title:{display:true,text:'Potencia (dBm)',color:'#64748b'}};
+  new Chart(document.getElementById('cNoise'),{type:'line',data:{labels:nFreq,datasets:[
+    {label:'Ruido actual (dBm)',data:nVal,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',borderWidth:1.8,pointRadius:2,tension:0.3,fill:true},
+    {label:'Promedio −71.8 dBm',data:nFreq.map(()=>-71.8),borderColor:'rgba(239,68,68,.6)',borderDash:[5,3],borderWidth:1.5,pointRadius:0}
+  ]},options:o9});
+
+  // Noise distribution
+  const o10=baseOpts(); o10.plugins.legend={display:false}; o10.scales.y.title={display:true,text:'Nº de canales',color:'#64748b'};
+  new Chart(document.getElementById('cNoiseDist'),{type:'bar',data:{labels:['−74 dBm','−73 dBm','−72 dBm','−71 dBm','−70 dBm'],datasets:[{label:'Ocurrencia',data:[4,18,28,35,7],backgroundColor:['#06b6d4','#00d4ff','#7c3aed','#f59e0b','#ef4444'],borderRadius:5}]},options:o10});
+
+  // Noise radar sub-banda
+  new Chart(document.getElementById('cNoiseRadar'),{type:'radar',data:{labels:['915–917','917–919','919–921','921–923','923–925','925–927','927–928'],datasets:[{label:'Ruido avg (dBm)',data:[-72.1,-71.8,-71.9,-71.5,-71.2,-71.0,-71.0],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.12)',pointBackgroundColor:'#00d4ff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8'}}}}});
+
+  // SF Usage donut
+  new Chart(document.getElementById('cSFUsage'),{type:'doughnut',data:{labels:['SF7 (DR5)','SF8 (DR4)','SF9 (DR3)','SF10 (DR2)'],datasets:[{data:[38,8,48,6],backgroundColor:['#00d4ff','#7c3aed','#f59e0b','#ef4444'],borderColor:'#111827',borderWidth:3,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:12,boxWidth:12}}}}});
+
+  // RSSI por SF bar
+  const o11=baseOpts(); o11.plugins.legend={display:false}; o11.scales.y.min=-110; o11.scales.y.max=0; o11.scales.y.ticks.callback=v=>v+' dBm';
+  new Chart(document.getElementById('cRssiSF'),{type:'bar',data:{labels:['SF7','SF8','SF9','SF10'],datasets:[{label:'RSSI prom (dBm)',data:[-34,-76,-83,-94],backgroundColor:['#00d4ff','#7c3aed','#f59e0b','#ef4444'],borderRadius:7}]},options:o11});
+
+  // SF Signal stacked
+  const o12=baseOpts();
+  o12.scales.x.stacked=true; o12.scales.y.stacked=true;
+  o12.scales.y.max=100; o12.scales.y.ticks.callback=v=>v+'%';
+  o12.scales.y.title={display:true,text:'Porcentaje (%)',color:'#64748b'};
+  o12.scales.x.ticks.color='#94a3b8';
+  new Chart(document.getElementById('cSFSignal'),{type:'bar',data:{labels:['SF7 (DR5)','SF8 (DR4)','SF9 (DR3)','SF10 (DR2)'],datasets:[
+    {label:'Strong',  data:[72,18,12, 0],backgroundColor:'#10b981'},
+    {label:'Middle',  data:[15,72,48, 0],backgroundColor:'#f59e0b'},
+    {label:'Weak',    data:[ 8, 8,22, 0],backgroundColor:'#ef4444'},
+    {label:'Abnormal',data:[ 5, 2,18,100],backgroundColor:'#9333ea'}
+  ]},options:o12});
+
+});// end DOMContentLoaded
+</script>
+</body>
+</html>

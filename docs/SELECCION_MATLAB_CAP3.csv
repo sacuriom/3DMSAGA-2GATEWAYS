@@ -1,0 +1,12 @@
+﻿Archivo,Funcion,Estado,Limites
+data/single_gateway_legacy/fuentes/MDPI_FieldTester_Master_Suite.m,histórico de un gateway,Referencia histórica,Usar la copia archivada; el homónimo actual es un visor dual.
+src/matlab_original_reference/Ingesta_Dual_TTN_FieldTester.m,ingesta dual histórica,Referencia histórica,No es el flujo validado por defecto: mezcla/consolidación y filtro RF requieren revisión.
+src/matlab_original_reference/MDPI_3DMSAGA_Production_TTS_Integrated.m,modelo integrado histórico,Referencia histórica,Ajuste lineal sobre la misma muestra; no acredita validación independiente.
+src/matlab/ajustar_offset_independiente.m,ajustar_offset_independiente,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/auditar_cache_elevaciones.m,auditar_cache_elevaciones,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/config_campana_ambato.m,config_campana_ambato,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/MDPI_3DMSAGA_Trazable.m,MDPI_3DMSAGA_Trazable,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/RF_uplink_trazable.m,RF_uplink_trazable,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/run_benchmark.m,run_benchmark,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/trazable_sha256.m,trazable_sha256,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.
+src/matlab/verificar_revision.m,verificar_revision,Implementación modular auditada,Auditoría congelada; modo físico sujeto a parámetros documentados.

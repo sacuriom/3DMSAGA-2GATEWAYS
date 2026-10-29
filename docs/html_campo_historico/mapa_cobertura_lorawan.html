@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema Adaptativo de Cobertura LoRaWAN — Milesight FT101 | Gateway UG67</title>
+  <meta name="description" content="Plataforma de mapeo adaptativo de cobertura LoRaWAN con callejero vectorial offline de Ambato y soporte de múltiples proveedores de mapas sin bloqueo 403."/>
+  
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Leaflet Heat plugin for coverage density -->
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Scripts de datos locales (Capa Offline de Calles y Dataset acumulado) -->
+  <script src="calles_ambato.js"></script>
+  <script src="dataset_fieldtester.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(15, 23, 42, 0.94);
+      --border-card: rgba(56, 189, 248, 0.2);
+      --accent-cyan: #00d4ff;
+      --accent-purple: #8b5cf6;
+      --accent-orange: #f97316;
+      --sig-strong: #10b981;
+      --sig-middle: #f59e0b;
+      --sig-weak: #ef4444;
+      --sig-abnormal: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* ── HEADER ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; height: 58px; z-index: 1000;
+      background: rgba(9, 13, 22, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30, 58, 95, 0.7);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.25rem; gap: 1rem;
+    }
+    .logo-group { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-badge {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; box-shadow: 0 0 16px rgba(2, 132, 199, 0.45);
+    }
+    .logo-text h1 { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+    .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+
+    .header-actions { display: flex; align-items: center; gap: 0.65rem; }
+    
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.42rem 0.85rem; border-radius: 8px;
+      font-size: 0.76rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white; border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--text-muted); border-color: rgba(51, 65, 85, 0.8);
+    }
+    .btn-secondary:hover { background: rgba(51, 65, 85, 0.9); color: white; }
+
+    .gw-pill {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      border-radius: 8px; padding: 0.35rem 0.75rem;
+      font-size: 0.74rem; color: #fb923c;
+    }
+    .gw-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #f97316; box-shadow: 0 0 8px #f97316;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.35); opacity: 0.6; } }
+
+    /* ── MAP CONTAINER ── */
+    #map {
+      position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
+      z-index: 1; background: #0a0f1d;
+    }
+
+    /* ── FLOATING PANEL (LEFT) ── */
+    #sidebar {
+      position: fixed; top: 70px; left: 14px; bottom: 14px; width: 330px;
+      z-index: 900; background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px; display: flex; flex-direction: column;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    #sidebar.collapsed { transform: translateX(-360px); }
+
+    .sidebar-header {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sidebar-header h2 { font-size: 0.88rem; font-weight: 700; color: #fff; }
+    .close-btn {
+      background: none; border: none; color: var(--text-muted);
+      cursor: pointer; font-size: 1.1rem; line-height: 1;
+    }
+    .close-btn:hover { color: #fff; }
+
+    .sidebar-search {
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(30, 58, 95, 0.4);
+    }
+    .search-input {
+      width: 100%; background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.7);
+      border-radius: 8px; padding: 0.45rem 0.75rem;
+      font-size: 0.75rem; color: #fff; outline: none;
+    }
+    .search-input:focus { border-color: var(--accent-cyan); }
+
+    .session-list {
+      flex: 1; overflow-y: auto; padding: 0.65rem;
+    }
+    .session-card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(30, 58, 95, 0.5);
+      border-radius: 9px; padding: 0.6rem 0.8rem;
+      margin-bottom: 0.5rem; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .session-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(30, 41, 59, 0.7);
+      transform: translateX(2px);
+    }
+    .session-card.active {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 212, 255, 0.08);
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+    }
+    .card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.3rem;
+    }
+    .card-title {
+      font-size: 0.78rem; font-weight: 600; color: #e2e8f0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;
+    }
+    .card-badge {
+      font-size: 0.62rem; font-weight: 700;
+      padding: 0.15rem 0.4rem; border-radius: 5px;
+      background: rgba(99, 102, 241, 0.2); color: #a5b4fc;
+    }
+    .card-meta {
+      display: flex; gap: 0.6rem; font-size: 0.68rem; color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── TOGGLE SIDEBAR BUTTON ── */
+    #btnOpenSidebar {
+      position: fixed; top: 70px; left: 14px; z-index: 890;
+      display: none;
+    }
+    #sidebar.collapsed ~ #btnOpenSidebar { display: inline-flex; }
+
+    /* ── TOP KPI CHIPS ── */
+    #kpiBar {
+      position: fixed; top: 70px; left: 360px; z-index: 880;
+      display: flex; gap: 0.5rem; flex-wrap: wrap; pointer-events: none;
+      transition: left 0.3s;
+    }
+    #sidebar.collapsed ~ #kpiBar { left: 74px; }
+    .kpi-chip {
+      pointer-events: auto;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 9px; padding: 0.4rem 0.75rem;
+      font-size: 0.72rem; display: flex; align-items: center; gap: 0.45rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .kpi-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 0.82rem; color: var(--accent-cyan);
+    }
+
+    /* ── BOTTOM CONTROL BAR ── */
+    #controlBar {
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 900; background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 30px; padding: 0.45rem 1rem;
+      display: flex; align-items: center; gap: 0.65rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap; justify-content: center;
+    }
+    .filter-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      color: var(--text-muted); border-radius: 20px;
+      padding: 0.3rem 0.7rem; font-size: 0.72rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .filter-btn:hover { color: #fff; background: rgba(51, 65, 85, 0.8); }
+    .filter-btn.active {
+      background: var(--accent-cyan); color: #090d16;
+      border-color: var(--accent-cyan);
+    }
+    .filter-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .ctrl-sep { width: 1px; height: 18px; background: rgba(51, 65, 85, 0.8); }
+
+    .toggle-chk {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.72rem; color: var(--text-muted); cursor: pointer;
+    }
+    .toggle-chk input { cursor: pointer; accent-color: var(--accent-cyan); }
+
+    /* ── LAYER SELECTOR BOX (TOP RIGHT) ── */
+    #layerBox {
+      position: fixed; top: 70px; right: 14px; z-index: 900;
+      background: var(--bg-card); backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px; padding: 0.65rem 0.85rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .layer-title { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem; }
+    .layer-select {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      color: #fff; border-radius: 7px; padding: 0.35rem 0.6rem;
+      font-size: 0.74rem; outline: none; cursor: pointer; width: 100%;
+    }
+
+    /* ── DRAG & DROP OVERLAY ── */
+    #dropZone {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(9, 13, 22, 0.88); backdrop-filter: blur(10px);
+      border: 3px dashed var(--accent-cyan);
+      display: none; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+    }
+    #dropZone.active { display: flex; }
+    .drop-box {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 18px; padding: 2.5rem 3rem; text-align: center;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+    }
+    .drop-icon { font-size: 3rem; margin-bottom: 0.5rem; animation: bounce 1s infinite alternate; }
+    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+
+    /* Custom Leaflet Popups */
+    .leaflet-popup-content-wrapper {
+      background: rgba(15, 23, 42, 0.95) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7) !important;
+      color: #fff !important;
+    }
+    .leaflet-popup-tip { background: rgba(15, 23, 42, 0.95) !important; }
+    .popup-title {
+      font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+      padding-bottom: 0.4rem; margin-bottom: 0.45rem;
+    }
+    .popup-row {
+      display: flex; justify-content: space-between; gap: 1.2rem;
+      font-size: 0.74rem; padding: 0.2rem 0;
+    }
+    .popup-lbl { color: var(--text-muted); }
+    .popup-val { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="header">
+    <div class="logo-group">
+      <div class="logo-badge">📡</div>
+      <div class="logo-text">
+        <h1>LoRaWAN Coverage Explorer · Ambato</h1>
+        <p>Modelo Adaptativo Field Tester FT101-95M & Gateway UG67</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- Hidden file inputs -->
+      <input type="file" id="fileCsvInput" multiple accept=".csv" style="display:none;" />
+      <input type="file" id="folderCsvInput" webkitdirectory directory multiple style="display:none;" />
+
+      <button class="btn btn-primary" onclick="document.getElementById('fileCsvInput').click()" title="Selecciona o arrastra nuevos archivos CSV para incorporar al mapa">
+        ➕ Ingestar Nuevos CSV
+      </button>
+
+      <button class="btn btn-secondary" onclick="document.getElementById('folderCsvInput').click()" title="Cargar carpeta completa FieldTester">
+        📁 Carpeta FieldTester
+      </button>
+
+      <a href="rutas_medicion_fieldtester.html" class="btn btn-secondary" style="text-decoration:none;" title="Ver rutas de medición vehicular">
+        🚗 Rutas Vehiculares
+      </a>
+
+      <a href="verificacion_rutas_10oct.html" class="btn btn-secondary" style="text-decoration:none; border-color: rgba(16, 185, 129, 0.4); color: #34d399;" title="Verificación empírica 10 de Octubre">
+        📊 Auditoría 10-Oct
+      </a>
+
+      <div class="gw-pill">
+        <div class="gw-dot"></div>
+        <span>GW Milesight UG67 (-1.25164, -78.62765) · 2707m</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── DRAG & DROP OVERLAY ── -->
+  <div id="dropZone">
+    <div class="drop-box">
+      <div class="drop-icon">📥</div>
+      <h2 style="font-size:1.3rem;margin-bottom:0.4rem;">Arrastra y suelta aquí tus archivos CSV</h2>
+      <p style="color:var(--text-muted);font-size:0.85rem;">Se incorporarán y graficarán adaptativamente sobre el mapa de calles al instante.</p>
+    </div>
+  </div>
+
+  <!-- ── MAP CONTAINER ── -->
+  <div id="map"></div>
+
+  <!-- ── BOTÓN MOSTRAR SIDEBAR (si está cerrado) ── -->
+  <button id="btnOpenSidebar" class="btn btn-secondary" onclick="toggleSidebar()">
+    ☰ Mostrar Recorridos
+  </button>
+
+  <!-- ── FLOATING SIDEBAR (SESIONES) ── -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h2>Recorridos & Campañas (<span id="sessionCount">0</span>)</h2>
+      <button class="close-btn" onclick="toggleSidebar()">✕</button>
+    </div>
+    <div class="sidebar-search">
+      <input type="text" id="searchSession" class="search-input" placeholder="🔍 Buscar por nombre o fecha..." oninput="filterSessionsList()"/>
+    </div>
+    <div class="session-list" id="sessionList">
+      <!-- Injected by JavaScript -->
+    </div>
+  </aside>
+
+  <!-- ── FLOATING KPI CHIPS ── -->
+  <div id="kpiBar">
+    <div class="kpi-chip">
+      <span>Puntos Medidos:</span>
+      <span class="kpi-val" id="kpiTotalPts">0</span>
+    </div>
+    <div class="kpi-chip">
+      <span>RSSI Promedio:</span>
+      <span class="kpi-val" id="kpiAvgRssi">-- dBm</span>
+    </div>
+    <div class="kpi-chip">
+      <span>Alcance Máximo:</span>
+      <span class="kpi-val" id="kpiMaxDist">-- m</span>
+    </div>
+    <div class="kpi-chip">
+      <span>Calles de Ambato:</span>
+      <span class="kpi-val" id="kpiStreetCount">Offline OK</span>
+    </div>
+  </div>
+
+  <!-- ── LAYER SELECTOR (TOP RIGHT) ── -->
+  <div id="layerBox">
+    <div class="layer-title">🗺️ Mapa Base (Sin 403)</div>
+    <select id="baseMapSelect" class="layer-select" onchange="changeBaseMap(this.value)">
+      <option value="esri_street" selected>Esri World Street (Calles Oficiales)</option>
+      <option value="carto_voyager">CARTO Voyager (Calles & Detalle)</option>
+      <option value="esri_sat">Esri World Imagery (Satélite HD)</option>
+      <option value="carto_dark">CARTO Dark Matter (Modo Oscuro)</option>
+      <option value="carto_pos">CARTO Positron (Minimalista Blanco)</option>
+      <option value="blank">Sin Fondo (Solo Vectorial Offline)</option>
+    </select>
+  </div>
+
+  <!-- ── BOTTOM CONTROL BAR ── -->
+  <div id="controlBar">
+    <button class="filter-btn active" data-filter="all" onclick="applyQualityFilter('all')">
+      Todos
+    </button>
+    <button class="filter-btn" data-filter="Strong" onclick="applyQualityFilter('Strong')">
+      <span class="filter-dot" style="background:var(--sig-strong);"></span> Strong (≥ -80)
+    </button>
+    <button class="filter-btn" data-filter="Middle" onclick="applyQualityFilter('Middle')">
+      <span class="filter-dot" style="background:var(--sig-middle);"></span> Middle (-81 a -100)
+    </button>
+    <button class="filter-btn" data-filter="Weak" onclick="applyQualityFilter('Weak')">
+      <span class="filter-dot" style="background:var(--sig-weak);"></span> Weak (&lt; -100)
+    </button>
+    <button class="filter-btn" data-filter="Abnormal" onclick="applyQualityFilter('Abnormal')">
+      <span class="filter-dot" style="background:var(--sig-abnormal);"></span> Sin Señal
+    </button>
+
+    <div class="ctrl-sep"></div>
+
+    <label class="toggle-chk">
+      <input type="checkbox" id="chkRoutes" checked onchange="toggleRoutes(this.checked)"/>
+      Rutas
+    </label>
+
+    <label class="toggle-chk">
+      <input type="checkbox" id="chkRings" checked onchange="toggleRings(this.checked)"/>
+      Anillos GW
+    </label>
+
+    <label class="toggle-chk">
+      <input type="checkbox" id="chkStreets" checked onchange="toggleOfflineStreets(this.checked)"/>
+      Calles Offline Ambato
+    </label>
+
+    <label class="toggle-chk">
+      <input type="checkbox" id="chkHeat" onchange="toggleHeatmap(this.checked)"/>
+      Mapa de Calor
+    </label>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT APPLICATION LOGIC                                        -->
+  <!-- ═════════════════════════════════════════════════════════════════════ -->
+  <script>
+    // Coordenadas fijas del Gateway Anchor Milesight UG67
+    const GW = {
+      lat: -1.25164,
+      lon: -78.62765,
+      alt: 2707,
+      name: "Gateway Milesight UG67 (Campus / Estación Base)"
+    };
+
+    // Estado de la aplicación
+    let currentFilter = 'all';
+    let activeSessionId = null;
+    let allSessions = [];
+    let mapMarkers = [];
+    let routePolylines = [];
+    let distanceRings = [];
+    let streetLayer = null;
+    let heatLayer = null;
+
+    // Inicialización del Mapa Leaflet
+    const map = L.map('map', {
+      center: [GW.lat, GW.lon],
+      zoom: 15,
+      zoomControl: true,
+      preferCanvas: true
+    });
+
+    // ─────────────────────────────────────────────────────────────
+    // CAPAS BASE (Proveedores que NUNCA arrojan error 403 Forbidden)
+    // ─────────────────────────────────────────────────────────────
+    const tileLayers = {
+      esri_street: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '© Esri World Street Map',
+        maxZoom: 19
+      }),
+      carto_voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '© CARTO Voyager',
+        maxZoom: 19,
+        subdomains: 'abcd'
+      }),
+      esri_sat: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '© Esri World Imagery',
+        maxZoom: 19
+      }),
+      carto_dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© CARTO Dark',
+        maxZoom: 19,
+        subdomains: 'abcd'
+      }),
+      carto_pos: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© CARTO Positron',
+        maxZoom: 19,
+        subdomains: 'abcd'
+      })
+    };
+
+    let activeBaseLayer = tileLayers.esri_street;
+    activeBaseLayer.addTo(map);
+
+    function changeBaseMap(key) {
+      if (activeBaseLayer) map.removeLayer(activeBaseLayer);
+      if (key !== 'blank' && tileLayers[key]) {
+        activeBaseLayer = tileLayers[key];
+        activeBaseLayer.addTo(map);
+      } else {
+        activeBaseLayer = null;
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // CAPA VECTORIAL OFFLINE DE CALLES DE AMBATO (mapa_ambato.json)
+    // ─────────────────────────────────────────────────────────────
+    function initOfflineStreets() {
+      if (!window.CALLES_AMBATO || !window.CALLES_AMBATO.features) {
+        document.getElementById('kpiStreetCount').textContent = 'No cargado';
+        return;
+      }
+
+      streetLayer = L.geoJSON(window.CALLES_AMBATO, {
+        style: function(feature) {
+          const hw = feature.properties.highway || '';
+          const isPrimary = ['primary', 'secondary', 'trunk'].includes(hw);
+          return {
+            color: isPrimary ? '#38bdf8' : '#64748b',
+            weight: isPrimary ? 2.5 : 1.2,
+            opacity: isPrimary ? 0.75 : 0.45
+          };
+        },
+        onEachFeature: function(feature, layer) {
+          if (feature.properties && feature.properties.name) {
+            layer.bindTooltip(`🛣️ ${feature.properties.name} (${feature.properties.highway})`, {
+              sticky: true,
+              className: 'street-tooltip'
+            });
+          }
+        }
+      }).addTo(map);
+
+      const count = window.CALLES_AMBATO.features.length;
+      document.getElementById('kpiStreetCount').textContent = `${count} tramos`;
+    }
+
+    function toggleOfflineStreets(visible) {
+      if (!streetLayer) return;
+      if (visible) map.addLayer(streetLayer);
+      else map.removeLayer(streetLayer);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // ANILLOS DE DISTANCIA Y MARCADOR DEL GATEWAY
+    // ─────────────────────────────────────────────────────────────
+    function initGatewayAndRings() {
+      const gwIcon = L.divIcon({
+        className: '',
+        html: `<div style="
+          width:36px;height:36px;border-radius:50%;
+          background:radial-gradient(circle,#f97316,#dc2626);
+          border:3px solid white;
+          box-shadow:0 0 0 4px rgba(249,115,22,0.4),0 0 24px rgba(249,115,22,0.8);
+          display:flex;align-items:center;justify-content:center;
+          font-size:1.15rem;cursor:pointer;
+        ">📡</div>`,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18]
+      });
+
+      const marker = L.marker([GW.lat, GW.lon], { icon: gwIcon, zIndexOffset: 9999 }).addTo(map);
+      marker.bindPopup(`
+        <div class="popup-title">🔶 ${GW.name}</div>
+        <div class="popup-row"><span class="popup-lbl">Latitud:</span><span class="popup-val">${GW.lat}°</span></div>
+        <div class="popup-row"><span class="popup-lbl">Longitud:</span><span class="popup-val">${GW.lon}°</span></div>
+        <div class="popup-row"><span class="popup-lbl">Altitud GPS:</span><span class="popup-val">${GW.alt} msnm</span></div>
+        <div class="popup-row"><span class="popup-lbl">Modelo:</span><span class="popup-val">Milesight UG67</span></div>
+      `);
+
+      // Anillos concéntricos
+      const radii = [100, 250, 500, 750, 1000, 1500, 2000];
+      radii.forEach(r => {
+        const circle = L.circle([GW.lat, GW.lon], {
+          radius: r,
+          color: '#f97316',
+          weight: 1,
+          opacity: 0.35,
+          dashArray: '4, 6',
+          fillColor: '#f97316',
+          fillOpacity: 0.015
+        }).addTo(map);
+        circle.bindTooltip(`Radio: ${r >= 1000 ? (r/1000)+' km' : r+' m'}`, { permanent: false });
+        distanceRings.push(circle);
+      });
+    }
+
+    function toggleRings(visible) {
+      distanceRings.forEach(r => {
+        if (visible) map.addLayer(r);
+        else map.removeLayer(r);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // UTILIDADES DE CÁLCULO
+    // ─────────────────────────────────────────────────────────────
+    function getDistanceMeters(lat1, lon1, lat2, lon2) {
+      const R = 6371000;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return Math.round(R * c);
+    }
+
+    function getSignalColor(sig) {
+      switch(sig) {
+        case 'Strong': return 'var(--sig-strong)';
+        case 'Middle': return 'var(--sig-middle)';
+        case 'Weak': return 'var(--sig-weak)';
+        default: return 'var(--sig-abnormal)';
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // RENDERIZADO DE SESIONES Y MEDICIONES
+    // ─────────────────────────────────────────────────────────────
+    function renderMapData() {
+      // Limpiar capas previas de mediciones
+      mapMarkers.forEach(m => map.removeLayer(m));
+      mapMarkers = [];
+      routePolylines.forEach(p => map.removeLayer(p));
+      routePolylines = [];
+      if (heatLayer) { map.removeLayer(heatLayer); heatLayer = null; }
+
+      let totalPoints = 0;
+      let sumRssi = 0;
+      let countRssi = 0;
+      let maxDist = 0;
+      const heatData = [];
+
+      const showRoutes = document.getElementById('chkRoutes').checked;
+
+      allSessions.forEach(session => {
+        if (activeSessionId && session.id !== activeSessionId) return;
+
+        const routeCoords = [];
+
+        session.pts.forEach(p => {
+          totalPoints++;
+          if (p.dist > maxDist) maxDist = p.dist;
+          if (p.rssi !== null && p.rssi !== undefined) {
+            sumRssi += p.rssi;
+            countRssi++;
+            // Intensidad para heatmap normalizada entre 0 y 1 (-120 dBm = 0, -40 dBm = 1)
+            const heatIntensity = Math.max(0.1, Math.min(1.0, (p.rssi + 120) / 80));
+            heatData.push([p.lat, p.lon, heatIntensity]);
+          }
+
+          routeCoords.push([p.lat, p.lon]);
+
+          // Filtro de calidad
+          if (currentFilter !== 'all' && p.sig !== currentFilter) return;
+
+          const color = getSignalColor(p.sig);
+
+          const circleMarker = L.circleMarker([p.lat, p.lon], {
+            radius: activeSessionId ? 6.5 : 5,
+            fillColor: color,
+            color: '#ffffff',
+            weight: 1.2,
+            opacity: 0.9,
+            fillOpacity: 0.85
+          });
+
+          circleMarker.bindPopup(`
+            <div class="popup-title">📍 Medición Field Tester</div>
+            <div class="popup-row"><span class="popup-lbl">Sesión:</span><span class="popup-val">${session.name}</span></div>
+            <div class="popup-row"><span class="popup-lbl">RSSI:</span><span class="popup-val" style="color:${color}">${p.rssi !== null ? p.rssi + ' dBm' : 'Sin señal'}</span></div>
+            <div class="popup-row"><span class="popup-lbl">SNR:</span><span class="popup-val">${p.snr !== null ? p.snr + ' dB' : 'N/A'}</span></div>
+            <div class="popup-row"><span class="popup-lbl">Estado:</span><span class="popup-val">${p.sig}</span></div>
+            <div class="popup-row"><span class="popup-lbl">Distancia al GW:</span><span class="popup-val">${p.dist} m</span></div>
+            <div class="popup-row"><span class="popup-lbl">Spreading Factor:</span><span class="popup-val">${p.sf || session.sf}</span></div>
+            ${p.time ? `<div class="popup-row"><span class="popup-lbl">Hora:</span><span class="popup-val">${p.time}</span></div>` : ''}
+            <div class="popup-row"><span class="popup-lbl">Coordenadas:</span><span class="popup-val">${p.lat.toFixed(5)}, ${p.lon.toFixed(5)}</span></div>
+          `);
+
+          circleMarker.addTo(map);
+          mapMarkers.push(circleMarker);
+        });
+
+        // Dibujar polyline del recorrido si tiene 2 o más puntos
+        if (showRoutes && routeCoords.length >= 2) {
+          const polyline = L.polyline(routeCoords, {
+            color: session.color || '#3b82f6',
+            weight: 2.5,
+            opacity: 0.75,
+            dashArray: '3, 6'
+          }).addTo(map);
+          routePolylines.push(polyline);
+        }
+      });
+
+      // Heatmap layer
+      if (heatData.length > 0 && window.L && L.heatLayer) {
+        heatLayer = L.heatLayer(heatData, {
+          radius: 25,
+          blur: 15,
+          maxZoom: 17,
+          gradient: { 0.2: '#ef4444', 0.5: '#f59e0b', 0.8: '#10b981', 1.0: '#00d4ff' }
+        });
+        if (document.getElementById('chkHeat').checked) {
+          heatLayer.addTo(map);
+        }
+      }
+
+      // Actualizar KPIs
+      document.getElementById('kpiTotalPts').textContent = totalPoints.toLocaleString();
+      document.getElementById('kpiAvgRssi').textContent = countRssi > 0 ? (sumRssi / countRssi).toFixed(1) + ' dBm' : '-- dBm';
+      document.getElementById('kpiMaxDist').textContent = maxDist.toLocaleString() + ' m';
+    }
+
+    function toggleRoutes(visible) {
+      routePolylines.forEach(p => {
+        if (visible) map.addLayer(p);
+        else map.removeLayer(p);
+      });
+    }
+
+    function toggleHeatmap(visible) {
+      if (!heatLayer) return;
+      if (visible) map.addLayer(heatLayer);
+      else map.removeLayer(heatLayer);
+    }
+
+    function applyQualityFilter(filterVal) {
+      currentFilter = filterVal;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === filterVal);
+      });
+      renderMapData();
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // GESTIÓN DEL SIDEBAR DE SESIONES
+    // ─────────────────────────────────────────────────────────────
+    function renderSessionList() {
+      const container = document.getElementById('sessionList');
+      container.innerHTML = '';
+      document.getElementById('sessionCount').textContent = allSessions.length;
+
+      allSessions.forEach(s => {
+        const div = document.createElement('div');
+        div.className = `session-card ${activeSessionId === s.id ? 'active' : ''}`;
+        div.id = `card-${s.id}`;
+        div.onclick = () => selectSession(s.id);
+
+        div.innerHTML = `
+          <div class="card-top">
+            <span class="card-title" title="${s.name}">
+              <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${s.color};margin-right:5px;"></span>
+              ${s.name}
+            </span>
+            <span class="card-badge">${s.sf || 'SF9'}</span>
+          </div>
+          <div class="card-meta">
+            <span>📍 ${s.pts.length} pts</span>
+            <span>📶 ${s.avg_rssi !== null && s.avg_rssi !== undefined ? s.avg_rssi + ' dBm' : '--'}</span>
+            <span>📏 ${s.max_dist ? s.max_dist + 'm' : ''}</span>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function selectSession(id) {
+      if (activeSessionId === id) {
+        activeSessionId = null; // deseleccionar para ver todos
+      } else {
+        activeSessionId = id;
+      }
+
+      renderSessionList();
+      renderMapData();
+
+      if (activeSessionId) {
+        const targetSession = allSessions.find(s => s.id === activeSessionId);
+        if (targetSession && targetSession.pts.length > 0) {
+          const lats = targetSession.pts.map(p => p.lat);
+          const lons = targetSession.pts.map(p => p.lon);
+          const bounds = L.latLngBounds([
+            [Math.min(...lats), Math.min(...lons)],
+            [Math.max(...lats), Math.max(...lons)]
+          ]);
+          map.fitBounds(bounds, { padding: [50, 50], maxZoom: 17 });
+        }
+      }
+    }
+
+    function filterSessionsList() {
+      const query = document.getElementById('searchSession').value.toLowerCase();
+      document.querySelectorAll('.session-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // INGESTA DINÁMICA DE ARCHIVOS CSV (CLIENT-SIDE ADAPTATIVO)
+    // ─────────────────────────────────────────────────────────────
+    function setupDragAndDrop() {
+      const dropZone = document.getElementById('dropZone');
+      window.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('active');
+      });
+      dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('active');
+      });
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('active');
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleIncomingFiles(e.dataTransfer.files);
+        }
+      });
+
+      document.getElementById('fileCsvInput').addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+          handleIncomingFiles(e.target.files);
+        }
+      });
+
+      document.getElementById('folderCsvInput').addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+          handleIncomingFiles(e.target.files);
+        }
+      });
+    }
+
+    function handleIncomingFiles(fileList) {
+      const files = Array.from(fileList).filter(f => f.name.toLowerCase().endsWith('.csv'));
+      if (files.length === 0) {
+        alert("No se detectaron archivos .csv válidos.");
+        return;
+      }
+
+      let processedCount = 0;
+      let newPointsCount = 0;
+
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const content = evt.target.result;
+          const parsedSession = parseCSVContent(file.name, content);
+          if (parsedSession && parsedSession.pts.length > 0) {
+            // Verificar si ya existía para actualizarla o agregarla
+            const existingIdx = allSessions.findIndex(s => s.id === parsedSession.id);
+            if (existingIdx >= 0) {
+              allSessions[existingIdx] = parsedSession;
+            } else {
+              allSessions.unshift(parsedSession);
+            }
+            newPointsCount += parsedSession.pts.length;
+          }
+
+          processedCount++;
+          if (processedCount === files.length) {
+            renderSessionList();
+            renderMapData();
+            alert(`✅ Ingesta completada:\n• ${files.length} archivos procesados.\n• ${newPointsCount} puntos GPS georreferenciados agregados al mapa.`);
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+
+    function parseCSVContent(fileName, text) {
+      const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+      if (lines.length < 2) return null;
+
+      const header = lines[0].split(',').map(c => c.trim().replace(/^"|"$/g, '').toLowerCase());
+      
+      let latIdx = header.findIndex(c => c.includes('latitude') || c === 'lat' || c.includes('gpslatitude'));
+      let lonIdx = header.findIndex(c => c.includes('longitude') || c === 'lon' || c === 'lng' || c.includes('gpslongitude'));
+      let rssiIdx = header.findIndex(c => c.includes('rssi'));
+      let snrIdx = header.findIndex(c => c.includes('snr'));
+      let sfIdx = header.findIndex(c => c === 'sf' || c.includes('spreading'));
+      let timeIdx = header.findIndex(c => c.includes('time') || c.includes('date'));
+      let sigIdx = header.findIndex(c => c === 'signal' || c === 'status');
+
+      if (latIdx === -1 || lonIdx === -1) return null;
+
+      const pts = [];
+      const validRssis = [];
+      let sfDetected = 'SF9';
+
+      const sfMatch = fileName.match(/SF(\d+)/i);
+      if (sfMatch) sfDetected = 'SF' + sfMatch[1];
+
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+        if (cols.length <= Math.max(latIdx, lonIdx)) continue;
+
+        let latStr = cols[latIdx];
+        let lonStr = cols[lonIdx];
+        if (!latStr || !lonStr || latStr === '-' || lonStr === '-') continue;
+
+        let lat = parseFloat(latStr.replace(/[^\d.-]/g, ''));
+        let lon = parseFloat(lonStr.replace(/[^\d.-]/g, ''));
+        if (latStr.toUpperCase().includes('S') && lat > 0) lat = -lat;
+        if (lonStr.toUpperCase().includes('W') && lon > 0) lon = -lon;
+
+        // Validar rango Ambato
+        if (isNaN(lat) || isNaN(lon) || lat < -1.35 || lat > -1.15 || lon < -78.75 || lon > -78.50) continue;
+
+        let rssi = rssiIdx >= 0 && cols[rssiIdx] && cols[rssiIdx] !== '-' ? parseFloat(cols[rssiIdx]) : null;
+        let snr = snrIdx >= 0 && cols[snrIdx] && cols[snrIdx] !== '-' ? parseFloat(cols[snrIdx]) : null;
+        let time = timeIdx >= 0 ? cols[timeIdx] : '';
+
+        if (sfIdx >= 0 && cols[sfIdx] && cols[sfIdx] !== '-') {
+          sfDetected = cols[sfIdx].startsWith('SF') ? cols[sfIdx] : 'SF' + cols[sfIdx];
+        }
+
+        let sig = 'Middle';
+        if (rssi === null) sig = 'Abnormal';
+        else if (rssi >= -80 && (snr === null || snr >= 0)) sig = 'Strong';
+        else if (rssi >= -100) sig = 'Middle';
+        else sig = 'Weak';
+
+        const dist = getDistanceMeters(lat, lon, GW.lat, GW.lon);
+        if (rssi !== null) validRssis.push(rssi);
+
+        pts.push({
+          lat: lat,
+          lon: lon,
+          rssi: rssi,
+          snr: snr,
+          sig: sig,
+          time: time,
+          dist: dist,
+          sf: sfDetected
+        });
+      }
+
+      if (pts.length === 0) return null;
+
+      const sessionId = fileName.replace(/\.csv$/i, '');
+      const avgRssi = validRssis.length > 0 ? Math.round(validRssis.reduce((a,b)=>a+b,0)/validRssis.length * 10)/10 : null;
+
+      return {
+        id: sessionId,
+        name: sessionId,
+        filename: fileName,
+        sf: sfDetected,
+        color: '#06b6d4',
+        pts: pts,
+        avg_rssi: avgRssi,
+        min_dist: Math.min(...pts.map(p => p.dist)),
+        max_dist: Math.max(...pts.map(p => p.dist))
+      };
+    }
+
+    function exportGeoJSON() {
+      const features = [];
+      allSessions.forEach(s => {
+        s.pts.forEach(p => {
+          features.push({
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [p.lon, p.lat] },
+            properties: {
+              session: s.name,
+              rssi: p.rssi,
+              snr: p.snr,
+              quality: p.sig,
+              distance_m: p.dist,
+              sf: p.sf || s.sf,
+              timestamp: p.time
+            }
+          });
+        });
+      });
+
+      const blob = new Blob([JSON.stringify({ type: "FeatureCollection", features: features }, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lorawan_fieldtester_ambato_${new Date().toISOString().slice(0,10)}.geojson`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // INICIALIZACIÓN GENERAL
+    // ─────────────────────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+      initGatewayAndRings();
+      initOfflineStreets();
+      setupDragAndDrop();
+
+      // Cargar dataset preexistente si está presente
+      if (window.FIELDTESTER_DATA && window.FIELDTESTER_DATA.sessions) {
+        allSessions = window.FIELDTESTER_DATA.sessions;
+        renderSessionList();
+        renderMapData();
+      }
+    });
+  </script>
+</body>
+</html>

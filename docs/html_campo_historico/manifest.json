@@ -1,0 +1,88 @@
+{
+  "prepared_utc": "2026-10-29T19:18:39.532026+00:00",
+  "repository": "sacuriom/3DMSAGA-2GATEWAYS",
+  "destination": "docs/html_campo_historico",
+  "copy_policy": "byte-identical historical sources",
+  "files": {
+    "dashboard_fieldtester.html": {
+      "source": "OCTUBRE/dashboard_fieldtester.html",
+      "bytes": 42518,
+      "sha256": "6482a2568052508b6909bf77681cea64c6e7a0d481edf9ce2dc2ae57e342057a"
+    },
+    "mapa_cobertura_lorawan.html": {
+      "source": "OCTUBRE/mapa_cobertura_lorawan.html",
+      "bytes": 41838,
+      "sha256": "e7b113028f8e58707f39e1bc5a297afb5627194835268e6fdd1e8837a49f4e2d"
+    },
+    "verificacion_4rutas_cobertura.html": {
+      "source": "OCTUBRE/verificacion_4rutas_cobertura.html",
+      "bytes": 34005,
+      "sha256": "43a968b007d8dff54b671760931c12dcade73cd6991690261fae6e3de893b50a"
+    },
+    "calles_ambato.js": {
+      "source": "OCTUBRE/calles_ambato.js",
+      "bytes": 567589,
+      "sha256": "09a9d095ad1a07d2b5efb9ae930c1873dcce41bffbe70915da01c7fe98abe683"
+    },
+    "dataset_fieldtester.js": {
+      "source": "OCTUBRE/dataset_fieldtester.js",
+      "bytes": 210976,
+      "sha256": "451bb8ffbea1b001b5be02aa2a825c02b7281ff5e24aec187940f34aea147e0e"
+    },
+    "rutas_medicion_fieldtester.html": {
+      "source": "OCTUBRE/rutas_medicion_fieldtester.html",
+      "bytes": 21644,
+      "sha256": "a40224105661afc561f9c60cd01489693f540de7d6467c5fc058db61df3e6697"
+    },
+    "verificacion_rutas_10oct.html": {
+      "source": "OCTUBRE/verificacion_rutas_10oct.html",
+      "bytes": 21219,
+      "sha256": "37f54ead5fda964f60b9a587374a176f60a5cb0f4e59916addf8308719f7dbe9"
+    },
+    "rutas_fieldtester.js": {
+      "source": "OCTUBRE/rutas_fieldtester.js",
+      "bytes": 76158,
+      "sha256": "0a16eeed23da9d34bc2c909d24b84bf2c50e6a1a7f3e2697f9fb7e610dd2c248"
+    },
+    "verificacion_4rutas_data.js": {
+      "source": "OCTUBRE/verificacion_4rutas_data.js",
+      "bytes": 284832,
+      "sha256": "5691f380305d3a2762e4fb785018f09266bfc5c0b522bbe4ebc2118eedb30239"
+    },
+    "Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv": {
+      "source": "OCTUBRE/Comparativa_3DMSAGA_vs_FieldTester_SF9_Consolidado.csv",
+      "bytes": 357896,
+      "sha256": "b38ddd7885359fb137084d66ae077ce3f7b4fe288f45f2094d4be3946d2421d2"
+    },
+    "Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv": {
+      "source": "OCTUBRE/Puntos_Evaluados_3DMSAGA_vs_FieldTester_SF9.csv",
+      "bytes": 54659,
+      "sha256": "40c524577b78368ac62fc44d67852a22b50d5d8e87876025d218b6addf7a3004"
+    },
+    "Puntos_Ciegos_Identificados_SF9.csv": {
+      "source": "OCTUBRE/Puntos_Ciegos_Identificados_SF9.csv",
+      "bytes": 31279,
+      "sha256": "5bb7e58cb277ee4599040ab6469bae379c8f630ca6d89bfd4eb403da88e1c069"
+    },
+    "verificacion_10oct_data.js": {
+      "source": "OCTUBRE/verificacion_10oct_data.js",
+      "bytes": 101366,
+      "sha256": "c2cae901cc09305f775ac565d70cafac937fb38a6b805a5530cd3ce111bcf7c6"
+    }
+  },
+  "missing_local_references": [],
+  "external_static_links": [
+    "https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js",
+    "https://fonts.googleapis.com",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap",
+    "https://fonts.gstatic.com",
+    "https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js",
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+    "https://www.google.com/maps/search/?api=1&query=${p.Lat},${p.Lon}"
+  ],
+  "version_difference": "appendix B: 64 files; available dashboard HTML: 80 files"
+}
